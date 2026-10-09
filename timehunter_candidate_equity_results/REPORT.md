@@ -1,0 +1,15 @@
+# Candidate portfolio equity: literal AFL sizing
+
+Initial equity1,000,000,000; each buy fixed100,000; fractional units, no leverage, fees, spread, interest or cash yield. Daily close mark-to-market, carried last close on dates missing for an asset. Positions closed per existing candidate ledger. This reproduces the economic sizing assumptions, not an actual AmiBroker execution. Cost-basis peak exposure reported separately from market value.
+
+CAGR=(final equity/initial equity)^(365.25/elapsed days)-1, from first available observation >=2000 to last observation for each market. Histories differ. Cash is asserted nonnegative at daily close; initial capital exceeds all possible simultaneous entry notionals for each tested universe, so capital is not restrictive here.
+
+A new highest equity means a daily Close equity strictly above ALL earlier daily Close equity values and initial capital. Monthly fraction=months containing at least one such record / months with observations. Also report month-end being a new daily-closing record. First/last partial months included; interior-only sensitivity excludes both. New highs not measured from intraday High and not from realized-only closed trades.
+
+No capital allocation strategy was previously designed; current AFL sizing was a test harness. Most capital remains idle. Do not mistake per-trade mean or sum of returns for portfolio CAGR. Same fixed-notional cash flow underlies high-record timing; changing to compounding/position limits/rebalancing requires a new portfolio simulation. Corporate actions and survivorship remain unverified.
+
+ market      start        end  initial_capital  fixed_entry_notional  final_equity  total_return     cagr  max_drawdown  months  months_any_high  fraction_months_any_high  months_end_high  fraction_months_end_high  interior_months  interior_fraction_any_high  max_positions  max_entry_cost  minimum_cash
+ stocks 2000-01-04 2025-08-15     1000000000.0              100000.0  1.044296e+09      0.044296 0.001694     -0.003098     308              100                  0.324675               26                  0.084416              306                    0.320261            100      10000000.0  9.947834e+08
+forex04 2023-05-02 2026-05-21     1000000000.0              100000.0  1.000050e+09      0.000050 0.000016     -0.000046      37               11                  0.297297                1                  0.027027               35                    0.314286              9        900000.0  9.990966e+08
+forex00 2023-05-02 2026-05-22     1000000000.0              100000.0  1.000079e+09      0.000079 0.000026     -0.000035      37               18                  0.486486                1                  0.027027               35                    0.514286              9        900000.0  9.991000e+08
+ crypto 2017-08-17 2025-08-15     1000000000.0              100000.0  1.026047e+09      0.026047 0.003222     -0.009246      97               13                  0.134021                2                  0.020619               95                    0.136842              8        800000.0  9.996000e+08

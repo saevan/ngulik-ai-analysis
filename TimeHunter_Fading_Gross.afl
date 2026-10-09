@@ -1,0 +1,166 @@
+// TimeHunter: SMA30 + High20 pullback1 ATR + rebound, hold200, fade2 ATR.
+// ATR14 from previous completed bar. Percent baseline archived separately.
+// Research backtest, long only. All costs zero.
+// Run DAILY, disable Pad and align. Exploration lists completed trades.
+// Fading reference is EACH CURRENT BAR OPEN, never entry price.
+// See TimeHunter_AFL_README.md for replication settings and limitations.
+
+SetBarsRequired(sbrAll, sbrAll);
+SetTradeDelays(0, 0, 0, 0); // Execution dates are explicitly assigned below.
+SetBacktestMode(backtestRegular);
+SetOption("InitialEquity", 1000000000);
+SetOption("CommissionMode", 2);
+SetOption("CommissionAmount", 0);
+SetOption("InterestRate", 0);
+SetOption("AccountMargin", 100);
+SetOption("MaxOpenPositions", 1000);
+SetOption("AllowSameBarExit", True);
+SetOption("AllowPositionShrinking", False);
+SetOption("HoldMinBars", 0);
+SetOption("SettlementDelay", 0);
+SetOption("PriceBoundChecking", False);
+SetPositionSize(100000, spsValue); // Test harness only, not allocation advice.
+RoundLotSize = 0;
+Short = Cover = 0;
+
+HoldBars = Param("Hold bars", 200, 1, 1000, 1);
+TrendPeriod = Param("SMA period", 30, 2, 500, 1);
+ATRPeriod = Param("ATR period", 14, 2, 200, 1);
+PullbackATR = Param("Pullback ATR multiple", 1, 0.25, 10, 0.25);
+FadeATR = Param("Fading ATR multiple", 2, 0.25, 20, 0.25);
+UseFade = ParamToggle("Fading", "Off|On", 1);
+NeedVolume = ParamToggle("Require positive volume", "No|Yes", 1);
+
+// Same OHLC range normalization as Python; original database is unchanged.
+HiFixed = Max(Max(H, L), Max(O, C));
+LoFixed = Min(Min(H, L), Min(O, C));
+TrendMA = MA(C, TrendPeriod);
+Peak20 = HHV(HiFixed, 20);
+// Explicit Wilder initialization matches backtest_timehunter_atr.py.
+TRSeries = Max(HiFixed - LoFixed,
+               Max(abs(HiFixed - Ref(C, -1)), abs(LoFixed - Ref(C, -1))));
+if (BarCount > 0) TRSeries[0] = HiFixed[0] - LoFixed[0];
+ATRSeries = Null;
+if (BarCount >= ATRPeriod)
+{
+    SeedSum = 0;
+    for (j = 0; j < ATRPeriod; j++) SeedSum += TRSeries[j];
+    ATRSeries[ATRPeriod - 1] = SeedSum / ATRPeriod;
+    for (j = ATRPeriod; j < BarCount; j++)
+        ATRSeries[j] = (ATRSeries[j - 1] * (ATRPeriod - 1) + TRSeries[j]) / ATRPeriod;
+}
+ATRPrevious = Ref(ATRSeries, -1);
+ValidATR = Nz(ATRPrevious > 0);
+Setup = Nz(ValidATR AND C > TrendMA
+           AND (Peak20 - C) >= PullbackATR * ATRPrevious
+           AND C > Ref(C, -1));
+EntryReady = Nz(Ref(Setup, -1));
+Tradable = IIf(NeedVolume, V > 0, 1);
+FadeSignal = Nz(ValidATR AND (O - LoFixed) >= FadeATR * ATRPrevious);
+InRange = Status("barinrange");
+Dates = DateTime();
+
+Buy = Sell = 0;
+BuyPrice = O;
+SellPrice = C;
+TradeReturn = EntryDate = EntryPx = TradeBars = Null;
+ExitCode = MarkOnly = 0;
+
+// Locate terminal observation only for forced end-of-period valuation.
+LastRangeBar = -1;
+for (i = 0; i < BarCount; i++)
+    if (InRange[i]) LastRangeBar = i;
+
+InPosition = PendingEntry = PendingFade = PendingTime = 0;
+EntryBar = 0;
+SavedEntryPrice = SavedEntryDate = 0;
+
+for (i = 0; i < BarCount; i++)
+{
+    if (InRange[i])
+    {
+        ExitedNow = 0;
+        Reason = 0;
+
+        // Orders from earlier completed bars execute at this tradable Open.
+        if (InPosition AND Tradable[i] AND (PendingFade OR PendingTime))
+        {
+            Reason = 3;
+            if (PendingFade) Reason = 1;
+            SellPrice[i] = O[i];
+            ExitedNow = 1;
+        }
+
+        // No reentry on an exit bar. A queued entry survives zero-volume bars.
+        if (NOT InPosition AND NOT ExitedNow)
+        {
+            if (EntryReady[i]) PendingEntry = 1;
+            if (PendingEntry AND Tradable[i])
+            {
+                Buy[i] = 1;
+                BuyPrice[i] = O[i];
+                InPosition = 1;
+                EntryBar = i;
+                SavedEntryPrice = O[i];
+                SavedEntryDate = Dates[i];
+                PendingEntry = PendingFade = PendingTime = 0;
+            }
+        }
+
+        if (InPosition AND NOT ExitedNow)
+        {
+            Age = i - EntryBar + 1; // Entry bar counts as bar 1.
+            if (Age >= HoldBars)
+            {
+                if (Tradable[i])
+                {
+                    Reason = 2;
+                    SellPrice[i] = C[i];
+                    ExitedNow = 1;
+                }
+                else PendingTime = 1;
+            }
+
+            // Only pre-deadline fading signals can override scheduled exit.
+            if (NOT ExitedNow AND Age < HoldBars AND UseFade AND FadeSignal[i])
+                PendingFade = 1;
+
+            if (NOT ExitedNow AND i == LastRangeBar)
+            {
+                Reason = 4;
+                if (NOT Tradable[i]) Reason = 5;
+                SellPrice[i] = C[i];
+                ExitedNow = 1;
+            }
+        }
+
+        if (ExitedNow)
+        {
+            Sell[i] = 1;
+            ExitCode[i] = Reason;
+            MarkOnly[i] = Reason == 5;
+            TradeReturn[i] = 100 * (SellPrice[i] / SavedEntryPrice - 1);
+            EntryDate[i] = SavedEntryDate;
+            EntryPx[i] = SavedEntryPrice;
+            TradeBars[i] = i - EntryBar + 1;
+            InPosition = PendingEntry = PendingFade = PendingTime = 0;
+        }
+    }
+}
+
+// One row per completed trade/terminal valuation, independent of capital.
+Filter = Sell AND InRange;
+AddColumn(EntryDate, "Entry date", formatDateTime);
+AddColumn(EntryPx, "Entry price", 1.6);
+AddColumn(SellPrice, "Exit price", 1.6);
+AddColumn(TradeReturn, "Gross return %", 1.6);
+AddColumn(TradeBars, "Bars held", 1.0);
+AddColumn(ExitCode, "Exit code", 1.0);
+AddColumn(MarkOnly, "Valuation without fill", 1.0);
+// Exit codes: 1=fading next Open, 2=time Close, 3=time delayed Open,
+// 4=period end Close, 5=period end valuation without tradable fill.
+
+Plot(C, "Close", colorDefault, styleCandle);
+Plot(TrendMA, "SMA", colorBlue, styleLine);
+PlotShapes(Buy * shapeUpArrow, colorGreen, 0, L, -15);
+PlotShapes(Sell * shapeDownArrow, colorRed, 0, H, -15);

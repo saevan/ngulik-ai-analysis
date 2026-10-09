@@ -1,0 +1,12 @@
+﻿Starting Test 7...
+Loading data...
+STOCKS: 100 tickers
+
+================================================================================
+TEST 7 — REWORKED ENTRY
+================================================================================
+
+>>> 7A: trend+ADX+RSI<45+ATR<0.7+BO 1bar
+    trades=13  WR=46.15%  payout=3.12  mean=+1.807  med=-2.000  exp=+1.807  7-crit=6/7
+
+>>> 7A: trend+ADX+RSI<40+ATR<0.7+BO 1bar

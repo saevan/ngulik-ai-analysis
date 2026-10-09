@@ -1,0 +1,5 @@
+# ER idle argument: controlled ablation
+
+Current primary Breakout20+ER, no holding cap, SMA30 exit and fade2 previousATR from current Open. Only ER entry gate removed; same entry breakout, all exits, dates, fees, sizing and alphabetical ranking. 2000-2025 stocks, Rp1billion, ten slots, prior-close-equity10% sizing/cashcap compounding. Buy0.15%sell0.25%; spread scenario modern grid/100shares and1tick per side counterfactual, not historical actual quotes.
+
+ER>=0.30 is individual-stock gate; market regime uses prior-completed-bar equal-weight proxy ER. Market sideways does not imply all stocks choppy or absence of entry. Removing ER tests existing breakout entries in choppy stocks, not every possible choppy strategy. Signal counts are stock-bar opportunities including capacity/held positions, not unique profitable trades. Baseline reproduced, accounting and return attribution reconciled. Sideways annual equivalent concatenates disjoint days, not standalone CAGR. In-sample diagnostic, no new strategy adopted or universal claim. Swinger ideal remains user-selected aspirational benchmark.

@@ -1,0 +1,5 @@
+{
+  "name": "Ngulik AI Analysis",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bookworm",
+  "postCreateCommand": "bash scripts/setup.sh"
+}

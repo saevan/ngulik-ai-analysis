@@ -1,0 +1,38 @@
+{
+  "configs": [
+    [
+      10,
+      null
+    ],
+    [
+      10,
+      0.5
+    ],
+    [
+      10,
+      1
+    ],
+    [
+      10,
+      1.5
+    ],
+    [
+      10,
+      2
+    ],
+    [
+      5,
+      null
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      5,
+      1
+    ]
+  ],
+  "entry": "unchanged Choppy RangeEscape10 cost8 marketER<0.3",
+  "stop": "Close <= actual entry fill - k*ATR14 known before entry; next tradable Open; no guaranteed loss cap"
+}

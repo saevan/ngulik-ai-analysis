@@ -1,0 +1,6 @@
+variant,matched,original_winners,winners_turned_losses,original_losers,losers_improved
+fees_low10_stop0.5_revFalse,1624,596,266,1028,747
+fees_low10_stop1_revFalse,1608,590,160,1018,640
+fees_low10_stop2_revFalse,1674,611,43,1063,473
+fees_low5_stopNone_revFalse,1623,588,90,1035,648
+fees_low3_stopNone_revFalse,1626,593,160,1033,755

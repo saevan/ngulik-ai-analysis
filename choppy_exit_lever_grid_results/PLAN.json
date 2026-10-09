@@ -1,0 +1,62 @@
+{
+  "configs": [
+    [
+      5,
+      0
+    ],
+    [
+      5,
+      0.3
+    ],
+    [
+      5,
+      0.5
+    ],
+    [
+      20,
+      0
+    ],
+    [
+      20,
+      0.3
+    ],
+    [
+      20,
+      0.5
+    ],
+    [
+      40,
+      0
+    ],
+    [
+      40,
+      0.3
+    ],
+    [
+      40,
+      0.5
+    ]
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "fixed_exit": "Factorial HHV5/20/40 x no stockER/.3/.5; entry and all other rules fixed; nextOpen",
+  "selection": "No selection: compare within-ER and within-HHV effects on WR and holding and their interactions",
+  "validation": "Full-period factorial sensitivity only; previously examined data, not independent holdout.",
+  "main_unchanged": true
+}

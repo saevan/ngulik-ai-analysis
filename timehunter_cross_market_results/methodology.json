@@ -1,0 +1,44 @@
+{
+  "parameters": {
+    "sma": 30,
+    "high_window": 20,
+    "pullback": 0.02,
+    "rebound": 1,
+    "hold": 200,
+    "fade": 0.3
+  },
+  "costs": 0,
+  "retuning": false,
+  "datasets": {
+    "stocks_daily": {
+      "rows": 464768,
+      "symbols": 100,
+      "start": "1994-07-12 00:00:00",
+      "end": "2025-08-15 00:00:00"
+    },
+    "forex_daily_04": {
+      "rows": 7841,
+      "symbols": 9,
+      "start": "2023-05-02 00:00:00",
+      "end": "2026-05-21 00:00:00"
+    },
+    "crypto_daily_UTC": {
+      "rows": 20889,
+      "symbols": 8,
+      "start": "2017-08-17 00:00:00",
+      "end": "2025-08-15 00:00:00"
+    },
+    "forex_daily_00_sensitivity": {
+      "rows": 8595,
+      "symbols": 9,
+      "start": "2023-05-02 00:00:00",
+      "end": "2026-05-22 00:00:00"
+    }
+  },
+  "common_start": "2023-07-01",
+  "common_stop_exclusive": "2025-08-16",
+  "forex_volume": "Zero is unavailable vendor volume, not trading halt; fills allowed.",
+  "forex_daily": "04:00 source-clock sessions aligned to observed weekly start; unknown timezone. Midnight sensitivity included. First/last sessions removed.",
+  "crypto_source": "https://api.binance.com/api/v3/klines",
+  "crypto_selection": "Eight named surviving USDT pairs chosen before observing results; not entire crypto universe."
+}

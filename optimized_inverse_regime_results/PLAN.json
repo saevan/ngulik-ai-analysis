@@ -1,0 +1,70 @@
+{
+  "configs": [
+    {
+      "hhv": 10,
+      "sma": 20,
+      "rotate": false
+    },
+    {
+      "hhv": 10,
+      "sma": 20,
+      "rotate": true
+    },
+    {
+      "hhv": 10,
+      "sma": 30,
+      "rotate": false
+    },
+    {
+      "hhv": 10,
+      "sma": 30,
+      "rotate": true
+    },
+    {
+      "hhv": 20,
+      "sma": 20,
+      "rotate": false
+    },
+    {
+      "hhv": 20,
+      "sma": 20,
+      "rotate": true
+    },
+    {
+      "hhv": 20,
+      "sma": 30,
+      "rotate": false
+    },
+    {
+      "hhv": 20,
+      "sma": 30,
+      "rotate": true
+    }
+  ],
+  "baseline": {
+    "hhv": 20,
+    "sma": 30,
+    "rotate": false
+  },
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "invariant": "StockER20>=.3 original buy; fade2 ATRprevious original sell; complementary marketER20 .3 entry gates. Inverse swaps original buy/sell. Optional rotation adds own-regime-end exit to BOTH modules, nextOpen.",
+  "selection": "Train spread only. Require primary-alone CAGR>0 and trend annual>0, inverse-alone CAGR>0 and choppy annual>0, combined CAGR>0 and both regime annual>0. Rank passing by combined CAGR. If none, maximize minimum of standalone own-regime returns, then combined CAGR; diagnostic only.",
+  "caution": "Already examined historical data, not independent holdout. All cash/slots shared in combined. No retuning after freezing; primary/AFL defaults unchanged."
+}

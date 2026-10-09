@@ -1,0 +1,9 @@
+# Capital lock diagnosis
+
+Reconstructs exact daily closing open holdings from existing fee-only portfolio ledgers. Entry day included, exit day excluded; sold positions are already in cash at that close. Quantity times forward-filled Close times (1-0.25% hypothetical sell fee) reconciles to saved market_value for all three variants. Fees buy0.15% sell0.25%, no spread, same dates/capital. Does not use final trade outcomes to classify today's unrealized PnL.
+
+Idle = cash/equity. Losing = current liquidation value below actual entry cost including buy fee. Age counts instrument bars since entry inclusive, not calendar days. Old positions use diagnostic thresholds50/100bars, not optimized exit rules. Flat = net unrealized return within +/-5% and age>=50; overlaps losing. Fractions are means of daily marked value/equity, not fractions of original principal or cumulative losses. Value-weighted age is calculated each day then averaged. These are descriptive categories, not proof of wasted capital: an old loser can later recover and an old winner can keep compounding.
+
+Sideways uses saved prior-completed-bar equal-weight market proxy ER regime, not each stock's ER. Daily closing snapshots cannot measure intraday idle time. No cash interest. Module is existing Breakout+ER H200, not the active pullback AFL. Swinger ideal retains documented noncausal fills and is aspirational only; next-open comparator preserves completed-close signals more closely. No execution logic or AFL changed.
+
+Whole-history rejected entry counts are signal events, not unique trades or proven missed profits. Correlation between occupancy and rejected entries does not establish better results from forced selling. Prior H20/H50 and activated-profit-trail tests already showed that releasing slots indiscriminately need not improve net results. An opportunity-cost claim needs a matched counterfactual with replacement trade, costs and capital constraints.

@@ -1,0 +1,11 @@
+{
+  "config": {
+    "entry": "pullback",
+    "exit": 10,
+    "stop": 2,
+    "age": null,
+    "atr_cap": 0.04
+  },
+  "training_pass": false,
+  "passed_count": 0
+}

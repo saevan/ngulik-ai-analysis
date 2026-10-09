@@ -1,0 +1,38 @@
+{
+  "configs": [
+    [
+      "combined",
+      0
+    ],
+    [
+      "sma_only",
+      0
+    ],
+    [
+      "fade_only",
+      0
+    ]
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "fixed_exit": "All entries share exit current Close market ER>=.3 -> next tradable Open; no other stop.",
+  "selection": "No tuning: combined vs SMA only vs fading only; timing and performance ablation",
+  "validation": "Full and chronological windows, previously examined data, not independent holdout.",
+  "main_unchanged": true
+}

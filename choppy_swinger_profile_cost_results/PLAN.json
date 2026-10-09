@@ -1,0 +1,123 @@
+{
+  "configs": [
+    {
+      "entry": "range_rebound",
+      "exit": "sma20",
+      "stop": 1,
+      "age": null
+    },
+    {
+      "entry": "range_rebound",
+      "exit": "sma20",
+      "stop": 1,
+      "age": 20
+    },
+    {
+      "entry": "range_rebound",
+      "exit": "sma20",
+      "stop": 2,
+      "age": null
+    },
+    {
+      "entry": "range_rebound",
+      "exit": "sma20",
+      "stop": 2,
+      "age": 20
+    },
+    {
+      "entry": "range_rebound",
+      "exit": "hhv5",
+      "stop": 1,
+      "age": null
+    },
+    {
+      "entry": "range_rebound",
+      "exit": "hhv5",
+      "stop": 1,
+      "age": 20
+    },
+    {
+      "entry": "range_rebound",
+      "exit": "hhv5",
+      "stop": 2,
+      "age": null
+    },
+    {
+      "entry": "range_rebound",
+      "exit": "hhv5",
+      "stop": 2,
+      "age": 20
+    },
+    {
+      "entry": "pullback",
+      "exit": "sma20",
+      "stop": 1,
+      "age": null
+    },
+    {
+      "entry": "pullback",
+      "exit": "sma20",
+      "stop": 1,
+      "age": 20
+    },
+    {
+      "entry": "pullback",
+      "exit": "sma20",
+      "stop": 2,
+      "age": null
+    },
+    {
+      "entry": "pullback",
+      "exit": "sma20",
+      "stop": 2,
+      "age": 20
+    },
+    {
+      "entry": "pullback",
+      "exit": "hhv5",
+      "stop": 1,
+      "age": null
+    },
+    {
+      "entry": "pullback",
+      "exit": "hhv5",
+      "stop": 1,
+      "age": 20
+    },
+    {
+      "entry": "pullback",
+      "exit": "hhv5",
+      "stop": 2,
+      "age": null
+    },
+    {
+      "entry": "pullback",
+      "exit": "hhv5",
+      "stop": 2,
+      "age": 20
+    }
+  ],
+  "target": "Swinger market-choppy ideal WR51.53%, avg loss3.14%, avg win14.69%, hold19.20bars; full2575trades",
+  "train_gates": "WR45-60%, avg loss<=5%, avg win>=10%, holding10-30bars, N>=900, CAGR>0, sideways annual>0, moneyPF>1.1",
+  "selection": "If pass rank distance to target. If none pass, nearest profile diagnostic only with >=100 trades. Freeze before subsequent windows.",
+  "scope": "Adaptive cost8 follow-up, two recovery entry families only; signal Close cost estimate, no future fill quote. Only secondary; all nextOpen, fees.15/.25; stop entry ATR Close/nextOpen, age nextOpen; marketER<.3 entry. No forced exit on regime change.",
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "validation": "Previously examined history, not independent holdout. No adoption if failures."
+}

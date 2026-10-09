@@ -1,0 +1,9 @@
+# Belum ditemukan sistem sideways mandiri yang lolos
+
+Dua putaran16konfigurasi training serta masing-masing6pemeriksaan lanjutan (44run, bukan44strategi berbeda). Keluarga: RSI2oversold diatasSMA200, pantulan support20bar diatasSMA200, atau breakout5 diatasSMA50 ketika marketproxy sideways. Semua entries terjadi saat regime sideways yang diketahui sebelum entry. Posisi boleh keluar setelah regime berubah, jadi CAGR total berbeda dari atribusi hari sideways.
+
+Putaran pertama menggunakan exit belowSMA pada semua keluarga. Putaran kedua memperbaiki kesesuaian exit untuk meanreversion menjadi recovery aboveSMA, dengan max20bar nextOpen dan fading; kontrol pertama disimpan, bukan disembunyikan. Tidak ada konfigurasi training yang memenuhi CAGR>0, PF>1.1, return atribusi sideways>0, dan minimal40trade pada biaya stress. Parameter terbaik yang tetap gagal diperiksa lebih lanjut hanya untuk diagnosis, bukan kandidat yang lolos.
+
+Versi recovery terpilih secara diagnostik: support rejection20bar, filterClose>SMA200, exit recoverySMA10 atau fading1ATR atau umur20bar. CAGR fee-only train2000-2015 -2.74%, validation2016-2020 -1.79%; spread masing-masing-9.96% dan-11.03%, test2021-2025 -16.66%. PFspread training0.25,validation0.40,test0.35. Jadi belum ada alasan menggabungkan ke utama; tidak semata masalah spread karena fee-only juga gagal pada periode tersebut.
+
+Seluruh data sejarah sebelumnya telah dianalisis dalam proyek. Pemisahan waktu ini membatasi pemilihan parameter pada putaran ini, bukan klaim untouched/out-of-sample independen. Fraksi/lot modern dan1tickpersisi hanyalah stress sintetis. Fee-only disediakan untuk membedakan dampak asumsi spread.20unit test lulus, signalprefix, start-flat/warmup, eligibility, accounting dan attribution diperiksa. AFL aktif tidak diubah. Tidak menyimpulkan semua logika sideways pasti gagal.

@@ -1,0 +1,34 @@
+{
+  "configs": [
+    {
+      "entry": "pullback",
+      "exit": 10,
+      "stop": 2,
+      "age": null,
+      "atr_cap": 0.04
+    }
+  ],
+  "target": "Swinger market-choppy ideal WR51.53%, avg loss3.14%, avg win14.69%, hold19.20bars; full2575trades",
+  "train_gates": "WR45-60%, avg loss<=5%, avg win>=10%, holding10-30bars, N>=900, CAGR>0, sideways annual>0, moneyPF>1.1",
+  "selection": "If pass rank distance to target. If none pass, nearest profile diagnostic only with >=100 trades. Freeze before subsequent windows.",
+  "scope": "ATRprevious/signalClose cap .015/.025/.04, range/cost8; range rebound also Close>SMA50; exit below priorLLV5/10. Only secondary; all nextOpen, fees.15/.25; stop entry ATR Close/nextOpen, age nextOpen; marketER<.3 entry. No forced exit on regime change.",
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "validation": "Previously examined history, not independent holdout. No adoption if failures."
+}

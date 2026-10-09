@@ -1,0 +1,9 @@
+{
+  "configurations": 60,
+  "passes5": 6,
+  "loss_only_passes5": 0,
+  "costs": 0,
+  "loss_definition": "completed Close < entry Open",
+  "fading_reference": "current bar Open",
+  "chosen_example": "Predeclared SMA30, H400, fade5%, loss-only, no timeout; not ranked winner"
+}

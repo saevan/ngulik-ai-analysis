@@ -1,0 +1,3 @@
+# Optimization of primary/inverse by regime
+
+See PLAN/FROZEN/comparison for constraints and all results. No optimization after frozen validation. Regime annual figures are disjoint-date attribution, not standalone tradable CAGR; standalone mode CAGR separately reported. Entry conditions based on prior completed bar; exits at next tradable Open. Rotate means each module exits when its own regime ends, without changing original inverse rules. Fee.15/.25%, modern grid/100shares/one tick per side stress, Rp1bn/10 shared slots. Data previously examined, no independent validation. Prefix, eligibility, accounting and full baseline regression checked. AFL unchanged.

@@ -1,0 +1,8 @@
+{
+  "config": {
+    "family": "range_escape",
+    "length": 10,
+    "cost_multiple": 8
+  },
+  "training_pass": false
+}

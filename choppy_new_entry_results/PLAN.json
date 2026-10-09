@@ -1,0 +1,70 @@
+{
+  "configs": [
+    [
+      "baseline",
+      10
+    ],
+    [
+      "short_breakout",
+      3
+    ],
+    [
+      "short_breakout",
+      5
+    ],
+    [
+      "reclaim_ma",
+      5
+    ],
+    [
+      "reclaim_ma",
+      10
+    ],
+    [
+      "failed_breakdown",
+      5
+    ],
+    [
+      "failed_breakdown",
+      10
+    ],
+    [
+      "pullback",
+      20
+    ],
+    [
+      "pullback",
+      50
+    ],
+    [
+      "channel_flip",
+      5
+    ],
+    [
+      "channel_flip",
+      10
+    ]
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "fixed_exit": "0.5 prior entry ATR Close stop, LLV10, fade2; all next tradable Open",
+  "selection": "Train spread only: N>=80% baseline; loss<=110% baseline; higher WR and mean return; positive CAGR/sideways; PF>1.1. Rank sideways annual then CAGR. If no pass, highest mean return among frequency-qualified configurations diagnostic only.",
+  "validation": "Frozen config vs same-stop baseline validation/test/full, fees and spread. Previously examined data, not pristine holdout.",
+  "main_unchanged": true
+}

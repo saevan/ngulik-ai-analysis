@@ -1,0 +1,10 @@
+{
+  "config": {
+    "entry": "pullback",
+    "exit": "hhv5",
+    "stop": 2,
+    "age": 20
+  },
+  "training_pass": false,
+  "passed_count": 0
+}

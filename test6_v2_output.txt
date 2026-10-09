@@ -1,0 +1,55 @@
+﻿Starting Test 6...
+Loading data...
+STOCKS: 100 tickers
+
+================================================================================
+EXPERIMENT: Better ENTRY signals (exit retained from Test 5)
+================================================================================
+
+>>> Baseline: ATR breakout (from Test 5)
+
+>>> Baseline: ATR breakout (Test 5)
+    trades=11507  WR=38.58%  payout=1.65  mean=+0.038  med=-0.914  exp=+0.038  7-crit=5/7
+    BS: WR=38.6%±0.4%, WR>50%:0%, Exp>0:90%, Payout>2:0%
+
+>>> 6A: RSI<40 + ADX>20
+    trades=78  WR=34.62%  payout=2.63  mean=+0.441  med=-2.000  exp=+0.441  7-crit=6/7
+
+>>> 6A: RSI<35 + ADX>20
+    trades=8  WR=50.00%  payout=6.40  mean=+4.844  med=-0.464  exp=+4.844  7-crit=6/7
+
+>>> 6A: RSI<30 + ADX>20
+    No trades
+
+>>> 6B: ATR ratio<0.7 + breakout
+    trades=535  WR=42.24%  payout=1.90  mean=+0.386  med=-0.988  exp=+0.386  7-crit=5/7
+    BS: WR=42.2%±1.8%, WR>50%:0%, Exp>0:100%, Payout>2:28%
+
+>>> 6B: ATR ratio<0.6 + breakout
+    trades=100  WR=37.00%  payout=2.82  mean=+0.751  med=-2.000  exp=+0.751  7-crit=6/7
+    BS: WR=37.2%±5.0%, WR>50%:0%, Exp>0:92%, Payout>2:96%
+
+>>> 6E: RSI<40 + low vol + breakout
+    trades=8  WR=50.00%  payout=2.24  mean=+1.237  med=-0.781  exp=+1.237  7-crit=6/7
+
+>>> 6E: RSI<35 + low vol + breakout
+    trades=3  WR=66.67%  payout=1.94  mean=+1.923  med=+1.501  exp=+1.923  7-crit=6/7
+
+>>> 6E: RSI<30 + low vol + breakout
+    No trades
+
+================================================================================
+SUMMARY
+================================================================================
+  6A: RSI<35 + ADX>20                                     trades=      8  WR= 50.00%  payout= 6.40  exp=+4.8436  7-crit=6/7
+  6E: RSI<35 + low vol + breakout                         trades=      3  WR= 66.67%  payout= 1.94  exp=+1.9229  7-crit=6/7
+  6E: RSI<40 + low vol + breakout                         trades=      8  WR= 50.00%  payout= 2.24  exp=+1.2373  7-crit=6/7
+  6B: ATR ratio<0.6 + breakout                            trades=    100  WR= 37.00%  payout= 2.82  exp=+0.7513  7-crit=6/7
+  6A: RSI<40 + ADX>20                                     trades=     78  WR= 34.62%  payout= 2.63  exp=+0.4407  7-crit=6/7
+  6B: ATR ratio<0.7 + breakout                            trades=    535  WR= 42.24%  payout= 1.90  exp=+0.3860  7-crit=5/7
+  Baseline: ATR breakout (Test 5)                         trades=  11507  WR= 38.58%  payout= 1.65  exp=+0.0382  7-crit=5/7
+
+>>> BEST: 6A: RSI<35 + ADX>20
+    trades=8, WR=50.00%, payout=6.40, exp=+4.8436, 7-crit=6/7
+
+Done.

@@ -1,0 +1,2 @@
+total_trades,losses,loss_gt10,fraction_losers_gt10,share_sum_percentage_losses_gt10,mean_loss_without_tail
+1861,1174,345,0.2938671209540034,0.5330434505142395,0.05264893725317338

@@ -1,0 +1,2 @@
+trades,losers,avg_loss,mean_loser_bars,loss_at_signal,after_signal_increment,fee_increment,delayed_fills,terminal_losers,losers_with_earlier_breakout_blocked_by_er,loss_gt20,loss_gt50,worst
+744,252,0.19993927972347478,126.86507936507937,0.17857965465818648,-0.018151361525332345,-0.003208263539956001,6,3,171,101,19,-0.8929819424253764

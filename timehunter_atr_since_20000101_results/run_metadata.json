@@ -1,0 +1,28 @@
+{
+  "requested_start": "2000-01-01",
+  "default_only": true,
+  "coverage": {
+    "stocks": {
+      "data_start": "2000-01-04 00:00:00",
+      "data_end": "2025-08-15 00:00:00",
+      "symbols": 100
+    },
+    "forex04": {
+      "data_start": "2023-05-02 00:00:00",
+      "data_end": "2026-05-21 00:00:00",
+      "symbols": 9
+    },
+    "crypto": {
+      "data_start": "2017-08-17 00:00:00",
+      "data_end": "2025-08-15 00:00:00",
+      "symbols": 8
+    },
+    "forex00_sensitivity": {
+      "data_start": "2023-05-02 00:00:00",
+      "data_end": "2026-05-22 00:00:00",
+      "symbols": 9
+    }
+  },
+  "warmup": "All available earlier bars; no carried positions at requested start",
+  "costs": 0
+}

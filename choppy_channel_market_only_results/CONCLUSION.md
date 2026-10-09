@@ -1,0 +1,13 @@
+# Sistem kedua: Choppy Range Escape, prototipe belum lolos
+
+8Oktober2026. Dibuat dan diuji36run:20konfigurasi training (12 strictstock+marketER,8 market-only) serta16pemeriksaan lanjutan. Tidak digabung ke utama. Source search_choppy_channel_system.py, mode --market-only untuk prototipe ini. MainAFL tidak berubah.
+
+Logika: entry baru hanya saat ER20 proxy pasar pada bar sebelumnya<0.30; saham Close menembus High tertinggi10bar sebelumnya. Rentang High-Low20bar minimal8x estimasi roundtrip fee+spread, dihitung dari bar sinyal yang selesai. Entry next tradable Open. Exit ketika Close<Low terendah10bar sebelumnya atau Open-Low>=2ATR14 sebelumnya, next tradable Open. Tidak memakai target profit tetap atau hold200. Posisi boleh tetap terbuka ketika pasar kemudian trending. Filter ERrendah per saham tidak dipakai pada versi ini; gate pasar tetap wajib. Ini bisa menangkap saham mulai menguat dalam pasar sideways, bukan trading ketika pasar trending.
+
+Portofolio mandiri saham2000-2025, modal1miliar,max10slot,10%equitysebelumnya/cashcap/compounding. Full fee-only CAGR10.20%,55/308bulanrekor17.86%,MDD-45.69%,1861trade,WR36.92%,avgwin18.72%,avgloss7.96%,payout2.35,meanhold24.34bar. FullstressspreadCAGR1.98%,34/308bulanrekor11.04%,MDD-72.29%. Return tahunan ekuivalen pada HARI sideways hanya0.83%fee dan-12.32%spread;33/280bulanrekorsidewaysfee vs17/280spread.
+
+Parameter dipilih dari training2000-2015, dibekukan sebelum pemeriksaan2016-2020 dan2021-2025 pada putaran ini. Train/validation/testCAGRfee14.71/6.08/0.55%; spread6.28/-1.92/-7.43%. Prioritas terbalik testspread-4.76%. Sudah ada CAGRfullpositif, tetapi kemampuan saat sideways dan ketahanan biaya belum lulus. No training configuration met ALL predeclared positive-sideways/PF/N/expectancy criteria; frozen candidate is diagnostic, not an accepted winner.
+
+Perbandingan karakter all-tradefee dengan benchmarkSwinger: holding24.34vs19.04bar; WR36.92vs51.90%; avgwin18.72vs16.51%; avgloss7.96vs3.19%. Kekurangan masih frekuensi menang dan besarnya kerugian, bukan kekurangan avgwin. Tidak mengklaim setaraSwinger. Benchmark tetap target aspiratif pengguna.
+
+Versi strict ERsahamdanpasar<0.3 menghasilkan kandidat rangeescape10/cost8:fullfeeCAGR2.69%,spread-3.45%;sidewaysfee-5.91%,spread-15.74%. Melepas gateERsaham memperbaiki hasil untuk kandidat ini, namun tidak membuktikan semua sahamchoppy tidakmenguntungkan. Semua pencarian adaptif pada datahistoris yang pernah dilihat; bukanholdouteksternal.25unit tests passed plus prefixentry/exit, eligibility, accounting and attribution checks. Spread/fraksi stresscounterfactual bukanhistoricalbidask. Tidak ada klaim7kriteria atau universalitas.

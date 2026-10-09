@@ -1,0 +1,38 @@
+{
+  "configs": [
+    [
+      "market",
+      0
+    ],
+    [
+      "market_stock",
+      0
+    ],
+    [
+      "market_stock_stop",
+      0.5
+    ]
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "fixed_exit": "Pure inversion exits on original breakout20+stockER>=.3; optional stop.5 only separately labeled variant; no original fading sell retained",
+  "selection": "No tuning, all three predetermined interpretations tested",
+  "validation": "Full and chronological windows, previously examined data, not independent holdout.",
+  "main_unchanged": true
+}

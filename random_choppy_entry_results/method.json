@@ -1,0 +1,21 @@
+{
+  "seed_list": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "probability": 0.013958870753875455,
+  "train_eligible": 41479,
+  "train_signal": 579,
+  "evaluation_start": "2021-01-01",
+  "evaluation_end": "2025-08-15",
+  "gate": "previous-bar stock ER20<0.30, Close>SMA200, previous-bar market proxy sideways",
+  "exits": "Close>=SMA10 or currentOpen-Low>=priorATR or age20 -> next tradable Open"
+}

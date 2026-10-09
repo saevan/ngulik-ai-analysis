@@ -1,0 +1,16 @@
+{
+  "searched": 1500,
+  "both_forex_pass": 1,
+  "all_four_pass": 1,
+  "selected_config_id": 653,
+  "selected_config": {
+    "sma": 30,
+    "high": 10,
+    "hold": 200,
+    "pull": 0.25,
+    "fade": 5.0
+  },
+  "selection": "Exploratory same-data screening, not out-of-sample. Rank minimum numeric passes, minimum WR/payout margin, minimum N. No 7/7 claim.",
+  "start": "2000-01-01",
+  "costs": 0
+}

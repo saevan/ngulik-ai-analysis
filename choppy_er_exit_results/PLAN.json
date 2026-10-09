@@ -1,0 +1,42 @@
+{
+  "configs": [
+    [
+      "baseline",
+      0
+    ],
+    [
+      "market_er",
+      0
+    ],
+    [
+      "stock_er",
+      0
+    ],
+    [
+      "market_or_original",
+      0
+    ]
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "fixed_exit": "Entry unchanged market-only choppy inverse. Replace exit with completed-bar market or stock ER>=.3; third option original OR marketER. All next tradable Open; no other stop.",
+  "selection": "No tuning, four predetermined exit rules; identical entry conditions",
+  "validation": "Full and chronological windows, previously examined data, not independent holdout.",
+  "main_unchanged": true
+}

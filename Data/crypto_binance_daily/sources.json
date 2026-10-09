@@ -1,0 +1,97 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "rows": 2921,
+    "start": "2017-08-17 00:00:00",
+    "end": "2025-08-15 00:00:00",
+    "urls": [
+      "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&startTime=1483228800000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&startTime=1589328000000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&startTime=1675728000000&endTime=1755302399999&limit=1000"
+    ],
+    "raw_sha256": "448691b8474e02e32acf8076d32a33e668ef58e8a2282a49b3dbb0b1129186bf"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "rows": 2921,
+    "start": "2017-08-17 00:00:00",
+    "end": "2025-08-15 00:00:00",
+    "urls": [
+      "https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=1d&startTime=1483228800000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=1d&startTime=1589328000000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=1d&startTime=1675728000000&endTime=1755302399999&limit=1000"
+    ],
+    "raw_sha256": "520aa911d317511d939db6b31585b17756b562832ab125028e8dd999ac4a7681"
+  },
+  {
+    "symbol": "BNBUSDT",
+    "rows": 2840,
+    "start": "2017-11-06 00:00:00",
+    "end": "2025-08-15 00:00:00",
+    "urls": [
+      "https://api.binance.com/api/v3/klines?symbol=BNBUSDT&interval=1d&startTime=1483228800000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=BNBUSDT&interval=1d&startTime=1596326400000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=BNBUSDT&interval=1d&startTime=1682726400000&endTime=1755302399999&limit=1000"
+    ],
+    "raw_sha256": "34d917ebfcb47255f9f43d49b3331c6257239a9a839a1fda4345db1e4e39d84e"
+  },
+  {
+    "symbol": "XRPUSDT",
+    "rows": 2661,
+    "start": "2018-05-04 00:00:00",
+    "end": "2025-08-15 00:00:00",
+    "urls": [
+      "https://api.binance.com/api/v3/klines?symbol=XRPUSDT&interval=1d&startTime=1483228800000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=XRPUSDT&interval=1d&startTime=1611792000000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=XRPUSDT&interval=1d&startTime=1698192000000&endTime=1755302399999&limit=1000"
+    ],
+    "raw_sha256": "83b037806b0750eef710720cbf4d6e46a464095c262ef2828956960289c1fadb"
+  },
+  {
+    "symbol": "ADAUSDT",
+    "rows": 2678,
+    "start": "2018-04-17 00:00:00",
+    "end": "2025-08-15 00:00:00",
+    "urls": [
+      "https://api.binance.com/api/v3/klines?symbol=ADAUSDT&interval=1d&startTime=1483228800000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=ADAUSDT&interval=1d&startTime=1610323200000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=ADAUSDT&interval=1d&startTime=1696723200000&endTime=1755302399999&limit=1000"
+    ],
+    "raw_sha256": "4182ce2ca036ce82b977e800e4f4abaed5ec4cfb24cd0c60472b8c4101974ebe"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "rows": 1831,
+    "start": "2020-08-11 00:00:00",
+    "end": "2025-08-15 00:00:00",
+    "urls": [
+      "https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1d&startTime=1483228800000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=SOLUSDT&interval=1d&startTime=1683504000000&endTime=1755302399999&limit=1000"
+    ],
+    "raw_sha256": "ff1d2acbcfc2c6f02856e5394767f7eeb303674d9f6b2bc084237198714edd48"
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "rows": 2234,
+    "start": "2019-07-05 00:00:00",
+    "end": "2025-08-15 00:00:00",
+    "urls": [
+      "https://api.binance.com/api/v3/klines?symbol=DOGEUSDT&interval=1d&startTime=1483228800000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=DOGEUSDT&interval=1d&startTime=1648684800000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=DOGEUSDT&interval=1d&startTime=1735084800000&endTime=1755302399999&limit=1000"
+    ],
+    "raw_sha256": "6a512f2a0bb98d0f196d3d9b95ebdaf2e631a81438b9eec4f0e6b2b96d86e711"
+  },
+  {
+    "symbol": "LTCUSDT",
+    "rows": 2803,
+    "start": "2017-12-13 00:00:00",
+    "end": "2025-08-15 00:00:00",
+    "urls": [
+      "https://api.binance.com/api/v3/klines?symbol=LTCUSDT&interval=1d&startTime=1483228800000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=LTCUSDT&interval=1d&startTime=1599523200000&endTime=1755302399999&limit=1000",
+      "https://api.binance.com/api/v3/klines?symbol=LTCUSDT&interval=1d&startTime=1685923200000&endTime=1755302399999&limit=1000"
+    ],
+    "raw_sha256": "3c149dc3fe04490eea35cfa57a482adb3956166f6887137d590cf231490f0531"
+  }
+]

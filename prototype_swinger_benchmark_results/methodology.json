@@ -1,0 +1,12 @@
+{
+  "source_original": "C:\\Program Files (x86)\\AmiBroker\\Formulas\\Custom\\prototype swinger.afl",
+  "source_sha256": "d7f4edf5567d10704b5f111e0ff39768bb48851a6e98c4ae478a24b2b8ce4708",
+  "swing": 5,
+  "capital": 1000000000.0,
+  "max_positions": 10,
+  "sizing": "10% prior-close equity, includes buy fee, cash constrained; alphabetical priority; fractional units",
+  "start": "2000-01-01",
+  "fee_buy": 0.0015,
+  "fee_sell": 0.0025,
+  "not_actual_amibroker_run": true
+}

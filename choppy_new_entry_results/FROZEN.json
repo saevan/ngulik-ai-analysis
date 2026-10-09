@@ -1,0 +1,7 @@
+{
+  "config": [
+    "pullback",
+    20
+  ],
+  "training_pass": false
+}

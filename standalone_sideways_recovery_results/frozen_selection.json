@@ -1,0 +1,23 @@
+{
+  "config": {
+    "family": "channel_rebound",
+    "sma": 10,
+    "fade": 1
+  },
+  "train_pass": false,
+  "selection": "highest training spread CAGR among n>=40,PF>1.1,CAGR>0,sideways>0; otherwise highest CAGR diagnostic only",
+  "periods": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ]
+  }
+}

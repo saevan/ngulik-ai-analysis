@@ -1,0 +1,13 @@
+# Mengapa rata-rata kerugian sistem kedua besar?
+
+Kandidat: Choppy Range Escape10, cost filter8, market-only ER gate, fade2ATR, exit priorLLV10, tanpa time cap. Saham2000-2025,fee0.15%buy/0.25%sell, no spread. Dari1861trade,1174rugi;avg loss7.9616%. Analisis ini conditional pada transaksi yang akhirnya rugi, bukan rule memakai future outcome.
+
+Exit loss breakdown:871trade (74.19%losses) keluar lewat Close<priorLLV10,avg loss8.06%,meanhold17.97bar;303trade (25.81%) keluar fading,avg loss7.68%,meanhold11.38bar.105fading exits juga memenuhi channel exit pada bar sinyal yang sama; reasonpriorityfading, sehingga count bukan identifikasi sebab-akibat unik.
+
+Untuk semua losers, kerugian kotor sudah7.5613% pada Close pertama yang memicu exit. Pergerakan dari Close sinyal keOpen eksekusi menambah0.0312poinpersentase kerugian rata-rata;fee memberi0.3691pp;jumlah7.9616%. Ini dekomposisi aditif terhadap hargaentry yang sama, bukan penjumlahan returnberantai. Firstsignal reconstructed from raw bars, reason and first next-tradable execution verified;20loserexits delayed more than1instrumentbar. Average net post-signal effect is small but individual gaps can be large.
+
+Entry di atas high10,exit di bawah low10 membuat jarak struktur awal lebar: untuklosers, rata-rataentry kepriorLLV10 pada harientry14.09%,median12.50%. LLV bergulir bukan fixedstopentry, sehingga jarakini bukan batasrugi aktual atau kehilanganpasti. Pada entry,2ATR rata-rata7.57%hargaentry di kelompoklosers. Fading bukan stopkerugiankumulatif7.57%: ia mensyaratkan penurunan Open-Low pada satu bar, ATR juga berubah. Turunperlahan/gapOpen/tusukanLow yang pulih sebelumClose dapat tidak memicu channel/fade sesuai aturan.
+
+25.55%losers sempat memiliki Close>entry+5% sebelum keluar. Tidak ada trailingprofitlock khusus; ini menunjukkan sebagian calonkeuntungan berubah menjadi rugi, bukan bukti sebuah profitlock tertentu pasti memperbaiki expectancy.345losers rugilebih10% (29.39%losers;18.54%alltrades), menyumbang53.30%jumlah kerugian dalam unit persenpertrade equalweight. Bukan53.30%PnLrupiahportofolio. Sisa829losers tetapavg loss5.26%, jadi masalah tidak hanya beberapaoutlier.
+
+Kesimpulan deskriptif: mayoritas loss terakumulasi sebelum sinyal exit; jarak exit struktural jauh dan tidak ada batas rugi dari entry. Fee/gap rata-rata bukan penjelasan utamaavg loss7.96%. Entryselection juga mungkin berperan tetapi belum dipisahkan secara kausal dari aturanexit. Uji selanjutnya bisa membandingkan stopberbasisentryATR atau channel exit lebihpendek, satu perubahan perkontrol, menilaiWR,payout,CAGR,records setelahbiaya. Tidak mengubah AFLutama atau mengklaim perbaikan sudah terbukti.

@@ -1,0 +1,66 @@
+{
+  "configs": [
+    [
+      "baseline",
+      0
+    ],
+    [
+      "sma",
+      30
+    ],
+    [
+      "sma",
+      100
+    ],
+    [
+      "stock_er",
+      0.3
+    ],
+    [
+      "stock_er",
+      0.5
+    ],
+    [
+      "close_location",
+      0.75
+    ],
+    [
+      "close_location",
+      0.9
+    ],
+    [
+      "extension",
+      0.5
+    ],
+    [
+      "extension",
+      1
+    ],
+    [
+      "cost",
+      16
+    ]
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "fixed_exit": "0.5 prior entry ATR Close stop, LLV10, fade2; all next tradable Open",
+  "selection": "Train fees only: higher WR than baseline, avg loss <=110% baseline, >=100 trades, positive mean return/CAGR/sideways annual, PF>1.1. Highest WR, CAGR tie break. If none pass, highest WR with loss/count guard is diagnostic only.",
+  "validation": "Frozen config vs same-stop baseline validation/test/full, fees and spread. Previously examined data, not pristine holdout.",
+  "main_unchanged": true
+}

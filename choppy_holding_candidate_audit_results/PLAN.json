@@ -1,0 +1,36 @@
+{
+  "configs": [
+    {
+      "entry": "pullback",
+      "exit": 5,
+      "stop": 2,
+      "age": null,
+      "atr_cap": 0.04
+    },
+    {
+      "entry": "pullback",
+      "exit": 5,
+      "stop": null,
+      "age": null,
+      "atr_cap": 0.04
+    },
+    {
+      "entry": "pullback",
+      "exit": 10,
+      "stop": 2,
+      "age": null,
+      "atr_cap": 0.04
+    },
+    {
+      "entry": "pullback",
+      "exit": 5,
+      "stop": 2,
+      "age": null,
+      "atr_cap": 1000000000.0
+    }
+  ],
+  "scope": "Four full fee-only one-factor ablations; no selection/adoption",
+  "period": "2000-01-01 to 2025-08-15",
+  "fee_buy": 0.0015,
+  "fee_sell": 0.0025
+}

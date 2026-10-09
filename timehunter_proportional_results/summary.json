@@ -1,0 +1,32 @@
+{
+  "configurations": 40,
+  "interpretation": "Main: time windows scaled equally; alternate: percentage thresholds also scaled.",
+  "fastest_time_only_passing": {
+    "mode": "time_only",
+    "scale": 0.4,
+    "hold": 80,
+    "sma": 40,
+    "high_window": 8,
+    "pullback": 0.02,
+    "fade": 0.3,
+    "n": 4319,
+    "wr": 0.5269738365362352,
+    "avg_win": 0.32653390013928013,
+    "avg_loss": 0.16283823432557568,
+    "payout": 2.0052655415460623,
+    "mean": 0.09719713437055066,
+    "median": 0.01724137931034475,
+    "numeric_passes": 5,
+    "margin": 0.0026327707730311456,
+    "worst": -0.8181818181818181,
+    "p05": -0.338061900397898,
+    "trimmed_mean": 0.06906876682853084,
+    "pf": 2.29807873744151,
+    "avg_bars": 79.41768927992591,
+    "fade_exits": 31,
+    "period_end_exits": 83,
+    "worst_intratrade": -0.9090909090909091,
+    "trade_multiple": 2.1879432624113475
+  },
+  "costs": 0
+}

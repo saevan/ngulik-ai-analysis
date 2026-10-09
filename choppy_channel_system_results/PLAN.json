@@ -1,0 +1,85 @@
+{
+  "configs": [
+    {
+      "family": "channel_flip",
+      "length": 5,
+      "cost_multiple": 8
+    },
+    {
+      "family": "channel_flip",
+      "length": 5,
+      "cost_multiple": 16
+    },
+    {
+      "family": "channel_flip",
+      "length": 10,
+      "cost_multiple": 8
+    },
+    {
+      "family": "channel_flip",
+      "length": 10,
+      "cost_multiple": 16
+    },
+    {
+      "family": "range_escape",
+      "length": 5,
+      "cost_multiple": 8
+    },
+    {
+      "family": "range_escape",
+      "length": 5,
+      "cost_multiple": 16
+    },
+    {
+      "family": "range_escape",
+      "length": 10,
+      "cost_multiple": 8
+    },
+    {
+      "family": "range_escape",
+      "length": 10,
+      "cost_multiple": 16
+    },
+    {
+      "family": "failed_breakdown",
+      "length": 5,
+      "cost_multiple": 8
+    },
+    {
+      "family": "failed_breakdown",
+      "length": 5,
+      "cost_multiple": 16
+    },
+    {
+      "family": "failed_breakdown",
+      "length": 10,
+      "cost_multiple": 8
+    },
+    {
+      "family": "failed_breakdown",
+      "length": 10,
+      "cost_multiple": 16
+    }
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "selection": "Highest training spread CAGR among N>=50,PF>1.1,meanReturn>0,positiveCAGR and positive sideways attribution; otherwise best diagnostic only",
+  "target": "Swinger ideal outcome profile, no need identical trades",
+  "main_unchanged": true
+}

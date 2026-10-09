@@ -1,0 +1,7 @@
+{
+  "config": [
+    "stock_er",
+    0.5
+  ],
+  "training_pass": true
+}

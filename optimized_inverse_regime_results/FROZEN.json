@@ -1,0 +1,94 @@
+{
+  "chosen": {
+    "config": {
+      "hhv": 20,
+      "sma": 20,
+      "rotate": false
+    },
+    "passed": false,
+    "own_regime_min": -0.1409388902401504,
+    "combined_cagr": 0.0271248944047064
+  },
+  "evaluated": [
+    {
+      "config": {
+        "hhv": 10,
+        "sma": 20,
+        "rotate": false
+      },
+      "passed": false,
+      "own_regime_min": -0.1608441022113325,
+      "combined_cagr": 0.0052371257235108
+    },
+    {
+      "config": {
+        "hhv": 10,
+        "sma": 20,
+        "rotate": true
+      },
+      "passed": false,
+      "own_regime_min": -0.5565445782449475,
+      "combined_cagr": -0.3569495438998543
+    },
+    {
+      "config": {
+        "hhv": 10,
+        "sma": 30,
+        "rotate": false
+      },
+      "passed": false,
+      "own_regime_min": -0.163093373425986,
+      "combined_cagr": 0.0378174296661111
+    },
+    {
+      "config": {
+        "hhv": 10,
+        "sma": 30,
+        "rotate": true
+      },
+      "passed": false,
+      "own_regime_min": -0.5701280542989227,
+      "combined_cagr": -0.3608637601215611
+    },
+    {
+      "config": {
+        "hhv": 20,
+        "sma": 20,
+        "rotate": false
+      },
+      "passed": false,
+      "own_regime_min": -0.1409388902401504,
+      "combined_cagr": 0.0271248944047064
+    },
+    {
+      "config": {
+        "hhv": 20,
+        "sma": 20,
+        "rotate": true
+      },
+      "passed": false,
+      "own_regime_min": -0.5546190250476133,
+      "combined_cagr": -0.3557267379281084
+    },
+    {
+      "config": {
+        "hhv": 20,
+        "sma": 30,
+        "rotate": false
+      },
+      "passed": false,
+      "own_regime_min": -0.1627986673203858,
+      "combined_cagr": 0.046444366511892765
+    },
+    {
+      "config": {
+        "hhv": 20,
+        "sma": 30,
+        "rotate": true
+      },
+      "passed": false,
+      "own_regime_min": -0.5639816463223403,
+      "combined_cagr": -0.3556145797198259
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "configs": [
+    [
+      "baseline",
+      0
+    ],
+    [
+      "market_er",
+      0
+    ],
+    [
+      "breakout_only",
+      0
+    ]
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "fixed_exit": "Entry fixed market-only choppy inverse. Exit comparisons: breakout20+stockER>=.3, marketER>=.3, breakout20 alone. Next tradable Open, no added stop.",
+  "selection": "No tuning: original breakout+ER, marketER, breakout only. Entry fixed.",
+  "validation": "Full and chronological windows, previously examined data, not independent holdout.",
+  "main_unchanged": true
+}
