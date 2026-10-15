@@ -1,0 +1,223 @@
+{
+  "configs": [
+    {
+      "gate": "none",
+      "entry": "next_open",
+      "exit": "close",
+      "llv": 0
+    },
+    {
+      "gate": "none",
+      "entry": "next_open",
+      "exit": "close",
+      "llv": 5
+    },
+    {
+      "gate": "none",
+      "entry": "next_open",
+      "exit": "close",
+      "llv": 10
+    },
+    {
+      "gate": "none",
+      "entry": "next_open",
+      "exit": "close",
+      "llv": 20
+    },
+    {
+      "gate": "none",
+      "entry": "next_open",
+      "exit": "fade_intraday",
+      "llv": 0
+    },
+    {
+      "gate": "none",
+      "entry": "next_open",
+      "exit": "fade_intraday",
+      "llv": 5
+    },
+    {
+      "gate": "none",
+      "entry": "next_open",
+      "exit": "fade_intraday",
+      "llv": 10
+    },
+    {
+      "gate": "none",
+      "entry": "next_open",
+      "exit": "fade_intraday",
+      "llv": 20
+    },
+    {
+      "gate": "none",
+      "entry": "buy_stop",
+      "exit": "close",
+      "llv": 0
+    },
+    {
+      "gate": "none",
+      "entry": "buy_stop",
+      "exit": "close",
+      "llv": 5
+    },
+    {
+      "gate": "none",
+      "entry": "buy_stop",
+      "exit": "close",
+      "llv": 10
+    },
+    {
+      "gate": "none",
+      "entry": "buy_stop",
+      "exit": "close",
+      "llv": 20
+    },
+    {
+      "gate": "none",
+      "entry": "buy_stop",
+      "exit": "fade_intraday",
+      "llv": 0
+    },
+    {
+      "gate": "none",
+      "entry": "buy_stop",
+      "exit": "fade_intraday",
+      "llv": 5
+    },
+    {
+      "gate": "none",
+      "entry": "buy_stop",
+      "exit": "fade_intraday",
+      "llv": 10
+    },
+    {
+      "gate": "none",
+      "entry": "buy_stop",
+      "exit": "fade_intraday",
+      "llv": 20
+    },
+    {
+      "gate": "er",
+      "entry": "next_open",
+      "exit": "close",
+      "llv": 0
+    },
+    {
+      "gate": "er",
+      "entry": "next_open",
+      "exit": "close",
+      "llv": 5
+    },
+    {
+      "gate": "er",
+      "entry": "next_open",
+      "exit": "close",
+      "llv": 10
+    },
+    {
+      "gate": "er",
+      "entry": "next_open",
+      "exit": "close",
+      "llv": 20
+    },
+    {
+      "gate": "er",
+      "entry": "next_open",
+      "exit": "fade_intraday",
+      "llv": 0
+    },
+    {
+      "gate": "er",
+      "entry": "next_open",
+      "exit": "fade_intraday",
+      "llv": 5
+    },
+    {
+      "gate": "er",
+      "entry": "next_open",
+      "exit": "fade_intraday",
+      "llv": 10
+    },
+    {
+      "gate": "er",
+      "entry": "next_open",
+      "exit": "fade_intraday",
+      "llv": 20
+    },
+    {
+      "gate": "er",
+      "entry": "buy_stop",
+      "exit": "close",
+      "llv": 0
+    },
+    {
+      "gate": "er",
+      "entry": "buy_stop",
+      "exit": "close",
+      "llv": 5
+    },
+    {
+      "gate": "er",
+      "entry": "buy_stop",
+      "exit": "close",
+      "llv": 10
+    },
+    {
+      "gate": "er",
+      "entry": "buy_stop",
+      "exit": "close",
+      "llv": 20
+    },
+    {
+      "gate": "er",
+      "entry": "buy_stop",
+      "exit": "fade_intraday",
+      "llv": 0
+    },
+    {
+      "gate": "er",
+      "entry": "buy_stop",
+      "exit": "fade_intraday",
+      "llv": 5
+    },
+    {
+      "gate": "er",
+      "entry": "buy_stop",
+      "exit": "fade_intraday",
+      "llv": 10
+    },
+    {
+      "gate": "er",
+      "entry": "buy_stop",
+      "exit": "fade_intraday",
+      "llv": 20
+    }
+  ],
+  "base": {
+    "gate": "none",
+    "entry": "next_open",
+    "exit": "close",
+    "llv": 0
+  },
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "selection": "Train 2000-2015, spread scenario. Eligible: CAGR > base AND record months >= base. Pick max CAGR (tie: records). Frozen before validation/test/full.",
+  "fixed": "Rp1bn, 10 shared slots, 10% prior-close equity, compounding, long only, fade2 ATR from current Open, SMA30 close exit, fee .15/.25, spread stress 1 tick/side + lot100.",
+  "caution": "Data previously examined; 32 configs, multiple-testing risk. Swinger ideal fill is aspirational; mitigations use only causal stop levels."
+}

@@ -1,0 +1,12 @@
+{
+  "chosen": {
+    "gate": "er",
+    "entry": "buy_stop",
+    "exit": "close",
+    "llv": 20
+  },
+  "base_train": {
+    "cagr": 0.14101837253013727,
+    "records": 41
+  }
+}
