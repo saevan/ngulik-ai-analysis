@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parent
 OUT=ROOT/'breakout_er_compounding_results'
 
 
-def portfolio(frames,threshold=.3,capital=1e9,slots=10,hold=200,fade=5.,reverse=False,cost_model=None,profit_trail=None,secondary=None,exit_sma=None,entry_builder=None,start='2000-01-01',exit_builder=None,max_age_signal=None,entry_stop_atr=None,early_failure=None):
+def portfolio(frames,threshold=.3,capital=1e9,slots=10,hold=200,fade=5.,reverse=False,cost_model=None,profit_trail=None,secondary=None,exit_sma=None,entry_builder=None,start='2000-01-01',exit_builder=None,max_age_signal=None,entry_stop_atr=None,early_failure=None,priority_builder=None):
     if entry_stop_atr is not None and entry_stop_atr<=0:
         raise ValueError('entry_stop_atr must be positive')
     if early_failure is not None and (len(early_failure)!=3 or min(early_failure)<1):
@@ -29,6 +29,8 @@ def portfolio(frames,threshold=.3,capital=1e9,slots=10,hold=200,fade=5.,reverse=
             d['sma_exit']=(f.Close<f.Close.rolling(exit_sma).mean()).to_numpy(bool)
         if exit_builder is not None:d['custom_exit']=exit_builder(f)
         d['atr']=a
+        # Optional entry ranking score; builder must only use information known at bar i Open.
+        if priority_builder is not None:d['priority']=np.nan_to_num(np.asarray(priority_builder(f),float),nan=-np.inf)
         if early_failure is not None:
             # Signal is previous bar. Its breakout reference excludes that signal bar.
             d['failure_level']=f.High.shift(2).rolling(early_failure[0]).max().to_numpy()
@@ -89,6 +91,10 @@ def portfolio(frames,threshold=.3,capital=1e9,slots=10,hold=200,fade=5.,reverse=
         entry_order=observed
         if secondary is not None and secondary.get('primary_first',False):
             entry_order=sorted(observed,key=lambda item:not(data[item[0]]['entry'][item[1]] or queued_entry.get(item[0])=='trend'))
+        if priority_builder is not None:
+            # Stable sort: higher score first, ticker order breaks ties; primary_first still dominates.
+            first=(lambda item:not(data[item[0]]['entry'][item[1]] or queued_entry.get(item[0])=='trend')) if secondary is not None and secondary.get('primary_first',False) else (lambda item:False)
+            entry_order=sorted(entry_order,key=lambda item:(first(item),-data[item[0]]['priority'][item[1]]))
         for ticker,i in entry_order:
             if ticker in positions or ticker in exited: continue
             d=data[ticker]
