@@ -22,7 +22,7 @@ def limit_pct(prev):
     return .35 if prev<200 else .25 if prev<5000 else .20
 
 
-def prepare(f,fade,llv,entry_mode,gate_dates,priority=None):
+def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20):
     f=f.reset_index(drop=True);a=atr_previous(f)
     d={k:f[k].to_numpy() for k in ['Open','High','Low','Close','tradable','Date/Time']}
     d['atr']=a
@@ -35,7 +35,7 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None):
         if gate_dates is not None:e=e&f['Date/Time'].isin(gate_dates).to_numpy()&f.tradable.to_numpy(bool)
         d['entry']=e
     else:
-        level=f.High.shift(1).rolling(20).max()
+        level=f.High.shift(1).rolling(channel).max()
         er_prev=efficiency_ratio(f.Close,20).shift(1)
         armed=(f.Close.shift(1)<=level)&(er_prev>=.3)
         if gate_dates is not None:armed=armed&f['Date/Time'].isin(gate_dates)
@@ -43,20 +43,25 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None):
     d['sma_exit']=(f.Close<f.Close.rolling(30).mean()).to_numpy(bool)
     d['fade']=np.isfinite(a)&(a>0)&((d['Open']-d['Low'])>=fade*a)
     d['llv']=f.Low.shift(1).rolling(llv).min().to_numpy(float) if llv else None
+    d['llv5']=f.Low.shift(1).rolling(5).min().to_numpy(float)  # Swinger 'sup' known before bar i
     return d
 
 
 def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_model=None,start='2000-01-01',capital=1e9,slots=10,gate_dates=None,
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
-        gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None):
+        gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
+        channel=20,init_stop=None,trail_after=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
     """Condition actions use day labels known before that day's Open: block new entries, sell all at Open
-    (derisk), scale new entry size, or activate the LLV stop only on those days."""
+    (derisk), scale new entry size, or activate the LLV stop only on those days.
+    Swinger-like risk levers: init_stop 'llv5' (fixed at LLV5 of the 5 bars before entry) or 'atr2' (entry - 2 ATR),
+    intraday sell stop. trail_after=k: once a Close reaches entry + k*entry ATR, a trailing intraday stop at
+    LLV5 of the previous 5 bars is active. channel: HHV length of the buy stop."""
     data={};calendar={}
     for t,f in frames.items():
-        d=prepare(f,fade,llv,entry_mode,gate_dates,priority);data[t]=d
+        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel);data[t]=d
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64(start):calendar.setdefault(pd.Timestamp(day),[]).append((t,i))
     cash=equity=peak=float(capital);positions={};lastclose={};queued=set();ledger=[];daily=[]
@@ -95,6 +100,9 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if exit_mode=='fade_intraday' and np.isfinite(d['atr'][i]) and d['atr'][i]>0 and d['Low'][i]<=o-fade*d['atr'][i]:
                 levels.append((o-fade*d['atr'][i],'fade_stop'))
             if llv and (llv_dates is None or day in llv_dates) and np.isfinite(d['llv'][i]) and d['Low'][i]<d['llv'][i]:levels.append((min(o,d['llv'][i]),'llv_stop'))
+            p=positions[t]
+            if p.get('stop') is not None and d['Low'][i]<p['stop']:levels.append((min(o,p['stop']),'initial_stop'))
+            if p.get('trail') and np.isfinite(d['llv5'][i]) and d['Low'][i]<d['llv5'][i]:levels.append((min(o,d['llv5'][i]),'trail_llv5'))
             if levels:
                 # Price falls from Open: the higher triggered level is reached first.
                 price,reason=max(levels);locked+=close(t,i,float(price),reason,day);exited.add(t);intraday_exits+=1
@@ -124,7 +132,10 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 amount=q*price*(1+cost_model.buy_fee)
             else:q=amount/price
             cash-=amount
-            positions[t]=dict(date=day,index=i,price=price,notional=amount,q=q,pending=None,outside=outside)
+            stop=None
+            if init_stop=='llv5' and np.isfinite(d['llv5'][i]):stop=float(d['llv5'][i])
+            elif init_stop=='atr2' and np.isfinite(d['atr'][i]) and d['atr'][i]>0:stop=price-2*float(d['atr'][i])
+            positions[t]=dict(date=day,index=i,price=price,notional=amount,q=q,pending=None,outside=outside,stop=stop,trail=False,atr0=float(d['atr'][i]))
         for t,i in obs:  # Close: marks and next-Open exit signals
             d=data[t];lastclose[t]=float(d['Close'][i])
             if cost_model is not None and cost_model.liquidation_mark:
@@ -135,6 +146,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 close(t,i,float(d['Close'][i]),p['pending']+'_gapdown_close',day);continue
             if i==len(d['Close'])-1:
                 close(t,i,float(d['Close'][i]),'period_end' if d['tradable'][i] else 'period_end_mark',day);continue
+            if trail_after is not None and np.isfinite(p['atr0']) and d['Close'][i]>=p['price']+trail_after*p['atr0']:p['trail']=True
             close_fade=exit_mode=='close' or p['index']==i
             if close_fade and d['fade'][i] and p['pending'] is None:p['pending']='fading'
             if d['sma_exit'][i] and p['pending'] is None:p['pending']='sma_exit'
