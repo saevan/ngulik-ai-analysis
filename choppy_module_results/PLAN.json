@@ -1,0 +1,75 @@
+{
+  "doc": "Choppy-period module so capital is not idle while system 1 (ER-gated breakout) is filtered out.\n\nSystem 1: Close > HHV20 and stock ER20 >= .3, entries only when market ER20 >= .3; exits SMA30 / fading 2 ATR.\nChoppy module candidates (entries only when market ER20 < .3, next-Open fills, defined in choppy_modules.py):\n rs_breakout (stock trending on its own in a choppy market), momentum_parking (top-decile 120d momentum above SMA50),\n lowvol_uptrend. Each with preemption on/off (preemption: system 1 candidates take slots from the weakest choppy-module\n positions, sold at the next Open). Earlier failed families (RSI2/support/Bollinger mean reversion, range escape,\n inverse) are not repeated.\nSelection: train 2000-2015, spread1: CAGR > system1-only AND records >= system1-only; max CAGR. Frozen; all reported.\n",
+  "configs": [
+    [
+      "none",
+      false
+    ],
+    [
+      "rs_er0.5_hhv20",
+      true
+    ],
+    [
+      "rs_er0.5_hhv20",
+      false
+    ],
+    [
+      "rs_er0.3_hhv20",
+      true
+    ],
+    [
+      "rs_er0.3_hhv20",
+      false
+    ],
+    [
+      "rs_er0.3_hhv55",
+      true
+    ],
+    [
+      "rs_er0.3_hhv55",
+      false
+    ],
+    [
+      "mom_top10_t20",
+      true
+    ],
+    [
+      "mom_top10_t20",
+      false
+    ],
+    [
+      "mom_top10_trend",
+      true
+    ],
+    [
+      "mom_top10_trend",
+      false
+    ],
+    [
+      "lowvol_r0.3",
+      true
+    ],
+    [
+      "lowvol_r0.3",
+      false
+    ]
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  }
+}
