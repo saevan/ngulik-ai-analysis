@@ -1,0 +1,23 @@
+{
+  "uptrend": {
+    "channel": 55.0,
+    "chase": 0.0,
+    "stop": "llv10",
+    "act": 1.0,
+    "trail": 2.5
+  },
+  "downtrend": {
+    "channel": 55.0,
+    "chase": 1.0,
+    "stop": "llv10",
+    "act": 2.0,
+    "trail": 2.5
+  },
+  "sideways": {
+    "channel": 55.0,
+    "chase": 0.0,
+    "stop": "llv10",
+    "act": 0.5,
+    "trail": 2.5
+  }
+}

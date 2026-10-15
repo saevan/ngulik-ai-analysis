@@ -1,0 +1,33 @@
+{
+  "doc": "Grid research per market regime (uptrend / downtrend / choppy) to approach Swinger ideal.\n\nExecution: signal at Close i, fill Open(i+1) (next tradable). Trade-level, one position per stock, fee .15/.25%.\nRegime at signal bar from regime_proxy (ER20 of equal-weight proxy, lagged one bar).\nLevers aimed at the diagnosed gaps vs Swinger ideal in choppy:\n  stop distance (ATR on Close, or fixed LLV5/LLV10 of Lows before entry), earlier trailing activation,\n  trailing width, entry-chase filter (skip if signal Close is > x ATR above the breakout level), channel 20/55.\nSelection per regime on 2000-2015 only (C1-C5 passes, then mean). 2016-2025 and crypto are hold-out.\n",
+  "levers": {
+    "channel": [
+      20,
+      55
+    ],
+    "chase": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "stop": [
+      "atr1.5",
+      "atr2",
+      "atr3",
+      "llv5",
+      "llv10"
+    ],
+    "act": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "trail": [
+      1.5,
+      2.0,
+      2.5
+    ]
+  },
+  "n_configs": 270,
+  "selection": "Per regime on stocks 2000-2015: max passes (C1-C5), then mean. Combined system uses each regime own config chosen at the signal bar; evaluated 2016-2025 stocks and crypto (crypto regime from its own 8-coin proxy)."
+}
