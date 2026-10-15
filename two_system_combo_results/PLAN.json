@@ -1,0 +1,30 @@
+{
+  "doc": "User model: system 1 (trend) + system 2 (exact inverse of system 1's raw signals) only when market ER says choppy.\n\nSystem 1: buy = Close > HHV20(previous) AND stock ER20 >= .3, entry only when market ER20 >= .3 at the signal Close;\n          sell = Close < SMA30 OR (Open - Low) >= 2 ATR14(previous) on the current bar. Fills next tradable Open.\nSystem 2: buy = system 1's raw sell signal (Close < SMA30 or fading 2 ATR), entry only when market ER20 < .3;\n          sell = system 1's raw buy signal (Close > HHV20 and stock ER20 >= .3). Fills next tradable Open. Long only.\nShared: Rp1bn, 10 slots, 10% prior-close equity per entry capped by cash, compounding, system-1 entries first each day,\npositions carried across regime changes (main spec). Variants address the stated goal (idle cash rotates without\nblocking system 1): system 2 capped at 5 slots; system 2 also sells at the next Open when market ER turns >= .3;\nsystem 2's sell also requiring market ER >= .3 (literal 'system 1 buy incl. market gate' interpretation).\nCosts: fees buy .15% sell .25%; spread1 = fees + 1 tick each side + 100-share lot.\n",
+  "variants": [
+    "system1_only",
+    "system2_only",
+    "combined",
+    "combined_s2_max5slots",
+    "combined_s2_exit_when_trend",
+    "combined_s2_sell_needs_market_er"
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "selection": "None: user-specified model; all variants reported."
+}
