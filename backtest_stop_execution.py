@@ -36,7 +36,10 @@ def prepare(f,fade,llv,entry_mode,gate_dates):
     return d
 
 
-def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_model=None,start='2000-01-01',capital=1e9,slots=10,gate_dates=None):
+def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_model=None,start='2000-01-01',capital=1e9,slots=10,gate_dates=None,
+        block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None):
+    """Condition actions use day labels known before that day's Open: block new entries, sell all at Open
+    (derisk), scale new entry size, or activate the LLV stop only on those days."""
     data={};calendar={}
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates);data[t]=d
@@ -55,7 +58,10 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             entry_outside_bar=p['outside'],exit_outside_bar=bool(ref<d['Low'][i]-1e-9 or ref>d['High'][i]+1e-9)))
         return proceeds
     for day,obs in sorted(calendar.items()):
-        exited=set();budget=equity/slots;locked=0.;intraday_exits=0
+        exited=set();budget=equity/slots*(size_factor if size_dates is not None and day in size_dates else 1.);locked=0.;intraday_exits=0
+        if derisk_dates is not None and day in derisk_dates:
+            for t,i in obs:
+                if t in positions and data[t]['tradable'][i]:close(t,i,float(data[t]['Open'][i]),'derisk',day);exited.add(t)
         for t,i in obs:  # pending Close-signal exits at Open
             if t in positions and positions[t]['pending'] and data[t]['tradable'][i]:
                 close(t,i,float(data[t]['Open'][i]),positions[t]['pending'],day);exited.add(t)
@@ -64,13 +70,15 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             d=data[t];o=float(d['Open'][i]);levels=[]
             if exit_mode=='fade_intraday' and np.isfinite(d['atr'][i]) and d['atr'][i]>0 and d['Low'][i]<=o-fade*d['atr'][i]:
                 levels.append((o-fade*d['atr'][i],'fade_stop'))
-            if llv and np.isfinite(d['llv'][i]) and d['Low'][i]<d['llv'][i]:levels.append((min(o,d['llv'][i]),'llv_stop'))
+            if llv and (llv_dates is None or day in llv_dates) and np.isfinite(d['llv'][i]) and d['Low'][i]<d['llv'][i]:levels.append((min(o,d['llv'][i]),'llv_stop'))
             if levels:
                 # Price falls from Open: the higher triggered level is reached first.
                 price,reason=max(levels);locked+=close(t,i,float(price),reason,day);exited.add(t);intraday_exits+=1
         for t,i in obs:  # entries
             if t in positions or t in exited:continue
             d=data[t]
+            if block_dates is not None and day in block_dates:
+                queued.discard(t);continue
             if entry_mode=='next_open':
                 if d['entry'][i]:queued.add(t)
                 if t not in queued or not d['tradable'][i]:continue

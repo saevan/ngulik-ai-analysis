@@ -1,0 +1,10 @@
+{
+  "chosen": {
+    "cond": "sempit_or_bear",
+    "action": "block_entry"
+  },
+  "base_train": {
+    "cagr": 0.2089200225143466,
+    "records": 55
+  }
+}

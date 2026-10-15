@@ -1,0 +1,79 @@
+{
+  "system": "Breakout+ER buy stop at prior HHV20 (prior ER20>=.3), fade2 Close->next Open, SMA30, no market gate",
+  "conditions": "breadth_sempit: <40% stocks above SMA50; trend_bear: equal-weight proxy below SMA200; labels from previous Close.",
+  "actions": "block_entry: no new entries; half_size: new entries 5% equity; derisk_exit: sell all at Open AND block entries; llv10_stop: intraday LLV10 sell stop active only in condition.",
+  "configs": [
+    {
+      "cond": "none",
+      "action": "none"
+    },
+    {
+      "cond": "breadth_sempit",
+      "action": "block_entry"
+    },
+    {
+      "cond": "breadth_sempit",
+      "action": "half_size"
+    },
+    {
+      "cond": "breadth_sempit",
+      "action": "derisk_exit"
+    },
+    {
+      "cond": "breadth_sempit",
+      "action": "llv10_stop"
+    },
+    {
+      "cond": "trend_bear",
+      "action": "block_entry"
+    },
+    {
+      "cond": "trend_bear",
+      "action": "half_size"
+    },
+    {
+      "cond": "trend_bear",
+      "action": "derisk_exit"
+    },
+    {
+      "cond": "trend_bear",
+      "action": "llv10_stop"
+    },
+    {
+      "cond": "sempit_or_bear",
+      "action": "block_entry"
+    },
+    {
+      "cond": "sempit_or_bear",
+      "action": "half_size"
+    },
+    {
+      "cond": "sempit_or_bear",
+      "action": "derisk_exit"
+    },
+    {
+      "cond": "sempit_or_bear",
+      "action": "llv10_stop"
+    }
+  ],
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "selection": "Train spread: CAGR > base AND records >= base; max CAGR. Frozen before evaluation. All configs also run on later windows and reported as post-freeze diagnostics.",
+  "caution": "Conditions chosen after viewing full-history attribution (analyze_market_conditions.py) -> look-ahead in hypothesis selection; validation/test not independent."
+}
