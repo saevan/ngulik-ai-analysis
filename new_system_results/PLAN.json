@@ -1,0 +1,30 @@
+{
+  "criteria": "Fresh system search for the user's 7 criteria. All signals at Close i, fills at Open i+1.\n\nCriteria (trade level, net of costs):\n C1 mean >> median: mean >= 2*median and mean - median >= 1pp (and mean > 0)\n C2 average winning-trade bars > average losing-trade bars\n C3 payout (avg win / |avg loss|) > 2\n C4 win rate > 50%\n C5 wins cover losses: expectancy > 0 and profit factor > 1\n C6 universal: C1-C5 hold separately on stocks, forex and crypto\n C7 execution at Open(i+1): by construction\nSearch ONLY on stocks 2000-2015 (fees); stocks 2016-2025, forex and crypto are held out.\n",
+  "configs": 576,
+  "entries": [
+    "rsi2_5_sma200",
+    "rsi2_10_sma200",
+    "rsi2_20_sma200",
+    "rsi2_10_sma100",
+    "newlow5_sma200",
+    "dip10_stack",
+    "brk20_er",
+    "brk55"
+  ],
+  "exits": "stop: Close <= entry - s*ATR14(signal bar); time: after T bars still <= entry; trail: once peak Close >= entry + a*ATR, exit when Close <= peak - m*ATR; all exits at next tradable Open",
+  "costs": {
+    "stocks": [
+      0.0015,
+      0.0025
+    ],
+    "forex": [
+      0.00015,
+      0.00015
+    ],
+    "crypto": [
+      0.001,
+      0.001
+    ]
+  },
+  "selection": "Stocks 2000-2015 only: max criteria passed (C1-C5), tie -> expectancy. Frozen top-1 plus top-5 list; then held-out evaluation."
+}

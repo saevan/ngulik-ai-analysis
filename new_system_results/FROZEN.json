@@ -1,0 +1,44 @@
+{
+  "top5": [
+    {
+      "entry": "dip10_stack",
+      "stop": 0.0,
+      "time": 0,
+      "act": 1.0,
+      "trail": 3.0,
+      "maxhold": 0
+    },
+    {
+      "entry": "rsi2_10_sma100",
+      "stop": 0.0,
+      "time": 0,
+      "act": 1.0,
+      "trail": 3.0,
+      "maxhold": 0
+    },
+    {
+      "entry": "newlow5_sma200",
+      "stop": 0.0,
+      "time": 0,
+      "act": 1.0,
+      "trail": 3.0,
+      "maxhold": 0
+    },
+    {
+      "entry": "rsi2_20_sma200",
+      "stop": 0.0,
+      "time": 0,
+      "act": 1.0,
+      "trail": 3.0,
+      "maxhold": 0
+    },
+    {
+      "entry": "brk20_er",
+      "stop": 0.0,
+      "time": 0,
+      "act": 1.0,
+      "trail": 3.0,
+      "maxhold": 0
+    }
+  ]
+}

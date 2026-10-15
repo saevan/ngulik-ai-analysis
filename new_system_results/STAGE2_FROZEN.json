@@ -1,0 +1,45 @@
+{
+  "selection": "stocks 2000-2015: max passes, then WR, then mean",
+  "top5": [
+    {
+      "entry": "brk55|none",
+      "stop": 3.0,
+      "time": 0,
+      "act": 2.0,
+      "trail": 2.5,
+      "maxhold": 0
+    },
+    {
+      "entry": "brk55|er",
+      "stop": 3.0,
+      "time": 0,
+      "act": 2.0,
+      "trail": 2.5,
+      "maxhold": 0
+    },
+    {
+      "entry": "brk55|er+sma200",
+      "stop": 3.0,
+      "time": 0,
+      "act": 2.0,
+      "trail": 2.5,
+      "maxhold": 0
+    },
+    {
+      "entry": "brk55|sma200",
+      "stop": 3.0,
+      "time": 0,
+      "act": 2.0,
+      "trail": 2.5,
+      "maxhold": 0
+    },
+    {
+      "entry": "brk20|er+sma200",
+      "stop": 3.0,
+      "time": 0,
+      "act": 2.0,
+      "trail": 2.5,
+      "maxhold": 0
+    }
+  ]
+}
