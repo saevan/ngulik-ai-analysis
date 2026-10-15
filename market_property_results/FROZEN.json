@@ -1,0 +1,12 @@
+{
+  "chosen": {
+    "entry": "buy_stop",
+    "gap_skip": 0.02,
+    "gapdown_close": 0.02,
+    "rank": "alpha"
+  },
+  "base_train": {
+    "cagr": 0.2089200225143466,
+    "records": 55
+  }
+}

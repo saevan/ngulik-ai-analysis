@@ -16,12 +16,16 @@ from backtest_timehunter_atr import atr_previous
 from backtest_breakout_er import entry_signal, efficiency_ratio
 
 
-def prepare(f,fade,llv,entry_mode,gate_dates):
+def prepare(f,fade,llv,entry_mode,gate_dates,priority=None):
     f=f.reset_index(drop=True);a=atr_previous(f)
     d={k:f[k].to_numpy() for k in ['Open','High','Low','Close','tradable','Date/Time']}
     d['atr']=a
-    if entry_mode=='next_open':
+    d['priority']=None if priority is None else np.nan_to_num(np.asarray(priority(f),float),nan=-np.inf)
+    if entry_mode in ('next_open','next_open_vol'):
         e=entry_signal(f,.3)
+        if entry_mode=='next_open_vol':
+            surge=(f.Volume/f.Volume.shift(1).rolling(20).mean()>=1.5).shift(1,fill_value=False).to_numpy(bool)
+            e=e&surge
         if gate_dates is not None:e=e&f['Date/Time'].isin(gate_dates).to_numpy()&f.tradable.to_numpy(bool)
         d['entry']=e
     else:
@@ -37,12 +41,16 @@ def prepare(f,fade,llv,entry_mode,gate_dates):
 
 
 def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_model=None,start='2000-01-01',capital=1e9,slots=10,gate_dates=None,
-        block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None):
+        block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
+        gap_skip=None,gapdown_close=None,priority=None):
+    """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
+    gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
+    that day's Close instead of the Open. priority: score known at Open; higher entries first."""
     """Condition actions use day labels known before that day's Open: block new entries, sell all at Open
     (derisk), scale new entry size, or activate the LLV stop only on those days."""
     data={};calendar={}
     for t,f in frames.items():
-        d=prepare(f,fade,llv,entry_mode,gate_dates);data[t]=d
+        d=prepare(f,fade,llv,entry_mode,gate_dates,priority);data[t]=d
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64(start):calendar.setdefault(pd.Timestamp(day),[]).append((t,i))
     cash=equity=peak=float(capital);positions={};lastclose={};queued=set();ledger=[];daily=[]
@@ -64,7 +72,10 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 if t in positions and data[t]['tradable'][i]:close(t,i,float(data[t]['Open'][i]),'derisk',day);exited.add(t)
         for t,i in obs:  # pending Close-signal exits at Open
             if t in positions and positions[t]['pending'] and data[t]['tradable'][i]:
-                close(t,i,float(data[t]['Open'][i]),positions[t]['pending'],day);exited.add(t)
+                d=data[t]
+                if gapdown_close is not None and i and d['Open'][i]<d['Close'][i-1]*(1-gapdown_close):
+                    positions[t]['sell_at_close']=True;continue
+                close(t,i,float(d['Open'][i]),positions[t]['pending'],day);exited.add(t)
         for t,i in obs:  # intraday stops for positions held before today
             if t not in positions or not data[t]['tradable'][i]:continue
             d=data[t];o=float(d['Open'][i]);levels=[]
@@ -74,17 +85,20 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if levels:
                 # Price falls from Open: the higher triggered level is reached first.
                 price,reason=max(levels);locked+=close(t,i,float(price),reason,day);exited.add(t);intraday_exits+=1
-        for t,i in obs:  # entries
+        entry_obs=obs if priority is None else sorted(obs,key=lambda x:-data[x[0]]['priority'][x[1]])
+        for t,i in entry_obs:  # entries
             if t in positions or t in exited:continue
             d=data[t]
             if block_dates is not None and day in block_dates:
                 queued.discard(t);continue
-            if entry_mode=='next_open':
+            if entry_mode!='buy_stop':
                 if d['entry'][i]:queued.add(t)
                 if t not in queued or not d['tradable'][i]:continue
                 queued.discard(t);price=float(d['Open'][i]);outside=False
+                if gap_skip is not None and i and price>d['Close'][i-1]*(1+gap_skip):continue
             else:
                 if not(d['armed'][i] and d['tradable'][i] and d['High'][i]>d['buy_level'][i]):continue
+                if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
                 price=max(float(d['Open'][i]),float(d['buy_level'][i]));outside=False
             if len(positions)+intraday_exits>=slots:continue
             amount=min(budget,cash-locked)
@@ -102,6 +116,8 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 lastclose[t]=quote(lastclose[t],d,i,'sell')*(1-cost_model.sell_fee)
             if t not in positions:continue
             p=positions[t]
+            if p.get('sell_at_close') and d['tradable'][i]:
+                close(t,i,float(d['Close'][i]),p['pending']+'_gapdown_close',day);continue
             if i==len(d['Close'])-1:
                 close(t,i,float(d['Close'][i]),'period_end' if d['tradable'][i] else 'period_end_mark',day);continue
             close_fade=exit_mode=='close' or p['index']==i

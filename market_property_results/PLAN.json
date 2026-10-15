@@ -1,0 +1,133 @@
+{
+  "properties": "Measured in analyze_market_properties.py; chosen because sign is stable in train, validation AND test: (1) gap up >2% fades intraday, gap down >2% rebounds intraday; (2) HHV20+ER breakouts with signal-bar volume >=2x 20d mean have higher 20d forward return; (3) 120d momentum skipping 20d has positive cross-sectional spread.",
+  "levers": {
+    "entry": "buy_stop (HHV20 stop, prior ER) vs next_open_vol (Close breakout + ER + signal-bar volume>=1.5x prior 20d mean, next Open)",
+    "gap_skip": "skip buys whose Open is >2% above buy level/prior Close",
+    "gapdown_close": "pending exit with Open gap down >2% sells at that Close instead of Open",
+    "rank": "alphabetical vs higher momentum (Close t-21 / t-141) first"
+  },
+  "configs": [
+    {
+      "entry": "buy_stop",
+      "gap_skip": 0.0,
+      "gapdown_close": 0.0,
+      "rank": "alpha"
+    },
+    {
+      "entry": "buy_stop",
+      "gap_skip": 0.0,
+      "gapdown_close": 0.0,
+      "rank": "mom120"
+    },
+    {
+      "entry": "buy_stop",
+      "gap_skip": 0.0,
+      "gapdown_close": 0.02,
+      "rank": "alpha"
+    },
+    {
+      "entry": "buy_stop",
+      "gap_skip": 0.0,
+      "gapdown_close": 0.02,
+      "rank": "mom120"
+    },
+    {
+      "entry": "buy_stop",
+      "gap_skip": 0.02,
+      "gapdown_close": 0.0,
+      "rank": "alpha"
+    },
+    {
+      "entry": "buy_stop",
+      "gap_skip": 0.02,
+      "gapdown_close": 0.0,
+      "rank": "mom120"
+    },
+    {
+      "entry": "buy_stop",
+      "gap_skip": 0.02,
+      "gapdown_close": 0.02,
+      "rank": "alpha"
+    },
+    {
+      "entry": "buy_stop",
+      "gap_skip": 0.02,
+      "gapdown_close": 0.02,
+      "rank": "mom120"
+    },
+    {
+      "entry": "next_open_vol",
+      "gap_skip": 0.0,
+      "gapdown_close": 0.0,
+      "rank": "alpha"
+    },
+    {
+      "entry": "next_open_vol",
+      "gap_skip": 0.0,
+      "gapdown_close": 0.0,
+      "rank": "mom120"
+    },
+    {
+      "entry": "next_open_vol",
+      "gap_skip": 0.0,
+      "gapdown_close": 0.02,
+      "rank": "alpha"
+    },
+    {
+      "entry": "next_open_vol",
+      "gap_skip": 0.0,
+      "gapdown_close": 0.02,
+      "rank": "mom120"
+    },
+    {
+      "entry": "next_open_vol",
+      "gap_skip": 0.02,
+      "gapdown_close": 0.0,
+      "rank": "alpha"
+    },
+    {
+      "entry": "next_open_vol",
+      "gap_skip": 0.02,
+      "gapdown_close": 0.0,
+      "rank": "mom120"
+    },
+    {
+      "entry": "next_open_vol",
+      "gap_skip": 0.02,
+      "gapdown_close": 0.02,
+      "rank": "alpha"
+    },
+    {
+      "entry": "next_open_vol",
+      "gap_skip": 0.02,
+      "gapdown_close": 0.02,
+      "rank": "mom120"
+    }
+  ],
+  "base": {
+    "entry": "buy_stop",
+    "gap_skip": 0.0,
+    "gapdown_close": 0.0,
+    "rank": "alpha"
+  },
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "selection": "Train spread: CAGR > base AND records >= base; max CAGR. Frozen. Every config is also run on later windows (post-freeze diagnostic) for lever-consistency table.",
+  "caution": "Property sign checked on later periods before choosing levers -> later windows are not clean holdouts for lever choice; parameters (2%, 1.5x, 120d) set a priori, not tuned."
+}
