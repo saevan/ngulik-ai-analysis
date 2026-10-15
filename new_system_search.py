@@ -63,13 +63,13 @@ def simulate(x,sig,cfg,cost,start,end):
                 exit_j=j;break
         if exit_j is None:
             # Still open at the end of the data: marked at the last Close (never dropped).
-            r=C[n-1]*(1-cost[1])/(e*(1+cost[0]))-1;out.append((r,n-k));break
+            r=C[n-1]*(1-cost[1])/(e*(1+cost[0]))-1;out.append((r,n-k,D[k]));break
         q=exit_j+1
         while q<n and not T[q]:q+=1
         if q>=n:
-            r=C[n-1]*(1-cost[1])/(e*(1+cost[0]))-1;out.append((r,n-k));break
+            r=C[n-1]*(1-cost[1])/(e*(1+cost[0]))-1;out.append((r,n-k,D[k]));break
         r=O[q]*(1-cost[1])/(e*(1+cost[0]))-1
-        out.append((r,q-k));i=q
+        out.append((r,q-k,D[k]));i=q
     return out
 
 def score(trades):
