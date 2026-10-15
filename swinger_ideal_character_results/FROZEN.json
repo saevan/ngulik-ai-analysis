@@ -1,0 +1,14 @@
+{
+  "chosen": {
+    "take_profit": 0.0,
+    "breakeven": 0.0,
+    "trail_after": 2.0,
+    "channel": 10.0
+  },
+  "base_train_fees": {
+    "cagr": 0.5102312133325968,
+    "records": 84,
+    "wr": 0.4826224328593997
+  },
+  "n_wr_over_50": 25
+}

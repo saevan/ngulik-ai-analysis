@@ -1,0 +1,313 @@
+{
+  "base": "Candidate buy stop HHV20 + gap_skip + gapdown_close + mom120, fade2, SMA30",
+  "target": {
+    "source": "prototype_swinger_benchmark_results afl_ideal_net, full 2000-2025, fees",
+    "cagr": 1.1477,
+    "records": 249,
+    "wr": 0.519,
+    "avg_win": 0.1651,
+    "avg_loss": 0.0319,
+    "payout": 5.17,
+    "big_loss": 0.0154,
+    "mean_bars": 19.0,
+    "n": 3241,
+    "invested": 0.93
+  },
+  "levers": {
+    "take_profit": "intraday sell limit at entry + k entry-ATR (none/3/5/8)",
+    "breakeven": "intraday stop at entry once Close >= entry + b ATR (none/1/2)",
+    "trail_after": "LLV5 trailing after +2 ATR (none/2)",
+    "channel": "HHV 20/10"
+  },
+  "configs": [
+    {
+      "take_profit": 0.0,
+      "breakeven": 0.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 0.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 0.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 0.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 1.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 1.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 1.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 1.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 2.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 2.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 2.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 0.0,
+      "breakeven": 2.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 0.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 0.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 0.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 0.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 1.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 1.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 1.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 1.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 2.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 2.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 2.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 3.0,
+      "breakeven": 2.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 0.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 0.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 0.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 0.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 1.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 1.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 1.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 1.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 2.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 2.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 2.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 5.0,
+      "breakeven": 2.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 0.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 0.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 0.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 0.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 1.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 1.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 1.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 1.0,
+      "trail_after": 2.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 2.0,
+      "trail_after": 0.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 2.0,
+      "trail_after": 0.0,
+      "channel": 10
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 2.0,
+      "trail_after": 2.0,
+      "channel": 20
+    },
+    {
+      "take_profit": 8.0,
+      "breakeven": 2.0,
+      "trail_after": 2.0,
+      "channel": 10
+    }
+  ],
+  "selection": "Train, FEES (same cost basis as Swinger ideal): eligible WR>50% AND CAGR > base AND records >= base; pick max CAGR. Frozen; evaluated on validation/test/full fees and spread1. Also report whether WR>50% configs as a group beat the base."
+}

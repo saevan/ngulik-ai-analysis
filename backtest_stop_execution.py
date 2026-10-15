@@ -50,7 +50,7 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20):
 def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_model=None,start='2000-01-01',capital=1e9,slots=10,gate_dates=None,
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
-        channel=20,init_stop=None,trail_after=None):
+        channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -58,7 +58,10 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     (derisk), scale new entry size, or activate the LLV stop only on those days.
     Swinger-like risk levers: init_stop 'llv5' (fixed at LLV5 of the 5 bars before entry) or 'atr2' (entry - 2 ATR),
     intraday sell stop. trail_after=k: once a Close reaches entry + k*entry ATR, a trailing intraday stop at
-    LLV5 of the previous 5 bars is active. channel: HHV length of the buy stop."""
+    LLV5 of the previous 5 bars is active. channel: HHV length of the buy stop.
+    take_profit=k: sell limit at entry + k*entry ATR (fill max(Open, level) when High reaches it; if a stop is
+    also hit the same bar the stop is assumed first unless the Open already passed the target).
+    breakeven=b: once a Close reaches entry + b*entry ATR, an intraday stop at the entry price is active."""
     data={};calendar={}
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel);data[t]=d
@@ -103,6 +106,12 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             p=positions[t]
             if p.get('stop') is not None and d['Low'][i]<p['stop']:levels.append((min(o,p['stop']),'initial_stop'))
             if p.get('trail') and np.isfinite(d['llv5'][i]) and d['Low'][i]<d['llv5'][i]:levels.append((min(o,d['llv5'][i]),'trail_llv5'))
+            if p.get('be') and d['Low'][i]<p['price']:levels.append((min(o,p['price']),'breakeven_stop'))
+            tp=p['price']+take_profit*p['atr0'] if take_profit is not None and np.isfinite(p['atr0']) and p['atr0']>0 else None
+            if tp is not None and o>=tp:
+                locked+=close(t,i,o,'take_profit_open',day);exited.add(t);intraday_exits+=1;continue
+            if not levels and tp is not None and d['High'][i]>=tp:
+                locked+=close(t,i,float(tp),'take_profit',day);exited.add(t);intraday_exits+=1;continue
             if levels:
                 # Price falls from Open: the higher triggered level is reached first.
                 price,reason=max(levels);locked+=close(t,i,float(price),reason,day);exited.add(t);intraday_exits+=1
@@ -146,6 +155,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 close(t,i,float(d['Close'][i]),p['pending']+'_gapdown_close',day);continue
             if i==len(d['Close'])-1:
                 close(t,i,float(d['Close'][i]),'period_end' if d['tradable'][i] else 'period_end_mark',day);continue
+            if breakeven is not None and np.isfinite(p['atr0']) and d['Close'][i]>=p['price']+breakeven*p['atr0']:p['be']=True
             if trail_after is not None and np.isfinite(p['atr0']) and d['Close'][i]>=p['price']+trail_after*p['atr0']:p['trail']=True
             close_fade=exit_mode=='close' or p['index']==i
             if close_fade and d['fade'][i] and p['pending'] is None:p['pending']='fading'
