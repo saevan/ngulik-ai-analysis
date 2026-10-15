@@ -1,0 +1,30 @@
+{
+  "doc": "System 2 sells when market ER says trend: immediate vs confirmed versions (user question follow-up).\n\nSame model as test_two_system_combo.py (system 1 ER-gated HHV20 breakout; system 2 = exact inverse, entries only when\nmarket ER20 < .3; shared 10 slots; next-Open fills). System 2 additionally sells at the next Open when, at a Close:\n trend1  : market ER20 >= .3 (immediate; = combined_s2_exit_when_trend)\n trend3  : market ER20 >= .3 on 3 consecutive Closes\n trend5  : market ER20 >= .3 on 5 consecutive Closes\n er040   : market ER20 >= .4 (buffer above the entry threshold)\n trend3_max5: trend3 with system 2 capped at 5 slots\nIts normal sell (system 1 raw buy signal) stays active. Measured motivation: ER switches regime ~29x/year; 53% of\ntrend runs last <=3 days. Variants fixed before running; no selection, all windows/costs reported.\n",
+  "variants": {
+    "trend1": [
+      1,
+      0.3,
+      10
+    ],
+    "trend3": [
+      3,
+      0.3,
+      10
+    ],
+    "trend5": [
+      5,
+      0.3,
+      10
+    ],
+    "er040": [
+      1,
+      0.4,
+      10
+    ],
+    "trend3_max5": [
+      3,
+      0.3,
+      5
+    ]
+  }
+}

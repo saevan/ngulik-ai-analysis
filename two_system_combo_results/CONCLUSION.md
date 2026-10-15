@@ -30,3 +30,29 @@ Kesimpulan:
 - Membatasi sistem 2 maks 5 slot lebih baik dari sistem 1 saja di validation dan test (kedua biaya), tetapi lebih buruk di train dan full. Belum konsisten.
 - Menjual sistem 2 saat pasar kembali trend memperpendek hold (10 bar) tetapi membuat sistem 2 rugi; dengan spread hancur.
 - Masalah intinya bukan dana idle, melainkan sistem 2 sebagai kebalikan murni memiliki payout <1 dan hold panjang. Ini konsisten dengan riset sebelumnya (choppy_inverted_signal_results, optimized_inverse_regime_results).
+
+## Lanjutan: sistem 2 otomatis jual saat ER pasar bilang trend (`test_two_system_trend_exit.py`)
+Fakta rezim: ER20 pasar berpindah rezim ±29 kali/tahun; periode trend median 3 hari (53% ≤3 hari), choppy median 6 hari.
+Varian ditetapkan sebelum dijalankan: jual sistem 2 di Open berikut bila (a) ER ≥0,3 di satu Close, (b) 3 Close berturut-turut, (c) 5 Close berturut-turut, (d) ER ≥0,4, (e) = (b) + sistem 2 maks 5 slot. Jual normal sistem 2 tetap aktif.
+
+| Varian | Biaya | Train | Validation | Test | Full |
+|---|---|---|---|---|---|
+| Sistem 1 saja (pembanding) | fee | 35.5% / 67 / −39% | 23.6% / 22 / −28% | 8.1% / 5 / −21% | 27.9% / 91 / −39% |
+| Jual langsung saat ER ≥0,3 | fee | 20.9% / 53 | 27.6% / 20 | 7.8% / 6 | 19.7% / 71 / −65% |
+| Konfirmasi 3 hari | fee | 22.1% / 59 | 27.4% / 19 | 8.1% / 11 | 21.2% / 83 / −69% |
+| Konfirmasi 5 hari | fee | 18.0% / 50 | 25.5% / 17 | 4.6% / 9 | 16.8% / 68 / −67% |
+| ER ≥0,4 | fee | 18.5% / 49 | 15.9% / 15 | 0.7% / 9 | 14.9% / 64 / −70% |
+| Konfirmasi 3 hari + maks 5 slot | fee | 30.9% / 68 / −52% | 31.9% / 26 / −29% | 12.1% / 8 / −36% | 27.9% / 97 / −52% |
+| Sistem 1 saja (pembanding) | spread1 | 20.6% / 51 / −50% | 14.5% / 21 / −34% | 2.0% / 3 / −30% | 16.0% / 65 / −50% |
+| Jual langsung saat ER ≥0,3 | spread1 | −14.0% / 0 | 1.4% / 13 | −6.6% / 4 | −9.8% / 0 / −95% |
+| Konfirmasi 3 hari | spread1 | −5.4% / 2 | 5.9% / 14 | −2.3% / 8 | −2.0% / 5 / −89% |
+| Konfirmasi 5 hari | spread1 | −6.2% / 0 | 7.6% / 14 | −3.7% / 8 | −3.1% / 0 / −86% |
+| ER ≥0,4 | spread1 | −9.0% / 0 | −3.0% / 11 | −9.2% / 7 | −7.5% / 0 / −89% |
+| Konfirmasi 3 hari + maks 5 slot | spread1 | 8.3% / 35 | 14.1% / 17 | 2.8% / 6 | 8.8% / 42 / −67% |
+
+Trade sistem 2 (full): jual langsung 2521 trade, WR 41,4%, payout 1,23, mean −0,44% (fee) / −2,39% (spread), hold 10,4 bar; konfirmasi 3 hari 1714 trade, mean −0,30% / −2,26%, hold 18,8; konfirmasi 3 hari + maks 5 slot mean +0,11% / −1,81%.
+
+Kesimpulan lanjutan:
+- Jual otomatis saat trend membuat slot kembali tersedia untuk sistem 1, tetapi expectancy sistem 2 tetap sekitar nol dengan fee dan sekitar −2% per trade dengan spread, di semua varian.
+- Dengan fee, hanya "konfirmasi 3 hari + maks 5 slot" yang menyamai CAGR sistem 1 saja (27,9%) dengan bulan rekor lebih banyak (97 vs 91), lebih baik di validation dan test, tetapi MDD lebih dalam (−52% vs −39%) dan train lebih rendah.
+- Dengan spread, semua varian jual-otomatis jauh di bawah sistem 1 saja (terbaik 8,8%/42 vs 16,0%/65).
