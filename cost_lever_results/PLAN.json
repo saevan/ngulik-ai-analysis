@@ -1,0 +1,102 @@
+{
+  "base": "buy stop HHV20 + gap_skip2% + gapdown_close2%, alphabetical (frozen in market_property_results)",
+  "levers": {
+    "tick": "skip buys if tick(prior Close)/prior Close > x (none/1%/0.5%)",
+    "fade": "fading ATR multiple 2/3/5",
+    "rank": "alphabetical vs mom120"
+  },
+  "configs": [
+    {
+      "tick": 0.0,
+      "fade": 2.0,
+      "rank": "alpha"
+    },
+    {
+      "tick": 0.0,
+      "fade": 2.0,
+      "rank": "mom120"
+    },
+    {
+      "tick": 0.0,
+      "fade": 3.0,
+      "rank": "alpha"
+    },
+    {
+      "tick": 0.0,
+      "fade": 3.0,
+      "rank": "mom120"
+    },
+    {
+      "tick": 0.0,
+      "fade": 5.0,
+      "rank": "alpha"
+    },
+    {
+      "tick": 0.0,
+      "fade": 5.0,
+      "rank": "mom120"
+    },
+    {
+      "tick": 0.01,
+      "fade": 2.0,
+      "rank": "alpha"
+    },
+    {
+      "tick": 0.01,
+      "fade": 2.0,
+      "rank": "mom120"
+    },
+    {
+      "tick": 0.01,
+      "fade": 3.0,
+      "rank": "alpha"
+    },
+    {
+      "tick": 0.01,
+      "fade": 3.0,
+      "rank": "mom120"
+    },
+    {
+      "tick": 0.01,
+      "fade": 5.0,
+      "rank": "alpha"
+    },
+    {
+      "tick": 0.01,
+      "fade": 5.0,
+      "rank": "mom120"
+    },
+    {
+      "tick": 0.005,
+      "fade": 2.0,
+      "rank": "alpha"
+    },
+    {
+      "tick": 0.005,
+      "fade": 2.0,
+      "rank": "mom120"
+    },
+    {
+      "tick": 0.005,
+      "fade": 3.0,
+      "rank": "alpha"
+    },
+    {
+      "tick": 0.005,
+      "fade": 3.0,
+      "rank": "mom120"
+    },
+    {
+      "tick": 0.005,
+      "fade": 5.0,
+      "rank": "alpha"
+    },
+    {
+      "tick": 0.005,
+      "fade": 5.0,
+      "rank": "mom120"
+    }
+  ],
+  "selection": "Train spread1: CAGR > base AND records >= base; max CAGR. Frozen. All configs run on later windows as diagnostics.",
+  "caution": "mom120 already seen positive in later windows (post-freeze diagnostic earlier); tick grid applied counterfactually to adjusted history."
+}

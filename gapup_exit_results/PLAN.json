@@ -1,0 +1,5 @@
+{
+  "base": "buy stop + gap_skip2% + gapdown_close2% + mom120, fade2",
+  "lever": "sell held winner (Open > entry) at Open when Open gaps up > g; g none/4%/7%",
+  "selection": "Train spread1: CAGR > base AND records >= base; max CAGR. Frozen; all levels reported in later windows."
+}

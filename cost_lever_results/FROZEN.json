@@ -1,0 +1,11 @@
+{
+  "chosen": {
+    "tick": 0.0,
+    "fade": 3.0,
+    "rank": "mom120"
+  },
+  "base_train": {
+    "cagr": 0.27950438288893786,
+    "records": 66
+  }
+}

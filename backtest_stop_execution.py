@@ -14,6 +14,12 @@ import numpy as np
 import pandas as pd
 from backtest_timehunter_atr import atr_previous
 from backtest_breakout_er import entry_signal, efficiency_ratio
+from backtest_idx_costs import tick_size
+
+
+def limit_pct(prev):
+    # Current IDX auto-reject bands applied counterfactually to all history (stress only).
+    return .35 if prev<200 else .25 if prev<5000 else .20
 
 
 def prepare(f,fade,llv,entry_mode,gate_dates,priority=None):
@@ -42,7 +48,7 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None):
 
 def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_model=None,start='2000-01-01',capital=1e9,slots=10,gate_dates=None,
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
-        gap_skip=None,gapdown_close=None,priority=None):
+        gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -73,9 +79,16 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         for t,i in obs:  # pending Close-signal exits at Open
             if t in positions and positions[t]['pending'] and data[t]['tradable'][i]:
                 d=data[t]
+                if price_limits and i and d['Open'][i]<=d['Close'][i-1]*(1-limit_pct(d['Close'][i-1]))*1.005:continue
                 if gapdown_close is not None and i and d['Open'][i]<d['Close'][i-1]*(1-gapdown_close):
                     positions[t]['sell_at_close']=True;continue
                 close(t,i,float(d['Open'][i]),positions[t]['pending'],day);exited.add(t)
+        if gapup_exit is not None:  # take profit at Open when a held winner gaps up (gap ups fade intraday)
+            for t,i in obs:
+                if t in positions and t not in exited and data[t]['tradable'][i] and i:
+                    d=data[t];p=positions[t]
+                    if d['Open'][i]>d['Close'][i-1]*(1+gapup_exit) and d['Open'][i]>p['price']:
+                        close(t,i,float(d['Open'][i]),'gapup_take_profit',day);exited.add(t)
         for t,i in obs:  # intraday stops for positions held before today
             if t not in positions or not data[t]['tradable'][i]:continue
             d=data[t];o=float(d['Open'][i]);levels=[]
@@ -100,6 +113,8 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 if not(d['armed'][i] and d['tradable'][i] and d['High'][i]>d['buy_level'][i]):continue
                 if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
                 price=max(float(d['Open'][i]),float(d['buy_level'][i]));outside=False
+            if max_tick_frac is not None and i and tick_size(d['Close'][i-1])/d['Close'][i-1]>max_tick_frac:continue
+            if price_limits and i and d['High'][i]>=d['Close'][i-1]*(1+limit_pct(d['Close'][i-1]))*.995:continue
             if len(positions)+intraday_exits>=slots:continue
             amount=min(budget,cash-locked)
             if amount<=capital*1e-12:continue
