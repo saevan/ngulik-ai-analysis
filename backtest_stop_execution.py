@@ -50,7 +50,7 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20):
 def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_model=None,start='2000-01-01',capital=1e9,slots=10,gate_dates=None,
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
-        channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None):
+        channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -61,7 +61,10 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     LLV5 of the previous 5 bars is active. channel: HHV length of the buy stop.
     take_profit=k: sell limit at entry + k*entry ATR (fill max(Open, level) when High reaches it; if a stop is
     also hit the same bar the stop is assumed first unless the Open already passed the target).
-    breakeven=b: once a Close reaches entry + b*entry ATR, an intraday stop at the entry price is active."""
+    breakeven=b: once a Close reaches entry + b*entry ATR, an intraday stop at the entry price is active.
+    strict_orders (buy_stop only): orders are decided before the Open from information known then; only the top-K armed
+    names by priority (K = slots free at the Open) get a buy-stop order, and only those can fill. Without it the engine
+    picks among names that actually triggered during the day (end-of-day knowledge) when slots or cash bind."""
     data={};calendar={}
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel);data[t]=d
@@ -116,6 +119,16 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 # Price falls from Open: the higher triggered level is reached first.
                 price,reason=max(levels);locked+=close(t,i,float(price),reason,day);exited.add(t);intraday_exits+=1
         entry_obs=obs if priority is None else sorted(obs,key=lambda x:-data[x[0]]['priority'][x[1]])
+        order_book=None
+        if strict_orders and entry_mode=='buy_stop':
+            free=slots-len(positions)-intraday_exits;order_book=set()
+            for t,i in entry_obs:  # pre-Open information only: armed level, Open-time gap rule
+                if len(order_book)>=free:break
+                if t in positions or t in exited:continue
+                d=data[t]
+                if not(d['armed'][i] and d['tradable'][i]):continue
+                if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
+                order_book.add(t)
         for t,i in entry_obs:  # entries
             if t in positions or t in exited:continue
             d=data[t]
@@ -127,6 +140,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 queued.discard(t);price=float(d['Open'][i]);outside=False
                 if gap_skip is not None and i and price>d['Close'][i-1]*(1+gap_skip):continue
             else:
+                if order_book is not None and t not in order_book:continue
                 if not(d['armed'][i] and d['tradable'][i] and d['High'][i]>d['buy_level'][i]):continue
                 if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
                 price=max(float(d['Open'][i]),float(d['buy_level'][i]));outside=False

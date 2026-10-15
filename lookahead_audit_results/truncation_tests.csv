@@ -1,0 +1,10 @@
+test,cut,identical,days_compared,trades_compared
+regime proxy prefix,2008-06-30,True,,
+truncation model,2008-06-30,True,2067.0,529.0
+truncation buystop,2008-06-30,True,2067.0,596.0
+regime proxy prefix,2016-01-15,True,,
+truncation model,2016-01-15,True,3907.0,1096.0
+truncation buystop,2016-01-15,True,3907.0,1259.0
+regime proxy prefix,2021-03-31,True,,
+truncation model,2021-03-31,True,5169.0,1532.0
+truncation buystop,2021-03-31,True,5169.0,1784.0
