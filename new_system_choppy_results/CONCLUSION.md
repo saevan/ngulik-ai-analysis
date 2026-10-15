@@ -20,3 +20,11 @@ Kesimpulan:
 - Swinger ideal sendiri tidak memenuhi WR >50% saat choppy 2016–20 (46,9%) dan 2021–25 (47,0%); WR choppy-nya turun di periode yang sama dengan sistem baru.
 - Saat trend, sistem baru lolos 5/5 (full 2000–25) dan WR menyamai Swinger ideal; selisihnya tetap rugi per trade.
 - Stop 3 ATR dengan eksekusi Open berikutnya membuat rugi rata-rata ~9%; Swinger ideal ~3% karena fill di level stop pada bar sinyal. Uji sebelumnya (swinger_character_match_results) menunjukkan stop lebih ketat dengan eksekusi kausal menurunkan WR dan CAGR.
+
+## Penyebab kalah saat choppy (dekomposisi)
+1. Fill ideal Swinger: aturan Swinger yang sama, entry choppy, dieksekusi di Open berikutnya → WR 50,5% → 33,2%, rugi 3,2% → 5,9%, mean 5,81% → 1,14%. Sistem baru (mean 3,04%) lebih baik dari Swinger versi Open berikutnya.
+2. Stop lebar: 71% trade rugi sistem baru (610 dari 860) keluar lewat stop 3 ATR, rata-rata −12,4% dan 20 bar (−3,7 ATR). ATR rata-rata saat entry 3,4% harga, jadi stop 3 ATR ≈ 10% jarak.
+3. Profit dilepas: 43,8% trade rugi sempat untung >5% dulu; 250 trade keluar lewat trailing di bawah harga entry (−2,7%).
+4. Entry mengejar: Close sinyal rata-rata 3,0% di atas level HHV55; Swinger ideal membeli tepat di level.
+5. Gap dan eksekusi Open hampir tidak berpengaruh: gap ke entry −0,07%, selisih exit Open vs Close sinyal −0,14%.
+(Analisis ulang tanpa filter tanggal, 1657 trade choppy; file `our_choppy_trades_anatomy.csv`.)
