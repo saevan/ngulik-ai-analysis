@@ -1,0 +1,123 @@
+{
+  "objective": "Portfolio CAGR and number of months with a new all-time daily equity high (record months).",
+  "configs": [
+    {
+      "gate": "none",
+      "rank": "alpha",
+      "fade": 2,
+      "inverse": false
+    },
+    {
+      "gate": "none",
+      "rank": "alpha",
+      "fade": 5,
+      "inverse": false
+    },
+    {
+      "gate": "none",
+      "rank": "er",
+      "fade": 2,
+      "inverse": false
+    },
+    {
+      "gate": "none",
+      "rank": "er",
+      "fade": 5,
+      "inverse": false
+    },
+    {
+      "gate": "er",
+      "rank": "alpha",
+      "fade": 2,
+      "inverse": false
+    },
+    {
+      "gate": "er",
+      "rank": "alpha",
+      "fade": 5,
+      "inverse": false
+    },
+    {
+      "gate": "er",
+      "rank": "er",
+      "fade": 2,
+      "inverse": false
+    },
+    {
+      "gate": "er",
+      "rank": "er",
+      "fade": 5,
+      "inverse": false
+    },
+    {
+      "gate": "up",
+      "rank": "alpha",
+      "fade": 2,
+      "inverse": false
+    },
+    {
+      "gate": "up",
+      "rank": "alpha",
+      "fade": 5,
+      "inverse": false
+    },
+    {
+      "gate": "up",
+      "rank": "er",
+      "fade": 2,
+      "inverse": false
+    },
+    {
+      "gate": "up",
+      "rank": "er",
+      "fade": 5,
+      "inverse": false
+    },
+    {
+      "gate": "er",
+      "rank": "alpha",
+      "fade": 2,
+      "inverse": true
+    },
+    {
+      "gate": "er",
+      "rank": "er",
+      "fade": 2,
+      "inverse": true
+    }
+  ],
+  "baseline": {
+    "gate": "er",
+    "rank": "alpha",
+    "fade": 2,
+    "inverse": true
+  },
+  "original": {
+    "gate": "none",
+    "rank": "alpha",
+    "fade": 2,
+    "inverse": false
+  },
+  "windows": {
+    "train": [
+      "2000-01-01",
+      "2015-12-31"
+    ],
+    "validation": [
+      "2016-01-01",
+      "2020-12-31"
+    ],
+    "test": [
+      "2021-01-01",
+      "2025-08-15"
+    ],
+    "full": [
+      "2000-01-01",
+      "2025-08-15"
+    ]
+  },
+  "levers": "gate: none / market ER20>=.3 (up+down) / market uptrend only (lagged proxy regime). rank: alphabetical / higher signal-bar stock ER20 first when slots or cash bind. fade: 2 or 5 ATR from CURRENT bar Open. inverse: choppy raw-signal inverse module on/off (fade2 only).",
+  "fixed": "Entry Close>HHV20 prior bars and stock ER20>=.3; exit Close<SMA30 or fade; signal at Close, fill next tradable Open; no hold cap; Rp1bn, 10 shared slots, 10% prior-close equity per entry capped by cash, compounding, long only. Fee buy .15% sell .25%; spread stress modern tick grid 1 tick each side + 100-share lot.",
+  "selection": "Train window 2000-2015, spread scenario only. Eligible: CAGR > baseline CAGR AND records >= baseline records. Choose max CAGR among eligible; tie -> more records. Frozen before validation/test/full. No retuning afterwards.",
+  "caution": "All windows were examined in earlier research; validation/test are chronological, not independent holdouts. 14 configs = multiple-testing risk."
+}

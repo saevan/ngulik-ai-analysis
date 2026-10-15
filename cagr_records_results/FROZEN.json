@@ -1,0 +1,12 @@
+{
+  "chosen": {
+    "gate": "er",
+    "rank": "alpha",
+    "fade": 5,
+    "inverse": false
+  },
+  "baseline_train": {
+    "cagr": 0.046444366511892765,
+    "records": 26
+  }
+}
