@@ -52,7 +52,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -78,7 +78,9 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     book_preopen (strict_orders): the order book uses only information available BEFORE the Open: today's volume (tradable) is not
     used to pick names, and a name whose Open gaps beyond the gap rule keeps its slot and reserved cash (its order is cancelled at the
     Open, nothing is handed to lower-ranked names). Found by an independent audit (16 Oct 2026); default False = old behaviour.
-    min_order_frac=f: orders smaller than f * budget are not placed (removes floating-point 'dust' orders at very large equity)."""
+    min_order_frac=f: orders smaller than f * budget are not placed (removes floating-point 'dust' orders at very large equity).
+    sma_arm: the Close<SMA exit only counts after the position has had a Close at or above the SMA (entry bar included), so a breakout
+    that starts below a falling SMA is not sold at the next Open just for being below it. Default False = old behaviour."""
     data={};calendar={}
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len);data[t]=d
@@ -198,7 +200,8 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 p['pending']='failed_breakout'
             close_fade=exit_mode=='close' or p['index']==i
             if close_fade and d['fade'][i] and p['pending'] is None:p['pending']='fading'
-            if d['sma_exit'][i] and p['pending'] is None:p['pending']='sma_exit'
+            if sma_arm and not d['sma_exit'][i]:p['sma_armed']=True
+            if d['sma_exit'][i] and p['pending'] is None and (not sma_arm or p.get('sma_armed')):p['pending']='sma_exit'
         value=sum(p['q']*lastclose[t] for t,p in positions.items());equity=cash+value
         assert cash>=-max(capital,abs(equity))*1e-10 and len(positions)<=slots
         new=equity>peak+capital*1e-12;peak=max(peak,equity)

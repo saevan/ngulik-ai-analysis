@@ -33,3 +33,13 @@ cg=lambda c:(c.equity.iloc[-1]/1e9)**(365.25/(c.index[-1]-c.index[0]).days)-1
 assert cg(c5)<cg(c6);print('book_preopen OK: CAGR',round(cg(c6),4),'->',round(cg(c5),4),'trades',len(t6),'->',len(t5))
 nl=(t5.pnl/t5.net_return.replace(0,float('nan'))).dropna()
 assert (nl>1e5).all(),nl.min();print('min_order_frac OK: smallest order Rp',round(float(nl.min())))
+# sma_arm: no 'sma_exit' happens before the position has had a Close at or above SMA30
+c7,t7=run(fr,entry_mode='buy_stop',cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,strict_orders=True,presize=True,size_div=5,
+          channel=5,failed_exit=0.,book_preopen=True,min_order_frac=1e-3,sma_arm=True)
+sma={t:(f.Close>=f.Close.rolling(30).mean()).to_numpy() for t,f in fr.items()}
+idx={t:{d:i for i,d in enumerate(pd.DatetimeIndex(f['Date/Time']))} for t,f in fr.items()}
+bad=0
+for r in t7[t7.reason.str.startswith('sma_exit')].itertuples():
+    a=idx[r.ticker][pd.Timestamp(r.entry_date)];b=idx[r.ticker][pd.Timestamp(r.exit_date)]
+    if not sma[r.ticker][a:b].any():bad+=1
+assert bad==0,bad;print('sma_arm OK',int(t7.reason.str.startswith('sma_exit').sum()),'sma exits, all after an at/above-SMA Close; CAGR',round(cg(c7),4))
