@@ -1,4 +1,7 @@
-"""Original Swinger AFL benchmark: ideal signal-bar level and causal comparators."""
+"""Original Swinger AFL benchmark: ideal signal-bar level and causal comparators.
+Decomposition modes (added 16 Oct 2026, defaults unchanged): 'ideal_clamped' = same Close-confirmed signals filled at the level but
+clamped inside that bar's [Low, High] (removes physically impossible prices, keeps the same-bar confirmation look-ahead);
+'close_fill' = same signals filled at that bar's Close (closing-auction approximation; decision uses the Close itself)."""
 from pathlib import Path
 import hashlib
 import json
@@ -22,7 +25,7 @@ def signals(frame, swing=5):
         armed_buy=(c.shift(1)<=tsl.shift(1)).fillna(False)))
 
 
-def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False):
+def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False,slip=0.):
     data={};calendar={}
     for ticker,f in frames.items():
         f=f.reset_index(drop=True);s=signals(f)
@@ -36,7 +39,7 @@ def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False):
 
     def exit_trade(ticker,i,price,reason,date):
         nonlocal cash,outside
-        p=positions.pop(ticker);d=data[ticker]
+        p=positions.pop(ticker);d=data[ticker];price=price*(1-slip)  # proportional slippage (default 0 = original)
         fee=p['qty']*price*sell_fee;proceeds=p['qty']*price-fee;cash+=proceeds
         out=price<d['Low'][i]-1e-9 or price>d['High'][i]+1e-9
         outside+=int(out)
@@ -53,9 +56,10 @@ def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False):
         for ticker,i in obs:
             if ticker not in positions:continue
             d=data[ticker];level=d['level'][i]
-            signal=d['sell'][i] if mode=='afl_ideal' else d['next_sell'][i] if mode=='next_open' else np.isfinite(level) and d['Low'][i]<level
+            signal=d['sell'][i] if mode in ('afl_ideal','ideal_clamped','close_fill') else d['next_sell'][i] if mode=='next_open' else np.isfinite(level) and d['Low'][i]<level
             if signal and d['tradable'][i]:
-                price=level if mode=='afl_ideal' else d['Open'][i] if mode=='next_open' else min(d['Open'][i],level)
+                price=level if mode=='afl_ideal' else d['Open'][i] if mode=='next_open' else min(max(level,d['Low'][i]),d['High'][i]) if mode=='ideal_clamped' \
+                    else d['Close'][i] if mode=='close_fill' else min(d['Open'][i],level)
                 gapfills+=int(mode=='stop_order' and d['Open'][i]<level)
                 exit_trade(ticker,i,float(price),'signal',day);sold.add(ticker)
         available=cash if mode!='stop_order' else min(cash,oldcash)
@@ -63,14 +67,15 @@ def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False):
         for ticker,i in obs:
             if ticker in positions or ticker in sold:continue
             d=data[ticker];level=d['level'][i]
-            signal=d['buy'][i] if mode=='afl_ideal' else d['next_buy'][i] if mode=='next_open' else d['armed_buy'][i] and np.isfinite(level) and d['High'][i]>level
+            signal=d['buy'][i] if mode in ('afl_ideal','ideal_clamped','close_fill') else d['next_buy'][i] if mode=='next_open' else d['armed_buy'][i] and np.isfinite(level) and d['High'][i]>level
             if not signal or not d['tradable'][i]:continue
             if reserved_count>=10:rejected+=1;continue
-            price=level if mode=='afl_ideal' else d['Open'][i] if mode=='next_open' else max(d['Open'][i],level)
+            price=level if mode=='afl_ideal' else d['Open'][i] if mode=='next_open' else min(max(level,d['Low'][i]),d['High'][i]) if mode=='ideal_clamped' \
+                else d['Close'][i] if mode=='close_fill' else max(d['Open'][i],level)
             if not np.isfinite(price) or price<=0:continue
             amount=min(budget,cash,available)
             if amount<=capital*1e-12:rejected+=1;continue
-            qty=amount/(price*(1+buy_fee));fee=qty*price*buy_fee
+            price=price*(1+slip);qty=amount/(price*(1+buy_fee));fee=qty*price*buy_fee
             cash-=amount;available-=amount;reserved_count+=1
             out=price<d['Low'][i]-1e-9 or price>d['High'][i]+1e-9;outside+=int(out)
             gapfills+=int(mode=='stop_order' and d['Open'][i]>level)
@@ -79,7 +84,7 @@ def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False):
             d=data[ticker];lastclose[ticker]=float(d['Close'][i])
             if ticker in positions and i==len(d['Close'])-1:
                 exit_trade(ticker,i,float(d['Close'][i]),'period_end' if d['tradable'][i] else 'period_end_mark',day)
-        marketvalue=sum(p['qty']*lastclose[t]*(1-sell_fee) for t,p in positions.items())
+        marketvalue=sum(p['qty']*lastclose[t]*(1-slip)*(1-sell_fee) for t,p in positions.items())
         equity=cash+marketvalue
         assert cash>=-1e-4 and len(positions)<=10
         new=equity>peak+capital*1e-12;peak=max(peak,equity)
