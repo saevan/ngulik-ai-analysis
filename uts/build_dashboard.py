@@ -336,7 +336,7 @@ table('t-isoos2',isoHead,[isoRow('In-sample (70%) · run terpisah',R.in_sample),
  const wr=w.length/n,pf=w.reduce((a,b)=>a+b,0)/-l.reduce((a,b)=>a+b,0);const ap=ret.filter((r,i)=>pnl[i]>0),al=ret.filter((r,i)=>pnl[i]<0);
  const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;const d0=new Date(EQ[0][0]),d1=new Date(EQ[EQ.length-1][0]);const yrs=(d1-d0)/864e5/365.25;
  const cg=Math.pow(EQ[EQ.length-1][1]/cap,1/yrs)-1;let pk=-1,mdd=0;for(const e of EQ){pk=Math.max(pk,e[1]);mdd=Math.min(mdd,e[1]/pk-1)}
- const me={};for(const e of EQ)me[e[0].slice(0,7)]=e[1];const ks=Object.keys(me).sort();let prev=cap,rec=0;for(const k of ks){if(me[k]>=prev)rec++;prev=Math.max(prev,me[k])}
+ const me={},dp={};let run=cap;for(const e of EQ){run=Math.max(run,e[1]);me[e[0].slice(0,7)]=e[1];dp[e[0].slice(0,7)]=run}const ks=Object.keys(me).sort();let prev=cap,rec=0;for(const k of ks){if(me[k]>=prev)rec++;prev=Math.max(cap,dp[k])}
  const rows=[['CAGR',cg,M.cagr,4],['Win ratio',wr,M.win_ratio,6],['Avg profit (%)',mean(ap),M.avg_profit_pct,6],['Avg loss (%)',mean(al),M.avg_loss_pct,6],['Profit factor',pf,M.profit_factor,6],['% bulan rekor',rec/ks.length,M.record_month_pct,6],['MDD',mdd,M.mdd,6]];
  table('t-recalc',['Metrik','Dihitung browser','Hasil Python','Cocok'],rows.map(([k,a,b,d])=>({c:[k,num(a,d),num(b,d),Math.abs(a-b)<1e-6*Math.max(1,Math.abs(b))?'<span class="badge b-ok">cocok</span>':'<span class="badge b-no">beda</span>']})))})();
 // Parameters.
