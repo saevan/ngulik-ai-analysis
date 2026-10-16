@@ -1,0 +1,14 @@
+{
+ "base": "ch20_er0.3_cand_fNone_s10_basepresizeoff",
+ "base_train_fee": {
+  "cagr": 0.48845175496656124,
+  "records": 88.0,
+  "mdd": -0.16993982266825924,
+  "wr": 0.5105527638190954
+ },
+ "base_train_spread1_cagr": 0.29847274188426387,
+ "eligible": 12,
+ "performance_pick": "ch10_er0.3_cand_f0.0_s5",
+ "character_pick": "ch20_er0.4_tsl10_fNone_s5",
+ "character_eligible": 2
+}
