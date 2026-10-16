@@ -26,12 +26,14 @@ def hhv_signal(n=55):
 
 
 def run(frames,signal=hhv_signal(55),stop=3.,act=2.,trail=2.5,cost_model=None,start='2000-01-01',capital=1e9,slots=10,
-        priority=None,filt=None,early=None,gap_skip=None,size_fn=None,tp=None,max_bars=None):
+        priority=None,filt=None,early=None,gap_skip=None,size_fn=None,tp=None,max_bars=None,fade=None,fade_profit_only=False):
     """priority(f)->score at the signal bar (higher first; ties alphabetical). filt(f)->bool mask ANDed with the signal.
     early=(n,thr). gap_skip=g: skip a queued buy whose Open is more than g above the signal Close.
     size_fn(f)->multiplier at the signal bar for the slot budget (1 = equity/slots).
     tp=t: exit when Close >= entry + t*ATR(signal bar). max_bars=T: exit when the bar count since entry (entry bar = 1) reaches T.
-    Both default to None (off), which leaves the original behaviour unchanged."""
+    fade=d: exit signal when Low[j] <= Open[j]*(1-d) (reference = the CURRENT bar's Open, reset every bar; STRATEGY_NOTES.md); evaluated at the Close,
+    filled at the next tradable Open. fade_profit_only=True: the fade signal only counts while Close[j] > entry reference Open (still in profit).
+    All three default to off, which leaves the original behaviour unchanged."""
     data={};calendar={}
     for t,f in frames.items():
         f=f.reset_index(drop=True);a=atr14(f)
@@ -92,6 +94,7 @@ def run(frames,signal=hhv_signal(55),stop=3.,act=2.,trail=2.5,cost_model=None,st
             if stop and c<=p['ref']-stop*p['a0']:p['pending']='stop'
             elif p['armed'] and c<=p['peak']-trail*p['a0']:p['pending']='trail'
             elif early is not None and age==early[0] and c<=p['ref']*(1+early[1]):p['pending']='early'
+            elif fade is not None and d['Low'][i]<=d['Open'][i]*(1-fade) and (not fade_profit_only or c>p['ref']):p['pending']='fade'
             elif tp is not None and c>=p['ref']+tp*p['a0']:p['pending']='tp'
             elif max_bars is not None and age>=max_bars:p['pending']='time'
         value=sum(p['q']*last[t] for t,p in pos.items());equity=cash+value
