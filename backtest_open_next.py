@@ -26,14 +26,18 @@ def hhv_signal(n=55):
 
 
 def run(frames,signal=hhv_signal(55),stop=3.,act=2.,trail=2.5,cost_model=None,start='2000-01-01',capital=1e9,slots=10,
-        priority=None,filt=None,early=None,gap_skip=None,size_fn=None,tp=None,max_bars=None,fade=None,fade_profit_only=False):
+        priority=None,filt=None,early=None,gap_skip=None,size_fn=None,tp=None,max_bars=None,fade=None,fade_profit_only=False,asym=None):
     """priority(f)->score at the signal bar (higher first; ties alphabetical). filt(f)->bool mask ANDed with the signal.
     early=(n,thr). gap_skip=g: skip a queued buy whose Open is more than g above the signal Close.
     size_fn(f)->multiplier at the signal bar for the slot budget (1 = equity/slots).
     tp=t: exit when Close >= entry + t*ATR(signal bar). max_bars=T: exit when the bar count since entry (entry bar = 1) reaches T.
     fade=d: exit signal when Low[j] <= Open[j]*(1-d) (reference = the CURRENT bar's Open, reset every bar; STRATEGY_NOTES.md); evaluated at the Close,
     filled at the next tradable Open. fade_profit_only=True: the fade signal only counts while Close[j] > entry reference Open (still in profit).
-    All three default to off, which leaves the original behaviour unchanged."""
+    All three default to off, which leaves the original behaviour unchanged.
+    asym=(fade_p, loss_p, loss_t): asymmetric reference ("cut losses fast, keep winners"). The state at the PREVIOUS Close decides:
+      in profit (prev Close > entry Open): exit when Low[j] <= Open[j]*(1-fade_p)  (reference = the latest Open, updated every bar)
+      in loss / entry bar: exit when Low[j] <= entry*(1-loss_p) (reference = the entry Open), or when the position has been
+      in loss for loss_t consecutive Closes (clock counted from entry or from the last Close in profit). Any part may be None."""
     data={};calendar={}
     for t,f in frames.items():
         f=f.reset_index(drop=True);a=atr14(f)
@@ -97,6 +101,13 @@ def run(frames,signal=hhv_signal(55),stop=3.,act=2.,trail=2.5,cost_model=None,st
             elif fade is not None and d['Low'][i]<=d['Open'][i]*(1-fade) and (not fade_profit_only or c>p['ref']):p['pending']='fade'
             elif tp is not None and c>=p['ref']+tp*p['a0']:p['pending']='tp'
             elif max_bars is not None and age>=max_bars:p['pending']='time'
+            if asym is not None and not p['pending']:
+                fp,lp,lt=asym;prof=p.get('prof',False)
+                if prof:
+                    if fp is not None and d['Low'][i]<=d['Open'][i]*(1-fp):p['pending']='fade_profit'
+                elif lp is not None and d['Low'][i]<=p['ref']*(1-lp):p['pending']='loss_price'
+                p['prof']=c>p['ref'];p['clock']=0 if p['prof'] else p.get('clock',0)+1
+                if not p['pending'] and lt is not None and not p['prof'] and p['clock']>=lt:p['pending']='loss_time'
         value=sum(p['q']*last[t] for t,p in pos.items());equity=cash+value
         assert cash>=-capital*1e-9 and len(pos)<=slots
         new=equity>peak_eq+capital*1e-12;peak_eq=max(peak_eq,equity)
