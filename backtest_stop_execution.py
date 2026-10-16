@@ -25,6 +25,7 @@ def limit_pct(prev):
 def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,sma_len=30,trail_len=5):
     f=f.reset_index(drop=True);a=atr_previous(f)
     d={k:f[k].to_numpy() for k in ['Open','High','Low','Close','tradable','Date/Time']}
+    d['adv']=(f.Close*f.Volume).shift(1).rolling(20).mean().to_numpy(float) if 'Volume' in f else np.full(len(f),np.nan)  # known before bar i
     d['atr']=a
     d['priority']=None if priority is None else np.nan_to_num(np.asarray(priority(f),float),nan=-np.inf)
     if entry_mode in ('next_open','next_open_vol'):
@@ -51,7 +52,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -72,7 +73,8 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     failed_exit=m: at the Close of the ENTRY bar, if Close < buy level*(1-m) (false breakout) the position is sold at the next tradable Open.
     size_div: each buy = prior-Close equity / size_div (default = slots); slots stays the maximum number of positions.
     presize (strict_orders): order sizes are fixed before the Open in priority order (each min(budget, cash still unreserved)),
-    and only as many orders as the cash covers are placed, so cash never decides which triggered order is filled."""
+    and only as many orders as the cash covers are placed, so cash never decides which triggered order is filled.
+    liq_cap=x: each BUY order <= x * average daily traded value (Close*Volume) of the 20 bars before the entry bar (sells uncapped)."""
     data={};calendar={}
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len);data[t]=d
@@ -138,7 +140,9 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 if not(d['armed'][i] and d['tradable'][i]):continue
                 if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
                 order_book.add(t)
-                if presize:order_size[t]=min(budget,avail);avail-=order_size[t]
+                if presize:
+                    cap_amt=liq_cap*d['adv'][i] if liq_cap is not None and np.isfinite(d['adv'][i]) else np.inf
+                    order_size[t]=min(budget,avail,cap_amt);avail-=order_size[t]
         for t,i in entry_obs:  # entries
             if t in positions or t in exited:continue
             d=data[t]
@@ -158,6 +162,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if price_limits and i and d['High'][i]>=d['Close'][i-1]*(1+limit_pct(d['Close'][i-1]))*.995:continue
             if len(positions)+intraday_exits>=slots:continue
             amount=min(budget,cash-locked) if not (presize and order_book is not None) else min(order_size[t],cash-locked)
+            if liq_cap is not None:amount=min(amount,liq_cap*d['adv'][i]) if np.isfinite(d['adv'][i]) else 0.
             if amount<=capital*1e-12:continue
             if cost_model is not None:
                 price=quote(price,d,i,'buy');q=cost_model.quantity(amount,price)

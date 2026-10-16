@@ -1,0 +1,10 @@
+system,cut,days,trades,identical
+pre_registered_performance,2008-06-30,2067,454,True
+pre_registered_performance,2016-01-15,3907,876,True
+pre_registered_performance,2021-03-31,5169,1220,True
+post_hoc_best_full_fee,2008-06-30,2067,816,True
+post_hoc_best_full_fee,2016-01-15,3907,1573,True
+post_hoc_best_full_fee,2021-03-31,5169,2121,True
+fee_only_train_best,2008-06-30,2067,685,True
+fee_only_train_best,2016-01-15,3907,1326,True
+fee_only_train_best,2021-03-31,5169,1819,True

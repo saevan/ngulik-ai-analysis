@@ -25,12 +25,13 @@ def signals(frame, swing=5):
         armed_buy=(c.shift(1)<=tsl.shift(1)).fillna(False)))
 
 
-def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False,slip=0.):
+def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False,slip=0.,liq_cap=None):
     data={};calendar={}
     for ticker,f in frames.items():
         f=f.reset_index(drop=True);s=signals(f)
         d={k:f[k].to_numpy() for k in ['Open','High','Low','Close','tradable','Date/Time']}
         d.update({k:s[k].to_numpy() for k in s.columns});data[ticker]=d
+        d['adv']=(f.Close*f.Volume).shift(1).rolling(20).mean().to_numpy(float) if 'Volume' in f else np.full(len(f),np.nan)
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64('2000-01-01'):calendar.setdefault(pd.Timestamp(day),[]).append((ticker,i))
     capital=1e9;cash=capital;equity=capital;peak=capital
@@ -74,6 +75,7 @@ def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False,slip=0.
                 else d['Close'][i] if mode=='close_fill' else max(d['Open'][i],level)
             if not np.isfinite(price) or price<=0:continue
             amount=min(budget,cash,available)
+            if liq_cap is not None:amount=min(amount,liq_cap*d['adv'][i]) if np.isfinite(d['adv'][i]) else 0.
             if amount<=capital*1e-12:rejected+=1;continue
             price=price*(1+slip);qty=amount/(price*(1+buy_fee));fee=qty*price*buy_fee
             cash-=amount;available-=amount;reserved_count+=1
