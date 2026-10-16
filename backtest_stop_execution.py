@@ -52,7 +52,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -74,7 +74,11 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     size_div: each buy = prior-Close equity / size_div (default = slots); slots stays the maximum number of positions.
     presize (strict_orders): order sizes are fixed before the Open in priority order (each min(budget, cash still unreserved)),
     and only as many orders as the cash covers are placed, so cash never decides which triggered order is filled.
-    liq_cap=x: each BUY order <= x * average daily traded value (Close*Volume) of the 20 bars before the entry bar (sells uncapped)."""
+    liq_cap=x: each BUY order <= x * average daily traded value (Close*Volume) of the 20 bars before the entry bar (sells uncapped).
+    book_preopen (strict_orders): the order book uses only information available BEFORE the Open: today's volume (tradable) is not
+    used to pick names, and a name whose Open gaps beyond the gap rule keeps its slot and reserved cash (its order is cancelled at the
+    Open, nothing is handed to lower-ranked names). Found by an independent audit (16 Oct 2026); default False = old behaviour.
+    min_order_frac=f: orders smaller than f * budget are not placed (removes floating-point 'dust' orders at very large equity)."""
     data={};calendar={}
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len);data[t]=d
@@ -134,11 +138,14 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             free=slots-len(positions)-intraday_exits;order_book=set();order_size={};avail=cash-locked
             for t,i in entry_obs:  # pre-Open information only: armed level, Open-time gap rule
                 if len(order_book)>=free:break
-                if presize and avail<=capital*1e-12:break
+                if presize and avail<=max(capital*1e-12,(min_order_frac or 0.)*budget):break
                 if t in positions or t in exited:continue
                 d=data[t]
-                if not(d['armed'][i] and d['tradable'][i]):continue
-                if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
+                if book_preopen:
+                    if not d['armed'][i]:continue
+                else:
+                    if not(d['armed'][i] and d['tradable'][i]):continue
+                    if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
                 order_book.add(t)
                 if presize:
                     cap_amt=liq_cap*d['adv'][i] if liq_cap is not None and np.isfinite(d['adv'][i]) else np.inf
@@ -163,7 +170,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if len(positions)+intraday_exits>=slots:continue
             amount=min(budget,cash-locked) if not (presize and order_book is not None) else min(order_size[t],cash-locked)
             if liq_cap is not None:amount=min(amount,liq_cap*d['adv'][i]) if np.isfinite(d['adv'][i]) else 0.
-            if amount<=capital*1e-12:continue
+            if amount<=max(capital*1e-12,(min_order_frac or 0.)*budget):continue
             if cost_model is not None:
                 price=quote(price,d,i,'buy');q=cost_model.quantity(amount,price)
                 if q<=0:continue
@@ -193,7 +200,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if close_fade and d['fade'][i] and p['pending'] is None:p['pending']='fading'
             if d['sma_exit'][i] and p['pending'] is None:p['pending']='sma_exit'
         value=sum(p['q']*lastclose[t] for t,p in positions.items());equity=cash+value
-        assert cash>=-capital*1e-10 and len(positions)<=slots
+        assert cash>=-max(capital,abs(equity))*1e-10 and len(positions)<=slots
         new=equity>peak+capital*1e-12;peak=max(peak,equity)
         daily.append(dict(date=day,cash=cash,market_value=value,equity=equity,positions=len(positions),new_high=new,drawdown=equity/peak-1))
     assert not positions

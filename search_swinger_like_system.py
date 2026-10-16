@@ -14,7 +14,10 @@ Costs: fee (Swinger's basis) and spread1 (fee + 1 IDX tick per side + 100-share 
 Selection (train 2000-2015 only, written before running): eligible = train fee records >= base AND train spread1 CAGR >= base
 AND train fee MDD >= -30%; performance pick = max train fee CAGR. Character pick (secondary) = same plus train fee WR >= 50%.
 Base = audited strict buy-stop candidate (channel 20, ER .3, cand, no failed exit, /10, presize off). Every config is also run on
-validation 2016-2020, test 2021-2025-08 and full (post-freeze diagnostics)."""
+validation 2016-2020, test 2021-2025-08 and full (post-freeze diagnostics).
+v2 (16 Oct 2026, after an independent audit): the order book now uses only pre-Open information (book_preopen=True: no same-day
+volume, a gapped name keeps its slot and reserved cash) and orders below 0.1% of the budget are not placed. Grid, rule and windows
+unchanged. v1 results (book with same-day information) are kept in v1_book_lookahead/."""
 from itertools import product
 from multiprocessing import Pool
 from pathlib import Path
@@ -39,7 +42,7 @@ FR={}
 def label(c):return f"ch{c['channel']}_er{c['er_min']}_{c['exit']}_f{c['failed']}_s{c['size_div']}"+('' if c.get('presize',True) else '_basepresizeoff')
 
 def kwargs(c):
-    return dict(entry_mode='buy_stop',strict_orders=True,presize=c.get('presize',True),gap_skip=.02,gapdown_close=.02,priority=mom120,
+    return dict(entry_mode='buy_stop',strict_orders=True,presize=c.get('presize',True),book_preopen=True,min_order_frac=1e-3,gap_skip=.02,gapdown_close=.02,priority=mom120,
         channel=c['channel'],er_min=c['er_min'],failed_exit=c['failed'],size_div=c['size_div'],**EXITS[c['exit']])
 
 def job(a):

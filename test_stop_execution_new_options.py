@@ -24,3 +24,12 @@ assert len(fb)>0 and (fb.bars<=3).mean()>.95,fb.bars.describe();print('failed_ex
 # presize: cash never negative (asserted in engine) and order count bounded by cash
 c4,t4=run(fr,entry_mode='buy_stop',cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,strict_orders=True,presize=True,size_div=5)
 assert (c4.positions<=10).all();print('presize OK',len(t4),'trades; invested',round((c4.market_value/c4.equity).mean(),3))
+# book_preopen: names with zero volume today or a gap beyond the rule still consume their book slot (no hand-over)
+c5,t5=run(fr,entry_mode='buy_stop',cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,strict_orders=True,presize=True,size_div=5,
+          channel=5,failed_exit=0.,book_preopen=True,min_order_frac=1e-3)
+c6,t6=run(fr,entry_mode='buy_stop',cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,strict_orders=True,presize=True,size_div=5,
+          channel=5,failed_exit=0.)
+cg=lambda c:(c.equity.iloc[-1]/1e9)**(365.25/(c.index[-1]-c.index[0]).days)-1
+assert cg(c5)<cg(c6);print('book_preopen OK: CAGR',round(cg(c6),4),'->',round(cg(c5),4),'trades',len(t6),'->',len(t5))
+nl=(t5.pnl/t5.net_return.replace(0,float('nan'))).dropna()
+assert (nl>1e5).all(),nl.min();print('min_order_frac OK: smallest order Rp',round(float(nl.min())))

@@ -28,11 +28,18 @@ class PropCosts(Costs):
         return float(reference)*(1+self.slip) if side=='buy' else float(reference)*(1-self.slip)
 
 COST={'fee':Costs(),'s10':PropCosts(slip=.001),'s25':PropCosts(slip=.0025),'spread1':Costs(grid=True,ticks_per_side=1,round_lot=100)}
-FIN={'base':S.BASE,
-     'pre_registered_performance':dict(channel=10,er_min=.3,exit='cand',failed=0.,size_div=5),
-     'pre_registered_character':dict(channel=20,er_min=.4,exit='tsl10',failed=None,size_div=5),
-     'fee_only_train_best':dict(channel=5,er_min=.3,exit='cand',failed=0.,size_div=5),
-     'post_hoc_best_full_fee':dict(channel=5,er_min=.2,exit='cand_trail2',failed=0.,size_div=5)}
+def _cfg(label):
+    for c in S.CONFIGS:
+        if S.label(c)==label:return c
+    raise KeyError(label)
+def finalists():
+    fz=json.loads((S.OUT/'FROZEN.json').read_text());g=pd.read_csv(S.OUT/'all_windows.csv');g=g[(g.label!='SWINGER_IDEAL_fee')&(~g.label.str.contains('presizeoff'))]
+    tr=g[(g.window=='train')&(g.cost=='fee')];fu=g[(g.window=='full')&(g.cost=='fee')]
+    out={'base':S.BASE,'pre_registered_performance':_cfg(fz['performance_pick'])}
+    if fz.get('character_pick'):out['pre_registered_character']=_cfg(fz['character_pick'])
+    out['fee_only_train_best']=_cfg(tr.loc[tr.cagr.idxmax(),'label']);out['post_hoc_best_full_fee']=_cfg(fu.loc[fu.cagr.idxmax(),'label'])
+    return out
+FIN=finalists() if (S.OUT/'FROZEN.json').exists() and (S.OUT/'all_windows.csv').exists() else {}
 FR=S.FR
 
 def job(a):
