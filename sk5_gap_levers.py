@@ -1,9 +1,9 @@
 """Which characteristics close the SK-5 vs Swinger-ideal gap by regime? (written before running)
 
-Part A (observational): the 361 configs of search_swinger_like_system (v2 pre-Open book), full 2000-2025, fee. For each: daily attribution by
+Part A (observational): the 360 grid configs of search_swinger_like_system (v2 pre-Open book; BASE not included), full 2000-2025, fee. For each: daily attribution by
 ER20 regime (conditional annualized return, mean exposure = market value / equity at the start of the day, efficiency = sum of daily
-returns / sum of exposure, annualized) and trade characteristics by entry regime. Spearman correlations across configs show which
-characteristics go with higher regime returns (association, not causation).
+returns / sum of exposure, annualized; NOTE: start-of-day exposure leaves entry-day P&L in 'efficiency', see decompose_sk5_gap.py) and
+trade characteristics by entry regime. Correlations across configs (computed in the analysis, not in this script) are associations only.
 Part B (experiment): SK-5 (HHV5, ER20>=0.3, fade2+SMA30, failed-breakout exit, 20% per entry) with levers aimed at the gaps found in
 analyze_sk5_regimes.py (exposure; winners held shorter in sideways/downtrend):
   er_min {0.3, 0.2, none} x exit {cand, cand_smaarm (SMA30 exit only after a Close >= SMA30), tsl5_fade (LLV5 sell stop + fade2, no SMA),

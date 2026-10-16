@@ -22,7 +22,7 @@ def limit_pct(prev):
     return .35 if prev<200 else .25 if prev<5000 else .20
 
 
-def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,sma_len=30,trail_len=5):
+def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,sma_len=30,trail_len=5,entry_sma=None):
     f=f.reset_index(drop=True);a=atr_previous(f)
     d={k:f[k].to_numpy() for k in ['Open','High','Low','Close','tradable','Date/Time']}
     d['adv']=(f.Close*f.Volume).shift(1).rolling(20).mean().to_numpy(float) if 'Volume' in f else np.full(len(f),np.nan)  # known before bar i
@@ -39,6 +39,7 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,
         level=f.High.shift(1).rolling(channel).max()
         er_prev=efficiency_ratio(f.Close,20).shift(1)
         armed=(f.Close.shift(1)<=level)&((er_prev>=er_min) if er_min is not None else level.notna())
+        if entry_sma:armed=armed&(f.Close.shift(1)>=f.Close.rolling(entry_sma).mean().shift(1))  # previous Close at/above its SMA
         if gate_dates is not None:armed=armed&f['Date/Time'].isin(gate_dates)
         d['buy_level']=level.to_numpy(float);d['armed']=armed.fillna(False).to_numpy(bool)
     d['sma_exit']=(f.Close<f.Close.rolling(sma_len).mean()).to_numpy(bool) if sma_len else np.zeros(len(f),bool)
@@ -52,7 +53,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -80,10 +81,11 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     Open, nothing is handed to lower-ranked names). Found by an independent audit (16 Oct 2026); default False = old behaviour.
     min_order_frac=f: orders smaller than f * budget are not placed (removes floating-point 'dust' orders at very large equity).
     sma_arm: the Close<SMA exit only counts after the position has had a Close at or above the SMA (entry bar included), so a breakout
-    that starts below a falling SMA is not sold at the next Open just for being below it. Default False = old behaviour."""
+    that starts below a falling SMA is not sold at the next Open just for being below it. Default False = old behaviour.
+    entry_sma=n: a buy stop is armed only if the previous Close >= SMA(n) of the previous bar (default None = off)."""
     data={};calendar={}
     for t,f in frames.items():
-        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len);data[t]=d
+        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma);data[t]=d
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64(start):calendar.setdefault(pd.Timestamp(day),[]).append((t,i))
     cash=equity=peak=float(capital);positions={};lastclose={};queued=set();ledger=[];daily=[]
@@ -95,7 +97,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         p=positions.pop(t);d=data[t];ref=price;price=quote(price,d,i,'sell')
         fee=p['q']*price*(cost_model.sell_fee if cost_model else 0);proceeds=p['q']*price-fee;cash+=proceeds
         ledger.append(dict(ticker=t,entry_date=p['date'],exit_date=day,entry_price=p['price'],exit_price=price,reference_exit_price=ref,
-            pnl=proceeds-p['notional'],net_return=proceeds/p['notional']-1,gross_return=price/p['price']-1,bars=i-p['index']+1,reason=reason,
+            pnl=proceeds-p['notional'],net_return=proceeds/p['notional']-1,gross_return=price/p['price']-1,bars=i-p['index']+1,reason=reason,q=p['q'],notional=p['notional'],
             entry_outside_bar=p['outside'],exit_outside_bar=bool(ref<d['Low'][i]-1e-9 or ref>d['High'][i]+1e-9)))
         return proceeds
     for day,obs in sorted(calendar.items()):

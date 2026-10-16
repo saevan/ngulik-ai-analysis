@@ -43,3 +43,9 @@ for r in t7[t7.reason.str.startswith('sma_exit')].itertuples():
     a=idx[r.ticker][pd.Timestamp(r.entry_date)];b=idx[r.ticker][pd.Timestamp(r.exit_date)]
     if not sma[r.ticker][a:b].any():bad+=1
 assert bad==0,bad;print('sma_arm OK',int(t7.reason.str.startswith('sma_exit').sum()),'sma exits, all after an at/above-SMA Close; CAGR',round(cg(c7),4))
+# entry_sma: every entry's previous Close is at/above SMA30 of the previous bar
+c8,t8=run(fr,entry_mode='buy_stop',cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,strict_orders=True,presize=True,size_div=5,
+          channel=5,failed_exit=0.,book_preopen=True,min_order_frac=1e-3,entry_sma=30)
+sm={t:f.Close.rolling(30).mean().to_numpy() for t,f in fr.items()};cl={t:f.Close.to_numpy() for t,f in fr.items()}
+bad=sum(1 for r in t8.itertuples() if not cl[r.ticker][idx[r.ticker][pd.Timestamp(r.entry_date)]-1]>=sm[r.ticker][idx[r.ticker][pd.Timestamp(r.entry_date)]-1])
+assert bad==0,bad;print('entry_sma OK',len(t8),'trades; CAGR',round(cg(c8),4))
