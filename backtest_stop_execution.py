@@ -22,7 +22,7 @@ def limit_pct(prev):
     return .35 if prev<200 else .25 if prev<5000 else .20
 
 
-def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20):
+def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,sma_len=30,trail_len=5):
     f=f.reset_index(drop=True);a=atr_previous(f)
     d={k:f[k].to_numpy() for k in ['Open','High','Low','Close','tradable','Date/Time']}
     d['atr']=a
@@ -37,20 +37,21 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20):
     else:
         level=f.High.shift(1).rolling(channel).max()
         er_prev=efficiency_ratio(f.Close,20).shift(1)
-        armed=(f.Close.shift(1)<=level)&(er_prev>=.3)
+        armed=(f.Close.shift(1)<=level)&((er_prev>=er_min) if er_min is not None else level.notna())
         if gate_dates is not None:armed=armed&f['Date/Time'].isin(gate_dates)
         d['buy_level']=level.to_numpy(float);d['armed']=armed.fillna(False).to_numpy(bool)
-    d['sma_exit']=(f.Close<f.Close.rolling(30).mean()).to_numpy(bool)
-    d['fade']=np.isfinite(a)&(a>0)&((d['Open']-d['Low'])>=fade*a)
+    d['sma_exit']=(f.Close<f.Close.rolling(sma_len).mean()).to_numpy(bool) if sma_len else np.zeros(len(f),bool)
+    d['fade']=np.isfinite(a)&(a>0)&((d['Open']-d['Low'])>=fade*a) if fade is not None else np.zeros(len(f),bool)
     d['llv']=f.Low.shift(1).rolling(llv).min().to_numpy(float) if llv else None
-    d['llv5']=f.Low.shift(1).rolling(5).min().to_numpy(float)  # Swinger 'sup' known before bar i
+    d['llv5']=f.Low.shift(1).rolling(trail_len).min().to_numpy(float)  # Swinger 'sup' (default 5) known before bar i
     return d
 
 
 def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_model=None,start='2000-01-01',capital=1e9,slots=10,gate_dates=None,
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
-        channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False):
+        channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -64,10 +65,17 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     breakeven=b: once a Close reaches entry + b*entry ATR, an intraday stop at the entry price is active.
     strict_orders (buy_stop only): orders are decided before the Open from information known then; only the top-K armed
     names by priority (K = slots free at the Open) get a buy-stop order, and only those can fill. Without it the engine
-    picks among names that actually triggered during the day (end-of-day knowledge) when slots or cash bind."""
+    picks among names that actually triggered during the day (end-of-day knowledge) when slots or cash bind.
+    New-system options (defaults reproduce the old behaviour exactly):
+    er_min: stock ER20 threshold of the buy stop (None = no ER filter). sma_len: Close < SMA exit length (None = off).
+    fade=None: no fading exit. trail_len: LLV length of the trailing stop (default 5).
+    failed_exit=m: at the Close of the ENTRY bar, if Close < buy level*(1-m) (false breakout) the position is sold at the next tradable Open.
+    size_div: each buy = prior-Close equity / size_div (default = slots); slots stays the maximum number of positions.
+    presize (strict_orders): order sizes are fixed before the Open in priority order (each min(budget, cash still unreserved)),
+    and only as many orders as the cash covers are placed, so cash never decides which triggered order is filled."""
     data={};calendar={}
     for t,f in frames.items():
-        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel);data[t]=d
+        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len);data[t]=d
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64(start):calendar.setdefault(pd.Timestamp(day),[]).append((t,i))
     cash=equity=peak=float(capital);positions={};lastclose={};queued=set();ledger=[];daily=[]
@@ -83,7 +91,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             entry_outside_bar=p['outside'],exit_outside_bar=bool(ref<d['Low'][i]-1e-9 or ref>d['High'][i]+1e-9)))
         return proceeds
     for day,obs in sorted(calendar.items()):
-        exited=set();budget=equity/slots*(size_factor if size_dates is not None and day in size_dates else 1.);locked=0.;intraday_exits=0
+        exited=set();budget=equity/(size_div or slots)*(size_factor if size_dates is not None and day in size_dates else 1.);locked=0.;intraday_exits=0
         if derisk_dates is not None and day in derisk_dates:
             for t,i in obs:
                 if t in positions and data[t]['tradable'][i]:close(t,i,float(data[t]['Open'][i]),'derisk',day);exited.add(t)
@@ -121,14 +129,16 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         entry_obs=obs if priority is None else sorted(obs,key=lambda x:-data[x[0]]['priority'][x[1]])
         order_book=None
         if strict_orders and entry_mode=='buy_stop':
-            free=slots-len(positions)-intraday_exits;order_book=set()
+            free=slots-len(positions)-intraday_exits;order_book=set();order_size={};avail=cash-locked
             for t,i in entry_obs:  # pre-Open information only: armed level, Open-time gap rule
                 if len(order_book)>=free:break
+                if presize and avail<=capital*1e-12:break
                 if t in positions or t in exited:continue
                 d=data[t]
                 if not(d['armed'][i] and d['tradable'][i]):continue
                 if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
                 order_book.add(t)
+                if presize:order_size[t]=min(budget,avail);avail-=order_size[t]
         for t,i in entry_obs:  # entries
             if t in positions or t in exited:continue
             d=data[t]
@@ -147,7 +157,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if max_tick_frac is not None and i and tick_size(d['Close'][i-1])/d['Close'][i-1]>max_tick_frac:continue
             if price_limits and i and d['High'][i]>=d['Close'][i-1]*(1+limit_pct(d['Close'][i-1]))*.995:continue
             if len(positions)+intraday_exits>=slots:continue
-            amount=min(budget,cash-locked)
+            amount=min(budget,cash-locked) if not (presize and order_book is not None) else min(order_size[t],cash-locked)
             if amount<=capital*1e-12:continue
             if cost_model is not None:
                 price=quote(price,d,i,'buy');q=cost_model.quantity(amount,price)
@@ -158,7 +168,8 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             stop=None
             if init_stop=='llv5' and np.isfinite(d['llv5'][i]):stop=float(d['llv5'][i])
             elif init_stop=='atr2' and np.isfinite(d['atr'][i]) and d['atr'][i]>0:stop=price-2*float(d['atr'][i])
-            positions[t]=dict(date=day,index=i,price=price,notional=amount,q=q,pending=None,outside=outside,stop=stop,trail=False,atr0=float(d['atr'][i]))
+            positions[t]=dict(date=day,index=i,price=price,notional=amount,q=q,pending=None,outside=outside,stop=stop,trail=False,atr0=float(d['atr'][i]),
+                level=float(d['buy_level'][i]) if entry_mode=='buy_stop' else np.nan)
         for t,i in obs:  # Close: marks and next-Open exit signals
             d=data[t];lastclose[t]=float(d['Close'][i])
             if cost_model is not None and cost_model.liquidation_mark:
@@ -171,6 +182,8 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 close(t,i,float(d['Close'][i]),'period_end' if d['tradable'][i] else 'period_end_mark',day);continue
             if breakeven is not None and np.isfinite(p['atr0']) and d['Close'][i]>=p['price']+breakeven*p['atr0']:p['be']=True
             if trail_after is not None and np.isfinite(p['atr0']) and d['Close'][i]>=p['price']+trail_after*p['atr0']:p['trail']=True
+            if failed_exit is not None and p['index']==i and p['pending'] is None and np.isfinite(p['level']) and d['Close'][i]<p['level']*(1-failed_exit):
+                p['pending']='failed_breakout'
             close_fade=exit_mode=='close' or p['index']==i
             if close_fade and d['fade'][i] and p['pending'] is None:p['pending']='fading'
             if d['sma_exit'][i] and p['pending'] is None:p['pending']='sma_exit'
