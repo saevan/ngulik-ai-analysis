@@ -1,0 +1,84 @@
+{
+ "doc": "New system aimed at the Swinger-ideal profile, built only from causal orders (levels known before the Open).\n\nBenchmark (prototype_swinger_benchmark_results, afl_ideal_net, fee-only 0.15%/0.25%): full 2000-2025 CAGR 114.8%, 249/308 record\nmonths, MDD -18.8%, WR 51.9%, payout 5.17. Its fills are not causal (12.8% of entries below the day's Low, 16.9% of exits above the High).\n\nFixed for every config: buy stop at HHV(N) of the previous N Highs, armed when the previous Close <= level; strict pre-Open order book\n(top-K by momentum 120/20, K = free slots) with order sizes fixed before the Open (presize); skip when Open > level*1.02; a pending\nClose-signal exit whose Open gaps down >2% is sold at that Close; max 10 positions; Rp1bn; compounding; long only.\nGrid (360): channel N {5,10,20} x ER20 min {none,.2,.3,.4} x exit {cand: fade2 ATR from the running Open + Close<SMA30;\ncand_trail2: cand + intraday trailing stop at LLV5 once a Close >= entry+2 ATR; tsl5 / tsl10: Swinger-style sell stop at LLV5 / LLV10 only;\nsma30_trail2: Close<SMA30 + trailing LLV5 after +2 ATR} x failed-breakout exit {off, entry-bar Close < level -> next Open}\nx size per entry {equity/10, /7, /5}.\nCosts: fee (Swinger's basis) and spread1 (fee + 1 IDX tick per side + 100-share lots).\nSelection (train 2000-2015 only, written before running): eligible = train fee records >= base AND train spread1 CAGR >= base\nAND train fee MDD >= -30%; performance pick = max train fee CAGR. Character pick (secondary) = same plus train fee WR >= 50%.\nBase = audited strict buy-stop candidate (channel 20, ER .3, cand, no failed exit, /10, presize off). Every config is also run on\nvalidation 2016-2020, test 2021-2025-08 and full (post-freeze diagnostics).",
+ "grid": {
+  "channel": [
+   5,
+   10,
+   20
+  ],
+  "er_min": [
+   null,
+   0.2,
+   0.3,
+   0.4
+  ],
+  "exit": [
+   "cand",
+   "cand_trail2",
+   "tsl5",
+   "tsl10",
+   "sma30_trail2"
+  ],
+  "failed": [
+   null,
+   0.0
+  ],
+  "size_div": [
+   10,
+   7,
+   5
+  ]
+ },
+ "exits": {
+  "cand": {
+   "fade": "2.0",
+   "sma_len": "30"
+  },
+  "cand_trail2": {
+   "fade": "2.0",
+   "sma_len": "30",
+   "trail_after": "2.0"
+  },
+  "tsl5": {
+   "fade": "None",
+   "sma_len": "None",
+   "llv": "5"
+  },
+  "tsl10": {
+   "fade": "None",
+   "sma_len": "None",
+   "llv": "10"
+  },
+  "sma30_trail2": {
+   "fade": "None",
+   "sma_len": "30",
+   "trail_after": "2.0"
+  }
+ },
+ "base": {
+  "channel": 20,
+  "er_min": 0.3,
+  "exit": "cand",
+  "failed": null,
+  "size_div": 10,
+  "presize": false
+ },
+ "windows": {
+  "train": [
+   "2000-01-01",
+   "2015-12-31"
+  ],
+  "validation": [
+   "2016-01-01",
+   "2020-12-31"
+  ],
+  "test": [
+   "2021-01-01",
+   "2025-08-15"
+  ],
+  "full": [
+   "2000-01-01",
+   "2025-08-15"
+  ]
+ }
+}
