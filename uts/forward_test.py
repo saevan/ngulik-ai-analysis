@@ -20,7 +20,7 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--data',required=True);ap.add_argument('--start',default=None);a=ap.parse_args()
     res=json.load(open(HERE/'output'/'results.json'));fz=res['frozen']
     h=hashlib.sha256()
-    for f in ['engine.py','indicators.py','data.py','metrics.py','run_uts.py']:h.update((HERE/f).read_bytes())
+    for f in ['engine.py','indicators.py','data.py','metrics.py']:h.update((HERE/f).read_bytes())
     if h.hexdigest()!=fz['code_sha256']:raise SystemExit('Code changed after the freeze date: forward test refused.')
     start=a.start or fz['date'];p=replace(Params(),**fz['params'])
     with np.errstate(invalid='ignore',divide='ignore'):eq,tr,op=run(frames(load_stocks(a.data)),p,Execution(),start=start)

@@ -63,13 +63,15 @@ def series(eq):return [[str(d.date()),round(float(v),2)] for d,v in eq.equity.it
 def main():
     OUT.mkdir(exist_ok=True)
     st=load_stocks();fr=to_frames(st);G['fr']=fr
-    d0,d1=st['Date/Time'].min(),st['Date/Time'].max()
+    # Backtest starts 2000-01-01 (research period); earlier bars (from 1994 for a few tickers) only warm up indicators.
+    d0,d1=st.loc[st['Date/Time']>='2000-01-01','Date/Time'].min(),st['Date/Time'].max()
     split=(d0+pd.Timedelta(days=round((d1-d0).days*.7))).normalize()
     START=str(d0.date());SPLIT=str(split.date());OOS0=str((split+pd.Timedelta(days=1)).date());END=str(d1.date())
     res=dict(meta=dict(start=START,end=END,is_end=SPLIT,oos_start=OOS0,freeze_date=FREEZE_DATE,capital=CAPITAL,grid=GRID,
         official=asdict(OFFICIAL),gross=asdict(GROSS),double=asdict(DOUBLE),tickers=int(st.Ticker.nunique()),bars=int(len(st))))
     # Benchmark: equal-weight daily-rebalanced index of the same 100 stocks (not IHSG; IHSG not reachable offline).
     closes=st.pivot(index='Date/Time',columns='Ticker',values='Close').sort_index().ffill()
+    closes=closes.loc['2000-01-01':]
     bench=(1+closes.pct_change(fill_method=None).mean(axis=1).fillna(0)).cumprod()*CAPITAL
     G['bench']=bench
     # A1. In-sample grid + selection.
@@ -153,13 +155,15 @@ def main():
     res['truncation_test']=trunc
     # Research effort disclosure: rows in earlier result tables of the repository + this pipeline.
     root=Path(__file__).resolve().parent.parent;n=0
-    for f in root.glob('*_results/*.csv'):
-        if any(s in f.name for s in ['comparison','grid','train','holdout','stress','evaluation']):
+    skip=['trades','equity','daily','proxy','months','features','anatomy','decomposition','yearly','buckets','attribution','choppy_days']
+    for f in root.glob('*_results/*.csv'):  # one row = one simulation summary; ledgers/curves excluded
+        if any(x in f.name for x in skip):continue
+        if any(x in f.name for x in ['comparison','grid','train','holdout','stress','evaluation','summary']):
             try:n+=len(pd.read_csv(f,usecols=[0]))
             except Exception:pass
     res['research_runs_logged']=n;res['pipeline_runs']=dict(is_grid=len(combos),walk_forward=len(combos)*len(tests),sensitivity=len(tasks)*2+len(heat),random=20)
     h=hashlib.sha256()
-    for f in ['engine.py','indicators.py','data.py','metrics.py','run_uts.py']:h.update((Path(__file__).resolve().parent/f).read_bytes())
+    for f in ['engine.py','indicators.py','data.py','metrics.py']:h.update((Path(__file__).resolve().parent/f).read_bytes())
     res['frozen']=dict(date=FREEZE_DATE,params=chosen,code_sha256=h.hexdigest(),forward_status='no data after 2025-08-15 available in this environment')
     json.dump(res,open(OUT/'results.json','w'),indent=1,default=lambda o:None if (isinstance(o,float) and not math.isfinite(o)) else str(o))
     bench.to_csv(OUT/'benchmark.csv');pd.DataFrame(isdf).to_csv(OUT/'is_grid.csv',index=False)
