@@ -18,7 +18,8 @@ Fee 0,15/0,25%, Rp1 miliar, tanpa batas likuiditas kecuali disebut. Return per k
 | Swinger next Open (kausal) | 77,3% | 4,8% | −18,4% |
 SK-5 = 60% / 53% / 36% dari Swinger ideal; di atas semua Swinger kausal di setiap kondisi untuk periode penuh (pengecualian: uptrend 2000–15
 stop order 128,6% vs 115,9%; ret60 sideways 2021–25). Bulan berekor di antara bulan yang punya hari kondisi itu: SK-5 42/33/10% vs ideal 74/68/23%.
-MDD rantai hari uptrend SK-5 −23% vs stop order −17%. Definisi ret60 memberi urutan yang sama (sideways paling lemah: SK-5 26,6% vs ideal 78,6%).
+MDD rantai hari uptrend SK-5 −23% vs stop order −17%. Kondisi terlemah bergantung definisi: er20 → downtrend (36% dari ideal); ret60 → sideways
+(26,6% vs 78,6% = 34%; uptrend 62%, downtrend 59%). Gap absolut terbesar juga bergantung metrik (geometrik: uptrend; aritmetika: downtrend).
 
 ## 2. Karakter trade per kondisi saat entry (er20, SK-5 vs Swinger ideal)
 | | Uptrend | Sideways | Downtrend |
