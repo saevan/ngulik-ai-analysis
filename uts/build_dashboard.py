@@ -36,6 +36,8 @@ def main():
     st=load_stocks();nonint=int((abs(st.Open-st.Open.round())>1e-6).sum())
     res['data_facts']=dict(rows=int(len(st)),tickers=int(st.Ticker.nunique()),noninteger_opens=nonint,first=str(st['Date/Time'].min().date()),last=str(st['Date/Time'].max().date()),
         tickers_ending_before_2025=int((st.groupby('Ticker')['Date/Time'].max()<'2025-01-01').sum()),tickers_listed_after_2005=int((st.groupby('Ticker')['Date/Time'].min()>'2005-12-31').sum()))
+    fw=OUT/'forward_results.json'
+    if fw.exists():res['forward']=json.load(open(fw))
     payload=dict(RES=clean(res),EQ=EQ,TR=clean(TR),OP=clean(OP),ISG=clean(ISG),WFC=clean(res.get('walk_forward_curve',[])))
     html=TEMPLATE
     for k,v in payload.items():
@@ -118,7 +120,7 @@ details summary{cursor:pointer;color:var(--accent);margin:6px 0}
 <nav aria-label="Navigasi bagian">
   <a href="#ringkasan">Ringkasan</a><a href="#aturan">Aturan</a><a href="#ekuitas">Ekuitas</a><a href="#bulanan">Return bulanan</a><a href="#histogram">Histogram</a>
   <a href="#val-a">A. Anti-overfitting</a><a href="#val-b">B. Forward test</a><a href="#val-c">C. Look-ahead</a><a href="#val-d">D. Eksekusi</a>
-  <a href="#bahaya">Tanda bahaya</a><a href="#log">Log trade</a><a href="#keterbatasan">Keterbatasan</a><a href="#ai">Keaslian &amp; AI</a><a href="#checklist">Checklist</a>
+  <a href="#bahaya">Tanda bahaya</a><a href="#log">Log trade</a><a href="#keterbatasan">Keterbatasan</a><a href="#ai">Keaslian &amp; AI</a><a href="#pelajaran">Pelajaran</a><a href="#checklist">Checklist</a>
 </nav>
 <main>
 <section id="ringkasan">
@@ -128,7 +130,7 @@ details summary{cursor:pointer;color:var(--accent);margin:6px 0}
   <h3>Metrik pelengkap</h3><div class="cards" id="cards-sup"></div>
   <h3>Metrik tambahan</h3><div class="cards" id="cards-bonus"></div>
   <h3>In-sample, out-of-sample, dan periode penuh</h3>
-  <p class="note">In-sample = 70% awal rentang kalender, out-of-sample = 30% akhir. Kedua run mulai dari modal awal yang sama; indikator out-of-sample dihangatkan dengan data sebelumnya (tidak ada informasi masa depan). Parameter hanya dipilih dari in-sample.</p>
+  <p class="note">In-sample = 70% awal rentang kalender, out-of-sample = 30% akhir. Dua versi ditampilkan. (1) Run terpisah: mulai lagi dari modal awal yang sama (indikator dihangatkan dengan data sebelumnya); karena batas likuiditas 5% bergantung pada ukuran akun, run ini tidak sama dengan potongan run utama. (2) Potongan kontinu: sub-periode dari satu run utama tanpa reset modal (dapat dihitung ulang dari kurva ekuitas dan log trade di file ini). Parameter hanya dipilih dari in-sample.</p>
   <div class="tw"><table id="t-isoos"></table></div>
   <h3>Hitung ulang dari data tertanam</h3>
   <p class="note">Angka di bawah dihitung ulang oleh browser langsung dari JSON log trade dan kurva ekuitas harian di file ini, lalu dibandingkan dengan hasil Python.</p>
@@ -173,8 +175,8 @@ details summary{cursor:pointer;color:var(--accent);margin:6px 0}
 
 <section id="ekuitas">
   <h2>Kurva ekuitas dan drawdown</h2>
-  <p class="note">Skala logaritmik. Pembanding beli-dan-tahan adalah indeks equal-weight 100 saham yang sama (dirata-rata harian), karena data IHSG tidak tersedia di lingkungan ini; pembanding ini ikut membawa survivorship bias universe. Garis putus-putus = batas in-sample/out-of-sample.</p>
-  <div class="legend"><span><i style="background:var(--accent)"></i>Strategi (sesudah biaya)</span><span><i style="background:var(--bench)"></i>Beli-dan-tahan equal-weight 100 saham</span></div>
+  <p class="note">Skala logaritmik. Pembanding beli-dan-tahan = 1% modal per saham dari 100 saham yang sama, dibeli sekali dan ditahan tanpa rebalancing (jatah saham yang baru tercatat ditahan tunai sampai ada harga). IHSG tidak tersedia di lingkungan ini; pembanding ini membawa survivorship bias universe. Sebagai referensi terpisah, indeks equal-weight yang di-rebalance harian tanpa biaya (bukan buy-and-hold, tidak bisa dieksekusi) ditampilkan di tabel bawah. Garis putus-putus = batas in-sample/out-of-sample.</p>
+  <div class="legend"><span><i style="background:var(--accent)"></i>Strategi (sesudah biaya)</span><span><i style="background:var(--bench)"></i>Beli-dan-tahan 100 saham (tanpa rebalancing)</span></div>
   <div class="chart" id="c-eq"></div>
   <div class="chart" id="c-dd"></div>
   <div class="tw"><table id="t-bh"></table></div>
@@ -213,7 +215,7 @@ details summary{cursor:pointer;color:var(--accent);margin:6px 0}
   <h3>Uji ketahanan</h3>
   <div class="tw"><table id="t-robust"></table></div>
   <h3>Pembanding entry acak</h3>
-  <p class="note">20 run dengan entry acak (urutan acak, sinyal acak per saham per hari), memakai aturan keluar, ukuran posisi, dan biaya yang sama.</p>
+  <p class="note">20 run dengan entry acak (urutan acak, sinyal acak per saham per hari), memakai aturan keluar, ukuran posisi, dan biaya yang sama. Peringatan: entry acak menghasilkan jauh lebih banyak trade yang sebagian besar keluar setelah 1 bar, sehingga perbandingan ini terutama mengukur beban biaya perputaran, bukan bukti kuat tentang nilai tambah sinyal.</p>
   <div class="chart" id="c-rand"></div>
   <h3>Pasar lain dengan parameter yang sama</h3>
   <div class="tw"><table id="t-other"></table></div>
@@ -275,6 +277,15 @@ details summary{cursor:pointer;color:var(--accent);margin:6px 0}
   <p>Alat AI yang dipakai: <b>Claude Code (Anthropic)</b>. Bagian yang dibantu AI: penulisan kode backtest Python (folder <code>uts/</code>: data, indikator, mesin eksekusi, metrik, pengujian), pembuatan dashboard HTML ini, serta penyusunan teks penjelasan. Ide strategi, pilihan aset, dan arahan riset berasal dari pengguna; seluruh angka berasal dari kode yang dilampirkan dan dapat dijalankan ulang (<code>python -m uts.run_uts</code> lalu <code>python -m uts.build_dashboard</code>).</p>
 </section>
 
+<section id="pelajaran">
+  <h2>Pelajaran yang didapat</h2>
+  <ul class="rules">
+    <li>Hasil terbaik dari satu run tidak cukup: angka resmi baru bermakna setelah ada biaya nyata, pembatas likuiditas, uji tunda 1 bar, dan uji potong data.</li>
+    <li>Aturan eksekusi sangat menentukan: tanpa penyeleksian order sebelum Open, pilihan saham memakai informasi intrahari (look-ahead) dan hasil tampak lebih bagus dari yang bisa dieksekusi.</li>
+    <li>Definisi metrik harus dinyatakan: persentase bulan rekor berubah bila puncak dihitung dari harian atau akhir bulan, dan beli-dan-tahan berbeda jauh dari indeks yang di-rebalance harian.</li>
+    <li>Pemisahan data hanya melindungi parameter, bukan bentuk strategi yang dipilih setelah melihat data yang sama; forward test sesudah tanggal beku adalah satu-satunya bukti yang benar-benar baru.</li>
+  </ul>
+</section>
 <section id="checklist">
   <h2>Daftar periksa sebelum upload</h2>
   <div class="tw"><table id="t-check"></table></div>
@@ -307,19 +318,19 @@ function cards(el,items){$(el).innerHTML=items.map(([k,v,s,main])=>`<div class="
 cards('cards-main',[['CAGR',pct(M.cagr,2),'(akhir ÷ awal)^(1/tahun) − 1',1],['Win ratio',pct(M.win_ratio),M.trades+' trade tertutup',1],
  ['Avg profit',pct(M.avg_profit_pct,2),rp(M.avg_profit_rp)+' per trade untung',1],['Avg loss',pct(M.avg_loss_pct,2),rp(M.avg_loss_rp)+' per trade rugi',1],
  ['Profit factor',num(M.profit_factor),'laba trade untung ÷ |rugi trade rugi| (Rp)',1],['% bulan rekor baru',pct(M.record_month_pct),M.record_months+' dari '+M.months+' bulan',1]]);
-cards('cards-sup',[['Max drawdown',pct(M.mdd,1),'ekuitas harian, mark-to-market'],['Bulan terlama tanpa rekor',num(M.longest_months_without_record,1)+' bln',M.longest_without_record_open?'masih berjalan di akhir periode':''],
- ['Jumlah trade',M.trades,num(M.trades_per_year,1)+' per tahun'+(M.small_sample?' · sampel kecil':'')],['Rata-rata hari memegang',num(M.avg_hold_days,1)+' hari',num(M.avg_hold_bars,1)+' bar'],
- ['Expectancy',pct(M.expectancy_pct,2),'per trade'],['Payoff ratio',num(M.payoff_ratio),'avg profit ÷ |avg loss|'],['Sharpe (bulanan)',num(M.sharpe_rf0),'rf = 0%'],['Calmar',num(M.calmar),'CAGR ÷ |MDD|'],
+cards('cards-sup',[['Max drawdown',pct(M.mdd,1),'ekuitas harian, mark-to-market'],['Bulan terlama tanpa rekor',num(M.longest_months_without_record,1)+' bln',M.longest_without_record_open?'masih berjalan di akhir periode':'sudah berakhir (ekuitas puncak baru)'],
+ ['% bulan rekor baru',pct(M.record_month_pct)+'',M.record_months+' dari '+M.months+' bln · ekuitas akhir bulan ≥ puncak harian sampai akhir bulan lalu; versi longgar (hanya bandingkan akhir bulan) = '+M.record_months_monthend_only],['Jumlah trade',M.trades,num(M.trades_per_year,1)+' per tahun'+(M.small_sample?' · sampel kecil':'')],['Rata-rata hari memegang',num(M.avg_hold_days,1)+' hari',num(M.avg_hold_bars,1)+' bar'],
+ ['Expectancy',pct(M.expectancy_pct,2),'per trade'],['Payoff ratio',num(M.payoff_ratio),'avg profit ÷ |avg loss|'],['Sharpe (bulanan)',num(M.sharpe_rf0),'rf 0% · rf 3%: '+num(M.sharpe_rf3)+' · rf 6%: '+num(M.sharpe_rf6)],['Calmar',num(M.calmar),'CAGR ÷ |MDD|'],
  ['Exposure',pct(M.exposure_days_pct),'hari dengan posisi terbuka'],['Modal terpakai',pct(M.avg_capital_used),'rata-rata nilai pasar ÷ ekuitas'],
- ['Beli-dan-tahan (EW100)',pct(M.bh_cagr,2),'MDD '+pct(M.bh_mdd)],['Porsi biaya',pct(M.cost_share_of_gross_profit),'(fee+spread) ÷ laba kotor']]);
-cards('cards-bonus',[['Sortino (bulanan)',num(M.sortino_rf0),'rf = 0%'],['Kekalahan beruntun terpanjang',M.longest_losing_streak+' trade',''],
+ ['Beli-dan-tahan 100 saham',pct(M.bh_cagr,2),'MDD '+pct(M.bh_mdd)],['Porsi biaya',pct(M.cost_share_of_gross_profit),'(fee+spread) ÷ laba kotor sebelum biaya, trade tertutup saja']]);
+cards('cards-bonus',[['Sortino (bulanan)',num(M.sortino_rf0),'rf = 0%'],['Kekalahan beruntun terpanjang',M.longest_losing_streak+' trade','diurut menurut tanggal keluar lalu tanggal masuk'],
  ['Kontribusi 10 trade terbaik',pct(M.top10_share_of_net_profit),'dari laba bersih trade tertutup'],['Tahun rugi',M.losing_years+' dari '+M.years_count,''],
  ['Ekuitas akhir',rp(M.equity_end),'dari '+rp(M.equity_start)],['Posisi terbuka di akhir',M.open_positions,'unrealized '+rp(M.open_unrealized_pnl)]]);
-$('sumnote').textContent=`Periode penuh ${M.start} s.d. ${M.end} (${num(M.years,2)} tahun). Eksekusi resmi: fee beli 0,15% dan jual 0,25%, beli di offer dan jual di bid (1 fraksi harga), lot 100, ARA/ARB, batas likuiditas 5% ADV20, modal ${rp(meta.capital)}, compounding.`;
+$('sumnote').textContent=`Periode penuh ${M.start} s.d. ${M.end} (${num(M.years,2)} tahun). Eksekusi resmi: fee beli 0,15% dan jual 0,25%, beli di offer dan jual di bid (1 fraksi harga), lot 100, ARA/ARB, batas likuiditas 5% ADV20 (hanya order beli; penjualan tidak dibatasi), modal ${rp(meta.capital)}, compounding.`;
 const isoRow=(n,m)=>({c:[n,V(pct(m.cagr,2),cls(m.cagr)),pct(m.win_ratio),pct(m.avg_profit_pct,2),V(pct(m.avg_loss_pct,2),'neg'),num(m.profit_factor),pct(m.record_month_pct),pct(m.mdd),num(m.sharpe_rf0),m.trades,m.start+' – '+m.end]});
 const isoHead=['Bagian','CAGR','Win ratio','Avg profit','Avg loss','PF','% bulan rekor','MDD','Sharpe','Trade','Periode'];
-table('t-isoos',isoHead,[isoRow('In-sample (70%)',R.in_sample),isoRow('Out-of-sample (30%)',R.out_of_sample),{...isoRow('Periode penuh',M),hl:1}]);
-table('t-isoos2',isoHead,[isoRow('In-sample (70%)',R.in_sample),isoRow('Out-of-sample (30%)',R.out_of_sample)]);
+table('t-isoos',isoHead,[isoRow('In-sample (70%) · run terpisah',R.in_sample),isoRow('Out-of-sample (30%) · run terpisah',R.out_of_sample),isoRow('In-sample · potongan kontinu',R.in_sample_continuous),isoRow('Out-of-sample · potongan kontinu',R.out_of_sample_continuous),{...isoRow('Periode penuh',M),hl:1}]);
+table('t-isoos2',isoHead,[isoRow('In-sample (70%) · run terpisah',R.in_sample),isoRow('Out-of-sample (30%) · run terpisah',R.out_of_sample),isoRow('In-sample · potongan kontinu',R.in_sample_continuous),isoRow('Out-of-sample · potongan kontinu',R.out_of_sample_continuous)]);
 // Recalculation in the browser.
 (function(){const cap=meta.capital,n=TR.length;const pnl=TR.map(t=>t[12]),ret=TR.map(t=>t[13]);const w=pnl.filter(x=>x>0),l=pnl.filter(x=>x<0);
  const wr=w.length/n,pf=w.reduce((a,b)=>a+b,0)/-l.reduce((a,b)=>a+b,0);const ap=ret.filter((r,i)=>pnl[i]>0),al=ret.filter((r,i)=>pnl[i]<0);
@@ -371,7 +382,7 @@ function barChart(host,cats,series,{h=260,yfmt=v=>pct(v,0)}={}){
   const r=el('rect',{x,y,width:Math.max(1,gw-1),height:Math.max(.5,hh),fill:sr.color,rx:1.5},s);const t=el('title',{},r);t.textContent=c+' · '+sr.name+': '+yfmt(v)});
   if(i%step==0)txt(s,ml+i*bw+bw/2,H-8,String(c),{'text-anchor':'middle'})});return s}
 const T=d=>Date.parse(d+'T00:00:00Z');
-lineChart('c-eq',[{name:'Strategi',color:css('--accent'),w:2.2,pts:EQ.map(e=>[T(e[0]),e[1]])},{name:'Beli-dan-tahan EW100',color:css('--bench'),pts:EQ.map(e=>[T(e[0]),e[5]])}],{log:true,h:340,yfmt:rp,marker:T(meta.is_end)});
+lineChart('c-eq',[{name:'Strategi',color:css('--accent'),w:2.2,pts:EQ.map(e=>[T(e[0]),e[1]])},{name:'Beli-dan-tahan 100 saham (tanpa rebalancing)',color:css('--bench'),pts:EQ.map(e=>[T(e[0]),e[5]])}],{log:true,h:340,yfmt:rp,marker:T(meta.is_end)});
 (function(){const box=$('c-dd');const W=Math.max(320,box.clientWidth||900),H=150,ml=70,mr=12,mt=8,mb=22;const s=svg(W,H);box.appendChild(s);
  const x0=T(EQ[0][0]),x1=T(EQ[EQ.length-1][0]);const mn=Math.min(...EQ.map(e=>e[2]));const X=t=>ml+(t-x0)/(x1-x0)*(W-ml-mr),Y=v=>mt+(v/mn)*(H-mt-mb);
  let pk=-1;const bd=EQ.map(e=>{pk=Math.max(pk,e[5]);return e[5]/pk-1});
@@ -379,14 +390,14 @@ lineChart('c-eq',[{name:'Strategi',color:css('--accent'),w:2.2,pts:EQ.map(e=>[T(
  let d='M'+X(x0)+','+Y(0);EQ.forEach(e=>d+='L'+X(T(e[0])).toFixed(1)+','+Y(e[2]).toFixed(1));d+='L'+X(x1)+','+Y(0)+'Z';el('path',{d,fill:css('--accent'),opacity:.35},s);
  let d2='';EQ.forEach((e,i)=>d2+=(i?'L':'M')+X(T(e[0])).toFixed(1)+','+Y(Math.max(bd[i],mn)).toFixed(1));el('path',{d:d2,fill:'none',stroke:css('--bench'),'stroke-width':1},s);
  txt(s,ml+4,mt+12,'Drawdown strategi (area) dan beli-dan-tahan (garis)')})();
-table('t-bh',['Seri','CAGR','MDD'],[{c:['Strategi (sesudah biaya)',pct(M.cagr,2),pct(M.mdd)]},{c:['Beli-dan-tahan equal-weight 100 saham',pct(M.bh_cagr,2),pct(M.bh_mdd)]}]);
+table('t-bh',['Seri','CAGR','MDD'],[{c:['Strategi (sesudah biaya)',pct(M.cagr,2),pct(M.mdd)]},{c:['Beli-dan-tahan 100 saham (tanpa rebalancing)',pct(M.bh_cagr,2),pct(M.bh_mdd)]},{c:['Referensi: equal-weight rebalance harian tanpa biaya',pct(R.bench_rebal_cagr,2),pct(R.bench_rebal_mdd)]}]);
 // Monthly table.
 (function(){const mr=R.monthly_returns,yr=R.yearly_returns;const years=[...new Set(Object.keys(mr).map(k=>k.slice(0,4)))];const mo=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
  const col=v=>{if(v==null)return '';const a=Math.min(1,Math.abs(v)/.15);return v>=0?`background:rgba(31,122,63,${.12+.5*a})`:`background:rgba(180,35,24,${.12+.5*a})`};
  let h='<thead><tr><th class="l">Tahun</th>'+mo.map(m=>'<th>'+m+'</th>').join('')+'<th>Tahun</th></tr></thead><tbody>';
  for(const y of years){h+='<tr><td class="l">'+y+'</td>';for(let m=1;m<=12;m++){const k=Object.keys(mr).find(x=>x.startsWith(y+'-'+String(m).padStart(2,'0')));const v=k?mr[k]:null;h+=`<td style="${col(v)}">${v==null?'':pct(v,1)}</td>`}
   h+=`<td style="${col(yr[y])};font-weight:600">${pct(yr[y],1)}</td></tr>`}$('t-month').innerHTML=h+'</tbody>'})();
-barChart('c-year',Object.keys(R.yearly_returns),[{name:'Strategi',color:css('--accent'),v:Object.values(R.yearly_returns)},{name:'Beli-dan-tahan EW100',color:css('--bench'),v:Object.keys(R.yearly_returns).map(y=>R.bench_yearly[y]??null)}]);
+barChart('c-year',Object.keys(R.yearly_returns),[{name:'Strategi',color:css('--accent'),v:Object.values(R.yearly_returns)},{name:'Beli-dan-tahan 100 saham (tanpa rebalancing)',color:css('--bench'),v:Object.keys(R.yearly_returns).map(y=>R.bench_yearly[y]??null)}]);
 // Histogram.
 (function(){const bins={};for(const t of TR){const b=Math.floor(t[13]/.02)*.02;bins[b.toFixed(2)]=(bins[b.toFixed(2)]||0)+1}
  const ks=Object.keys(bins).map(Number).sort((a,b)=>a-b);const lo=Math.max(ks[0],-.3),hi=Math.min(ks[ks.length-1],1);const cats=[],v=[];
@@ -410,7 +421,7 @@ table('t-sens',['Parameter','Pengali','Nilai','CAGR penuh','CAGR OOS','MDD penuh
 const WT=R.without_top5,BS=R.bootstrap;
 table('t-robust',['Uji','Hasil','Keterangan'],[{c:['Tanpa 5 trade terbaik',`CAGR ≈ ${pct(WT.cagr,2)} · PF ${num(WT.profit_factor)} · expectancy ${pct(WT.expectancy_pct,2)}`,`5 trade terbaik (${WT.tickers.join(', ')}) menyumbang ${rp(WT.removed_pnl)}; CAGR didekati dengan menskalakan ekuitas akhir (1 − laba trade ÷ ekuitas saat trade ditutup)`]},
  {c:['Tahun rugi',`${M.losing_years} dari ${M.years_count} tahun`,Object.entries(R.yearly_returns).filter(([y,v])=>v<0).map(([y,v])=>y+' ('+pct(v,1)+')').join(', ')]},
- {c:['Bootstrap urutan trade',`CAGR p5 ${pct(BS.cagr_p5,2)} · median ${pct(BS.cagr_p50,2)} · MDD p5 ${pct(BS.mdd_p5,1)}`,`${BS.n} resampling trade dengan pengembalian; efek trade = laba ÷ ekuitas saat masuk, tumpang tindih posisi diabaikan`]}],{left:1});
+ {c:['Bootstrap urutan trade',`CAGR p5 ${pct(BS.cagr_p5,2)} · median ${pct(BS.cagr_p50,2)} · MDD p5 ${pct(BS.mdd_p5,1)}`,`${BS.n} resampling trade dengan pengembalian; efek trade = laba ÷ ekuitas saat masuk, tumpang tindih posisi diabaikan. Catatan: bootstrap mengacak urutan sehingga MDD p5 lebih ringan dari MDD nyata ${pct(M.mdd,1)}; MDD nyata (periode krisis berkelompok) adalah angka yang berlaku`]}],{left:1});
 (function(){const RE=R.random_entry.runs.map(r=>r.cagr).sort((a,b)=>a-b);const box=$('c-rand');box.innerHTML='';
  barChart('c-rand',RE.map((_,i)=>'#'+(i+1)),[{name:'Entry acak',color:css('--bench'),v:RE}],{h:200});
  const better=RE.filter(v=>v>=M.cagr).length;box.insertAdjacentHTML('beforeend',`<p class="small">CAGR strategi ${pct(M.cagr,2)} vs entry acak median ${pct(RE[Math.floor(RE.length/2)],2)} (min ${pct(RE[0],2)}, maks ${pct(RE[RE.length-1],2)}); ${better} dari ${RE.length} run acak menyamai atau melampaui strategi.</p>`)})();
@@ -419,11 +430,11 @@ table('t-other',['Pasar','Periode','CAGR','MDD','Trade','Win ratio','PF','Biaya 
 $('combos').innerHTML=`Jumlah kombinasi pada pipeline ini: grid in-sample ${R.pipeline_runs.is_grid}, walk-forward ${R.pipeline_runs.walk_forward}, sensitivitas ${R.pipeline_runs.sensitivity}, entry acak ${R.pipeline_runs.random}. Sebelum pipeline ini, riset di repositori yang sama sudah mencatat sekitar <b>${num(R.research_runs_logged,0)}</b> baris hasil simulasi pada data yang sama (banyak keluarga strategi dan varian), sehingga pemilihan bentuk strategi tidak bebas dari data snooping.`;
 // B. forward test.
 $('fwd').innerHTML=`<p>Tanggal pembekuan strategi: <b>${R.frozen.date}</b>. Parameter beku: N=${R.frozen.params.channel}, θ=${R.frozen.params.er_min}, M=${R.frozen.params.sma_exit}, k=${R.frozen.params.fade_atr}, g=${pct(R.frozen.params.gap,0)}. Sidik SHA-256 kode: <code>${R.frozen.code_sha256}</code>.</p>
-<p><span class="badge b-no">Belum ada hasil forward test</span> Data di file berakhir ${meta.end}; data sesudah tanggal pembekuan belum tersedia di lingkungan pengerjaan (akses unduh data diblokir). Forward test minimal 4 minggu harus dijalankan sesudah ${R.frozen.date} dengan <code>python -m uts.forward_test --data &lt;csv baru&gt;</code>; skrip itu memakai parameter dan kode beku di atas tanpa perubahan, lalu hasilnya ditampilkan terpisah dari backtest.</p>`;
+${R.forward?`<p><span class="badge b-ok">Forward test tersedia</span> ${R.forward.start} – ${R.forward.end}: CAGR ${pct(R.forward.cagr,2)}, MDD ${pct(R.forward.mdd)}, ${R.forward.trades} trade. Kode cocok dengan hash beku: ${R.forward.code_ok}.</p>`:''}<p><span class="badge ${R.forward?'b-ok':'b-no'}">${R.forward?'Hasil forward di atas':'Belum ada hasil forward test'}</span> Data di file berakhir ${meta.end}; data sesudah tanggal pembekuan belum tersedia di lingkungan pengerjaan (akses unduh data diblokir). Forward test minimal 4 minggu harus dijalankan sesudah ${R.frozen.date} dengan <code>python -m uts.forward_test --data &lt;csv baru&gt;</code>; skrip itu memakai parameter dan kode beku di atas tanpa perubahan, lalu hasilnya ditampilkan terpisah dari backtest.</p>`;
 // C.
 table('t-trunc',['Tanggal potong','Hari dibandingkan','Trade dibandingkan','Hasil'],R.truncation_test.map(t=>({c:[t.cut,num(t.days,0),num(t.trades,0),t.identical?'<span class="badge b-ok">identik</span>':'<span class="badge b-no">berbeda</span>']})));
 const D=R.delay_1bar,DO=R.delay_1bar_oos;
-table('t-delay',['Skenario','CAGR penuh','MDD penuh','% bln rekor','PF','CAGR OOS'],[{c:['Normal',pct(M.cagr,2),pct(M.mdd),pct(M.record_month_pct),num(M.profit_factor),pct(R.out_of_sample.cagr,2)]},{c:['Tertunda 1 bar',V(pct(D.cagr,2),cls(D.cagr)),pct(D.mdd),pct(D.record_month_pct),num(D.profit_factor),V(pct(DO.cagr,2),cls(DO.cagr))]}]);
+$('delaynote')&&0;table('t-delay',['Skenario','CAGR penuh','MDD penuh','% bln rekor','PF','CAGR OOS'],[{c:['Normal',pct(M.cagr,2),pct(M.mdd),pct(M.record_month_pct),num(M.profit_factor),pct(R.out_of_sample.cagr,2)]},{c:['Tertunda 1 bar',V(pct(D.cagr,2),cls(D.cagr)),pct(D.mdd),pct(D.record_month_pct),num(D.profit_factor),V(pct(DO.cagr,2),cls(DO.cagr))]}]);
 $('lacheck').innerHTML=['Sinyal dari harga penutupan dieksekusi paling cepat di Open bar berikutnya; level buy stop dan semua filter memakai data sampai bar i−1.',
  'Buy stop hanya terisi bila High melewati level; bila Open sudah di atas level, terisi di Open. Tidak ada pengisian di High/Low atau di level yang baru diketahui sesudah bar selesai.',
  'Saat slot terbatas, order hanya dipasang sebelum Open untuk saham peringkat teratas (sebanyak slot kosong); program tidak memilih di antara saham yang ternyata tersentuh pada hari itu.',
@@ -437,7 +448,7 @@ table('t-cost',['Skenario','CAGR','Win ratio','PF','% bln rekor','MDD','Trade','
 $('execlist').innerHTML=['Fee broker: beli 0,15%, jual 0,25% (termasuk PPh final 0,1%).','Spread: beli di harga offer = harga acuan dibulatkan ke atas ke fraksi + 1 fraksi; jual di bid = dibulatkan ke bawah − 1 fraksi.',
  'Fraksi harga BEI: &lt;Rp200: Rp1; Rp200–&lt;500: Rp2; Rp500–&lt;2.000: Rp5; Rp2.000–&lt;5.000: Rp10; ≥Rp5.000: Rp25 (berdasarkan Close hari sebelumnya).','Jumlah saham kelipatan 1 lot (100 lembar), tanpa pecahan.',
  'ARA: Rp50–200 35%, &gt;Rp200–5.000 25%, &gt;Rp5.000 20% dari Close sebelumnya; tidak membeli bila harga acuan sudah di batas ARA. ARB simetris kecuali periode asimetris yang diasumsikan: 10% (10–12 Mar 2020), 7% (13 Mar 2020–4 Jun 2023), 15% (5 Jun–3 Sep 2023 dan sejak 8 Apr 2025); tidak menjual bila harga di batas ARB (order menunggu hari berikutnya).',
- 'Hari dengan Volume 0 (termasuk suspensi) tidak menghasilkan pengisian order.','Likuiditas: nilai satu order maksimal 5% rata-rata nilai transaksi harian (Close × Volume) 20 hari sebelumnya.','Tanpa short selling, margin, atau leverage. Kas menganggur tidak diberi bunga.'].map(x=>'<li>'+x+'</li>').join('');
+ 'Hari dengan Volume 0 (termasuk suspensi) tidak menghasilkan pengisian order.','Likuiditas: nilai satu order beli maksimal 5% rata-rata nilai transaksi harian (Close × Volume) 20 hari sebelumnya; penjualan tidak dibatasi dan ADV20 adalah rata-rata sehingga satu transaksi blok besar dapat menaikkannya.','Tanpa short selling, margin, atau leverage. Kas menganggur tidak diberi bunga.'].map(x=>'<li>'+x+'</li>').join('');
 table('t-cap',['Variasi','CAGR','MDD','% bln rekor','Trade'],[['Modal Rp100 juta',R.capital_100m],['Modal Rp1 miliar (resmi)',M],['Modal Rp10 miliar',R.capital_10bn],['Tanpa batas likuiditas (diagnosa)',R.no_liquidity_cap],['Tanpa ARA/ARB (diagnosa)',R.no_price_limits]].map(([n,m])=>({hl:n.includes('resmi'),c:[n,pct(m.cagr,2),pct(m.mdd),pct(m.record_month_pct),m.trades]})));
 // Red flags.
 (function(){const top2=TR.map(t=>t[12]).sort((a,b)=>b-a).slice(0,2).reduce((a,b)=>a+b,0)/M.net_profit_closed;const isC=R.in_sample.cagr,ooC=R.out_of_sample.cagr;
@@ -445,7 +456,7 @@ table('t-cap',['Variasi','CAGR','MDD','% bln rekor','Trade'],[['Modal Rp100 juta
   ['Profit factor > 3 pada periode panjang',M.profit_factor>3,`PF ${num(M.profit_factor)}`],['Kurva ekuitas hampir lurus tanpa drawdown berarti',M.mdd>-.1,`MDD ${pct(M.mdd)}`],
   ['Out-of-sample jauh lebih baik dari in-sample',ooC>isC*1.5&&ooC-isC>.05,`IS ${pct(isC,2)} vs OOS ${pct(ooC,2)}`],['Hasil runtuh saat eksekusi ditunda 1 bar',D.cagr<=0||D.cagr<M.cagr*.3,`Normal ${pct(M.cagr,2)} → tertunda ${pct(D.cagr,2)}`],
   ['Tidak ada satu pun tahun rugi selama 10 tahun',M.losing_years==0,`${M.losing_years} tahun rugi dari ${M.years_count}`],['Sebagian besar laba dari 1–2 trade',top2>.5,`2 trade terbaik = ${pct(top2,1)} laba bersih`]];
- table('t-flags',['Tanda bahaya','Status','Bukti'],F.map(([k,b,e])=>({c:[k,b?'<span class="badge b-warn">terpicu — perlu penjelasan</span>':'<span class="badge b-ok">tidak terpicu</span>',e]})),{left:1})})();
+ table('t-flags',['Tanda bahaya','Status','Bukti'],F.map(([k,b,e])=>({c:[k,b?'<span class="badge b-warn">terpicu — lihat penjelasan di bagian Keterbatasan</span>':'<span class="badge b-ok">tidak terpicu</span>',e]})),{left:1})})();
 // Trade log.
 const LH=['#','Saham','Masuk','Jam','Harga masuk','Keluar','Jam','Harga keluar','Lot','Fee','Spread','Hasil Rp','Hasil %','Hari','Alasan keluar'];
 function renderLog(f){const q=f.trim().toLowerCase();const rows=q?TR.filter(t=>(t[1]+' '+t[2]+' '+t[5]+' '+t[16]).toLowerCase().includes(q)):TR;
@@ -459,6 +470,7 @@ $('limits').innerHTML=[`Survivorship bias: universe hanya berisi saham yang bert
  `Pembanding memakai indeks equal-weight 100 saham yang sama, bukan IHSG/LQ45, karena data indeks tidak tersedia di lingkungan pengerjaan.`,
  `Forward test belum dijalankan; strategi baru dibekukan ${R.frozen.date}.`,
  `Data snooping: banyak varian strategi pernah diuji pada data yang sama sebelum pipeline ini (sekitar ${num(R.research_runs_logged,0)} baris hasil simulasi tercatat); pemisahan in-sample/out-of-sample di sini hanya membatasi pemilihan parameter, bukan bentuk strategi.`,
+ `OOS vs IS: bila CAGR out-of-sample terlihat lebih tinggi dari in-sample, penyebab yang diketahui: (a) periode OOS (2018–2025) punya rezim tren yang berbeda, bukan bukti kualitas; (b) aturan momentum 120/20 dan bentuk strategi dipilih setelah melihat riset 2016–2025 sehingga OOS tidak sepenuhnya murni; (c) run terpisah memulai ulang modal dan memberi pengaruh kapasitas yang berbeda. Gunakan angka potongan kontinu dan walk-forward sebagai pembanding yang lebih jujur.`,
  `Kapasitas: batas 5% nilai transaksi membuat CAGR turun saat modal membesar (lihat tabel kapasitas).`,
  `Pengisian buy stop diasumsikan tepat di level + 1 fraksi; di hari breakout cepat, slippage bisa lebih besar. Antrean order, kedalaman order book, dan sesi pra-pembukaan tidak dimodelkan.`,
  `Jadwal ARB asimetris dan harga yang disesuaikan adalah pendekatan; perubahan fraksi harga historis tidak dimodelkan.`,

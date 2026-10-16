@@ -10,11 +10,19 @@ def cagr(eq,capital):
 
 
 def record_months(eq,capital):
-    """Month-end equity >= previous peak (max of all earlier month-end equities and initial capital)."""
-    me=eq.equity.resample('ME').last()
-    prev=me.cummax().shift(1).fillna(capital).clip(lower=capital)
+    """Official definition: month-end equity >= highest DAILY equity reached up to the previous month-end (and >= initial capital)."""
+    e=eq.equity;me=e.resample('ME').last()
+    dpeak=e.cummax().resample('ME').last()  # running daily maximum as of each month-end
+    prev=dpeak.shift(1).fillna(capital).clip(lower=capital)
     flag=me>=prev
     return int(flag.sum()),len(flag),flag
+
+
+def record_months_monthend(eq,capital):
+    """Lenient convention for reference: compare month-end equity only with earlier month-end equities."""
+    me=eq.equity.resample('ME').last()
+    prev=me.cummax().shift(1).fillna(capital).clip(lower=capital)
+    return int((me>=prev).sum())
 
 
 def longest_without_record(eq):
@@ -24,8 +32,12 @@ def longest_without_record(eq):
     for d,u in under.items():
         if u and start is None:start=d
         if not u and start is not None:
-            best=max(best,(d-start).days/30.4375);start=None
-    if start is not None:best=max(best,(e.index[-1]-start).days/30.4375);rec=True
+            v=(d-start).days/30.4375
+            if v>best:best=v;rec=False
+            start=None
+    if start is not None:
+        v=(e.index[-1]-start).days/30.4375
+        if v>best:best=v;rec=True  # flagged open only when the open stretch is itself the longest
     return best,rec
 
 
@@ -51,7 +63,7 @@ def compute(eq,tr,capital,open_pos=None,bench=None):
         m['trades_per_year']=n/yrs;m['avg_hold_days']=tr.days.mean();m['avg_hold_bars']=tr.bars.mean()
         fees=tr.buy_fee.sum()+tr.sell_fee.sum();spread=tr.spread_cost.sum();gross=tr.gross_pnl.sum()
         m['total_fees']=fees;m['total_spread']=spread;m['gross_profit_before_cost']=gross
-        m['cost_share_of_gross_profit']=(fees+spread)/gross if gross>0 else np.nan
+        m['cost_share_of_gross_profit']=(fees+spread)/gross if gross>0 else np.nan;m['cost_note']='fee+spread of closed trades / gross profit (before costs) of closed trades; open positions excluded'
         m['net_profit_closed']=pnl.sum()
         streak=best=0
         for v in tr.sort_values(['exit_date','entry_date']).pnl:
@@ -60,12 +72,13 @@ def compute(eq,tr,capital,open_pos=None,bench=None):
         top=pnl.sort_values(ascending=False)
         m['top10_share_of_net_profit']=top.head(10).sum()/pnl.sum() if pnl.sum()>0 else np.nan
         m['small_sample']=n<100
-    rec,months,_=record_months(eq,capital);m['record_months']=rec;m['months']=months;m['record_month_pct']=rec/months
+    rec,months,_=record_months(eq,capital);m['record_months']=rec;m['record_months_monthend_only']=record_months_monthend(eq,capital);m['months']=months;m['record_month_pct']=rec/months
     m['mdd']=float(eq.drawdown.min()) if 'drawdown' in eq else float((eq.equity/eq.equity.cummax()-1).min())
     lw,openrun=longest_without_record(eq);m['longest_months_without_record']=lw;m['longest_without_record_open']=openrun
     mr=monthly_returns(eq,capital)
     m['sharpe_rf0']=mr.mean()/mr.std(ddof=1)*np.sqrt(12) if mr.std(ddof=1)>0 else np.nan
     down=np.sqrt((np.minimum(mr,0)**2).mean())
+    for rf in (.03,.06):m[f'sharpe_rf{int(rf*100)}']=(mr.mean()-rf/12)/mr.std(ddof=1)*np.sqrt(12) if mr.std(ddof=1)>0 else np.nan
     m['sortino_rf0']=mr.mean()/down*np.sqrt(12) if down>0 else np.nan
     m['calmar']=m['cagr']/abs(m['mdd']) if m['mdd']<0 else np.nan
     m['exposure_days_pct']=float((eq.positions>0).mean());m['avg_capital_used']=float((eq.market_value/eq.equity).mean())
@@ -111,3 +124,14 @@ def bootstrap(tr,eq,capital,n=2000,seed=7):
         cg.append(path[-1]**(1/yrs)-1);dd.append((path/np.maximum.accumulate(np.r_[1,path])[1:]-1).min())
     q=lambda a,p:float(np.percentile(a,p))
     return dict(n=n,cagr_p5=q(cg,5),cagr_p50=q(cg,50),cagr_p95=q(cg,95),mdd_p5=q(dd,5),mdd_p50=q(dd,50))
+
+
+def slice_metrics(eq,tr,start,end=None,open_pos=None):
+    """Metrics of a sub-period of ONE continuous run (capital = equity at the slice start; no restart, no capacity reset).
+    Trades are those that exit inside the slice."""
+    a=pd.Timestamp(start);b=pd.Timestamp(end) if end else eq.index[-1]
+    prev=eq.equity[eq.index<a]
+    cap=float(prev.iloc[-1]) if len(prev) else float(eq.equity.iloc[0])
+    e=eq.loc[a:b].drop(columns=['drawdown'],errors='ignore')
+    t=tr[(pd.to_datetime(tr.exit_date)>=a)&(pd.to_datetime(tr.exit_date)<=b)]
+    return compute(e,t,cap,None)

@@ -72,7 +72,12 @@ def main():
     # Benchmark: equal-weight daily-rebalanced index of the same 100 stocks (not IHSG; IHSG not reachable offline).
     closes=st.pivot(index='Date/Time',columns='Ticker',values='Close').sort_index().ffill()
     closes=closes.loc['2000-01-01':]
-    bench=(1+closes.pct_change(fill_method=None).mean(axis=1).fillna(0)).cumprod()*CAPITAL
+    bench_rebal=(1+closes.pct_change(fill_method=None).mean(axis=1).fillna(0)).cumprod()*CAPITAL  # daily rebalanced, cost-free (reference only)
+    # True buy-and-hold: 1/N of the capital per ticker; a ticker's slice stays in cash until its first available close, then is bought and never rebalanced.
+    raw=st.pivot(index='Date/Time',columns='Ticker',values='Close').sort_index().loc['2000-01-01':]
+    first=raw.bfill().iloc[0]*0+raw.apply(lambda c:c.dropna().iloc[0] if c.notna().any() else np.nan)
+    rel=raw.ffill()/first;rel=rel.where(raw.ffill().notna(),1.0).fillna(1.0)
+    bench=(rel.mean(axis=1))*CAPITAL
     G['bench']=bench
     # A1. In-sample grid + selection.
     combos=[dict(zip(KEYS,v)) for v in product(*GRID.values())]
@@ -86,12 +91,14 @@ def main():
     eq.to_csv(OUT/'equity_main.csv');tr.to_csv(OUT/'trades_main.csv',index=False);op.to_csv(OUT/'open_positions_main.csv',index=False)
     res['monthly_returns']={str(k.date()):float(v) for k,v in M.monthly_returns(eq,CAPITAL).items()}
     res['yearly_returns']={str(k.year):float(v) for k,v in M.yearly_returns(eq,CAPITAL).items()}
+    res['bench_rebal_cagr']=float((bench_rebal.iloc[-1]/bench_rebal.iloc[0])**(365.25/(bench_rebal.index[-1]-bench_rebal.index[0]).days)-1);res['bench_rebal_mdd']=float((bench_rebal/bench_rebal.cummax()-1).min())
     res['bench_yearly']={str(k.year):float(v) for k,v in (bench.resample('YE').last()/bench.resample('YE').last().shift(1).fillna(bench.iloc[0])-1).items()}
     res['without_top5']=M.without_top_trades(eq,tr,CAPITAL,5)
     res['bootstrap']=M.bootstrap(tr,eq,CAPITAL)
     # A1 side by side: IS and OOS (fresh capital at OOS start, indicators warmed with earlier data).
     for name,(a,b) in {'in_sample':(START,SPLIT),'out_of_sample':(OOS0,None)}.items():
         e,t,o,m=full(OFFICIAL,a,b);res[name]=m;e.to_csv(OUT/f'equity_{name}.csv')
+        res[name+'_continuous']=M.slice_metrics(eq,tr,a,b)  # same numbers recomputable from equity_main / trades_main
     # D. Cost scenarios, delay, diagnostics, capital capacity.
     for name,ex in {'gross':GROSS,'double_cost':DOUBLE,'delay_1bar':replace(OFFICIAL,delay=1),'no_liquidity_cap':replace(OFFICIAL,liquidity=None),
                     'no_price_limits':replace(OFFICIAL,price_limits=False),'capital_100m':replace(OFFICIAL,capital=1e8),'capital_10bn':replace(OFFICIAL,capital=1e10)}.items():
