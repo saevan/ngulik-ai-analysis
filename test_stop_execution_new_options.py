@@ -70,3 +70,14 @@ for r in cb[1].itertuples():
     if not all(not tr_[x] for x in range(q+1,j)):bad+=1                  # every bar between signal and entry must be non-tradable
     elif j-q>1:queued_after_halt+=1
 assert bad==0,bad;print('close_breakout OK',len(cb[1]),'trades (',queued_after_halt,'bought after a non-tradable gap); CAGR',round(cg(cb[0]),4))
+# touch_sell changes only intraday sell stops; buffer_grid fills on the level's grid at/above level*(1+b); close_breakout with the strict book
+t1=run(fr,entry_mode='buy_stop',cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,strict_orders=True,presize=True,size_div=5,channel=5,failed_exit=0.,book_preopen=True,min_order_frac=1e-3,touch_fill=True,fade=None,sma_len=None,llv=5)
+t2=run(fr,entry_mode='buy_stop',cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,strict_orders=True,presize=True,size_div=5,channel=5,failed_exit=0.,book_preopen=True,min_order_frac=1e-3,touch_fill=True,fade=None,sma_len=None,llv=5,touch_sell=True)
+lo={t:f.Low.to_numpy() for t,f in fr.items()};ll={t:f.Low.shift(1).rolling(5).min().to_numpy() for t,f in fr.items()}
+eq_touch=sum(1 for r in t2[1][t2[1].reason=='llv_stop'].itertuples() if lo[r.ticker][idx[r.ticker][pd.Timestamp(r.exit_date)]]==ll[r.ticker][idx[r.ticker][pd.Timestamp(r.exit_date)]])
+assert eq_touch>0 and cg(t2[0])!=cg(t1[0]);print('touch_sell OK: exact-touch LLV exits',eq_touch,'; CAGR',round(cg(t1[0]),4),'->',round(cg(t2[0]),4))
+g1=run(fr,stop_buffer=.005,buffer_grid=True,**kwb)
+bad=sum(1 for r in g1[1].itertuples() if r.entry_price<lv[r.ticker][idx[r.ticker][pd.Timestamp(r.entry_date)]]*1.005-1e-6)
+assert bad==0;print('buffer_grid OK',len(g1[1]),'trades; CAGR',round(cg(g1[0]),4),'(plain buffer',round(cg(run(fr,stop_buffer=.005,**kwb)[0]),4),')')
+cbs=run(fr,entry_mode='close_breakout',channel=5,er_min=.3,cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,size_div=5,failed_exit=0.,strict_orders=True,presize=True,book_preopen=True,min_order_frac=1e-3)
+print('close_breakout + pre-Open book OK',len(cbs[1]),'trades; CAGR',round(cg(cbs[0]),4),'(no book',round(cg(cb[0]),4),')')
