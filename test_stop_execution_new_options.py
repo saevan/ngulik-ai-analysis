@@ -54,3 +54,19 @@ r1=run(fr,entry_mode='random',random_entry=(.01,1),cost_model=Costs(),fade=2.,sm
 r2=run(fr,entry_mode='random',random_entry=(.01,1),cost_model=Costs(),fade=2.,sma_len=30,failed_exit=0.,size_div=5,gap_skip=.02,gapdown_close=.02)
 r3=run(fr,entry_mode='random',random_entry=(.01,2),cost_model=Costs(),fade=2.,sma_len=30,failed_exit=0.,size_div=5,gap_skip=.02,gapdown_close=.02)
 assert np.allclose(r1[0].equity,r2[0].equity) and not np.allclose(r1[0].equity,r3[0].equity);print('random entry OK',len(r1[1]),'trades; CAGR',round(cg(r1[0]),4),round(cg(r3[0]),4))
+# stop_buffer=0 + touch_fill reproduces touch_fill alone; buffer>0 fills only at/above level*(1+b); close_breakout entries follow a Close above the prior HHV
+kwb=dict(entry_mode='buy_stop',cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,strict_orders=True,presize=True,size_div=5,channel=5,failed_exit=0.,book_preopen=True,min_order_frac=1e-3,touch_fill=True)
+a1=run(fr,**kwb);a2=run(fr,stop_buffer=0.,**kwb);assert np.allclose(a1[0].equity,a2[0].equity)
+a3=run(fr,stop_buffer=.01,**kwb);lv={t:f.High.shift(1).rolling(5).max().to_numpy() for t,f in fr.items()}
+bad=sum(1 for r in a3[1].itertuples() if r.entry_price<lv[r.ticker][idx[r.ticker][pd.Timestamp(r.entry_date)]]*1.01-1e-6)
+assert bad==0,bad;print('stop_buffer OK',len(a3[1]),'trades; CAGR',round(cg(a3[0]),4))
+cb=run(fr,entry_mode='close_breakout',channel=5,er_min=.3,cost_model=Costs(),gap_skip=.02,gapdown_close=.02,priority=mom120,size_div=5,failed_exit=0.)
+hi={t:f.High.to_numpy() for t,f in fr.items()}
+bad=0;queued_after_halt=0
+for r in cb[1].itertuples():
+    j=idx[r.ticker][pd.Timestamp(r.entry_date)];tr_=fr[r.ticker].tradable.to_numpy()
+    q=j-1
+    while q>5 and not (cl[r.ticker][q]>hi[r.ticker][q-5:q].max()):q-=1   # last Close breakout before the entry bar
+    if not all(not tr_[x] for x in range(q+1,j)):bad+=1                  # every bar between signal and entry must be non-tradable
+    elif j-q>1:queued_after_halt+=1
+assert bad==0,bad;print('close_breakout OK',len(cb[1]),'trades (',queued_after_halt,'bought after a non-tradable gap); CAGR',round(cg(cb[0]),4))

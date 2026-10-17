@@ -25,7 +25,7 @@ def signals(frame, swing=5):
         armed_buy=(c.shift(1)<=tsl.shift(1)).fillna(False)))
 
 
-def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False,slip=0.,liq_cap=None):
+def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False,slip=0.,liq_cap=None,touch=False):
     data={};calendar={}
     for ticker,f in frames.items():
         f=f.reset_index(drop=True);s=signals(f)
@@ -57,7 +57,7 @@ def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False,slip=0.
         for ticker,i in obs:
             if ticker not in positions:continue
             d=data[ticker];level=d['level'][i]
-            signal=d['sell'][i] if mode in ('afl_ideal','ideal_clamped','close_fill') else d['next_sell'][i] if mode=='next_open' else np.isfinite(level) and d['Low'][i]<level
+            signal=d['sell'][i] if mode in ('afl_ideal','ideal_clamped','close_fill') else d['next_sell'][i] if mode=='next_open' else np.isfinite(level) and (d['Low'][i]<=level if touch else d['Low'][i]<level)
             if signal and d['tradable'][i]:
                 price=level if mode=='afl_ideal' else d['Open'][i] if mode=='next_open' else min(max(level,d['Low'][i]),d['High'][i]) if mode=='ideal_clamped' \
                     else d['Close'][i] if mode=='close_fill' else min(d['Open'][i],level)
@@ -68,7 +68,7 @@ def run_portfolio(frames,mode,buy_fee=.0015,sell_fee=.0025,reverse=False,slip=0.
         for ticker,i in obs:
             if ticker in positions or ticker in sold:continue
             d=data[ticker];level=d['level'][i]
-            signal=d['buy'][i] if mode in ('afl_ideal','ideal_clamped','close_fill') else d['next_buy'][i] if mode=='next_open' else d['armed_buy'][i] and np.isfinite(level) and d['High'][i]>level
+            signal=d['buy'][i] if mode in ('afl_ideal','ideal_clamped','close_fill') else d['next_buy'][i] if mode=='next_open' else d['armed_buy'][i] and np.isfinite(level) and (d['High'][i]>=level if touch else d['High'][i]>level)
             if not signal or not d['tradable'][i]:continue
             if reserved_count>=10:rejected+=1;continue
             price=level if mode=='afl_ideal' else d['Open'][i] if mode=='next_open' else min(max(level,d['Low'][i]),d['High'][i]) if mode=='ideal_clamped' \

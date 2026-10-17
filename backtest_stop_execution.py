@@ -23,7 +23,7 @@ def limit_pct(prev):
     return .35 if prev<200 else .25 if prev<5000 else .20
 
 
-def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,sma_len=30,trail_len=5,entry_sma=None,random_entry=None):
+def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,sma_len=30,trail_len=5,entry_sma=None,random_entry=None,stop_buffer=0.):
     f=f.reset_index(drop=True);a=atr_previous(f)
     d={k:f[k].to_numpy() for k in ['Open','High','Low','Close','tradable','Date/Time']}
     d['adv']=(f.Close*f.Volume).shift(1).rolling(20).mean().to_numpy(float) if 'Volume' in f else np.full(len(f),np.nan)  # known before bar i
@@ -32,6 +32,11 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,
     if entry_mode=='random':  # control: random entry signals at Close i -> buy next tradable Open (p, seed); same exits and sizing
         p_,seed_=random_entry;rng=np.random.default_rng([seed_,zlib.crc32(str(f['Ticker'].iloc[0] if 'Ticker' in f else '').encode())])
         d['entry']=np.r_[False,(rng.random(len(f))<p_)[:-1]]&np.isfinite(a)
+    elif entry_mode=='close_breakout':  # Close i > max(High i-N..i-1) [and ER20 at Close i >= er_min] -> buy next tradable Open
+        lev=f.High.shift(1).rolling(channel).max();sig=(f.Close>lev)&np.isfinite(a)
+        if er_min is not None:sig=sig&(efficiency_ratio(f.Close,20)>=er_min)
+        if entry_sma:sig=sig&(f.Close>=f.Close.rolling(entry_sma).mean())
+        d['entry']=sig.shift(1,fill_value=False).to_numpy(bool);d['cb_level']=lev.shift(1).to_numpy(float)  # level of the signal bar, aligned to the entry bar
     elif entry_mode in ('next_open','next_open_vol'):
         e=entry_signal(f,.3)
         if entry_mode=='next_open_vol':
@@ -45,7 +50,7 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,
         armed=(f.Close.shift(1)<=level)&((er_prev>=er_min) if er_min is not None else level.notna())
         if entry_sma:armed=armed&(f.Close.shift(1)>=f.Close.rolling(entry_sma).mean().shift(1))  # previous Close at/above its SMA
         if gate_dates is not None:armed=armed&f['Date/Time'].isin(gate_dates)
-        d['buy_level']=level.to_numpy(float);d['armed']=armed.fillna(False).to_numpy(bool)
+        d['buy_level']=level.to_numpy(float);d['armed']=armed.fillna(False).to_numpy(bool);d['stop_level']=d['buy_level']*(1+stop_buffer)
     d['sma_exit']=(f.Close<f.Close.rolling(sma_len).mean()).to_numpy(bool) if sma_len else np.zeros(len(f),bool)
     d['fade']=np.isfinite(a)&(a>0)&((d['Open']-d['Low'])>=fade*a) if fade is not None else np.zeros(len(f),bool)
     d['llv']=f.Low.shift(1).rolling(llv).min().to_numpy(float) if llv else None
@@ -57,7 +62,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False,stop_buffer=0.):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -90,10 +95,13 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     entry_mode='random' with random_entry=(p, seed): control run, each stock-day gets an entry signal with probability p (deterministic per
     ticker and seed), bought at the next tradable Open; the failed-breakout reference is that Open. Same exits, sizing and costs.
     touch_fill: a buy stop also fills when High == level (a broker stop triggers when the price reaches the level). Default False =
-    old strict rule High > level, which silently skips touch-and-reverse days (found by an independent audit, 17 Oct 2026)."""
+    old strict rule High > level, which silently skips touch-and-reverse days (found by an independent audit, 17 Oct 2026).
+    stop_buffer=b: the buy stop sits at level*(1+b) (trigger and fill reference); the gap rule and the failed-breakout test keep the base level.
+    entry_mode='close_breakout': Close-confirmed breakout over the previous `channel` Highs (ER20 at that Close >= er_min unless None),
+    bought at the next tradable Open (gap rule vs the previous Close); the failed-breakout reference is the signal bar's level."""
     data={};calendar={}
     for t,f in frames.items():
-        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry);data[t]=d
+        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry,stop_buffer);data[t]=d
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64(start):calendar.setdefault(pd.Timestamp(day),[]).append((t,i))
     cash=equity=peak=float(capital);positions={};lastclose={};queued=set();ledger=[];daily=[]
@@ -174,10 +182,10 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 if gap_skip is not None and i and price>d['Close'][i-1]*(1+gap_skip):continue
             else:
                 if order_book is not None and t not in order_book:continue
-                hit=d['High'][i]>=d['buy_level'][i] if touch_fill else d['High'][i]>d['buy_level'][i]
+                hit=d['High'][i]>=d['stop_level'][i] if touch_fill else d['High'][i]>d['stop_level'][i]
                 if not(d['armed'][i] and d['tradable'][i] and hit):continue
                 if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
-                price=max(float(d['Open'][i]),float(d['buy_level'][i]));outside=False
+                price=max(float(d['Open'][i]),float(d['stop_level'][i]));outside=False
             if max_tick_frac is not None and i and tick_size(d['Close'][i-1])/d['Close'][i-1]>max_tick_frac:continue
             if price_limits and i and d['High'][i]>=d['Close'][i-1]*(1+limit_pct(d['Close'][i-1]))*.995:continue
             if len(positions)+intraday_exits>=slots:continue
@@ -194,7 +202,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if init_stop=='llv5' and np.isfinite(d['llv5'][i]):stop=float(d['llv5'][i])
             elif init_stop=='atr2' and np.isfinite(d['atr'][i]) and d['atr'][i]>0:stop=price-2*float(d['atr'][i])
             positions[t]=dict(date=day,index=i,price=price,notional=amount,q=q,pending=None,outside=outside,stop=stop,trail=False,atr0=float(d['atr'][i]),
-                level=float(d['buy_level'][i]) if entry_mode=='buy_stop' else (float(d['Open'][i]) if entry_mode=='random' else np.nan))
+                level=float(d['buy_level'][i]) if entry_mode=='buy_stop' else (float(d['Open'][i]) if entry_mode=='random' else (float(d['cb_level'][i]) if entry_mode=='close_breakout' else np.nan)))
         for t,i in obs:  # Close: marks and next-Open exit signals
             d=data[t];lastclose[t]=float(d['Close'][i])
             if cost_model is not None and cost_model.liquidation_mark:
