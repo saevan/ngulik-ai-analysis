@@ -36,6 +36,7 @@ def monthly(eq):
 def job_run(a):
     tag,kw,cost,start,end,frkey=a
     fr=G[frkey];fr={t:g for t,f in fr.items() if len(g:=f[f['Date/Time']<=end])} if end else fr
+    if 'rank_seed' in tag:kw=dict(kw,priority=rand_priority(tag['rank_seed']))  # built in the worker (closures do not pickle)
     with np.errstate(invalid='ignore',divide='ignore'):eq,tr=run(fr,cost_model=FEE if cost=='fee' else S25,start=start,**kw)
     return dict(tag,**summary(eq,tr)),monthly(eq) if tag.get('keep_monthly') else None
 
@@ -111,7 +112,7 @@ def main():
         rk=dict(kw);[rk.pop(x,None) for x in ['strict_orders','presize','book_preopen','priority','channel','er_min','min_order_frac']]
         for p in [.005,.01]:
             for sd in range(50):tasks.append((dict(test='T4random',system=sysn,p=p,seed=sd),dict(rk,entry_mode='random',random_entry=(p,sd)),'fee','2000-01-01',None,'all'))
-        for sd in range(30):tasks.append((dict(test='T4rank',system=sysn,seed=sd),dict(kw,priority=rand_priority(sd)),'fee','2000-01-01',None,'all'))
+        for sd in range(30):tasks.append((dict(test='T4rank',system=sysn,seed=sd,rank_seed=sd),dict(kw,priority=None),'fee','2000-01-01',None,'all'))
     with Pool(4) as p:R=p.map(job_run,tasks,chunksize=4)
     rows=[r for r,_ in R];pd.DataFrame(rows).drop(columns=['keep_monthly'],errors='ignore').to_csv(OUT/'runs.csv',index=False)
     mon={};base_mon={}
