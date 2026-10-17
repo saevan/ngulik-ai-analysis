@@ -36,11 +36,12 @@ saat breakout gagal / fading ≥ 2 ATR / Close < SMA30, 25% ekuitas per order (u
 - Tetangga pilihan hanya 8 (di tepi grid); 2021–25 berkisar 31,5–78,0%.
 
 ## Pola lintas konfigurasi (hipotesis, bukan aturan)
-- 2016–25: buy stop dengan buffer mengalahkan breakout-terkonfirmasi-Close + Open berikutnya (99,7% pasangan); tanpa buffer kalah di 2000–15.
-- Buffer 0,5–1%: +2,5…+4 pp (71–77% pasangan).
+- 2016–25: buy stop dengan buffer mengalahkan breakout-terkonfirmasi-Close + Open berikutnya (99,7% pasangan); tanpa buffer kalah di 2000–15 (menang 26%).
+- Buffer 0,5–1% vs tanpa buffer: median +2,5…+4 pp di 2016–20 dan 2021–25 (71–77% pasangan); +7…+8 pp di 2000–15.
 - Channel 5–20 setara; channel 3 lebih buruk.
 - Filter ER berbalik arah (0,3 terbaik 2000–15; tanpa/0,2 terbaik 2016–25).
 - Exit Close-signal mengalahkan stop LLV5, tetapi tidak LLV10 pada CAGR 2021–25.
-- Exit breakout-gagal di pilihan utama menurunkan CAGR di sebagian besar pasangan (tanpa itu: 73,1% / 78,0% di 2016–20 / 2021–25).
-- Ukuran posisi adalah tuas CAGR terbesar (1/4 vs 1/10: +26…+29 pp, MDD −7,6 pp).
+- Exit breakout-gagal menurunkan CAGR di sebagian besar pasangan; di pilihan utama efeknya campuran (tanpa exit itu: 2016–20 73,1% vs 79,2%,
+  2021–25 78,0% vs 54,1%, 2000–25 47,6% vs 49,3%).
+- Ukuran posisi adalah tuas CAGR terbesar: 1/4 vs 1/10 median +26…+29 pp CAGR dan MDD −7,6 pp di 2016–20 dan 2021–25 (2000–15: +5 pp, −4 pp).
 Uji berikut: universe point-in-time (termasuk delisting) atau forward test sesudah 2025-08-15, dengan batas likuiditas sesuai modal. AFL tidak diubah.
