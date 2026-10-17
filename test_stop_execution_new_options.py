@@ -49,3 +49,8 @@ c8,t8=run(fr,entry_mode='buy_stop',cost_model=Costs(),gap_skip=.02,gapdown_close
 sm={t:f.Close.rolling(30).mean().to_numpy() for t,f in fr.items()};cl={t:f.Close.to_numpy() for t,f in fr.items()}
 bad=sum(1 for r in t8.itertuples() if not cl[r.ticker][idx[r.ticker][pd.Timestamp(r.entry_date)]-1]>=sm[r.ticker][idx[r.ticker][pd.Timestamp(r.entry_date)]-1])
 assert bad==0,bad;print('entry_sma OK',len(t8),'trades; CAGR',round(cg(c8),4))
+# random entry control: deterministic per seed, different across seeds, buys at the next Open after a signal
+r1=run(fr,entry_mode='random',random_entry=(.01,1),cost_model=Costs(),fade=2.,sma_len=30,failed_exit=0.,size_div=5,gap_skip=.02,gapdown_close=.02)
+r2=run(fr,entry_mode='random',random_entry=(.01,1),cost_model=Costs(),fade=2.,sma_len=30,failed_exit=0.,size_div=5,gap_skip=.02,gapdown_close=.02)
+r3=run(fr,entry_mode='random',random_entry=(.01,2),cost_model=Costs(),fade=2.,sma_len=30,failed_exit=0.,size_div=5,gap_skip=.02,gapdown_close=.02)
+assert np.allclose(r1[0].equity,r2[0].equity) and not np.allclose(r1[0].equity,r3[0].equity);print('random entry OK',len(r1[1]),'trades; CAGR',round(cg(r1[0]),4),round(cg(r3[0]),4))

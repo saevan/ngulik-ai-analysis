@@ -10,6 +10,7 @@ Intraday sale cash and slots are NOT reused the same day. Positions bought today
 intraday stop (OHLC sequence unknown); their Close-based exits remain next tradable Open.
 """
 import math
+import zlib
 import numpy as np
 import pandas as pd
 from backtest_timehunter_atr import atr_previous
@@ -22,13 +23,16 @@ def limit_pct(prev):
     return .35 if prev<200 else .25 if prev<5000 else .20
 
 
-def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,sma_len=30,trail_len=5,entry_sma=None):
+def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,sma_len=30,trail_len=5,entry_sma=None,random_entry=None):
     f=f.reset_index(drop=True);a=atr_previous(f)
     d={k:f[k].to_numpy() for k in ['Open','High','Low','Close','tradable','Date/Time']}
     d['adv']=(f.Close*f.Volume).shift(1).rolling(20).mean().to_numpy(float) if 'Volume' in f else np.full(len(f),np.nan)  # known before bar i
     d['atr']=a
     d['priority']=None if priority is None else np.nan_to_num(np.asarray(priority(f),float),nan=-np.inf)
-    if entry_mode in ('next_open','next_open_vol'):
+    if entry_mode=='random':  # control: random entry signals at Close i -> buy next tradable Open (p, seed); same exits and sizing
+        p_,seed_=random_entry;rng=np.random.default_rng([seed_,zlib.crc32(str(f['Ticker'].iloc[0] if 'Ticker' in f else '').encode())])
+        d['entry']=np.r_[False,(rng.random(len(f))<p_)[:-1]]&np.isfinite(a)
+    elif entry_mode in ('next_open','next_open_vol'):
         e=entry_signal(f,.3)
         if entry_mode=='next_open_vol':
             surge=(f.Volume/f.Volume.shift(1).rolling(20).mean()>=1.5).shift(1,fill_value=False).to_numpy(bool)
@@ -53,7 +57,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -82,10 +86,12 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     min_order_frac=f: orders smaller than f * budget are not placed (removes floating-point 'dust' orders at very large equity).
     sma_arm: the Close<SMA exit only counts after the position has had a Close at or above the SMA (entry bar included), so a breakout
     that starts below a falling SMA is not sold at the next Open just for being below it. Default False = old behaviour.
-    entry_sma=n: a buy stop is armed only if the previous Close >= SMA(n) of the previous bar (default None = off)."""
+    entry_sma=n: a buy stop is armed only if the previous Close >= SMA(n) of the previous bar (default None = off).
+    entry_mode='random' with random_entry=(p, seed): control run, each stock-day gets an entry signal with probability p (deterministic per
+    ticker and seed), bought at the next tradable Open; the failed-breakout reference is that Open. Same exits, sizing and costs."""
     data={};calendar={}
     for t,f in frames.items():
-        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma);data[t]=d
+        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry);data[t]=d
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64(start):calendar.setdefault(pd.Timestamp(day),[]).append((t,i))
     cash=equity=peak=float(capital);positions={};lastclose={};queued=set();ledger=[];daily=[]
@@ -185,7 +191,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if init_stop=='llv5' and np.isfinite(d['llv5'][i]):stop=float(d['llv5'][i])
             elif init_stop=='atr2' and np.isfinite(d['atr'][i]) and d['atr'][i]>0:stop=price-2*float(d['atr'][i])
             positions[t]=dict(date=day,index=i,price=price,notional=amount,q=q,pending=None,outside=outside,stop=stop,trail=False,atr0=float(d['atr'][i]),
-                level=float(d['buy_level'][i]) if entry_mode=='buy_stop' else np.nan)
+                level=float(d['buy_level'][i]) if entry_mode=='buy_stop' else (float(d['Open'][i]) if entry_mode=='random' else np.nan))
         for t,i in obs:  # Close: marks and next-Open exit signals
             d=data[t];lastclose[t]=float(d['Close'][i])
             if cost_model is not None and cost_model.liquidation_mark:
