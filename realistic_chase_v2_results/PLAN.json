@@ -1,0 +1,33 @@
+{
+ "doc": "v2 of search_realistic_chase.py after the second independent audit (17 Oct 2026): sell stops also trigger on a touch (touch_sell), the\nbuffered buy-stop trigger/fill sits on the price grid (buffer_grid), and the Close-confirmed family F2 uses the same pre-Open order book as F1.\nSame grid, scenarios and selection rule as v1; extra: validation/test for every config, survivorship sensitivity (no tickers first listed\nin 2018 or later) and a heavier cost scenario D (fee + 0.5%/side) for the picks.\n\nv1 docstring follows.\nRe-test under corrected execution and search for the causal system closest to Swinger ideal (CAGR and new-ATH months). Written before running.\n\nExecution standard (after the 17 Oct 2026 audit): buy stops fill when the High TOUCHES the trigger (touch_fill=True); pre-Open order book with\nfixed order sizes (no same-day information); orders < 0.1% of budget not placed. Scenarios: A = fee 0.15/0.25% only (Swinger's basis);\nB = fee + 0.25%/side proportional slippage (selection basis); C = B + buy orders <= 25% of 20-day average traded value.\nFamilies (1536 configs): F1 buy stop at HHV(N) [+ buffer b above the level] and F2 Close-confirmed breakout bought at the next Open;\nN {3,5,10,20} x ER20 min {none,.2,.3} x exit {cand: fade 2 ATR + Close<SMA30; cand_trail2: + LLV5 trail after +2 ATR; tsl5 / tsl10: LLV sell stop}\nx failed-breakout exit {off, on} x size per entry {1/10,1/7,1/5,1/4} [x F1 buffer {0, 0.5%, 1%}]. Fixed: momentum 120/20 priority, 2% gap rules.\nSelection (train 2000-2015, scenario B): eligible = train MDD >= -40%; score = mean of the percentile ranks of train CAGR and train record months;\npick = max score (secondary pick = max train CAGR). Evaluation: validation 2016-20, test 2021-25, full; scenarios A/B/C; neighbourhood\nmedian (configs one step away); walk-forward of the rule (expanding folds to 2007/2011/2015/2020). Benchmarks: Swinger ideal (fee, s25),\nSwinger causal stop order with touch triggers and next Open.",
+ "axes": {
+  "channel": [
+   "3",
+   "5",
+   "10",
+   "20"
+  ],
+  "er_min": [
+   "None",
+   "0.2",
+   "0.3"
+  ],
+  "exit": [
+   "cand",
+   "cand_trail2",
+   "tsl5",
+   "tsl10"
+  ],
+  "failed": [
+   "None",
+   "0.0"
+  ],
+  "size_div": [
+   "10",
+   "7",
+   "5",
+   "4"
+  ]
+ },
+ "configs": 1536
+}
