@@ -57,7 +57,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -88,7 +88,9 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     that starts below a falling SMA is not sold at the next Open just for being below it. Default False = old behaviour.
     entry_sma=n: a buy stop is armed only if the previous Close >= SMA(n) of the previous bar (default None = off).
     entry_mode='random' with random_entry=(p, seed): control run, each stock-day gets an entry signal with probability p (deterministic per
-    ticker and seed), bought at the next tradable Open; the failed-breakout reference is that Open. Same exits, sizing and costs."""
+    ticker and seed), bought at the next tradable Open; the failed-breakout reference is that Open. Same exits, sizing and costs.
+    touch_fill: a buy stop also fills when High == level (a broker stop triggers when the price reaches the level). Default False =
+    old strict rule High > level, which silently skips touch-and-reverse days (found by an independent audit, 17 Oct 2026)."""
     data={};calendar={}
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry);data[t]=d
@@ -172,7 +174,8 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 if gap_skip is not None and i and price>d['Close'][i-1]*(1+gap_skip):continue
             else:
                 if order_book is not None and t not in order_book:continue
-                if not(d['armed'][i] and d['tradable'][i] and d['High'][i]>d['buy_level'][i]):continue
+                hit=d['High'][i]>=d['buy_level'][i] if touch_fill else d['High'][i]>d['buy_level'][i]
+                if not(d['armed'][i] and d['tradable'][i] and hit):continue
                 if gap_skip is not None and d['Open'][i]>d['buy_level'][i]*(1+gap_skip):continue
                 price=max(float(d['Open'][i]),float(d['buy_level'][i]));outside=False
             if max_tick_frac is not None and i and tick_size(d['Close'][i-1])/d['Close'][i-1]>max_tick_frac:continue

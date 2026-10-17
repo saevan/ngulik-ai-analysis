@@ -1,5 +1,9 @@
 # SK-5 per kondisi pasar vs Swinger, dan karakteristik yang bisa dikejar (16 Okt 2026)
 
+> **Koreksi 17 Okt 2026:** semua angka buy stop di sini memakai aturan fill High > level. Bila buy stop juga terisi saat High tepat menyentuh level
+> (realistis untuk stop broker), SK-5 full fee turun 63,2% → 44,6% (rekor 139 → 107, MDD −27% → −35%), ER 0,2 + trailing 66,5% → 45,3%, HHV20 lama 43,3% → 37,1%.
+> Lihat `overfit_results/CONCLUSION.md` dan `overfit_results/touch_fill_check.csv`.
+
 Kode: `analyze_sk5_regimes.py`, `decompose_sk5_gap.py`, `sk5_gap_levers.py`, `probe_sk5_posthoc.py`; engine `backtest_stop_execution.py`
 (opsi baru `sma_arm`, `entry_sma`, default mati, regresi lulus). Diverifikasi 3 pemeriksa independen (hitung ulang identik < 1e-11 pp;
 satu definisi dekomposisi dikoreksi, lihat bagian 3).

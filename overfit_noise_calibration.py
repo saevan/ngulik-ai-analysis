@@ -1,5 +1,5 @@
 """Calibration of the price-noise test (overfit_tests_sk5.py T6): the same OHLC noise (x(1+N(0,0.25%)), 10 draws, same seeds) applied to
-the strict HHV20 base system and to the Swinger ideal benchmark, plus SK-5 with 0.25% proportional slippage for comparison."""
+the strict HHV20 base system and to the Swinger ideal benchmark (10 draws). The SK-5 0.25%-slippage figure quoted alongside comes from runs.csv."""
 from multiprocessing import Pool
 import numpy as np, pandas as pd
 import grid_search_timehunter as engine

@@ -1,39 +1,35 @@
-# Uji overfitting SK-5 (dan kandidat post-hoc ER 0,2 + trailing) — 17 Okt 2026
+# Uji overfitting SK-5 — vonis sesudah verifikasi independen (17 Okt 2026)
 
-Kode `overfit_tests_sk5.py`, `overfit_noise_calibration.py`; engine `backtest_stop_execution.py` (mode kontrol `entry_mode='random'`, default
-tidak berubah, regresi lulus). Periode 2000-01..2025-08, Rp1 miliar, fee 0,15/0,25% (basis Swinger), tanpa batas likuiditas kecuali disebut.
-Verifikasi: PBO dan Deflated Sharpe dihitung ulang independen dan identik (selisih <1e-13). Audit kode kontrol acak/noise dan kritik tafsir
-oleh pemeriksa independen gagal jalan (batas sesi); diperiksa sendiri saja.
+Kode `overfit_tests_sk5.py`, `overfit_noise_calibration.py`, `touch_fill_check.py`; engine `backtest_stop_execution.py` (opsi baru `entry_mode='random'`
+dan `touch_fill`, default tidak berubah, regresi lulus). Periode 2000-01..2025-08, Rp1 miliar, fee 0,15/0,25% kecuali disebut.
+Verifikasi 3 pemeriksa independen: PBO dan Deflated Sharpe dihitung ulang identik; audit kode dan kritik tafsir menemukan masalah di bawah.
+Catatan: SK-5 adalah peringkat 1 CAGR train (fee) dari 360 konfigurasi, BUKAN pilihan terdaftar (FROZEN.json memilih HHV10).
 
-## Hasil
-| Uji | SK-5 | Lulus? |
-|---|---|---|
-| PBO (CSCV, 360 konfigurasi, 12.870 split) | fee 4–7%, slippage 0,25% 10–24% | ya untuk keluarga sistem* |
-| Deflated Sharpe (N=360 / 6.000) | ≈1,0 (Sharpe bulanan 0,49 vs ambang 0,13–0,17) | ya untuk keluarga sistem** |
-| Plateau parameter (satu per satu + channel×ER, termasuk nilai di luar grid) | 53–72% CAGR, tanpa puncak tajam | ya |
-| Entry acak, exit/ukuran/biaya sama (50 seed × 2) | median 8–14%, maks 27% vs 63,2%; 0/100 menyamai | ya |
-| Urutan acak dari sinyal asli (30 seed) | median 48%, maks 62% vs 63,2% | ya (urutan momentum menambah ±15 pp) |
-| Bootstrap universe (80% saham, 50 draw) | p5 50,8% / 125 rekor (median 57,4% / 136) | ya |
-| Tahun kalender | 0 tahun rugi (terlemah 2022 +1,7%) | ya |
-| Noise harga ±0,25% per OHLC (20 draw) | 63,2→51,8% (−18%); HHV20 −5%, Swinger ideal −24% | sedang |
-| Train→validasi→tes | 67,0 → 69,7 → 44,5% | turun di 2021–25 |
-| Walk-forward 2008–25 | 49,3% vs 63,2% in-sample | degradasi ±22% |
+## Vonis: tidak lulus secara meyakinkan
+1. **Asumsi fill terlalu optimistis (temuan terbesar).** Engine hanya mengisi buy stop bila High > level. Pada 11,3% hari saham High tepat sama
+   dengan level HHV5; stop broker terpicu saat harga menyentuh level. Hari "sentuh lalu berbalik" rata-rata −1,1…−1,7% per trade dan dihindari diam-diam.
+   | Sistem (full) | High > level | Sentuh = terisi | Sentuh + slippage 0,25% | Sentuh + batas 25% ADV |
+   |---|---|---|---|---|
+   | SK-5 | 63,2 / 139 / −27 | 44,6 / 107 / −35 | 31,7 / 75 / −44 | 24,7 / 72 / −40 |
+   | ER 0,2 + trailing | 66,5 / 172 / −21 | 45,3 / 131 / −36 | 29,7 / 91 / −44 | 25,1 / 81 / −40 |
+   | HHV10 (pilihan terdaftar) | 53,4 / 125 / −29 | 41,9 / 100 / −36 | 33,2 / 81 / −47 | 23,4 / 81 / −37 |
+   | HHV20 lama (base) | 43,3 / 138 / −18 | 37,1 / 119 / −27 | 32,4 / 105 / −33 | 20,7 / 83 / −27 |
+   Dengan fill sentuh, keunggulan channel pendek hampir hilang (median grid ch5/10/20: 39,0/38,5/38,3% vs 55,2/49,2/45,3%), PBO grid naik 0,045 → 0,19,
+   dan SK-5 turun dari peringkat 1 ke 5 di train (45,1%). Semua hasil buy stop sebelumnya (kandidat HHV20, Swinger stop order, engine UTS) memakai aturan yang sama.
+2. **Parameter spesifik SK-5 tidak lulus.** PBO di pojok HHV5 & 20% = 0,73 (fee) / 0,53; dimensi ER saja 0,69 / 0,79. Peringkat SK-5: train 1, validasi 87,
+   tes 2021–25 257/360 (spread1 326/360); korelasi peringkat train→tes 0,11. ER 0,3 terbaik di train tetapi peringkat 7–8 dari 8 di 2016–25 (pergantian rezim).
+3. **Uji yang "lulus" hanya bicara tentang keluarga sistem dan memakai null lemah:** PBO grid rendah karena ukuran 20% dan channel 5 mendominasi grid
+   (dan karena aturan fill); DSR ≈1 juga untuk konfigurasi terburuk; entry acak (median 15%) bahkan di bawah indeks equal-weight universe yang sama (23,6%).
+   Kontrol acak yang memakai filter ER + urutan momentum memberi 35,6% (maks 47%): sekitar separuh selisih berasal dari filter/urutan, bukan pemicu breakout.
+4. **Ada alpha terhadap indeks equal-weight universe yang sama:** 3,26%/bulan (t 6,9), beta 0,63 (aturan fill lama). Tetapi semua pembanding berbagi universe survivor.
+5. **Survivorship:** universe dibekukan pada saham listing sebelum 2015 → SK-5 2016–25 31,8% (indeks 13,8%, acak −2,8%); listing sebelum 2010 → 2021–25 10,4%
+   (indeks 7,3%). Tanpa 20 saham listing ≥2018, SK-5 rugi di 2019 (−10,7%) dan 2023 (−8,5%). Bootstrap p5: full 50,8%, 2016–25 39,0%, 2021–25 23,6%.
+6. **Noise harga** (−18%) sebagian besar menguji aturan seri/tie dan biaya perputaran, bukan overfitting.
 
-*PBO rendah terutama karena HHV5 + ukuran 20% mendominasi grid. Di dalam pojok HHV5 & 20% (40 konfigurasi) PBO 0,73 (fee) / 0,53 (slippage):
-memilih ER 0,3 + exit cand + exit breakout palsu di antara tetangganya tidak lebih baik dari acak. ER 0,3 bahkan lembah lokal
-(ER 0,25 / 0,35 / tanpa ER lebih baik, terutama 2016–25). Berdasarkan Sharpe, SK-5 di peringkat 138/360.
-**DSR ≈1 untuk semua anggota grid, termasuk yang terburuk; ini menunjukkan Sharpe keluarga sistem bukan keberuntungan seleksi, bukan bahwa
-parameter SK-5 tidak overfit. Label N=6.000 memakai sebaran Sharpe dari 360 konfigurasi; bila sebaran 6.000 run lebih lebar, DSR versi
-slippage bisa turun ke ±0,4. Autokorelasi bulanan 0,2 menurunkan z ±17% (tetap signifikan). Slope degradasi CSCV bersifat mekanis.
+## Yang masih berdiri
+Keluarga breakout + filter ER + urutan momentum mengalahkan entry acak dan indeks equal-weight universe yang sama. Tetapi dengan fill realistis, biaya, dan
+batas likuiditas, SK-5 setara/lebih buruk dari HHV20 lama (slippage: 31,7% vs 32,4%; batas 25% ADV: 24,7% vs 20,7% dengan MDD −40% vs −27%).
 
-## Kandidat post-hoc ER 0,2 + trailing
-Plateau dan kontrol serupa (entry acak 0/100, bootstrap p5 51,8% / 148 rekor, noise −23%, tanpa tahun rugi), tetapi dipilih sesudah melihat
-semua periode, jadi hanya baris DSR N=6.000 yang relevan dan pembagian in/out-of-sample-nya tidak bersih.
-
-## Kesimpulan
-- Keluarga sistem (buy stop HHV pendek, urutan momentum, ukuran ±20%) lulus uji overfitting standar: edge-nya bukan kebetulan seleksi dan
-  jauh di atas entry acak.
-- Parameter spesifik SK-5 tidak lulus: di antara konfigurasi serupa, pilihannya setara undian, dan ER 0,3 bukan nilai terbaik. Harapkan
-  kinerja di kisaran plateau (≈55–70% fee tanpa batas likuiditas; walk-forward 49%), bukan angka tepat 63,2%.
-- Tidak bisa dideteksi uji ini: survivorship universe (tanpa saham listing ≥2018, 2021–25 turun 44,5→21,6%), snooping riset (kerangka tetap
-  dipilih dari semua periode), harga ter-adjust, fill buy stop ideal, kapasitas (batas 25% ADV: ±28%). AFL tidak diubah.
+## Langkah berikut yang paling penting
+Uji ulang semua sistem buy stop dengan fill sentuh (+1 tick) sebagai default; universe point-in-time (anggota Kompas100/LQ45 historis termasuk yang delisting);
+atau forward test tertutup pada data sesudah 2025-08-15. AFL tidak diubah.

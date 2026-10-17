@@ -1,4 +1,4 @@
-"""Overfitting battery for SK-5 (pre-registered pick) and the post-hoc candidate ER .2 + trail (CAND). Full 2000-01..2025-08, Rp1bn,
+"""Overfitting battery for SK-5 (fee-only train #1; NOT the pre-registered pick, which was HHV10 in FROZEN.json) and the post-hoc candidate ER .2 + trail (CAND). Full 2000-01..2025-08, Rp1bn,
 fee 0.15/0.25% (Swinger basis) unless stated; s25 = fee + 0.25%/side slippage. Record month = month with a new daily equity high.
 T1 parameter sensitivity, one at a time, including values never in the search grid, plus a channel x ER heatmap.
 T2 CSCV probability of backtest overfitting (Bailey et al.) over the 360-config search grid: monthly returns, 16 blocks, all 12,870 IS/OOS splits.

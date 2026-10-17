@@ -1,5 +1,9 @@
 # Sistem baru dengan karakter Swinger ideal — "Swinger Kausal" (16 Okt 2026, v2)
 
+> **Koreksi 17 Okt 2026:** semua angka buy stop di sini memakai aturan fill High > level. Bila buy stop juga terisi saat High tepat menyentuh level
+> (realistis untuk stop broker), SK-5 full fee turun 63,2% → 44,6% (rekor 139 → 107, MDD −27% → −35%), ER 0,2 + trailing 66,5% → 45,3%, HHV20 lama 43,3% → 37,1%.
+> Lihat `overfit_results/CONCLUSION.md` dan `overfit_results/touch_fill_check.csv`.
+
 Kode: `search_swinger_like_system.py` (grid 360 + base; PLAN/FROZEN di-commit sebelum window evaluasi dibuka), `evaluate_swinger_like_finalists.py`,
 `walkforward_swinger_like.py`, `capacity_swinger_like.py`, `swinger_fill_ladder.py`. Engine `backtest_stop_execution.py`; opsi baru default mati,
 `test_stop_execution_new_options.py` mereproduksi kurva audit persis. Format: CAGR / bulan rekor (definisi Swinger: ada ekuitas harian
