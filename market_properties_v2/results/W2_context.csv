@@ -1,0 +1,1164 @@
+section,test_id,universe,period,metric,value,unit,n,t,note
+counts,entries,all,MAIN,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),17058.0,,,,
+counts,entries,all,MAIN,n_entries first per stock in 60 days,3824.0,,,,
+counts,entries,all,MAIN,n_signal_days,4650.0,,,,
+counts,entries,all,P1,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),3771.0,,,,
+counts,entries,all,P1,n_entries first per stock in 60 days,765.0,,,,
+counts,entries,all,P1,n_signal_days,1188.0,,,,
+counts,entries,all,P2,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),5461.0,,,,
+counts,entries,all,P2,n_entries first per stock in 60 days,1210.0,,,,
+counts,entries,all,P2,n_signal_days,1473.0,,,,
+counts,entries,all,P3,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),4120.0,,,,
+counts,entries,all,P3,n_entries first per stock in 60 days,927.0,,,,
+counts,entries,all,P3,n_signal_days,1031.0,,,,
+counts,entries,all,P4,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),3706.0,,,,
+counts,entries,all,P4,n_entries first per stock in 60 days,922.0,,,,
+counts,entries,all,P4,n_signal_days,958.0,,,,
+counts,entries,all,P0,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),1766.0,,,,
+counts,entries,all,P0,n_entries first per stock in 60 days,366.0,,,,
+counts,entries,all,P0,n_signal_days,705.0,,,,
+counts,entries,pre2018,MAIN,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),16359.0,,,,
+counts,entries,pre2018,MAIN,n_entries first per stock in 60 days,3656.0,,,,
+counts,entries,pre2018,MAIN,n_signal_days,4584.0,,,,
+counts,entries,pre2018,P1,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),3771.0,,,,
+counts,entries,pre2018,P1,n_entries first per stock in 60 days,765.0,,,,
+counts,entries,pre2018,P1,n_signal_days,1188.0,,,,
+counts,entries,pre2018,P2,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),5461.0,,,,
+counts,entries,pre2018,P2,n_entries first per stock in 60 days,1210.0,,,,
+counts,entries,pre2018,P2,n_signal_days,1473.0,,,,
+counts,entries,pre2018,P3,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),4001.0,,,,
+counts,entries,pre2018,P3,n_entries first per stock in 60 days,899.0,,,,
+counts,entries,pre2018,P3,n_signal_days,1021.0,,,,
+counts,entries,pre2018,P4,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),3126.0,,,,
+counts,entries,pre2018,P4,n_entries first per stock in 60 days,782.0,,,,
+counts,entries,pre2018,P4,n_signal_days,902.0,,,,
+counts,entries,pre2018,P0,n_entries (W1.1 & ER20>=0.2 & valid Open t+1),1766.0,,,,
+counts,entries,pre2018,P0,n_entries first per stock in 60 days,366.0,,,,
+counts,entries,pre2018,P0,n_signal_days,705.0,,,,
+counts,W2.1,all,MAIN,n_up,3399.0,,,,
+counts,W2.1,all,MAIN,n_down,2868.0,,,,
+counts,W2.1,all,MAIN,n_middle,10130.0,,,,
+event_weighted,W2.1,all,MAIN,mean z up minus down,2.8798640041829837,%,6267.0,,
+counts,W2.1,all,P1,n_up,944.0,,,,
+counts,W2.1,all,P1,n_down,650.0,,,,
+counts,W2.1,all,P1,n_middle,2034.0,,,,
+event_weighted,W2.1,all,P1,mean z up minus down,1.351987557805026,%,1594.0,,
+counts,W2.1,all,P2,n_up,1031.0,,,,
+counts,W2.1,all,P2,n_down,880.0,,,,
+counts,W2.1,all,P2,n_middle,3376.0,,,,
+event_weighted,W2.1,all,P2,mean z up minus down,2.4843266395770924,%,1911.0,,
+counts,W2.1,all,P3,n_up,808.0,,,,
+counts,W2.1,all,P3,n_down,703.0,,,,
+counts,W2.1,all,P3,n_middle,2569.0,,,,
+event_weighted,W2.1,all,P3,mean z up minus down,4.314689492946842,%,1511.0,,
+counts,W2.1,all,P4,n_up,616.0,,,,
+counts,W2.1,all,P4,n_down,635.0,,,,
+counts,W2.1,all,P4,n_middle,2151.0,,,,
+event_weighted,W2.1,all,P4,mean z up minus down,2.351423367620075,%,1251.0,,
+counts,W2.1,all,P0,n_up,445.0,,,,
+counts,W2.1,all,P0,n_down,410.0,,,,
+counts,W2.1,all,P0,n_middle,818.0,,,,
+event_weighted,W2.1,all,P0,mean z up minus down,-1.1641874203151295,%,855.0,,
+groups,W2.1,all,MAIN,"event-weighted mean z, up group",6.687191995463547,%,3399.0,,
+groups,W2.1,all,MAIN,"event-weighted mean z, down group",3.8073279912805633,%,2868.0,,
+groups,W2.1,all,MAIN,"event-weighted mean z, middle group",3.3405827054013333,%,10130.0,,
+groups,W2.1,all,MAIN,"day-mean z, up group",6.839660838588389,%,,,
+groups,W2.1,all,MAIN,"day-mean z, down group",4.059349207763378,%,,,
+counts,W2.2,all,MAIN,n_up,5877.0,,,,
+counts,W2.2,all,MAIN,n_down,4397.0,,,,
+counts,W2.2,all,MAIN,n_middle,6056.0,,,,
+event_weighted,W2.2,all,MAIN,mean z up minus down,2.957585406996608,%,10274.0,,
+counts,W2.2,all,P1,n_up,1546.0,,,,
+counts,W2.2,all,P1,n_down,959.0,,,,
+counts,W2.2,all,P1,n_middle,1081.0,,,,
+event_weighted,W2.2,all,P1,mean z up minus down,3.715706869214304,%,2505.0,,
+counts,W2.2,all,P2,n_up,1943.0,,,,
+counts,W2.2,all,P2,n_down,1260.0,,,,
+counts,W2.2,all,P2,n_middle,2064.0,,,,
+event_weighted,W2.2,all,P2,mean z up minus down,3.8858491405561897,%,3203.0,,
+counts,W2.2,all,P3,n_up,1418.0,,,,
+counts,W2.2,all,P3,n_down,1054.0,,,,
+counts,W2.2,all,P3,n_middle,1598.0,,,,
+event_weighted,W2.2,all,P3,mean z up minus down,1.1177709028554554,%,2472.0,,
+counts,W2.2,all,P4,n_up,970.0,,,,
+counts,W2.2,all,P4,n_down,1124.0,,,,
+counts,W2.2,all,P4,n_middle,1313.0,,,,
+event_weighted,W2.2,all,P4,mean z up minus down,1.155790117568533,%,2094.0,,
+counts,W2.2,all,P0,n_up,699.0,,,,
+counts,W2.2,all,P0,n_down,494.0,,,,
+counts,W2.2,all,P0,n_middle,463.0,,,,
+event_weighted,W2.2,all,P0,mean z up minus down,7.312528039344582,%,1193.0,,
+groups,W2.2,all,MAIN,"event-weighted mean z, up group",3.9274957467019376,%,5877.0,,
+groups,W2.2,all,MAIN,"event-weighted mean z, down group",0.9699103397053297,%,4397.0,,
+groups,W2.2,all,MAIN,"event-weighted mean z, middle group",1.6340623144154267,%,6056.0,,
+groups,W2.2,all,MAIN,"day-mean z, up group",4.016623347993407,%,,,
+groups,W2.2,all,MAIN,"day-mean z, down group",1.4168841568422157,%,,,
+counts,W2.3,all,MAIN,n_events,5854.0,,,,
+event_weighted,W2.3,all,MAIN,event-weighted mean (primary definition),2.0749251672951408,%,5854.0,,
+counts,W2.3,all,P1,n_events,1667.0,,,,
+event_weighted,W2.3,all,P1,event-weighted mean (primary definition),2.0712941878835442,%,1667.0,,
+counts,W2.3,all,P2,n_events,1797.0,,,,
+event_weighted,W2.3,all,P2,event-weighted mean (primary definition),1.4453093315562713,%,1797.0,,
+counts,W2.3,all,P3,n_events,1408.0,,,,
+event_weighted,W2.3,all,P3,event-weighted mean (primary definition),3.5380250679875704,%,1408.0,,
+counts,W2.3,all,P4,n_events,982.0,,,,
+event_weighted,W2.3,all,P4,event-weighted mean (primary definition),1.135442315285912,%,982.0,,
+counts,W2.3,all,P0,n_events,827.0,,,,
+event_weighted,W2.3,all,P0,event-weighted mean (primary definition),-1.0430406973173554,%,827.0,,
+counts,W2.4,all,MAIN,n_events,16765.0,,,,
+event_weighted,W2.4,all,MAIN,event-weighted mean (primary definition),1.2834824762125703,bps/day,16765.0,,
+counts,W2.4,all,P1,n_events,3771.0,,,,
+event_weighted,W2.4,all,P1,event-weighted mean (primary definition),2.9587260957667225,bps/day,3771.0,,
+counts,W2.4,all,P2,n_events,5461.0,,,,
+event_weighted,W2.4,all,P2,event-weighted mean (primary definition),1.1130758051328855,bps/day,5461.0,,
+counts,W2.4,all,P3,n_events,4120.0,,,,
+event_weighted,W2.4,all,P3,event-weighted mean (primary definition),1.9126683026948315,bps/day,4120.0,,
+counts,W2.4,all,P4,n_events,3413.0,,,,
+event_weighted,W2.4,all,P4,event-weighted mean (primary definition),-1.0543430332159285,bps/day,3413.0,,
+counts,W2.4,all,P0,n_events,1766.0,,,,
+event_weighted,W2.4,all,P0,event-weighted mean (primary definition),0.1736670989501749,bps/day,1766.0,,
+counts,W2.5,all,MAIN,n_events,16607.0,,,,
+event_weighted,W2.5,all,MAIN,event-weighted mean (primary definition),1.2217783349465128,%,16607.0,,
+counts,W2.5,all,P1,n_events,3771.0,,,,
+event_weighted,W2.5,all,P1,event-weighted mean (primary definition),3.3053354707907685,%,3771.0,,
+counts,W2.5,all,P2,n_events,5461.0,,,,
+event_weighted,W2.5,all,P2,event-weighted mean (primary definition),1.3176808048518727,%,5461.0,,
+counts,W2.5,all,P3,n_events,4120.0,,,,
+event_weighted,W2.5,all,P3,event-weighted mean (primary definition),0.5572246767585488,%,4120.0,,
+counts,W2.5,all,P4,n_events,3255.0,,,,
+event_weighted,W2.5,all,P4,event-weighted mean (primary definition),-0.511818063114147,%,3255.0,,
+counts,W2.5,all,P0,n_events,1766.0,,,,
+event_weighted,W2.5,all,P0,event-weighted mean (primary definition),0.7884090406578994,%,1766.0,,
+counts,W2.1,pre2018,MAIN,n_up,3250.0,,,,
+counts,W2.1,pre2018,MAIN,n_down,2734.0,,,,
+counts,W2.1,pre2018,MAIN,n_middle,9788.0,,,,
+event_weighted,W2.1,pre2018,MAIN,mean z up minus down,2.660413125684327,%,5984.0,,
+counts,W2.1,pre2018,P1,n_up,944.0,,,,
+counts,W2.1,pre2018,P1,n_down,650.0,,,,
+counts,W2.1,pre2018,P1,n_middle,2034.0,,,,
+event_weighted,W2.1,pre2018,P1,mean z up minus down,1.351987557805026,%,1594.0,,
+counts,W2.1,pre2018,P2,n_up,1031.0,,,,
+counts,W2.1,pre2018,P2,n_down,880.0,,,,
+counts,W2.1,pre2018,P2,n_middle,3376.0,,,,
+event_weighted,W2.1,pre2018,P2,mean z up minus down,2.4843266395770924,%,1911.0,,
+counts,W2.1,pre2018,P3,n_up,778.0,,,,
+counts,W2.1,pre2018,P3,n_down,682.0,,,,
+counts,W2.1,pre2018,P3,n_middle,2502.0,,,,
+event_weighted,W2.1,pre2018,P3,mean z up minus down,4.495075304946529,%,1460.0,,
+counts,W2.1,pre2018,P4,n_up,497.0,,,,
+counts,W2.1,pre2018,P4,n_down,522.0,,,,
+counts,W2.1,pre2018,P4,n_middle,1876.0,,,,
+event_weighted,W2.1,pre2018,P4,mean z up minus down,0.486603097755926,%,1019.0,,
+counts,W2.1,pre2018,P0,n_up,445.0,,,,
+counts,W2.1,pre2018,P0,n_down,410.0,,,,
+counts,W2.1,pre2018,P0,n_middle,818.0,,,,
+event_weighted,W2.1,pre2018,P0,mean z up minus down,-1.1641874203151295,%,855.0,,
+groups,W2.1,pre2018,MAIN,"event-weighted mean z, up group",6.407285076832038,%,3250.0,,
+groups,W2.1,pre2018,MAIN,"event-weighted mean z, down group",3.746871951147711,%,2734.0,,
+groups,W2.1,pre2018,MAIN,"event-weighted mean z, middle group",3.34185973916488,%,9788.0,,
+groups,W2.1,pre2018,MAIN,"day-mean z, up group",6.325295288300353,%,,,
+groups,W2.1,pre2018,MAIN,"day-mean z, down group",3.813194511927456,%,,,
+counts,W2.2,pre2018,MAIN,n_up,5638.0,,,,
+counts,W2.2,pre2018,MAIN,n_down,4192.0,,,,
+counts,W2.2,pre2018,MAIN,n_middle,5869.0,,,,
+event_weighted,W2.2,pre2018,MAIN,mean z up minus down,3.0530169157661753,%,9830.0,,
+counts,W2.2,pre2018,P1,n_up,1546.0,,,,
+counts,W2.2,pre2018,P1,n_down,959.0,,,,
+counts,W2.2,pre2018,P1,n_middle,1081.0,,,,
+event_weighted,W2.2,pre2018,P1,mean z up minus down,3.715706869214304,%,2505.0,,
+counts,W2.2,pre2018,P2,n_up,1943.0,,,,
+counts,W2.2,pre2018,P2,n_down,1260.0,,,,
+counts,W2.2,pre2018,P2,n_middle,2064.0,,,,
+event_weighted,W2.2,pre2018,P2,mean z up minus down,3.8858491405561897,%,3203.0,,
+counts,W2.2,pre2018,P3,n_up,1367.0,,,,
+counts,W2.2,pre2018,P3,n_down,1022.0,,,,
+counts,W2.2,pre2018,P3,n_middle,1562.0,,,,
+event_weighted,W2.2,pre2018,P3,mean z up minus down,1.0896937482485907,%,2389.0,,
+counts,W2.2,pre2018,P4,n_up,782.0,,,,
+counts,W2.2,pre2018,P4,n_down,951.0,,,,
+counts,W2.2,pre2018,P4,n_middle,1162.0,,,,
+event_weighted,W2.2,pre2018,P4,mean z up minus down,1.0255114724244834,%,1733.0,,
+counts,W2.2,pre2018,P0,n_up,699.0,,,,
+counts,W2.2,pre2018,P0,n_down,494.0,,,,
+counts,W2.2,pre2018,P0,n_middle,463.0,,,,
+event_weighted,W2.2,pre2018,P0,mean z up minus down,7.312528039344582,%,1193.0,,
+groups,W2.2,pre2018,MAIN,"event-weighted mean z, up group",3.9405941676039515,%,5638.0,,
+groups,W2.2,pre2018,MAIN,"event-weighted mean z, down group",0.8875772518377764,%,4192.0,,
+groups,W2.2,pre2018,MAIN,"event-weighted mean z, middle group",1.5770323232522694,%,5869.0,,
+groups,W2.2,pre2018,MAIN,"day-mean z, up group",3.9110539899312533,%,,,
+groups,W2.2,pre2018,MAIN,"day-mean z, down group",1.2589971533320388,%,,,
+counts,W2.3,pre2018,MAIN,n_events,5585.0,,,,
+event_weighted,W2.3,pre2018,MAIN,event-weighted mean (primary definition),1.8626425504905244,%,5585.0,,
+counts,W2.3,pre2018,P1,n_events,1667.0,,,,
+event_weighted,W2.3,pre2018,P1,event-weighted mean (primary definition),2.0712941878835442,%,1667.0,,
+counts,W2.3,pre2018,P2,n_events,1797.0,,,,
+event_weighted,W2.3,pre2018,P2,event-weighted mean (primary definition),1.4453093315562713,%,1797.0,,
+counts,W2.3,pre2018,P3,n_events,1353.0,,,,
+event_weighted,W2.3,pre2018,P3,event-weighted mean (primary definition),3.5783436922176137,%,1353.0,,
+counts,W2.3,pre2018,P4,n_events,768.0,,,,
+event_weighted,W2.3,pre2018,P4,event-weighted mean (primary definition),-0.6363393894392437,%,768.0,,
+counts,W2.3,pre2018,P0,n_events,827.0,,,,
+event_weighted,W2.3,pre2018,P0,event-weighted mean (primary definition),-1.0430406973173552,%,827.0,,
+counts,W2.4,pre2018,MAIN,n_events,16129.0,,,,
+event_weighted,W2.4,pre2018,MAIN,event-weighted mean (primary definition),1.1770817412596426,bps/day,16129.0,,
+counts,W2.4,pre2018,P1,n_events,3771.0,,,,
+event_weighted,W2.4,pre2018,P1,event-weighted mean (primary definition),2.9587260957667225,bps/day,3771.0,,
+counts,W2.4,pre2018,P2,n_events,5461.0,,,,
+event_weighted,W2.4,pre2018,P2,event-weighted mean (primary definition),1.113075805132886,bps/day,5461.0,,
+counts,W2.4,pre2018,P3,n_events,4001.0,,,,
+event_weighted,W2.4,pre2018,P3,event-weighted mean (primary definition),1.9414832289116855,bps/day,4001.0,,
+counts,W2.4,pre2018,P4,n_events,2896.0,,,,
+event_weighted,W2.4,pre2018,P4,event-weighted mean (primary definition),-2.0782410473293784,bps/day,2896.0,,
+counts,W2.4,pre2018,P0,n_events,1766.0,,,,
+event_weighted,W2.4,pre2018,P0,event-weighted mean (primary definition),0.1736670989501749,bps/day,1766.0,,
+counts,W2.5,pre2018,MAIN,n_events,16011.0,,,,
+event_weighted,W2.5,pre2018,MAIN,event-weighted mean (primary definition),1.1662480145724696,%,16011.0,,
+counts,W2.5,pre2018,P1,n_events,3771.0,,,,
+event_weighted,W2.5,pre2018,P1,event-weighted mean (primary definition),3.3053354707907685,%,3771.0,,
+counts,W2.5,pre2018,P2,n_events,5461.0,,,,
+event_weighted,W2.5,pre2018,P2,event-weighted mean (primary definition),1.3176808048518727,%,5461.0,,
+counts,W2.5,pre2018,P3,n_events,4001.0,,,,
+event_weighted,W2.5,pre2018,P3,event-weighted mean (primary definition),0.5981514945186004,%,4001.0,,
+counts,W2.5,pre2018,P4,n_events,2778.0,,,,
+event_weighted,W2.5,pre2018,P4,event-weighted mean (primary definition),-1.2169482015468591,%,2778.0,,
+counts,W2.5,pre2018,P0,n_events,1766.0,,,,
+event_weighted,W2.5,pre2018,P0,event-weighted mean (primary definition),0.7884090406578994,%,1766.0,,
+alt_basis,W2.1,all,MAIN,abnormal z up minus down (day-mean),1.7518199820797786,%,1786.0,1.588527853864346,
+alt_basis,W2.1,all,P1,abnormal z up minus down (day-mean),-1.0051873454922242,%,398.0,-0.4516021962733989,
+alt_basis,W2.1,all,P2,abnormal z up minus down (day-mean),-0.13720900818176734,%,540.0,-0.08670227977503663,
+alt_basis,W2.1,all,P3,abnormal z up minus down (day-mean),4.952391516941622,%,436.0,1.7841860143794588,
+alt_basis,W2.1,all,P4,abnormal z up minus down (day-mean),4.116575453944564,%,412.0,1.8005515236912928,
+alt_basis,W2.2,all,MAIN,abnormal z up minus down (day-mean),1.5112419386514482,%,2445.0,2.2098424840130706,
+alt_basis,W2.2,all,P1,abnormal z up minus down (day-mean),2.5594657013648825,%,549.0,1.7299479251725862,
+alt_basis,W2.2,all,P2,abnormal z up minus down (day-mean),1.861563739027993,%,739.0,1.8525024408442714,
+alt_basis,W2.2,all,P3,abnormal z up minus down (day-mean),0.9227056212593865,%,586.0,0.5450080682726531,
+alt_basis,W2.2,all,P4,abnormal z up minus down (day-mean),0.28113210386977083,%,548.0,0.21028370126008278,
+alt_basis,W2.3,all,MAIN,raw (not abnormal) mean (day-mean),5.484667682855753,%,2928.0,4.53604701897741,
+alt_basis,W2.3,all,P1,raw (not abnormal) mean (day-mean),7.933612788160488,%,790.0,2.7659522429654717,
+alt_basis,W2.3,all,P2,raw (not abnormal) mean (day-mean),4.521918406154724,%,905.0,2.2810035157957067,
+alt_basis,W2.3,all,P3,raw (not abnormal) mean (day-mean),7.4633880734812825,%,675.0,3.0926370273308086,
+alt_basis,W2.3,all,P4,raw (not abnormal) mean (day-mean),1.1853580028404433,%,558.0,0.738974418236911,
+alt_basis,W2.4,all,MAIN,raw (not abnormal) mean (day-mean),6.45962732443992,bps/day,4599.0,3.345771509296599,
+alt_basis,W2.4,all,P1,raw (not abnormal) mean (day-mean),11.035130548053953,bps/day,1188.0,2.446325425453032,
+alt_basis,W2.4,all,P2,raw (not abnormal) mean (day-mean),5.801344302216763,bps/day,1473.0,1.7284785202649888,
+alt_basis,W2.4,all,P3,raw (not abnormal) mean (day-mean),7.446921458768217,bps/day,1031.0,1.7813563268230108,
+alt_basis,W2.4,all,P4,raw (not abnormal) mean (day-mean),0.41337904394241254,bps/day,907.0,0.1854866806698321,
+alt_basis,W2.5,all,MAIN,abnormal paired difference (day-mean),0.8162431453307515,%,4557.0,3.1933734084342644,
+alt_basis,W2.5,all,P1,abnormal paired difference (day-mean),1.8841896787654446,%,1188.0,2.9618332981489006,
+alt_basis,W2.5,all,P2,abnormal paired difference (day-mean),0.6896157554313914,%,1473.0,2.192771702335327,
+alt_basis,W2.5,all,P3,abnormal paired difference (day-mean),0.5597553403584062,%,1031.0,1.047201979415465,
+alt_basis,W2.5,all,P4,abnormal paired difference (day-mean),-0.12914345521510917,%,865.0,-0.23699520926222079,
+alt_basis,W2.1,pre2018,MAIN,abnormal z up minus down (day-mean),1.3967448381394898,%,1715.0,1.265395702176353,
+alt_basis,W2.1,pre2018,P1,abnormal z up minus down (day-mean),-1.0051873454922235,%,398.0,-0.4516021962733986,
+alt_basis,W2.1,pre2018,P2,abnormal z up minus down (day-mean),-0.137209008181767,%,540.0,-0.0867022797750364,
+alt_basis,W2.1,pre2018,P3,abnormal z up minus down (day-mean),4.950224592689806,%,425.0,1.7188771462535413,
+alt_basis,W2.1,pre2018,P4,abnormal z up minus down (day-mean),2.3913292001627755,%,352.0,1.2172681634541174,
+alt_basis,W2.2,pre2018,MAIN,abnormal z up minus down (day-mean),1.546790981928895,%,2375.0,2.255434302829339,
+alt_basis,W2.2,pre2018,P1,abnormal z up minus down (day-mean),2.5594657013648834,%,549.0,1.7299479251725864,
+alt_basis,W2.2,pre2018,P2,abnormal z up minus down (day-mean),1.8615637390279933,%,739.0,1.8525024408442716,
+alt_basis,W2.2,pre2018,P3,abnormal z up minus down (day-mean),0.5561174135388234,%,577.0,0.31945358799793433,
+alt_basis,W2.2,pre2018,P4,abnormal z up minus down (day-mean),0.5912986973568253,%,475.0,0.5080239437584995,
+alt_basis,W2.3,pre2018,MAIN,raw (not abnormal) mean (day-mean),5.243758822988822,%,2811.0,4.158802230585891,
+alt_basis,W2.3,pre2018,P1,raw (not abnormal) mean (day-mean),7.933612788160488,%,790.0,2.7659522429654717,
+alt_basis,W2.3,pre2018,P2,raw (not abnormal) mean (day-mean),4.521918406154724,%,905.0,2.2810035157957067,
+alt_basis,W2.3,pre2018,P3,raw (not abnormal) mean (day-mean),7.539146183017456,%,649.0,3.084227897919672,
+alt_basis,W2.3,pre2018,P4,raw (not abnormal) mean (day-mean),-1.0976233010140508,%,467.0,-0.6427273030200574,
+alt_basis,W2.4,pre2018,MAIN,raw (not abnormal) mean (day-mean),6.07630781397322,bps/day,4535.0,3.126203089116133,
+alt_basis,W2.4,pre2018,P1,raw (not abnormal) mean (day-mean),11.035130548053953,bps/day,1188.0,2.446325425453032,
+alt_basis,W2.4,pre2018,P2,raw (not abnormal) mean (day-mean),5.801344302216763,bps/day,1473.0,1.7284785202649888,
+alt_basis,W2.4,pre2018,P3,raw (not abnormal) mean (day-mean),7.634952091246297,bps/day,1021.0,1.909435004837207,
+alt_basis,W2.4,pre2018,P4,raw (not abnormal) mean (day-mean),-2.220803513537283,bps/day,853.0,-0.9748565815771232,
+alt_basis,W2.5,pre2018,MAIN,abnormal paired difference (day-mean),0.6306431645559637,%,4502.0,2.5575535925417445,
+alt_basis,W2.5,pre2018,P1,abnormal paired difference (day-mean),1.8841896787654446,%,1188.0,2.9618332981489,
+alt_basis,W2.5,pre2018,P2,abnormal paired difference (day-mean),0.6896157554313914,%,1473.0,2.192771702335327,
+alt_basis,W2.5,pre2018,P3,abnormal paired difference (day-mean),0.5901138992089116,%,1021.0,1.1190145825526487,
+alt_basis,W2.5,pre2018,P4,abnormal paired difference (day-mean),-1.2409415980306544,%,820.0,-3.8522307654224375,
+pre2018_subperiods,W2.1,pre2018,MAIN,primary statistic (day-mean),2.512100776372897,%,1715.0,1.6403513913910035,
+pre2018_subperiods,W2.1,pre2018,P1,primary statistic (day-mean),0.5011777525762138,%,398.0,0.14486457688726842,
+pre2018_subperiods,W2.1,pre2018,P2,primary statistic (day-mean),1.3915838034282721,%,540.0,0.5381867199524228,
+pre2018_subperiods,W2.1,pre2018,P3,primary statistic (day-mean),5.5333681318024635,%,425.0,1.6933739875315752,
+pre2018_subperiods,W2.1,pre2018,P4,primary statistic (day-mean),1.7036896098850625,%,352.0,0.751368466360992,
+pre2018_subperiods,W2.1,pre2018,P0,primary statistic (day-mean),-1.611569636006866,%,253.0,-0.24605618681468014,
+pre2018_subperiods,W2.2,pre2018,MAIN,primary statistic (day-mean),2.652056836599214,%,2375.0,2.354130323298405,
+pre2018_subperiods,W2.2,pre2018,P1,primary statistic (day-mean),5.269672737213242,%,549.0,2.077896388001181,
+pre2018_subperiods,W2.2,pre2018,P2,primary statistic (day-mean),2.3973072579248287,%,739.0,1.299337606655228,
+pre2018_subperiods,W2.2,pre2018,P3,primary statistic (day-mean),1.3521987282675836,%,577.0,0.5199157525631198,
+pre2018_subperiods,W2.2,pre2018,P4,primary statistic (day-mean),0.1377046558357695,%,475.0,0.0873822090253253,
+pre2018_subperiods,W2.2,pre2018,P0,primary statistic (day-mean),2.434928830463825,%,311.0,0.5365512938673033,
+pre2018_subperiods,W2.3,pre2018,MAIN,primary statistic (day-mean),2.0344681582849473,%,2811.0,2.2678795242551892,
+pre2018_subperiods,W2.3,pre2018,P1,primary statistic (day-mean),2.3186226870511732,%,790.0,1.2676034389481992,
+pre2018_subperiods,W2.3,pre2018,P2,primary statistic (day-mean),0.9716959317033242,%,905.0,0.8632652505476534,
+pre2018_subperiods,W2.3,pre2018,P3,primary statistic (day-mean),4.568088855325311,%,649.0,1.857643122456773,
+pre2018_subperiods,W2.3,pre2018,P4,primary statistic (day-mean),0.09229889693988262,%,467.0,0.06418253865399098,
+pre2018_subperiods,W2.3,pre2018,P0,primary statistic (day-mean),0.6807780077122448,%,435.0,0.2883112487426845,
+pre2018_subperiods,W2.4,pre2018,MAIN,primary statistic (day-mean),1.5315141819504972,bps/day,4535.0,1.755196372660059,
+pre2018_subperiods,W2.4,pre2018,P1,primary statistic (day-mean),2.8779853350286317,bps/day,1188.0,1.4021736220267313,
+pre2018_subperiods,W2.4,pre2018,P2,primary statistic (day-mean),1.1740155218169488,bps/day,1473.0,1.0669362466717314,
+pre2018_subperiods,W2.4,pre2018,P3,primary statistic (day-mean),3.430543397310092,bps/day,1021.0,1.539225857798946,
+pre2018_subperiods,W2.4,pre2018,P4,primary statistic (day-mean),-1.999460064664104,bps/day,853.0,-1.5279739546353093,
+pre2018_subperiods,W2.4,pre2018,P0,primary statistic (day-mean),4.011473084056477,bps/day,705.0,1.0933339231035464,
+pre2018_subperiods,W2.5,pre2018,MAIN,primary statistic (day-mean),1.572983163327708,%,4502.0,4.320522025283565,
+pre2018_subperiods,W2.5,pre2018,P1,primary statistic (day-mean),3.8034899339135704,%,1188.0,3.9132451797668018,
+pre2018_subperiods,W2.5,pre2018,P2,primary statistic (day-mean),1.5639777492320732,%,1473.0,2.9963099619692968,
+pre2018_subperiods,W2.5,pre2018,P3,primary statistic (day-mean),1.277678010921341,%,1021.0,1.9520551174770282,
+pre2018_subperiods,W2.5,pre2018,P4,primary statistic (day-mean),-1.274663797509162,%,820.0,-3.8997424582752447,
+pre2018_subperiods,W2.5,pre2018,P0,primary statistic (day-mean),1.7005218645468105,%,705.0,1.806100940278857,
+lag_sensitivity,W2.1,all,MAIN,t with NW lags 60 (primary uses 20),2.7803116308250115,%,1786.0,1.5260390663675867,
+lag_sensitivity,W2.2,all,MAIN,t with NW lags 60 (primary uses 20),2.599739191151191,%,2445.0,1.9108466820580898,
+lag_sensitivity,W2.3,all,MAIN,t with NW lags 20 (primary uses 60),2.3021723264212275,%,2928.0,2.960939457723377,
+lag_sensitivity,W2.4,all,MAIN,t with NW lags 20 (primary uses 40),1.8033066417606307,bps/day,4599.0,2.245593414819318,
+lag_sensitivity,W2.5,all,MAIN,t with NW lags 120 (primary uses 20),1.742730433873509,%,4557.0,3.4554649207933212,
+lag_sensitivity,W2.1,pre2018,MAIN,t with NW lags 60 (primary uses 20),2.512100776372897,%,1715.0,1.334963730820158,
+lag_sensitivity,W2.2,pre2018,MAIN,t with NW lags 60 (primary uses 20),2.652056836599214,%,2375.0,1.9111288529323407,
+lag_sensitivity,W2.3,pre2018,MAIN,t with NW lags 20 (primary uses 60),2.0344681582849473,%,2811.0,2.5933311380412043,
+lag_sensitivity,W2.4,pre2018,MAIN,t with NW lags 20 (primary uses 40),1.5315141819504972,bps/day,4535.0,1.9254919361978842,
+lag_sensitivity,W2.5,pre2018,MAIN,t with NW lags 120 (primary uses 20),1.572983163327708,%,4502.0,3.0604361721035453,
+first_per_60d,W2.1,all,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",4.1987128495142025,%,549.0,2.297339192953277,n_events=1358
+first_per_60d,W2.1,all,P1,"primary statistic, first event per stock in 60 days (day-mean)",0.8523362601880996,%,109.0,0.18117452193880598,n_events=310
+first_per_60d,W2.1,all,P2,"primary statistic, first event per stock in 60 days (day-mean)",2.2979374890214235,%,152.0,0.7212598465494177,n_events=400
+first_per_60d,W2.1,all,P3,"primary statistic, first event per stock in 60 days (day-mean)",8.497152568764548,%,137.0,2.313857414852456,n_events=328
+first_per_60d,W2.1,all,P4,"primary statistic, first event per stock in 60 days (day-mean)",3.8772623378118585,%,132.0,1.3924145803642312,n_events=320
+first_per_60d,W2.1,all,P0,"primary statistic, first event per stock in 60 days (day-mean)",-7.790570234822811,%,65.0,-0.7247050398547509,n_events=184
+first_per_60d,W2.2,all,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",4.365872801244268,%,841.0,3.3959541608747035,n_events=2292
+first_per_60d,W2.2,all,P1,"primary statistic, first event per stock in 60 days (day-mean)",6.172935915238121,%,151.0,1.820019186836466,n_events=488
+first_per_60d,W2.2,all,P2,"primary statistic, first event per stock in 60 days (day-mean)",4.713144571821385,%,240.0,1.9558306558587644,n_events=693
+first_per_60d,W2.2,all,P3,"primary statistic, first event per stock in 60 days (day-mean)",3.2157360827982866,%,213.0,1.2378044573706606,n_events=568
+first_per_60d,W2.2,all,P4,"primary statistic, first event per stock in 60 days (day-mean)",2.5370151022956358,%,203.0,1.3139873355829432,n_events=543
+first_per_60d,W2.2,all,P0,"primary statistic, first event per stock in 60 days (day-mean)",2.6766330408010717,%,78.0,0.34127215487330276,n_events=237
+first_per_60d,W2.3,all,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",1.8335297768643695,%,966.0,2.2273207675207747,n_events=1225
+first_per_60d,W2.3,all,P1,"primary statistic, first event per stock in 60 days (day-mean)",2.009683665754763,%,254.0,0.9837029975652762,n_events=323
+first_per_60d,W2.3,all,P2,"primary statistic, first event per stock in 60 days (day-mean)",1.3831663589042371,%,291.0,1.3927194981068876,n_events=375
+first_per_60d,W2.3,all,P3,"primary statistic, first event per stock in 60 days (day-mean)",2.8409148796441186,%,227.0,1.4888045011171198,n_events=295
+first_per_60d,W2.3,all,P4,"primary statistic, first event per stock in 60 days (day-mean)",1.099696006334653,%,194.0,0.6717578134946879,n_events=232
+first_per_60d,W2.3,all,P0,"primary statistic, first event per stock in 60 days (day-mean)",-0.974146268975401,%,143.0,-0.5091356841712277,n_events=187
+first_per_60d,W2.4,all,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",1.3134692142418443,bps/day,2332.0,1.8566731085901003,n_events=3769
+first_per_60d,W2.4,all,P1,"primary statistic, first event per stock in 60 days (day-mean)",3.4973959815587974,bps/day,517.0,1.6981989063991667,n_events=765
+first_per_60d,W2.4,all,P2,"primary statistic, first event per stock in 60 days (day-mean)",0.931208943134455,bps/day,749.0,0.8676572965736719,n_events=1210
+first_per_60d,W2.4,all,P3,"primary statistic, first event per stock in 60 days (day-mean)",0.7397664347754765,bps/day,554.0,0.5769189864882455,n_events=927
+first_per_60d,W2.4,all,P4,"primary statistic, first event per stock in 60 days (day-mean)",0.2881843395952369,bps/day,512.0,0.23559800068019174,n_events=867
+first_per_60d,W2.4,all,P0,"primary statistic, first event per stock in 60 days (day-mean)",0.15583441572537624,bps/day,267.0,0.06329953167229456,n_events=366
+first_per_60d,W2.5,all,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",1.6073284188336083,%,2303.0,4.498176126341657,n_events=3709
+first_per_60d,W2.5,all,P1,"primary statistic, first event per stock in 60 days (day-mean)",3.6905267441222014,%,517.0,3.6335970023903816,n_events=765
+first_per_60d,W2.5,all,P2,"primary statistic, first event per stock in 60 days (day-mean)",1.864077918477096,%,749.0,2.960585250317124,n_events=1210
+first_per_60d,W2.5,all,P3,"primary statistic, first event per stock in 60 days (day-mean)",1.1052747168730916,%,554.0,1.9976505797879984,n_events=927
+first_per_60d,W2.5,all,P4,"primary statistic, first event per stock in 60 days (day-mean)",-0.4448064849366787,%,483.0,-1.073754362525615,n_events=807
+first_per_60d,W2.5,all,P0,"primary statistic, first event per stock in 60 days (day-mean)",2.41735984086548,%,267.0,1.5610639644122226,n_events=366
+first_per_60d,W2.1,pre2018,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",3.845499429558204,%,517.0,2.044546137955987,n_events=1286
+first_per_60d,W2.1,pre2018,P1,"primary statistic, first event per stock in 60 days (day-mean)",0.8523362601880996,%,109.0,0.18117452193880598,n_events=310
+first_per_60d,W2.1,pre2018,P2,"primary statistic, first event per stock in 60 days (day-mean)",2.2979374890214235,%,152.0,0.7212598465494177,n_events=400
+first_per_60d,W2.1,pre2018,P3,"primary statistic, first event per stock in 60 days (day-mean)",9.218061591131905,%,132.0,2.545086148610096,n_events=319
+first_per_60d,W2.1,pre2018,P4,"primary statistic, first event per stock in 60 days (day-mean)",1.4729333048666848,%,110.0,0.487582640181977,n_events=257
+first_per_60d,W2.1,pre2018,P0,"primary statistic, first event per stock in 60 days (day-mean)",-7.790570234822811,%,65.0,-0.7247050398547509,n_events=184
+first_per_60d,W2.2,pre2018,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",4.045298765270776,%,807.0,3.0703186834016067,n_events=2181
+first_per_60d,W2.2,pre2018,P1,"primary statistic, first event per stock in 60 days (day-mean)",6.172935915238121,%,151.0,1.820019186836466,n_events=488
+first_per_60d,W2.2,pre2018,P2,"primary statistic, first event per stock in 60 days (day-mean)",4.713144571821385,%,240.0,1.9558306558587644,n_events=693
+first_per_60d,W2.2,pre2018,P3,"primary statistic, first event per stock in 60 days (day-mean)",2.4557742228744295,%,210.0,0.9353561173180056,n_events=551
+first_per_60d,W2.2,pre2018,P4,"primary statistic, first event per stock in 60 days (day-mean)",1.3053858409742618,%,169.0,0.684021717124789,n_events=449
+first_per_60d,W2.2,pre2018,P0,"primary statistic, first event per stock in 60 days (day-mean)",2.6766330408010717,%,78.0,0.34127215487330276,n_events=237
+first_per_60d,W2.3,pre2018,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",1.5045209669059934,%,924.0,1.7983393482334116,n_events=1168
+first_per_60d,W2.3,pre2018,P1,"primary statistic, first event per stock in 60 days (day-mean)",2.0096836657547628,%,254.0,0.983702997565276,n_events=323
+first_per_60d,W2.3,pre2018,P2,"primary statistic, first event per stock in 60 days (day-mean)",1.3831663589042371,%,291.0,1.3927194981068873,n_events=375
+first_per_60d,W2.3,pre2018,P3,"primary statistic, first event per stock in 60 days (day-mean)",2.5407423869321297,%,218.0,1.2845642534896886,n_events=282
+first_per_60d,W2.3,pre2018,P4,"primary statistic, first event per stock in 60 days (day-mean)",-0.47618340666403236,%,161.0,-0.29934018862875283,n_events=188
+first_per_60d,W2.3,pre2018,P0,"primary statistic, first event per stock in 60 days (day-mean)",-0.9741462689754014,%,143.0,-0.5091356841712278,n_events=187
+first_per_60d,W2.4,pre2018,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",1.236973945377637,bps/day,2266.0,1.7190577407048107,n_events=3611
+first_per_60d,W2.4,pre2018,P1,"primary statistic, first event per stock in 60 days (day-mean)",3.4973959815587974,bps/day,517.0,1.6981989063991667,n_events=765
+first_per_60d,W2.4,pre2018,P2,"primary statistic, first event per stock in 60 days (day-mean)",0.9312089431344549,bps/day,749.0,0.8676572965736719,n_events=1210
+first_per_60d,W2.4,pre2018,P3,"primary statistic, first event per stock in 60 days (day-mean)",0.7400398501293808,bps/day,542.0,0.597026396188618,n_events=899
+first_per_60d,W2.4,pre2018,P4,"primary statistic, first event per stock in 60 days (day-mean)",-0.22652371051965906,bps/day,458.0,-0.16869174900739384,n_events=737
+first_per_60d,W2.4,pre2018,P0,"primary statistic, first event per stock in 60 days (day-mean)",0.15583441572537543,bps/day,267.0,0.06329953167229425,n_events=366
+first_per_60d,W2.5,pre2018,MAIN,"primary statistic, first event per stock in 60 days (day-mean)",1.567551304323508,%,2240.0,4.3227716033893895,n_events=3563
+first_per_60d,W2.5,pre2018,P1,"primary statistic, first event per stock in 60 days (day-mean)",3.6905267441222014,%,517.0,3.6335970023903816,n_events=765
+first_per_60d,W2.5,pre2018,P2,"primary statistic, first event per stock in 60 days (day-mean)",1.864077918477096,%,749.0,2.960585250317124,n_events=1210
+first_per_60d,W2.5,pre2018,P3,"primary statistic, first event per stock in 60 days (day-mean)",1.0298799912419174,%,542.0,1.8674614298986847,n_events=899
+first_per_60d,W2.5,pre2018,P4,"primary statistic, first event per stock in 60 days (day-mean)",-0.812677595414316,%,432.0,-2.2194327897431303,n_events=689
+first_per_60d,W2.5,pre2018,P0,"primary statistic, first event per stock in 60 days (day-mean)",2.41735984086548,%,267.0,1.5610639644122226,n_events=366
+lookback_liquidity,W2.1,all,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",2.5359341615406006,%,1620.0,1.7158568528914317,n_events=5433
+lookback_liquidity,W2.1,all,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",-1.0213518662846512,%,303.0,-0.2790912167449898,n_events=1130
+lookback_liquidity,W2.1,all,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",2.5269801068200315,%,485.0,0.9386179102444693,n_events=1621
+lookback_liquidity,W2.1,all,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",3.5704037086442937,%,421.0,1.2078780163022402,n_events=1443
+lookback_liquidity,W2.1,all,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",3.7937253929916634,%,411.0,1.5933109740458269,n_events=1239
+lookback_liquidity,W2.2,all,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",2.1452543628732985,%,2220.0,1.9868336624521534,n_events=9028
+lookback_liquidity,W2.2,all,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",2.9947743623044114,%,418.0,1.160028030741526,n_events=1828
+lookback_liquidity,W2.2,all,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",2.889173529699356,%,673.0,1.5723514763867348,n_events=2755
+lookback_liquidity,W2.2,all,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",1.3387702225476816,%,564.0,0.5373407634251295,n_events=2373
+lookback_liquidity,W2.2,all,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",0.5521602690953735,%,540.0,0.35290758107553327,n_events=2072
+lookback_liquidity,W2.3,all,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",1.4483291478206353,%,2591.0,1.7509320157325623,n_events=4976
+lookback_liquidity,W2.3,all,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",1.4660815547421937,%,625.0,0.6641850080368816,n_events=1182
+lookback_liquidity,W2.3,all,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",0.5551563976780668,%,780.0,0.5001611903263691,n_events=1495
+lookback_liquidity,W2.3,all,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",2.066247289198834,%,640.0,1.176209121637653,n_events=1336
+lookback_liquidity,W2.3,all,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",1.9796695879363537,%,546.0,1.3079083304715848,n_events=963
+lookback_liquidity,W2.4,all,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",0.46955355122146303,bps/day,4248.0,0.5479585726766497,n_events=14685
+lookback_liquidity,W2.4,all,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",0.8207207428096582,bps/day,980.0,0.3651200164592908,n_events=2705
+lookback_liquidity,W2.4,all,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",-0.12176318474670157,bps/day,1358.0,-0.09567490533341601,n_events=4646
+lookback_liquidity,W2.4,all,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",1.2544924112475326,bps/day,1011.0,0.7174659563556792,n_events=3949
+lookback_liquidity,W2.4,all,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",0.09724108426037192,bps/day,899.0,0.05924569432730685,n_events=3385
+lookback_liquidity,W2.5,all,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",0.9733772996095794,%,4209.0,3.1572935710564685,n_events=14533
+lookback_liquidity,W2.5,all,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",2.0075733332707237,%,980.0,2.4557153980277993,n_events=2705
+lookback_liquidity,W2.5,all,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",1.2016071742600307,%,1358.0,2.5399417810308815,n_events=4646
+lookback_liquidity,W2.5,all,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",0.7571578519133183,%,1011.0,1.286204817422108,n_events=3949
+lookback_liquidity,W2.5,all,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",-0.3113324924163666,%,860.0,-0.5675485175118379,n_events=3233
+lookback_liquidity,W2.1,all,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",3.162261285302022,%,275.0,0.8305664991347994,n_events=834
+lookback_liquidity,W2.1,all,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",5.117797111915255,%,148.0,0.9859245158196022,n_events=464
+lookback_liquidity,W2.1,all,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",-5.275330430768936,%,94.0,-1.0058774286173588,n_events=290
+lookback_liquidity,W2.1,all,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",26.889522666903922,%,28.0,2.036164339887368,n_events=68
+lookback_liquidity,W2.1,all,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",,%,5.0,,"n_events=12; fewer than 20 event days, no estimate"
+lookback_liquidity,W2.2,all,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",6.663227200779452,%,371.0,2.392488981823735,n_events=1246
+lookback_liquidity,W2.2,all,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",12.004784769617851,%,202.0,3.0023323376257958,n_events=677
+lookback_liquidity,W2.2,all,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",2.354362394023929,%,114.0,0.5897939578973771,n_events=448
+lookback_liquidity,W2.2,all,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",4.223272168210904,%,44.0,0.43869419228548684,n_events=99
+lookback_liquidity,W2.2,all,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",,%,11.0,,"n_events=22; fewer than 20 event days, no estimate"
+lookback_liquidity,W2.3,all,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",8.415139864346136,%,684.0,3.271879378969784,n_events=878
+lookback_liquidity,W2.3,all,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",5.057093717565872,%,348.0,1.912754607649993,n_events=485
+lookback_liquidity,W2.3,all,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",5.021624320257597,%,247.0,2.4164452658981603,n_events=302
+lookback_liquidity,W2.3,all,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",38.92016380824831,%,70.0,2.473267267956195,n_events=72
+lookback_liquidity,W2.3,all,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",,%,19.0,,"n_events=19; fewer than 20 event days, no estimate"
+lookback_liquidity,W2.4,all,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",12.198136022091985,bps/day,1423.0,4.247395689593964,n_events=2080
+lookback_liquidity,W2.4,all,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",8.366543748677254,bps/day,643.0,2.202158782428862,n_events=1066
+lookback_liquidity,W2.4,all,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",11.761219279130225,bps/day,597.0,3.9497831722077255,n_events=815
+lookback_liquidity,W2.4,all,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",36.727835226901156,bps/day,155.0,2.4154424376901993,n_events=171
+lookback_liquidity,W2.4,all,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",-26.285801456178817,bps/day,28.0,-1.8086342027220879,n_events=28
+lookback_liquidity,W2.5,all,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",6.512047921754782,%,1417.0,5.582587425753455,n_events=2074
+lookback_liquidity,W2.5,all,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",8.231960309266622,%,643.0,4.300473929174226,n_events=1066
+lookback_liquidity,W2.5,all,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",4.664113267591465,%,597.0,3.2506676618568093,n_events=815
+lookback_liquidity,W2.5,all,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",6.0915027620676705,%,155.0,1.514253719558413,n_events=171
+lookback_liquidity,W2.5,all,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",9.352858063431656,%,22.0,0.8663463102480404,n_events=22
+lookback_liquidity,W2.1,pre2018,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",2.0534440094106077,%,1552.0,1.3643893977181538,n_events=5173
+lookback_liquidity,W2.1,pre2018,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",-1.0213518662846512,%,303.0,-0.2790912167449898,n_events=1130
+lookback_liquidity,W2.1,pre2018,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",2.5269801068200315,%,485.0,0.9386179102444693,n_events=1621
+lookback_liquidity,W2.1,pre2018,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",3.3651552770880264,%,412.0,1.1429051225198583,n_events=1404
+lookback_liquidity,W2.1,pre2018,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",1.653621937991006,%,352.0,0.7294670380717948,n_events=1018
+lookback_liquidity,W2.2,pre2018,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",2.0418163603480823,%,2157.0,1.8619159720764762,n_events=8618
+lookback_liquidity,W2.2,pre2018,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",2.9947743623044114,%,418.0,1.160028030741526,n_events=1828
+lookback_liquidity,W2.2,pre2018,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",2.889173529699356,%,673.0,1.5723514763867348,n_events=2755
+lookback_liquidity,W2.2,pre2018,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",0.8857125310253948,%,557.0,0.35776944686915174,n_events=2304
+lookback_liquidity,W2.2,pre2018,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",0.14556864609011794,%,475.0,0.0923396234872505,n_events=1731
+lookback_liquidity,W2.3,pre2018,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",1.0434287234970017,%,2490.0,1.2446220619782777,n_events=4741
+lookback_liquidity,W2.3,pre2018,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",1.4660815547421937,%,625.0,0.6641850080368816,n_events=1182
+lookback_liquidity,W2.3,pre2018,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",0.5551563976780671,%,780.0,0.5001611903263693,n_events=1495
+lookback_liquidity,W2.3,pre2018,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",1.950988632255414,%,618.0,1.0687247414736094,n_events=1296
+lookback_liquidity,W2.3,pre2018,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",0.09229889693988262,%,467.0,0.06418253865399098,n_events=768
+lookback_liquidity,W2.4,pre2018,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",0.05234522489778615,bps/day,4193.0,0.06227029367458388,n_events=14092
+lookback_liquidity,W2.4,pre2018,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",0.8207207428096591,bps/day,980.0,0.3651200164592912,n_events=2705
+lookback_liquidity,W2.4,pre2018,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",-0.12176318474670167,bps/day,1358.0,-0.09567490533341609,n_events=4646
+lookback_liquidity,W2.4,pre2018,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",1.267323972219585,bps/day,1002.0,0.7183269089682887,n_events=3847
+lookback_liquidity,W2.4,pre2018,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",-1.9804537107093227,bps/day,853.0,-1.5139782217566151,n_events=2894
+lookback_liquidity,W2.5,pre2018,MAIN,"primary statistic, 20-day lookback fully tradable (day-mean)",0.8063137851892834,%,4160.0,2.6777734559540587,n_events=13974
+lookback_liquidity,W2.5,pre2018,P1,"primary statistic, 20-day lookback fully tradable (day-mean)",2.0075733332707237,%,980.0,2.4557153980277993,n_events=2705
+lookback_liquidity,W2.5,pre2018,P2,"primary statistic, 20-day lookback fully tradable (day-mean)",1.2016071742600307,%,1358.0,2.5399417810308815,n_events=4646
+lookback_liquidity,W2.5,pre2018,P3,"primary statistic, 20-day lookback fully tradable (day-mean)",0.7935525679474411,%,1002.0,1.340710624110121,n_events=3847
+lookback_liquidity,W2.5,pre2018,P4,"primary statistic, 20-day lookback fully tradable (day-mean)",-1.2683887023735951,%,820.0,-3.8847066715235523,n_events=2776
+lookback_liquidity,W2.1,pre2018,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",4.224836693979891,%,268.0,1.0871495285414412,n_events=811
+lookback_liquidity,W2.1,pre2018,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",5.117797111915255,%,148.0,0.9859245158196022,n_events=464
+lookback_liquidity,W2.1,pre2018,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",-5.275330430768936,%,94.0,-1.0058774286173588,n_events=290
+lookback_liquidity,W2.1,pre2018,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",42.01784205972862,%,25.0,3.507280704033457,n_events=56
+lookback_liquidity,W2.1,pre2018,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",,%,0.0,,"n_events=1; fewer than 20 event days, no estimate"
+lookback_liquidity,W2.2,pre2018,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",7.579839026622806,%,359.0,2.6905038846095377,n_events=1212
+lookback_liquidity,W2.2,pre2018,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",12.004784769617851,%,202.0,3.0023323376257958,n_events=677
+lookback_liquidity,W2.2,pre2018,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",2.354362394023929,%,114.0,0.5897939578973771,n_events=448
+lookback_liquidity,W2.2,pre2018,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",9.448350375012277,%,41.0,1.1672445878882842,n_events=85
+lookback_liquidity,W2.2,pre2018,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",,%,0.0,,"n_events=2; fewer than 20 event days, no estimate"
+lookback_liquidity,W2.3,pre2018,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",8.842401169711616,%,650.0,3.3227345382100535,n_events=844
+lookback_liquidity,W2.3,pre2018,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",5.057093717565872,%,348.0,1.9127546076499926,n_events=485
+lookback_liquidity,W2.3,pre2018,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",5.021624320257598,%,247.0,2.4164452658981603,n_events=302
+lookback_liquidity,W2.3,pre2018,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",49.95183526356364,%,55.0,3.0473472846153986,n_events=57
+lookback_liquidity,W2.3,pre2018,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",,%,0.0,,"n_events=0; fewer than 20 event days, no estimate"
+lookback_liquidity,W2.4,pre2018,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",13.282972920922953,bps/day,1381.0,4.593842300801726,n_events=2037
+lookback_liquidity,W2.4,pre2018,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",8.366543748677255,bps/day,643.0,2.2021587824288624,n_events=1066
+lookback_liquidity,W2.4,pre2018,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",11.761219279130225,bps/day,597.0,3.9497831722077255,n_events=815
+lookback_liquidity,W2.4,pre2018,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",42.772942965567104,bps/day,139.0,2.7186797007645676,n_events=154
+lookback_liquidity,W2.4,pre2018,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",,bps/day,2.0,,"n_events=2; fewer than 20 event days, no estimate"
+lookback_liquidity,W2.5,pre2018,MAIN,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",6.561430011856352,%,1381.0,5.566441878630867,n_events=2037
+lookback_liquidity,W2.5,pre2018,P1,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",8.231960309266622,%,643.0,4.300473929174226,n_events=1066
+lookback_liquidity,W2.5,pre2018,P2,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",4.664113267591465,%,597.0,3.2506676618568093,n_events=815
+lookback_liquidity,W2.5,pre2018,P3,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",7.136157313709058,%,139.0,1.669560312327259,n_events=154
+lookback_liquidity,W2.5,pre2018,P4,"primary statistic, 20-day lookback with >= 1 non-tradable day (day-mean)",,%,2.0,,"n_events=2; fewer than 20 event days, no estimate"
+path,entries,all,MAIN,raw lnP[t+1]-lnO[t+1] (day-mean),0.24525391441469563,%,4650.0,5.125032305677197,
+path,entries,all,P1,raw lnP[t+1]-lnO[t+1] (day-mean),0.7293073021223688,%,1188.0,6.941468665597869,
+path,entries,all,P2,raw lnP[t+1]-lnO[t+1] (day-mean),0.31696529985829286,%,1473.0,4.260597351918327,
+path,entries,all,P3,raw lnP[t+1]-lnO[t+1] (day-mean),0.002239238260414211,%,1031.0,0.023997903599679214,
+path,entries,all,P4,raw lnP[t+1]-lnO[t+1] (day-mean),-0.2037420816605344,%,958.0,-1.995679035258404,
+path,entries,all,MAIN,raw lnP[t+1]-lnO[t+1] (event-weighted),0.14813913637990128,%,17058.0,,
+path,entries,all,MAIN,abnormal lnP[t+1]-lnO[t+1] (day-mean),0.17329579875703396,%,4650.0,4.009327443521516,
+path,entries,all,P1,abnormal lnP[t+1]-lnO[t+1] (day-mean),0.32981836090470074,%,1188.0,3.507880466097167,
+path,entries,all,P2,abnormal lnP[t+1]-lnO[t+1] (day-mean),0.20548011434891814,%,1473.0,3.014479958509912,
+path,entries,all,P3,abnormal lnP[t+1]-lnO[t+1] (day-mean),0.10814838328988044,%,1031.0,1.2110196097455599,
+path,entries,all,P4,abnormal lnP[t+1]-lnO[t+1] (day-mean),-0.00017947822797454913,%,958.0,-0.0018145872251711167,
+path,entries,all,MAIN,abnormal lnP[t+1]-lnO[t+1] (event-weighted),0.09001731435620072,%,17058.0,,
+path,entries,all,MAIN,raw lnP[t+5]-lnO[t+1] (day-mean),0.7183966451226451,%,4646.0,5.366253269635706,
+path,entries,all,P1,raw lnP[t+5]-lnO[t+1] (day-mean),1.1684401169716636,%,1188.0,3.6283777775354373,
+path,entries,all,P2,raw lnP[t+5]-lnO[t+1] (day-mean),0.6227321660677142,%,1473.0,3.119029720428278,
+path,entries,all,P3,raw lnP[t+5]-lnO[t+1] (day-mean),0.6274258685542512,%,1031.0,2.371671895764174,
+path,entries,all,P4,raw lnP[t+5]-lnO[t+1] (day-mean),0.4039867957864753,%,954.0,1.3909529528368467,
+path,entries,all,MAIN,raw lnP[t+5]-lnO[t+1] (event-weighted),0.6335452569334213,%,17025.0,,
+path,entries,all,MAIN,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.3292289571658094,%,4646.0,2.979518827704109,
+path,entries,all,P1,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.1684473504852354,%,1188.0,0.6879042329237894,
+path,entries,all,P2,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.21869141793526445,%,1473.0,1.3724293496960713,
+path,entries,all,P3,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.4809083567456008,%,1031.0,2.0378816761156986,
+path,entries,all,P4,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.5361984362605153,%,954.0,2.015235350394152,
+path,entries,all,MAIN,abnormal lnP[t+5]-lnO[t+1] (event-weighted),0.14484596415015877,%,17025.0,,
+path,entries,all,MAIN,raw lnP[t+10]-lnO[t+1] (day-mean),1.3063510696245502,%,4641.0,5.753349246968111,
+path,entries,all,P1,raw lnP[t+10]-lnO[t+1] (day-mean),2.0746973527087156,%,1188.0,3.8006915400134917,
+path,entries,all,P2,raw lnP[t+10]-lnO[t+1] (day-mean),1.075472623015602,%,1473.0,3.1279617958703767,
+path,entries,all,P3,raw lnP[t+10]-lnO[t+1] (day-mean),1.2707356900452893,%,1031.0,2.9001757445479033,
+path,entries,all,P4,raw lnP[t+10]-lnO[t+1] (day-mean),0.74155446677651,%,949.0,1.5247226846555408,
+path,entries,all,MAIN,raw lnP[t+10]-lnO[t+1] (event-weighted),1.2541152729905376,%,16998.0,,
+path,entries,all,MAIN,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.6368207904029807,%,4641.0,3.645293620006248,
+path,entries,all,P1,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.5967280042205134,%,1188.0,1.5658132044896949,
+path,entries,all,P2,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.38351618046734015,%,1473.0,1.4992445994053416,
+path,entries,all,P3,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.7953974979151102,%,1031.0,2.141564028663243,
+path,entries,all,P4,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.9079012276790229,%,949.0,2.135119000527616,
+path,entries,all,MAIN,abnormal lnP[t+10]-lnO[t+1] (event-weighted),0.309540137885424,%,16998.0,,
+path,entries,all,MAIN,raw lnP[t+20]-lnO[t+1] (day-mean),2.341875052222346,%,4631.0,5.582028129236767,
+path,entries,all,P1,raw lnP[t+20]-lnO[t+1] (day-mean),3.664540584914093,%,1188.0,3.3025762511637935,
+path,entries,all,P2,raw lnP[t+20]-lnO[t+1] (day-mean),1.8914702535915084,%,1473.0,3.0186511886298457,
+path,entries,all,P3,raw lnP[t+20]-lnO[t+1] (day-mean),2.6158154016529473,%,1031.0,3.3233951978022542,
+path,entries,all,P4,raw lnP[t+20]-lnO[t+1] (day-mean),1.0742361973581052,%,939.0,1.5366673946068956,
+path,entries,all,MAIN,raw lnP[t+20]-lnO[t+1] (event-weighted),2.469559368687243,%,16919.0,,
+path,entries,all,MAIN,abnormal lnP[t+20]-lnO[t+1] (day-mean),1.1023500368863186,%,4631.0,3.698693510081908,
+path,entries,all,P1,abnormal lnP[t+20]-lnO[t+1] (day-mean),1.0895214698857034,%,1188.0,1.3879989046272165,
+path,entries,all,P2,abnormal lnP[t+20]-lnO[t+1] (day-mean),0.6672001972556183,%,1473.0,1.8811594413368173,
+path,entries,all,P3,abnormal lnP[t+20]-lnO[t+1] (day-mean),1.616991193256122,%,1031.0,2.5156443706715352,
+path,entries,all,P4,abnormal lnP[t+20]-lnO[t+1] (day-mean),1.2361317399273042,%,939.0,2.0563930576941685,
+path,entries,all,MAIN,abnormal lnP[t+20]-lnO[t+1] (event-weighted),0.6883353494968433,%,16919.0,,
+path,entries,all,MAIN,raw lnP[t+40]-lnO[t+1] (day-mean),3.8717526717770725,%,4618.0,5.12021360001477,
+path,entries,all,P1,raw lnP[t+40]-lnO[t+1] (day-mean),6.373073710254011,%,1188.0,3.5202300326979663,
+path,entries,all,P2,raw lnP[t+40]-lnO[t+1] (day-mean),3.2941125258266264,%,1473.0,2.4904124124003624,
+path,entries,all,P3,raw lnP[t+40]-lnO[t+1] (day-mean),4.098156940132281,%,1031.0,2.869713128114801,
+path,entries,all,P4,raw lnP[t+40]-lnO[t+1] (day-mean),1.3294975320364506,%,926.0,1.2606909049286348,
+path,entries,all,MAIN,raw lnP[t+40]-lnO[t+1] (event-weighted),3.8871357824804873,%,16875.0,,
+path,entries,all,MAIN,abnormal lnP[t+40]-lnO[t+1] (day-mean),1.5922927494316559,%,4618.0,4.208056447719128,
+path,entries,all,P1,abnormal lnP[t+40]-lnO[t+1] (day-mean),1.837014440126563,%,1188.0,2.2871562367001443,
+path,entries,all,P2,abnormal lnP[t+40]-lnO[t+1] (day-mean),1.1519454967655158,%,1473.0,2.170559509034876,
+path,entries,all,P3,abnormal lnP[t+40]-lnO[t+1] (day-mean),2.0129567492411313,%,1031.0,2.07773245902138,
+path,entries,all,P4,abnormal lnP[t+40]-lnO[t+1] (day-mean),1.510432653133713,%,926.0,1.8875170523822757,
+path,entries,all,MAIN,abnormal lnP[t+40]-lnO[t+1] (event-weighted),1.040783034964243,%,16875.0,,
+path,entries,all,MAIN,raw lnP[t+60]-lnO[t+1] (day-mean),4.887549440792601,%,4599.0,4.304506391355,
+path,entries,all,P1,raw lnP[t+60]-lnO[t+1] (day-mean),8.078592804135674,%,1188.0,3.0455941797604256,
+path,entries,all,P2,raw lnP[t+60]-lnO[t+1] (day-mean),4.2120079744782135,%,1473.0,2.094494712094718,
+path,entries,all,P3,raw lnP[t+60]-lnO[t+1] (day-mean),5.594583985160235,%,1031.0,2.4210964698005912,
+path,entries,all,P4,raw lnP[t+60]-lnO[t+1] (day-mean),1.0012875322881751,%,907.0,0.8732563173014284,
+path,entries,all,MAIN,raw lnP[t+60]-lnO[t+1] (event-weighted),4.913961546730509,%,16765.0,,
+path,entries,all,MAIN,abnormal lnP[t+60]-lnO[t+1] (day-mean),1.7809205757182378,%,4599.0,3.592748655761221,
+path,entries,all,P1,abnormal lnP[t+60]-lnO[t+1] (day-mean),2.1377446572704746,%,1188.0,1.9994538435203637,
+path,entries,all,P2,abnormal lnP[t+60]-lnO[t+1] (day-mean),1.1991975964266604,%,1473.0,1.6888099417779674,
+path,entries,all,P3,abnormal lnP[t+60]-lnO[t+1] (day-mean),2.919991955694614,%,1031.0,2.248721600737403,
+path,entries,all,P4,abnormal lnP[t+60]-lnO[t+1] (day-mean),0.9634876615581428,%,907.0,1.1380000877197578,
+path,entries,all,MAIN,abnormal lnP[t+60]-lnO[t+1] (event-weighted),1.1859838782198266,%,16765.0,,
+path,entries,all,MAIN,raw lnP[t+120]-lnO[t+1] (day-mean),7.791549001295584,%,4557.0,3.413424101719335,
+path,entries,all,P1,raw lnP[t+120]-lnO[t+1] (day-mean),11.600642062659851,%,1188.0,2.2807001178522737,
+path,entries,all,P2,raw lnP[t+120]-lnO[t+1] (day-mean),6.047997352030842,%,1473.0,1.3357748359915316,
+path,entries,all,P3,raw lnP[t+120]-lnO[t+1] (day-mean),10.394094184145805,%,1031.0,2.5734164417042575,
+path,entries,all,P4,raw lnP[t+120]-lnO[t+1] (day-mean),2.4271847688651045,%,865.0,1.1338374484805227,
+path,entries,all,MAIN,raw lnP[t+120]-lnO[t+1] (event-weighted),7.500140254765425,%,16607.0,,
+path,entries,all,MAIN,abnormal lnP[t+120]-lnO[t+1] (day-mean),2.9837942444638506,%,4557.0,4.074985605910841,
+path,entries,all,P1,abnormal lnP[t+120]-lnO[t+1] (day-mean),3.011195104197798,%,1188.0,1.7930862468916733,
+path,entries,all,P2,abnormal lnP[t+120]-lnO[t+1] (day-mean),1.4729888969600398,%,1473.0,1.0665696655398222,
+path,entries,all,P3,abnormal lnP[t+120]-lnO[t+1] (day-mean),5.556228332834101,%,1031.0,5.200555054918248,
+path,entries,all,P4,abnormal lnP[t+120]-lnO[t+1] (day-mean),2.452793678451659,%,865.0,2.1659220835277484,
+path,entries,all,MAIN,abnormal lnP[t+120]-lnO[t+1] (event-weighted),2.1969423559466907,%,16607.0,,
+horizons,W2.4,all,MAIN,abnormal drift days 1-20 per day (Open t+1 to Close t+20),5.511750184431595,bps/day,4631.0,3.698693510081908,
+horizons,W2.4,all,P1,abnormal drift days 1-20 per day (Open t+1 to Close t+20),5.447607349428517,bps/day,1188.0,1.3879989046272165,
+horizons,W2.4,all,P2,abnormal drift days 1-20 per day (Open t+1 to Close t+20),3.3360009862780924,bps/day,1473.0,1.8811594413368171,
+horizons,W2.4,all,P3,abnormal drift days 1-20 per day (Open t+1 to Close t+20),8.084955966280608,bps/day,1031.0,2.515644370671535,
+horizons,W2.4,all,P4,abnormal drift days 1-20 per day (Open t+1 to Close t+20),6.180658699636521,bps/day,939.0,2.0563930576941694,
+horizons,W2.4,all,MAIN,abnormal drift days 21-60 per day (= W2.4),1.8033066417606307,bps/day,4599.0,2.0476632188159534,
+horizons,W2.4,all,P1,abnormal drift days 21-60 per day (= W2.4),2.8779853350286317,bps/day,1188.0,1.4021736220267313,
+horizons,W2.4,all,P2,abnormal drift days 21-60 per day (= W2.4),1.1740155218169483,bps/day,1473.0,1.066936246671731,
+horizons,W2.4,all,P3,abnormal drift days 21-60 per day (= W2.4),3.235491961346714,bps/day,1031.0,1.4584373633570347,
+horizons,W2.4,all,P4,abnormal drift days 21-60 per day (= W2.4),-0.2103157754594274,bps/day,907.0,-0.1281682105088557,
+horizons,W2.4,all,MAIN,abnormal drift days 61-120 per day,1.579816255629772,bps/day,4557.0,2.0433529598351363,
+horizons,W2.4,all,P1,abnormal drift days 61-120 per day,1.2493123565170314,bps/day,1188.0,0.6230299461135739,
+horizons,W2.4,all,P2,abnormal drift days 61-120 per day,-0.051542736198271585,bps/day,1473.0,-0.03939040745489015,
+horizons,W2.4,all,P3,abnormal drift days 61-120 per day,4.1643499488047,bps/day,1031.0,3.6410172524531528,
+horizons,W2.4,all,P4,abnormal drift days 61-120 per day,1.7312338156821332,bps/day,865.0,1.3663703291785254,
+horizons,W2.1,all,MAIN,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",3.588464203123786,%,2171.0,2.777929863083987,
+horizons,W2.1,all,P1,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",5.242588343047286,%,479.0,1.7976954230908349,
+horizons,W2.1,all,P2,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",3.361428340895658,%,659.0,1.4684797522834394,
+horizons,W2.1,all,P3,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",2.3533561935346734,%,527.0,0.8160611301232149,
+horizons,W2.1,all,P4,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",2.40317025855847,%,483.0,1.2554471643031206,
+horizons,W2.1,all,MAIN,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",1.4527295943553895,%,1803.0,1.8495197556234189,
+horizons,W2.1,all,P1,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",0.69998110618371,%,398.0,0.33568367689283646,
+horizons,W2.1,all,P2,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",0.6658061501062768,%,540.0,0.5093905968062671,
+horizons,W2.1,all,P3,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",1.7341143563871393,%,436.0,1.2346263902900665,
+horizons,W2.1,all,P4,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",2.622833340466106,%,429.0,2.1204552753919197,
+horizons,W2.1,all,MAIN,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",4.055025050079285,%,1767.0,1.7085216208060554,
+horizons,W2.1,all,P1,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",2.6348134467038222,%,398.0,0.4797030287097322,
+horizons,W2.1,all,P2,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",0.7077755171544562,%,540.0,0.16058812089867863,
+horizons,W2.1,all,P3,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",7.549545274419701,%,436.0,1.5552294431978184,
+horizons,W2.1,all,P4,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",5.975719927658204,%,393.0,1.771032155396801,
+horizons,W2.2,all,MAIN,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",4.505113009447159,%,2421.0,2.1631664600647884,
+horizons,W2.2,all,P1,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",6.047560848354018,%,549.0,1.2809219919677999,
+horizons,W2.2,all,P2,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",3.982559906543748,%,739.0,0.9724430089002863,
+horizons,W2.2,all,P3,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",6.358553317827992,%,586.0,1.5485651544818666,
+horizons,W2.2,all,P4,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",0.11247399303844852,%,522.0,0.04181797630879662,
+thresholds,W2.1,all,MAIN,log thresholds +-0.05 instead of ln1.05/ln0.95,2.9251590233942695,%,1819.0,1.9542395274375854,
+thresholds,W2.2,all,MAIN,log thresholds +-0.05 instead of ln1.05/ln0.95,2.6835953303489335,%,2461.0,2.4274396065624235,
+thresholds,W2.3,all,MAIN,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],2.9363348303057677,%,1705.0,2.153475318792998,n_events=2687
+thresholds,W2.3,all,P1,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],2.3069716453631006,%,515.0,0.9543395502086548,n_events=832
+thresholds,W2.3,all,P2,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],-0.6148117578199301,%,454.0,-0.3572785520665124,n_events=718
+thresholds,W2.3,all,P3,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],9.756327429948984,%,390.0,2.9069200694589576,n_events=672
+thresholds,W2.3,all,P4,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],0.84542580543203,%,346.0,0.30360755577638804,n_events=465
+path,entries,pre2018,MAIN,raw lnP[t+1]-lnO[t+1] (day-mean),0.24182968660199122,%,4584.0,5.046318677583174,
+path,entries,pre2018,P1,raw lnP[t+1]-lnO[t+1] (day-mean),0.7293073021223688,%,1188.0,6.941468665597869,
+path,entries,pre2018,P2,raw lnP[t+1]-lnO[t+1] (day-mean),0.31696529985829286,%,1473.0,4.260597351918327,
+path,entries,pre2018,P3,raw lnP[t+1]-lnO[t+1] (day-mean),-0.031233441578281267,%,1021.0,-0.3198347758275907,
+path,entries,pre2018,P4,raw lnP[t+1]-lnO[t+1] (day-mean),-0.21382520440985203,%,902.0,-2.2235354288710436,
+path,entries,pre2018,MAIN,raw lnP[t+1]-lnO[t+1] (event-weighted),0.15973617473091709,%,16359.0,,
+path,entries,pre2018,MAIN,abnormal lnP[t+1]-lnO[t+1] (day-mean),0.1702340665666195,%,4584.0,3.9283541812352665,
+path,entries,pre2018,P1,abnormal lnP[t+1]-lnO[t+1] (day-mean),0.32981836090470074,%,1188.0,3.507880466097167,
+path,entries,pre2018,P2,abnormal lnP[t+1]-lnO[t+1] (day-mean),0.20548011434891814,%,1473.0,3.014479958509912,
+path,entries,pre2018,P3,abnormal lnP[t+1]-lnO[t+1] (day-mean),0.0785156910907956,%,1021.0,0.8386163151770687,
+path,entries,pre2018,P4,abnormal lnP[t+1]-lnO[t+1] (day-mean),0.006310442734967482,%,902.0,0.06638291986042295,
+path,entries,pre2018,MAIN,abnormal lnP[t+1]-lnO[t+1] (event-weighted),0.09310620023992403,%,16359.0,,
+path,entries,pre2018,MAIN,raw lnP[t+5]-lnO[t+1] (day-mean),0.667027599043126,%,4580.0,5.0750831924213875,
+path,entries,pre2018,P1,raw lnP[t+5]-lnO[t+1] (day-mean),1.1684401169716636,%,1188.0,3.6283777775354373,
+path,entries,pre2018,P2,raw lnP[t+5]-lnO[t+1] (day-mean),0.6227321660677142,%,1473.0,3.119029720428278,
+path,entries,pre2018,P3,raw lnP[t+5]-lnO[t+1] (day-mean),0.5914053601166407,%,1021.0,2.224348369741276,
+path,entries,pre2018,P4,raw lnP[t+5]-lnO[t+1] (day-mean),0.1623276073032834,%,898.0,0.6409716310725615,
+path,entries,pre2018,MAIN,raw lnP[t+5]-lnO[t+1] (event-weighted),0.6104325162345264,%,16332.0,,
+path,entries,pre2018,MAIN,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.2717252978908721,%,4580.0,2.527219323719183,
+path,entries,pre2018,P1,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.16844735048523535,%,1188.0,0.6879042329237891,
+path,entries,pre2018,P2,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.21869141793526442,%,1473.0,1.372429349696071,
+path,entries,pre2018,P3,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.4404776318202897,%,1021.0,1.846757107409343,
+path,entries,pre2018,P4,abnormal lnP[t+5]-lnO[t+1] (day-mean),0.3034813933814857,%,898.0,1.3060513964687581,
+path,entries,pre2018,MAIN,abnormal lnP[t+5]-lnO[t+1] (event-weighted),0.1079532502038982,%,16332.0,,
+path,entries,pre2018,MAIN,raw lnP[t+10]-lnO[t+1] (day-mean),1.1692301656954263,%,4575.0,5.222204450065196,
+path,entries,pre2018,P1,raw lnP[t+10]-lnO[t+1] (day-mean),2.0746973527087156,%,1188.0,3.8006915400134917,
+path,entries,pre2018,P2,raw lnP[t+10]-lnO[t+1] (day-mean),1.075472623015602,%,1473.0,3.1279617958703767,
+path,entries,pre2018,P3,raw lnP[t+10]-lnO[t+1] (day-mean),1.176154437529434,%,1021.0,2.632236765856233,
+path,entries,pre2018,P4,raw lnP[t+10]-lnO[t+1] (day-mean),0.11138040158912312,%,893.0,0.2689051246866572,
+path,entries,pre2018,MAIN,raw lnP[t+10]-lnO[t+1] (event-weighted),1.2083373719820334,%,16311.0,,
+path,entries,pre2018,MAIN,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.49716252654170584,%,4575.0,2.9606542343732447,
+path,entries,pre2018,P1,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.5967280042205135,%,1188.0,1.565813204489695,
+path,entries,pre2018,P2,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.38351618046734015,%,1473.0,1.4992445994053416,
+path,entries,pre2018,P3,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.7074428828735813,%,1021.0,1.8827439763813676,
+path,entries,pre2018,P4,abnormal lnP[t+10]-lnO[t+1] (day-mean),0.3117437543919548,%,893.0,0.9037836104808779,
+path,entries,pre2018,MAIN,abnormal lnP[t+10]-lnO[t+1] (event-weighted),0.24054649723361476,%,16311.0,,
+path,entries,pre2018,MAIN,raw lnP[t+20]-lnO[t+1] (day-mean),2.144012302176859,%,4565.0,5.0900018553852195,
+path,entries,pre2018,P1,raw lnP[t+20]-lnO[t+1] (day-mean),3.664540584914093,%,1188.0,3.3025762511637935,
+path,entries,pre2018,P2,raw lnP[t+20]-lnO[t+1] (day-mean),1.8914702535915084,%,1473.0,3.0186511886298457,
+path,entries,pre2018,P3,raw lnP[t+20]-lnO[t+1] (day-mean),2.45206532089129,%,1021.0,3.0582250309736705,
+path,entries,pre2018,P4,raw lnP[t+20]-lnO[t+1] (day-mean),0.1633607796026262,%,883.0,0.26625972588248087,
+path,entries,pre2018,MAIN,raw lnP[t+20]-lnO[t+1] (event-weighted),2.4125615608821205,%,16251.0,,
+path,entries,pre2018,MAIN,abnormal lnP[t+20]-lnO[t+1] (day-mean),0.9192986077621236,%,4565.0,3.1195908311044116,
+path,entries,pre2018,P1,abnormal lnP[t+20]-lnO[t+1] (day-mean),1.0895214698857034,%,1188.0,1.3879989046272165,
+path,entries,pre2018,P2,abnormal lnP[t+20]-lnO[t+1] (day-mean),0.6672001972556183,%,1473.0,1.8811594413368173,
+path,entries,pre2018,P3,abnormal lnP[t+20]-lnO[t+1] (day-mean),1.4889617051216815,%,1021.0,2.295294412864434,
+path,entries,pre2018,P4,abnormal lnP[t+20]-lnO[t+1] (day-mean),0.452130064239089,%,883.0,0.8472675575587608,
+path,entries,pre2018,MAIN,abnormal lnP[t+20]-lnO[t+1] (event-weighted),0.5892439122500264,%,16251.0,,
+path,entries,pre2018,MAIN,raw lnP[t+40]-lnO[t+1] (day-mean),3.5231133459866335,%,4554.0,4.599180422414912,
+path,entries,pre2018,P1,raw lnP[t+40]-lnO[t+1] (day-mean),6.373073710254011,%,1188.0,3.5202300326979663,
+path,entries,pre2018,P2,raw lnP[t+40]-lnO[t+1] (day-mean),3.2941125258266264,%,1473.0,2.4904124124003624,
+path,entries,pre2018,P3,raw lnP[t+40]-lnO[t+1] (day-mean),3.8852458841225843,%,1021.0,2.7400075427231316,
+path,entries,pre2018,P4,raw lnP[t+40]-lnO[t+1] (day-mean),-0.396808702282584,%,872.0,-0.42584849444837847,
+path,entries,pre2018,MAIN,raw lnP[t+40]-lnO[t+1] (event-weighted),3.8041162084689315,%,16222.0,,
+path,entries,pre2018,MAIN,abnormal lnP[t+40]-lnO[t+1] (day-mean),1.256257671134263,%,4554.0,3.3556973914452053,
+path,entries,pre2018,P1,abnormal lnP[t+40]-lnO[t+1] (day-mean),1.837014440126563,%,1188.0,2.2871562367001443,
+path,entries,pre2018,P2,abnormal lnP[t+40]-lnO[t+1] (day-mean),1.1519454967655158,%,1473.0,2.170559509034876,
+path,entries,pre2018,P3,abnormal lnP[t+40]-lnO[t+1] (day-mean),1.7893235660844837,%,1021.0,1.7964987821167746,
+path,entries,pre2018,P4,abnormal lnP[t+40]-lnO[t+1] (day-mean),0.017097708448640135,%,872.0,0.02662747671807336,
+path,entries,pre2018,MAIN,abnormal lnP[t+40]-lnO[t+1] (event-weighted),0.8892921137404601,%,16222.0,,
+path,entries,pre2018,MAIN,raw lnP[t+60]-lnO[t+1] (day-mean),4.507917901749247,%,4535.0,3.9046919007608274,
+path,entries,pre2018,P1,raw lnP[t+60]-lnO[t+1] (day-mean),8.078592804135674,%,1188.0,3.0455941797604256,
+path,entries,pre2018,P2,raw lnP[t+60]-lnO[t+1] (day-mean),4.2120079744782135,%,1473.0,2.094494712094718,
+path,entries,pre2018,P3,raw lnP[t+60]-lnO[t+1] (day-mean),5.506046157389809,%,1021.0,2.4581120918664103,
+path,entries,pre2018,P4,raw lnP[t+60]-lnO[t+1] (day-mean),-1.1487941852072108,%,853.0,-1.0909230069977927,
+path,entries,pre2018,MAIN,raw lnP[t+60]-lnO[t+1] (event-weighted),4.826816188994497,%,16129.0,,
+path,entries,pre2018,MAIN,abnormal lnP[t+60]-lnO[t+1] (day-mean),1.4475999097060708,%,4535.0,2.9068214092767994,
+path,entries,pre2018,P1,abnormal lnP[t+60]-lnO[t+1] (day-mean),2.137744657270474,%,1188.0,1.999453843520363,
+path,entries,pre2018,P2,abnormal lnP[t+60]-lnO[t+1] (day-mean),1.19919759642666,%,1473.0,1.6888099417779667,
+path,entries,pre2018,P3,abnormal lnP[t+60]-lnO[t+1] (day-mean),2.8716658454267496,%,1021.0,2.1594799672807605,
+path,entries,pre2018,P4,abnormal lnP[t+60]-lnO[t+1] (day-mean),-0.7891722743698402,%,853.0,-1.3600641721610802,
+path,entries,pre2018,MAIN,abnormal lnP[t+60]-lnO[t+1] (event-weighted),1.0276242618661562,%,16129.0,,
+path,entries,pre2018,MAIN,raw lnP[t+120]-lnO[t+1] (day-mean),7.195667194986807,%,4502.0,3.0945678802871557,
+path,entries,pre2018,P1,raw lnP[t+120]-lnO[t+1] (day-mean),11.600642062659851,%,1188.0,2.2807001178522737,
+path,entries,pre2018,P2,raw lnP[t+120]-lnO[t+1] (day-mean),6.047997352030842,%,1473.0,1.3357748359915316,
+path,entries,pre2018,P3,raw lnP[t+120]-lnO[t+1] (day-mean),10.280560615125605,%,1021.0,2.62501296578022,
+path,entries,pre2018,P4,raw lnP[t+120]-lnO[t+1] (day-mean),-0.9656360319438602,%,820.0,-0.4941078428285544,
+path,entries,pre2018,MAIN,raw lnP[t+120]-lnO[t+1] (event-weighted),7.314432383670638,%,16011.0,,
+path,entries,pre2018,MAIN,abnormal lnP[t+120]-lnO[t+1] (day-mean),2.470466613332111,%,4502.0,3.3482950352752496,
+path,entries,pre2018,P1,abnormal lnP[t+120]-lnO[t+1] (day-mean),3.011195104197798,%,1188.0,1.7930862468916733,
+path,entries,pre2018,P2,abnormal lnP[t+120]-lnO[t+1] (day-mean),1.4729888969600395,%,1473.0,1.066569665539822,
+path,entries,pre2018,P3,abnormal lnP[t+120]-lnO[t+1] (day-mean),5.436246988248674,%,1021.0,5.076072188677379,
+path,entries,pre2018,P4,abnormal lnP[t+120]-lnO[t+1] (day-mean),-0.2138779399876252,%,820.0,-0.46665160075768963,
+path,entries,pre2018,MAIN,abnormal lnP[t+120]-lnO[t+1] (event-weighted),1.9145840030384318,%,16011.0,,
+horizons,W2.4,pre2018,MAIN,abnormal drift days 1-20 per day (Open t+1 to Close t+20),4.596493038810617,bps/day,4565.0,3.11959083110441,
+horizons,W2.4,pre2018,P1,abnormal drift days 1-20 per day (Open t+1 to Close t+20),5.447607349428517,bps/day,1188.0,1.3879989046272165,
+horizons,W2.4,pre2018,P2,abnormal drift days 1-20 per day (Open t+1 to Close t+20),3.3360009862780915,bps/day,1473.0,1.8811594413368167,
+horizons,W2.4,pre2018,P3,abnormal drift days 1-20 per day (Open t+1 to Close t+20),7.444808525608407,bps/day,1021.0,2.2952944128644335,
+horizons,W2.4,pre2018,P4,abnormal drift days 1-20 per day (Open t+1 to Close t+20),2.260650321195445,bps/day,883.0,0.8472675575587608,
+horizons,W2.4,pre2018,MAIN,abnormal drift days 21-60 per day (= W2.4),1.5315141819504972,bps/day,4535.0,1.755196372660059,
+horizons,W2.4,pre2018,P1,abnormal drift days 21-60 per day (= W2.4),2.8779853350286317,bps/day,1188.0,1.4021736220267313,
+horizons,W2.4,pre2018,P2,abnormal drift days 21-60 per day (= W2.4),1.1740155218169488,bps/day,1473.0,1.0669362466717314,
+horizons,W2.4,pre2018,P3,abnormal drift days 21-60 per day (= W2.4),3.430543397310092,bps/day,1021.0,1.539225857798946,
+horizons,W2.4,pre2018,P4,abnormal drift days 21-60 per day (= W2.4),-1.999460064664104,bps/day,853.0,-1.5279739546353093,
+horizons,W2.4,pre2018,MAIN,abnormal drift days 61-120 per day,1.349150798590052,bps/day,4502.0,1.732422505192137,
+horizons,W2.4,pre2018,P1,abnormal drift days 61-120 per day,1.2493123565170314,bps/day,1188.0,0.6230299461135739,
+horizons,W2.4,pre2018,P2,abnormal drift days 61-120 per day,-0.051542736198271384,bps/day,1473.0,-0.03939040745488999,
+horizons,W2.4,pre2018,P3,abnormal drift days 61-120 per day,4.047530155856117,bps/day,1021.0,3.39393631050629,
+horizons,W2.4,pre2018,P4,abnormal drift days 61-120 per day,0.6501072890257793,bps/day,820.0,0.5534606573515426,
+horizons,W2.1,pre2018,MAIN,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",3.465055064369599,%,2103.0,2.607873391889607,
+horizons,W2.1,pre2018,P1,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",5.242588343047286,%,479.0,1.7976954230908349,
+horizons,W2.1,pre2018,P2,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",3.361428340895658,%,659.0,1.4684797522834394,
+horizons,W2.1,pre2018,P3,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",2.3827081765411977,%,517.0,0.8174722179484496,
+horizons,W2.1,pre2018,P4,"raw u10>=ln1.05 minus u10<=ln0.95, z=lnP[t+60]-lnO[t+11]",1.0452544631965377,%,406.0,0.517566484128705,
+horizons,W2.1,pre2018,MAIN,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",1.3293706387240176,%,1729.0,1.645258891141658,
+horizons,W2.1,pre2018,P1,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",0.69998110618371,%,398.0,0.33568367689283646,
+horizons,W2.1,pre2018,P2,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",0.6658061501062768,%,540.0,0.5093905968062671,
+horizons,W2.1,pre2018,P3,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",1.9773898411588144,%,425.0,1.3982600575606037,
+horizons,W2.1,pre2018,P4,"raw u5 split, short continuation z=lnP[t+20]-lnO[t+6]",1.815924304342246,%,366.0,1.3944454450168646,
+horizons,W2.1,pre2018,MAIN,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",3.6361575112232702,%,1703.0,1.500982951912972,
+horizons,W2.1,pre2018,P1,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",2.6348134467038222,%,398.0,0.4797030287097322,
+horizons,W2.1,pre2018,P2,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",0.7077755171544562,%,540.0,0.16058812089867863,
+horizons,W2.1,pre2018,P3,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",7.283991935936624,%,425.0,1.4940456862143243,
+horizons,W2.1,pre2018,P4,"raw u5 split, long continuation z=lnP[t+120]-lnO[t+6]",3.7625185186663677,%,338.0,1.1727423742951844,
+horizons,W2.2,pre2018,MAIN,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",4.494464761758332,%,2359.0,2.1268240889644305,
+horizons,W2.2,pre2018,P1,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",6.047560848354018,%,549.0,1.2809219919677999,
+horizons,W2.2,pre2018,P2,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",3.982559906543748,%,739.0,0.9724430089002863,
+horizons,W2.2,pre2018,P3,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",5.906145511669417,%,577.0,1.4604189632302755,
+horizons,W2.2,pre2018,P4,"raw u20 split, long continuation z=lnP[t+120]-lnO[t+21]",-0.20833300113218373,%,457.0,-0.07782879403213235,
+thresholds,W2.1,pre2018,MAIN,log thresholds +-0.05 instead of ln1.05/ln0.95,2.6684049715009954,%,1747.0,1.741315970443251,
+thresholds,W2.2,pre2018,MAIN,log thresholds +-0.05 instead of ln1.05/ln0.95,2.7279656385755255,%,2395.0,2.429908244888134,
+thresholds,W2.3,pre2018,MAIN,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],2.6382599105386793,%,1597.0,1.9317987612794056,n_events=2517
+thresholds,W2.3,pre2018,P1,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],2.3069716453631006,%,515.0,0.9543395502086548,n_events=832
+thresholds,W2.3,pre2018,P2,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],-0.6148117578199304,%,454.0,-0.35727855206651243,n_events=718
+thresholds,W2.3,pre2018,P3,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],9.654666482748379,%,373.0,2.7986936798639297,n_events=643
+thresholds,W2.3,pre2018,P4,trigger +20% (ln1.20) instead of +10%: abnormal lnP[t+60]-lnO[g+1],-1.1641387460651849,%,255.0,-0.5276671350571087,n_events=324
+W2.3_detail,W2.3,all,MAIN,share of entries reaching +10% Close gain within 20 days,35.581299131154324,%,16919.0,,
+W2.3_detail,W2.3,all,MAIN,median trigger day g-t,8.0,days,6020.0,,
+W2.3_detail,W2.3,all,MAIN,triggered events dropped: no valid Open at g+1,108.0,events,,,
+W2.5_detail,W2.5,all,MAIN,trailing arm mean raw return per trade,3.6800985523807768,%,16607.0,,
+W2.5_detail,W2.5,all,MAIN,fixed 20-bar arm mean raw return per trade,2.458320217434264,%,16607.0,,
+W2.5_detail,W2.5,all,MAIN,trailing arm mean bars held,31.076293129403265,bars,16607.0,,
+W2.5_detail,W2.5,all,MAIN,trailing arm median bars held,24.0,bars,16607.0,,
+W2.5_detail,W2.5,all,MAIN,trailing arm share capped at 120 bars,1.1320527488408503,%,16607.0,,
+W2.5_detail,W2.5,all,MAIN,trailing arm share exiting before bar 20,40.33238995604263,%,16607.0,,
+W2.5_detail,W2.5,all,MAIN,trailing arm return per bar held (sum r / sum bars),11.842141329587347,bps/bar,16607.0,,
+W2.5_detail,W2.5,all,MAIN,fixed arm return per bar held (sum r / (20 n)),12.29160108717132,bps/bar,16607.0,,
+W2.5_detail,W2.5,all,MAIN,abnormal trailing arm mean per trade,1.1005165986887278,%,16607.0,,
+W2.5_detail,W2.5,all,MAIN,abnormal fixed arm mean per trade,0.6509017499143753,%,16607.0,,
+W2.5_detail,W2.5,all,MAIN,share of trades where trailing beats fixed,38.42355633166737,%,16607.0,,
+W2.5_detail,W2.5,pre2018,MAIN,trailing arm mean raw return per trade,3.558373061054353,%,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,fixed 20-bar arm mean raw return per trade,2.392125046481884,%,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,trailing arm mean bars held,31.14059084379489,bars,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,trailing arm median bars held,24.0,bars,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,trailing arm share capped at 120 bars,1.1679470364124664,%,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,trailing arm share exiting before bar 20,40.24732996065205,%,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,trailing arm return per bar held (sum r / sum bars),11.426800085148027,bps/bar,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,fixed arm return per bar held (sum r / (20 n)),11.96062523240942,bps/bar,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,abnormal trailing arm mean per trade,0.9067954250114951,%,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,abnormal fixed arm mean per trade,0.546066780773121,%,16011.0,,
+W2.5_detail,W2.5,pre2018,MAIN,share of trades where trailing beats fixed,38.27993254637437,%,16011.0,,
+right_tail,fo60,all,MAIN,mean simple 60-day P&L per trade (Open t+1 to Close t+60),9.17119362813466,%,16765.0,,"breakout entries, all"
+right_tail,fo60,all,MAIN,share of total simple 60-day P&L from top 10% of trades,93.1828526045205,% of total,16765.0,,"breakout entries, all"
+right_tail,fo60,all,MAIN,share of total simple 60-day P&L from top 1% of trades,25.44869959096643,% of total,16765.0,,"breakout entries, all"
+right_tail,fo60,all,MAIN,mean simple 60-day P&L excluding top 10% of trades,0.6947050071815728,%,15088.0,,"breakout entries, all"
+right_tail,fo60,all,MAIN,share of trades with positive 60-day P&L,55.687444079928426,%,16765.0,,"breakout entries, all"
+right_tail,peak120,all,MAIN,median bars to peak Close within 120 bars,61.0,bars,16607.0,,"breakout entries, all"
+right_tail,peak120,all,MAIN,25th percentile bars to peak Close,18.0,bars,16607.0,,"breakout entries, all"
+right_tail,peak120,all,MAIN,75th percentile bars to peak Close,103.0,bars,16607.0,,"breakout entries, all"
+right_tail,peak120,all,MAIN,share of trades whose 120-bar peak is at bar 100-120,27.572710302884325,%,16607.0,,"breakout entries, all"
+right_tail,peak120,all,MAIN,median peak Close gain within 120 bars (log),19.017353207664065,%,16607.0,,"breakout entries, all"
+right_tail,fo60,all,P1,mean simple 60-day P&L per trade (Open t+1 to Close t+60),13.564341506425484,%,3771.0,,"breakout entries, all"
+right_tail,fo60,all,P1,share of total simple 60-day P&L from top 10% of trades,73.77519291383713,% of total,3771.0,,"breakout entries, all"
+right_tail,fo60,all,P1,share of total simple 60-day P&L from top 1% of trades,15.929571037264337,% of total,3771.0,,"breakout entries, all"
+right_tail,fo60,all,P1,mean simple 60-day P&L excluding top 10% of trades,3.953517725427479,%,3393.0,,"breakout entries, all"
+right_tail,fo60,all,P1,share of trades with positive 60-day P&L,59.98408910103421,%,3771.0,,"breakout entries, all"
+right_tail,peak120,all,P1,median bars to peak Close within 120 bars,66.0,bars,3771.0,,"breakout entries, all"
+right_tail,peak120,all,P1,25th percentile bars to peak Close,19.5,bars,3771.0,,"breakout entries, all"
+right_tail,peak120,all,P1,75th percentile bars to peak Close,103.0,bars,3771.0,,"breakout entries, all"
+right_tail,peak120,all,P1,share of trades whose 120-bar peak is at bar 100-120,27.499337045876427,%,3771.0,,"breakout entries, all"
+right_tail,peak120,all,P1,median peak Close gain within 120 bars (log),25.43663268852361,%,3771.0,,"breakout entries, all"
+right_tail,fo60,all,P2,mean simple 60-day P&L per trade (Open t+1 to Close t+60),8.774233231545352,%,5461.0,,"breakout entries, all"
+right_tail,fo60,all,P2,share of total simple 60-day P&L from top 10% of trades,81.30522875630851,% of total,5461.0,,"breakout entries, all"
+right_tail,fo60,all,P2,share of total simple 60-day P&L from top 1% of trades,20.362759608819548,% of total,5461.0,,"breakout entries, all"
+right_tail,fo60,all,P2,mean simple 60-day P&L excluding top 10% of trades,1.8229147293914387,%,4914.0,,"breakout entries, all"
+right_tail,fo60,all,P2,share of trades with positive 60-day P&L,58.6705731550998,%,5461.0,,"breakout entries, all"
+right_tail,peak120,all,P2,median bars to peak Close within 120 bars,66.0,bars,5461.0,,"breakout entries, all"
+right_tail,peak120,all,P2,25th percentile bars to peak Close,20.0,bars,5461.0,,"breakout entries, all"
+right_tail,peak120,all,P2,75th percentile bars to peak Close,105.0,bars,5461.0,,"breakout entries, all"
+right_tail,peak120,all,P2,share of trades whose 120-bar peak is at bar 100-120,30.12268815235305,%,5461.0,,"breakout entries, all"
+right_tail,peak120,all,P2,median peak Close gain within 120 bars (log),19.22835495227031,%,5461.0,,"breakout entries, all"
+right_tail,fo60,all,P3,mean simple 60-day P&L per trade (Open t+1 to Close t+60),10.507335403989648,%,4120.0,,"breakout entries, all"
+right_tail,fo60,all,P3,share of total simple 60-day P&L from top 10% of trades,92.81278161681028,% of total,4120.0,,"breakout entries, all"
+right_tail,fo60,all,P3,share of total simple 60-day P&L from top 1% of trades,30.116944880377464,% of total,4120.0,,"breakout entries, all"
+right_tail,fo60,all,P3,mean simple 60-day P&L excluding top 10% of trades,0.8390946019321616,%,3708.0,,"breakout entries, all"
+right_tail,fo60,all,P3,share of trades with positive 60-day P&L,57.13592233009709,%,4120.0,,"breakout entries, all"
+right_tail,peak120,all,P3,median bars to peak Close within 120 bars,63.0,bars,4120.0,,"breakout entries, all"
+right_tail,peak120,all,P3,25th percentile bars to peak Close,18.0,bars,4120.0,,"breakout entries, all"
+right_tail,peak120,all,P3,75th percentile bars to peak Close,105.0,bars,4120.0,,"breakout entries, all"
+right_tail,peak120,all,P3,share of trades whose 120-bar peak is at bar 100-120,28.95631067961165,%,4120.0,,"breakout entries, all"
+right_tail,peak120,all,P3,median peak Close gain within 120 bars (log),17.875535749306426,%,4120.0,,"breakout entries, all"
+right_tail,fo60,all,P4,mean simple 60-day P&L per trade (Open t+1 to Close t+60),3.3394725499679185,%,3413.0,,"breakout entries, all"
+right_tail,fo60,all,P4,share of total simple 60-day P&L from top 10% of trades,216.27463588430544,% of total,3413.0,,"breakout entries, all"
+right_tail,fo60,all,P4,share of total simple 60-day P&L from top 1% of trades,70.71474559069496,% of total,3413.0,,"breakout entries, all"
+right_tail,fo60,all,P4,mean simple 60-day P&L excluding top 10% of trades,-4.315382916668935,%,3071.0,,"breakout entries, all"
+right_tail,fo60,all,P4,share of trades with positive 60-day P&L,44.41840023439789,%,3413.0,,"breakout entries, all"
+right_tail,peak120,all,P4,median bars to peak Close within 120 bars,44.0,bars,3255.0,,"breakout entries, all"
+right_tail,peak120,all,P4,25th percentile bars to peak Close,11.0,bars,3255.0,,"breakout entries, all"
+right_tail,peak120,all,P4,75th percentile bars to peak Close,92.0,bars,3255.0,,"breakout entries, all"
+right_tail,peak120,all,P4,share of trades whose 120-bar peak is at bar 100-120,21.62826420890937,%,3255.0,,"breakout entries, all"
+right_tail,peak120,all,P4,median peak Close gain within 120 bars (log),13.424952550996228,%,3255.0,,"breakout entries, all"
+right_tail,fo60,all,MAIN,mean simple 60-day P&L per trade (Open t+1 to Close t+60),8.081708128707216,%,3769.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,MAIN,share of total simple 60-day P&L from top 10% of trades,100.583568254819,% of total,3769.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,MAIN,share of total simple 60-day P&L from top 1% of trades,28.696103873679995,% of total,3769.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,MAIN,mean simple 60-day P&L excluding top 10% of trades,-0.052404081648621016,%,3392.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,MAIN,share of trades with positive 60-day P&L,54.391085168479705,%,3769.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,MAIN,median bars to peak Close within 120 bars,58.0,bars,3709.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,MAIN,25th percentile bars to peak Close,16.0,bars,3709.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,MAIN,75th percentile bars to peak Close,102.0,bars,3709.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,MAIN,share of trades whose 120-bar peak is at bar 100-120,26.44917767592343,%,3709.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,MAIN,median peak Close gain within 120 bars (log),17.97931104405963,%,3709.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P1,mean simple 60-day P&L per trade (Open t+1 to Close t+60),13.114730230933796,%,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P1,share of total simple 60-day P&L from top 10% of trades,72.39647548661625,% of total,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P1,share of total simple 60-day P&L from top 1% of trades,17.91856647905192,% of total,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P1,mean simple 60-day P&L excluding top 10% of trades,4.025287423302857,%,688.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P1,share of trades with positive 60-day P&L,61.30718954248366,%,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P1,median bars to peak Close within 120 bars,64.0,bars,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P1,25th percentile bars to peak Close,19.0,bars,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P1,75th percentile bars to peak Close,102.0,bars,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P1,share of trades whose 120-bar peak is at bar 100-120,26.535947712418302,%,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P1,median peak Close gain within 120 bars (log),26.60205756706011,%,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P2,mean simple 60-day P&L per trade (Open t+1 to Close t+60),7.249544899920574,%,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P2,share of total simple 60-day P&L from top 10% of trades,96.61201250045013,% of total,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P2,share of total simple 60-day P&L from top 1% of trades,24.065446163874554,% of total,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P2,mean simple 60-day P&L excluding top 10% of trades,0.2729040833150706,%,1089.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P2,share of trades with positive 60-day P&L,55.289256198347104,%,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P2,median bars to peak Close within 120 bars,66.0,bars,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P2,25th percentile bars to peak Close,18.0,bars,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P2,75th percentile bars to peak Close,106.0,bars,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P2,share of trades whose 120-bar peak is at bar 100-120,31.074380165289256,%,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P2,median peak Close gain within 120 bars (log),17.589206129111634,%,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P3,mean simple 60-day P&L per trade (Open t+1 to Close t+60),9.295653095526186,%,927.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P3,share of total simple 60-day P&L from top 10% of trades,103.3187001069685,% of total,927.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P3,share of total simple 60-day P&L from top 1% of trades,37.37863626241935,% of total,927.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P3,mean simple 60-day P&L excluding top 10% of trades,-0.34289535399430054,%,834.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P3,share of trades with positive 60-day P&L,54.90830636461704,%,927.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P3,median bars to peak Close within 120 bars,57.0,bars,927.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P3,25th percentile bars to peak Close,16.0,bars,927.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P3,75th percentile bars to peak Close,101.0,bars,927.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P3,share of trades whose 120-bar peak is at bar 100-120,26.429341963322546,%,927.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P3,median peak Close gain within 120 bars (log),17.211738661971232,%,927.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P4,mean simple 60-day P&L per trade (Open t+1 to Close t+60),3.5042324820951265,%,867.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P4,share of total simple 60-day P&L from top 10% of trades,186.9091008301822,% of total,867.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P4,share of total simple 60-day P&L from top 1% of trades,55.108295809973534,% of total,867.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P4,mean simple 60-day P&L excluding top 10% of trades,-3.3851869846282523,%,780.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,P4,share of trades with positive 60-day P&L,46.48212226066897,%,867.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P4,median bars to peak Close within 120 bars,45.0,bars,807.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P4,25th percentile bars to peak Close,12.0,bars,807.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P4,75th percentile bars to peak Close,89.5,bars,807.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P4,share of trades whose 120-bar peak is at bar 100-120,19.454770755885995,%,807.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,all,P4,median peak Close gain within 120 bars (log),12.666480579116435,%,807.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,all,MAIN,mean simple 60-day P&L per trade (Open t+1 to Close t+60),5.390596873939801,%,394195.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,MAIN,share of total simple 60-day P&L from top 10% of trades,127.75845140564182,% of total,394195.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,MAIN,share of total simple 60-day P&L from top 1% of trades,36.116304563157186,% of total,394195.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,MAIN,mean simple 60-day P&L excluding top 10% of trades,-1.6626092473256815,%,354775.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,MAIN,share of trades with positive 60-day P&L,51.78807443016781,%,394195.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,MAIN,median bars to peak Close within 120 bars,57.0,bars,388196.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,MAIN,25th percentile bars to peak Close,15.0,bars,388196.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,MAIN,75th percentile bars to peak Close,100.0,bars,388196.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,MAIN,share of trades whose 120-bar peak is at bar 100-120,25.6893424970891,%,388196.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,MAIN,median peak Close gain within 120 bars (log),16.290347093685302,%,388196.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P1,mean simple 60-day P&L per trade (Open t+1 to Close t+60),8.479791988459471,%,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P1,share of total simple 60-day P&L from top 10% of trades,96.60145663158312,% of total,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P1,share of total simple 60-day P&L from top 1% of trades,24.115868882550423,% of total,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P1,mean simple 60-day P&L excluding top 10% of trades,0.3202118846879214,%,67128.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P1,share of trades with positive 60-day P&L,55.14902060680815,%,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P1,median bars to peak Close within 120 bars,60.0,bars,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P1,25th percentile bars to peak Close,16.0,bars,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P1,75th percentile bars to peak Close,102.0,bars,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P1,share of trades whose 120-bar peak is at bar 100-120,27.142799683590972,%,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P1,median peak Close gain within 120 bars (log),22.64065228448193,%,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P2,mean simple 60-day P&L per trade (Open t+1 to Close t+60),4.975025528885282,%,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P2,share of total simple 60-day P&L from top 10% of trades,127.4893798278859,% of total,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P2,share of total simple 60-day P&L from top 1% of trades,33.76752741166364,% of total,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P2,mean simple 60-day P&L excluding top 10% of trades,-1.519567861388504,%,110721.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P2,share of trades with positive 60-day P&L,54.17479516191962,%,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P2,median bars to peak Close within 120 bars,62.0,bars,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P2,25th percentile bars to peak Close,16.0,bars,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P2,75th percentile bars to peak Close,104.0,bars,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P2,share of trades whose 120-bar peak is at bar 100-120,28.257900897385873,%,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P2,median peak Close gain within 120 bars (log),16.623771368553143,%,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P3,mean simple 60-day P&L per trade (Open t+1 to Close t+60),6.154684146466545,%,97409.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P3,share of total simple 60-day P&L from top 10% of trades,117.1519570873158,% of total,97409.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P3,share of total simple 60-day P&L from top 1% of trades,33.6140565032943,% of total,97409.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P3,mean simple 60-day P&L excluding top 10% of trades,-1.1729444308950758,%,87668.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P3,share of trades with positive 60-day P&L,52.159451385395606,%,97409.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P3,median bars to peak Close within 120 bars,57.0,bars,97409.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P3,25th percentile bars to peak Close,16.0,bars,97409.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P3,75th percentile bars to peak Close,100.0,bars,97409.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P3,share of trades whose 120-bar peak is at bar 100-120,25.205063187179828,%,97409.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P3,median peak Close gain within 120 bars (log),15.706189003471538,%,97409.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P4,mean simple 60-day P&L per trade (Open t+1 to Close t+60),2.8323158153842267,%,99175.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P4,share of total simple 60-day P&L from top 10% of trades,210.66391063747196,% of total,99175.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P4,share of total simple 60-day P&L from top 1% of trades,70.33618722247475,% of total,99175.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P4,mean simple 60-day P&L excluding top 10% of trades,-3.482632223247248,%,89257.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,all,P4,share of trades with positive 60-day P&L,45.934963448449714,%,99175.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P4,median bars to peak Close within 120 bars,48.0,bars,93176.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P4,25th percentile bars to peak Close,14.0,bars,93176.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P4,75th percentile bars to peak Close,94.0,bars,93176.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P4,share of trades whose 120-bar peak is at bar 100-120,21.64076586245385,%,93176.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,all,P4,median peak Close gain within 120 bars (log),13.112605670827971,%,93176.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,MAIN,mean simple 60-day P&L per trade (Open t+1 to Close t+60),8.850749785088578,%,16129.0,,"breakout entries, all"
+right_tail,fo60,pre2018,MAIN,share of total simple 60-day P&L from top 10% of trades,92.73930875519162,% of total,16129.0,,"breakout entries, all"
+right_tail,fo60,pre2018,MAIN,share of total simple 60-day P&L from top 1% of trades,24.63255890201887,% of total,16129.0,,"breakout entries, all"
+right_tail,fo60,pre2018,MAIN,mean simple 60-day P&L excluding top 10% of trades,0.7140333797351458,%,14516.0,,"breakout entries, all"
+right_tail,fo60,pre2018,MAIN,share of trades with positive 60-day P&L,55.84351168702337,%,16129.0,,"breakout entries, all"
+right_tail,peak120,pre2018,MAIN,median bars to peak Close within 120 bars,61.0,bars,16011.0,,"breakout entries, all"
+right_tail,peak120,pre2018,MAIN,25th percentile bars to peak Close,18.0,bars,16011.0,,"breakout entries, all"
+right_tail,peak120,pre2018,MAIN,75th percentile bars to peak Close,103.0,bars,16011.0,,"breakout entries, all"
+right_tail,peak120,pre2018,MAIN,share of trades whose 120-bar peak is at bar 100-120,27.68096933358316,%,16011.0,,"breakout entries, all"
+right_tail,peak120,pre2018,MAIN,median peak Close gain within 120 bars (log),18.92419996385278,%,16011.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P1,mean simple 60-day P&L per trade (Open t+1 to Close t+60),13.564341506425484,%,3771.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P1,share of total simple 60-day P&L from top 10% of trades,73.77519291383713,% of total,3771.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P1,share of total simple 60-day P&L from top 1% of trades,15.929571037264337,% of total,3771.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P1,mean simple 60-day P&L excluding top 10% of trades,3.953517725427479,%,3393.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P1,share of trades with positive 60-day P&L,59.98408910103421,%,3771.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P1,median bars to peak Close within 120 bars,66.0,bars,3771.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P1,25th percentile bars to peak Close,19.5,bars,3771.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P1,75th percentile bars to peak Close,103.0,bars,3771.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P1,share of trades whose 120-bar peak is at bar 100-120,27.499337045876427,%,3771.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P1,median peak Close gain within 120 bars (log),25.43663268852361,%,3771.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P2,mean simple 60-day P&L per trade (Open t+1 to Close t+60),8.774233231545352,%,5461.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P2,share of total simple 60-day P&L from top 10% of trades,81.30522875630851,% of total,5461.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P2,share of total simple 60-day P&L from top 1% of trades,20.362759608819548,% of total,5461.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P2,mean simple 60-day P&L excluding top 10% of trades,1.8229147293914387,%,4914.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P2,share of trades with positive 60-day P&L,58.6705731550998,%,5461.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P2,median bars to peak Close within 120 bars,66.0,bars,5461.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P2,25th percentile bars to peak Close,20.0,bars,5461.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P2,75th percentile bars to peak Close,105.0,bars,5461.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P2,share of trades whose 120-bar peak is at bar 100-120,30.12268815235305,%,5461.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P2,median peak Close gain within 120 bars (log),19.22835495227031,%,5461.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P3,mean simple 60-day P&L per trade (Open t+1 to Close t+60),10.413649781157059,%,4001.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P3,share of total simple 60-day P&L from top 10% of trades,93.59127075417351,% of total,4001.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P3,share of total simple 60-day P&L from top 1% of trades,30.80072671988946,% of total,4001.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P3,mean simple 60-day P&L excluding top 10% of trades,0.7417216274863697,%,3600.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P3,share of trades with positive 60-day P&L,56.96075981004749,%,4001.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P3,median bars to peak Close within 120 bars,62.0,bars,4001.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P3,25th percentile bars to peak Close,18.0,bars,4001.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P3,75th percentile bars to peak Close,105.0,bars,4001.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P3,share of trades whose 120-bar peak is at bar 100-120,28.642839290177456,%,4001.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P3,median peak Close gain within 120 bars (log),17.618656822643963,%,4001.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P4,mean simple 60-day P&L per trade (Open t+1 to Close t+60),0.6980355701258865,%,2896.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P4,share of total simple 60-day P&L from top 10% of trades,705.7008041925566,% of total,2896.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P4,share of total simple 60-day P&L from top 1% of trades,180.92577740481008,% of total,2896.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P4,mean simple 60-day P&L excluding top 10% of trades,-4.698506696462127,%,2606.0,,"breakout entries, all"
+right_tail,fo60,pre2018,P4,share of trades with positive 60-day P&L,43.57734806629834,%,2896.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P4,median bars to peak Close within 120 bars,43.0,bars,2778.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P4,25th percentile bars to peak Close,11.0,bars,2778.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P4,75th percentile bars to peak Close,93.0,bars,2778.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P4,share of trades whose 120-bar peak is at bar 100-120,21.742260619150468,%,2778.0,,"breakout entries, all"
+right_tail,peak120,pre2018,P4,median peak Close gain within 120 bars (log),12.693096208533266,%,2778.0,,"breakout entries, all"
+right_tail,fo60,pre2018,MAIN,mean simple 60-day P&L per trade (Open t+1 to Close t+60),7.887402912625693,%,3611.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,MAIN,share of total simple 60-day P&L from top 10% of trades,100.42166610360417,% of total,3611.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,MAIN,share of total simple 60-day P&L from top 1% of trades,28.975375009896258,% of total,3611.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,MAIN,mean simple 60-day P&L excluding top 10% of trades,-0.036964130465967304,%,3249.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,MAIN,share of trades with positive 60-day P&L,54.61091110495707,%,3611.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,MAIN,median bars to peak Close within 120 bars,58.0,bars,3563.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,MAIN,25th percentile bars to peak Close,16.0,bars,3563.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,MAIN,75th percentile bars to peak Close,102.0,bars,3563.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,MAIN,share of trades whose 120-bar peak is at bar 100-120,26.662924501824303,%,3563.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,MAIN,median peak Close gain within 120 bars (log),18.10484821471571,%,3563.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P1,mean simple 60-day P&L per trade (Open t+1 to Close t+60),13.114730230933796,%,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P1,share of total simple 60-day P&L from top 10% of trades,72.39647548661625,% of total,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P1,share of total simple 60-day P&L from top 1% of trades,17.91856647905192,% of total,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P1,mean simple 60-day P&L excluding top 10% of trades,4.025287423302857,%,688.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P1,share of trades with positive 60-day P&L,61.30718954248366,%,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P1,median bars to peak Close within 120 bars,64.0,bars,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P1,25th percentile bars to peak Close,19.0,bars,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P1,75th percentile bars to peak Close,102.0,bars,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P1,share of trades whose 120-bar peak is at bar 100-120,26.535947712418302,%,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P1,median peak Close gain within 120 bars (log),26.60205756706011,%,765.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P2,mean simple 60-day P&L per trade (Open t+1 to Close t+60),7.249544899920574,%,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P2,share of total simple 60-day P&L from top 10% of trades,96.61201250045013,% of total,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P2,share of total simple 60-day P&L from top 1% of trades,24.065446163874554,% of total,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P2,mean simple 60-day P&L excluding top 10% of trades,0.2729040833150706,%,1089.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P2,share of trades with positive 60-day P&L,55.289256198347104,%,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P2,median bars to peak Close within 120 bars,66.0,bars,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P2,25th percentile bars to peak Close,18.0,bars,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P2,75th percentile bars to peak Close,106.0,bars,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P2,share of trades whose 120-bar peak is at bar 100-120,31.074380165289256,%,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P2,median peak Close gain within 120 bars (log),17.589206129111634,%,1210.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P3,mean simple 60-day P&L per trade (Open t+1 to Close t+60),9.08979902252615,%,899.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P3,share of total simple 60-day P&L from top 10% of trades,104.29047048510263,% of total,899.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P3,share of total simple 60-day P&L from top 1% of trades,37.46601550715776,% of total,899.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P3,mean simple 60-day P&L excluding top 10% of trades,-0.4333815014224341,%,809.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P3,share of trades with positive 60-day P&L,54.83870967741935,%,899.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P3,median bars to peak Close within 120 bars,57.0,bars,899.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P3,25th percentile bars to peak Close,15.0,bars,899.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P3,75th percentile bars to peak Close,101.0,bars,899.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P3,share of trades whose 120-bar peak is at bar 100-120,26.140155728587317,%,899.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P3,median peak Close gain within 120 bars (log),16.907788035822158,%,899.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P4,mean simple 60-day P&L per trade (Open t+1 to Close t+60),2.0420144378183593,%,737.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P4,share of total simple 60-day P&L from top 10% of trades,255.96682680877836,% of total,737.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P4,share of total simple 60-day P&L from top 1% of trades,73.44658260704155,% of total,737.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P4,mean simple 60-day P&L excluding top 10% of trades,-3.540340263424517,%,663.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,P4,share of trades with positive 60-day P&L,46.26865671641791,%,737.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P4,median bars to peak Close within 120 bars,45.0,bars,689.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P4,25th percentile bars to peak Close,12.0,bars,689.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P4,75th percentile bars to peak Close,90.0,bars,689.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P4,share of trades whose 120-bar peak is at bar 100-120,19.738751814223512,%,689.0,,"breakout entries, first per stock in 60 days"
+right_tail,peak120,pre2018,P4,median peak Close gain within 120 bars (log),12.634228905205314,%,689.0,,"breakout entries, first per stock in 60 days"
+right_tail,fo60,pre2018,MAIN,mean simple 60-day P&L per trade (Open t+1 to Close t+60),5.230343218236155,%,376141.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,MAIN,share of total simple 60-day P&L from top 10% of trades,126.9306806595856,% of total,376141.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,MAIN,share of total simple 60-day P&L from top 1% of trades,34.382064154227784,% of total,376141.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,MAIN,mean simple 60-day P&L excluding top 10% of trades,-1.565078638108935,%,338526.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,MAIN,share of trades with positive 60-day P&L,52.01719567927985,%,376141.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,MAIN,median bars to peak Close within 120 bars,57.0,bars,371341.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,MAIN,25th percentile bars to peak Close,16.0,bars,371341.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,MAIN,75th percentile bars to peak Close,101.0,bars,371341.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,MAIN,share of trades whose 120-bar peak is at bar 100-120,25.81185487193711,%,371341.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,MAIN,median peak Close gain within 120 bars (log),16.36294237818021,%,371341.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P1,mean simple 60-day P&L per trade (Open t+1 to Close t+60),8.479791988459471,%,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P1,share of total simple 60-day P&L from top 10% of trades,96.60145663158312,% of total,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P1,share of total simple 60-day P&L from top 1% of trades,24.115868882550423,% of total,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P1,mean simple 60-day P&L excluding top 10% of trades,0.3202118846879214,%,67128.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P1,share of trades with positive 60-day P&L,55.14902060680815,%,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P1,median bars to peak Close within 120 bars,60.0,bars,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P1,25th percentile bars to peak Close,16.0,bars,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P1,75th percentile bars to peak Close,102.0,bars,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P1,share of trades whose 120-bar peak is at bar 100-120,27.142799683590972,%,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P1,median peak Close gain within 120 bars (log),22.64065228448193,%,74587.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P2,mean simple 60-day P&L per trade (Open t+1 to Close t+60),4.975025528885282,%,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P2,share of total simple 60-day P&L from top 10% of trades,127.4893798278859,% of total,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P2,share of total simple 60-day P&L from top 1% of trades,33.76752741166364,% of total,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P2,mean simple 60-day P&L excluding top 10% of trades,-1.519567861388504,%,110721.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P2,share of trades with positive 60-day P&L,54.17479516191962,%,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P2,median bars to peak Close within 120 bars,62.0,bars,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P2,25th percentile bars to peak Close,16.0,bars,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P2,75th percentile bars to peak Close,104.0,bars,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P2,share of trades whose 120-bar peak is at bar 100-120,28.257900897385873,%,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P2,median peak Close gain within 120 bars (log),16.623771368553143,%,123024.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P3,mean simple 60-day P&L per trade (Open t+1 to Close t+60),6.065779534648484,%,94377.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P3,share of total simple 60-day P&L from top 10% of trades,116.72391370429152,% of total,94377.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P3,share of total simple 60-day P&L from top 1% of trades,33.731834273522445,% of total,94377.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P3,mean simple 60-day P&L excluding top 10% of trades,-1.1271547975554277,%,84939.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P3,share of trades with positive 60-day P&L,52.20763533488032,%,94377.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P3,median bars to peak Close within 120 bars,57.0,bars,94377.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P3,25th percentile bars to peak Close,16.0,bars,94377.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P3,75th percentile bars to peak Close,100.0,bars,94377.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P3,share of trades whose 120-bar peak is at bar 100-120,25.04847579389046,%,94377.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P3,median peak Close gain within 120 bars (log),15.674471500430428,%,94377.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P4,mean simple 60-day P&L per trade (Open t+1 to Close t+60),1.7865871400928794,%,84153.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P4,share of total simple 60-day P&L from top 10% of trades,268.5666049670617,% of total,84153.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P4,share of total simple 60-day P&L from top 1% of trades,71.33889790140655,% of total,84153.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P4,mean simple 60-day P&L excluding top 10% of trades,-3.346241246086211,%,75737.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,fo60,pre2018,P4,share of trades with positive 60-day P&L,45.87358739438879,%,84153.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P4,median bars to peak Close within 120 bars,49.0,bars,79353.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P4,25th percentile bars to peak Close,14.0,bars,79353.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P4,75th percentile bars to peak Close,94.0,bars,79353.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P4,share of trades whose 120-bar peak is at bar 100-120,21.676559172306025,%,79353.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,pre2018,P4,median peak Close gain within 120 bars (log),12.85188508009778,%,79353.0,,benchmark: every stock-day entry (buy next Open)
+right_tail,peak120,reference,any,driftless random walk: median bar of the 120-bar maximum,60.0,bars,,,"theoretical reference (arcsine law, continuous approximation): peak timing looks like this without any edge"
+right_tail,peak120,reference,any,driftless random walk: share of 120-bar maxima at bar 100-120,27.126173971225565,%,,,"theoretical reference (arcsine law, continuous approximation): peak timing looks like this without any edge"
+index_sensitivity,W2.1,all,MAIN,primary statistic aggregated by decision day t+5,2.791559945392853,%,1787.0,1.8642857838125475,
+index_sensitivity,W2.2,all,MAIN,primary statistic aggregated by decision day t+20,2.5468630532548233,%,2447.0,2.296692441774121,
+index_sensitivity,W2.3,all,MAIN,primary statistic aggregated by trigger day g,2.3329809228759006,%,2519.0,2.739944598048265,
+index_sensitivity,W2.1,pre2018,MAIN,primary statistic aggregated by decision day t+5,2.523671046441018,%,1716.0,1.647642190242084,
+index_sensitivity,W2.2,pre2018,MAIN,primary statistic aggregated by decision day t+20,2.597510643187049,%,2377.0,2.305047744824853,
+index_sensitivity,W2.3,pre2018,MAIN,primary statistic aggregated by trigger day g,2.0145935979676413,%,2429.0,2.3050117517558553,
+W2.5_by_year,W2.5,all,2000,raw paired difference trailing minus fixed-20 (day-mean),0.2431146654058748,%,164.0,,
+W2.5_by_year,W2.5,all,2001,raw paired difference trailing minus fixed-20 (day-mean),-0.9634072947558134,%,281.0,,
+W2.5_by_year,W2.5,all,2002,raw paired difference trailing minus fixed-20 (day-mean),0.8455058357208514,%,359.0,,
+W2.5_by_year,W2.5,all,2003,raw paired difference trailing minus fixed-20 (day-mean),10.68992307044048,%,604.0,,
+W2.5_by_year,W2.5,all,2004,raw paired difference trailing minus fixed-20 (day-mean),3.4482651871791314,%,509.0,,
+W2.5_by_year,W2.5,all,2005,raw paired difference trailing minus fixed-20 (day-mean),1.5368666679496357,%,505.0,,
+W2.5_by_year,W2.5,all,2006,raw paired difference trailing minus fixed-20 (day-mean),5.308509177107439,%,655.0,,
+W2.5_by_year,W2.5,all,2007,raw paired difference trailing minus fixed-20 (day-mean),5.166823083346016,%,694.0,,
+W2.5_by_year,W2.5,all,2008,raw paired difference trailing minus fixed-20 (day-mean),-0.2806317692254898,%,277.0,,
+W2.5_by_year,W2.5,all,2009,raw paired difference trailing minus fixed-20 (day-mean),5.546470001577568,%,795.0,,
+W2.5_by_year,W2.5,all,2010,raw paired difference trailing minus fixed-20 (day-mean),2.982207770738726,%,955.0,,
+W2.5_by_year,W2.5,all,2011,raw paired difference trailing minus fixed-20 (day-mean),3.515147466601778,%,638.0,,
+W2.5_by_year,W2.5,all,2012,raw paired difference trailing minus fixed-20 (day-mean),0.024705160881084477,%,763.0,,
+W2.5_by_year,W2.5,all,2013,raw paired difference trailing minus fixed-20 (day-mean),0.7289998937674044,%,666.0,,
+W2.5_by_year,W2.5,all,2014,raw paired difference trailing minus fixed-20 (day-mean),0.3142686818977801,%,873.0,,
+W2.5_by_year,W2.5,all,2015,raw paired difference trailing minus fixed-20 (day-mean),-1.0712336033608307,%,494.0,,
+W2.5_by_year,W2.5,all,2016,raw paired difference trailing minus fixed-20 (day-mean),3.7707392087789415,%,836.0,,
+W2.5_by_year,W2.5,all,2017,raw paired difference trailing minus fixed-20 (day-mean),0.8923043265452174,%,892.0,,
+W2.5_by_year,W2.5,all,2018,raw paired difference trailing minus fixed-20 (day-mean),0.3657747750826092,%,763.0,,
+W2.5_by_year,W2.5,all,2019,raw paired difference trailing minus fixed-20 (day-mean),-2.2461619527937358,%,736.0,,
+W2.5_by_year,W2.5,all,2020,raw paired difference trailing minus fixed-20 (day-mean),3.313346897725201,%,893.0,,
+W2.5_by_year,W2.5,all,2021,raw paired difference trailing minus fixed-20 (day-mean),1.5732496837192917,%,671.0,,
+W2.5_by_year,W2.5,all,2022,raw paired difference trailing minus fixed-20 (day-mean),-0.5086067505543715,%,901.0,,
+W2.5_by_year,W2.5,all,2023,raw paired difference trailing minus fixed-20 (day-mean),-0.721874009839478,%,794.0,,
+W2.5_by_year,W2.5,all,2024,raw paired difference trailing minus fixed-20 (day-mean),-0.8736012138950376,%,864.0,,
+W2.5_by_year,W2.5,all,2025,raw paired difference trailing minus fixed-20 (day-mean),-1.3752110418886316,%,25.0,,
+W2.5_by_year,W2.5,all,2000,abnormal paired difference trailing minus fixed-20 (day-mean),1.05951263200238,%,164.0,,
+W2.5_by_year,W2.5,all,2001,abnormal paired difference trailing minus fixed-20 (day-mean),-1.9979938120551373,%,281.0,,
+W2.5_by_year,W2.5,all,2002,abnormal paired difference trailing minus fixed-20 (day-mean),0.37527136621133667,%,359.0,,
+W2.5_by_year,W2.5,all,2003,abnormal paired difference trailing minus fixed-20 (day-mean),4.868322640339652,%,604.0,,
+W2.5_by_year,W2.5,all,2004,abnormal paired difference trailing minus fixed-20 (day-mean),0.6640567850456394,%,509.0,,
+W2.5_by_year,W2.5,all,2005,abnormal paired difference trailing minus fixed-20 (day-mean),0.7303988779045398,%,505.0,,
+W2.5_by_year,W2.5,all,2006,abnormal paired difference trailing minus fixed-20 (day-mean),2.1585689266401458,%,655.0,,
+W2.5_by_year,W2.5,all,2007,abnormal paired difference trailing minus fixed-20 (day-mean),4.663661137065751,%,694.0,,
+W2.5_by_year,W2.5,all,2008,abnormal paired difference trailing minus fixed-20 (day-mean),1.424202908978108,%,277.0,,
+W2.5_by_year,W2.5,all,2009,abnormal paired difference trailing minus fixed-20 (day-mean),0.5597382178612117,%,795.0,,
+W2.5_by_year,W2.5,all,2010,abnormal paired difference trailing minus fixed-20 (day-mean),0.54143875773707,%,955.0,,
+W2.5_by_year,W2.5,all,2011,abnormal paired difference trailing minus fixed-20 (day-mean),3.0338664011097753,%,638.0,,
+W2.5_by_year,W2.5,all,2012,abnormal paired difference trailing minus fixed-20 (day-mean),-0.13249677228300136,%,763.0,,
+W2.5_by_year,W2.5,all,2013,abnormal paired difference trailing minus fixed-20 (day-mean),0.6785673369271671,%,666.0,,
+W2.5_by_year,W2.5,all,2014,abnormal paired difference trailing minus fixed-20 (day-mean),0.3580420146020656,%,873.0,,
+W2.5_by_year,W2.5,all,2015,abnormal paired difference trailing minus fixed-20 (day-mean),-0.26988291677229553,%,494.0,,
+W2.5_by_year,W2.5,all,2016,abnormal paired difference trailing minus fixed-20 (day-mean),2.106932911417359,%,836.0,,
+W2.5_by_year,W2.5,all,2017,abnormal paired difference trailing minus fixed-20 (day-mean),-0.2934262527125678,%,892.0,,
+W2.5_by_year,W2.5,all,2018,abnormal paired difference trailing minus fixed-20 (day-mean),0.9163917402715093,%,763.0,,
+W2.5_by_year,W2.5,all,2019,abnormal paired difference trailing minus fixed-20 (day-mean),-1.347627319204922,%,736.0,,
+W2.5_by_year,W2.5,all,2020,abnormal paired difference trailing minus fixed-20 (day-mean),1.4579408655829131,%,893.0,,
+W2.5_by_year,W2.5,all,2021,abnormal paired difference trailing minus fixed-20 (day-mean),1.633101746488559,%,671.0,,
+W2.5_by_year,W2.5,all,2022,abnormal paired difference trailing minus fixed-20 (day-mean),-0.5863224507123621,%,901.0,,
+W2.5_by_year,W2.5,all,2023,abnormal paired difference trailing minus fixed-20 (day-mean),-0.9359960043734495,%,794.0,,
+W2.5_by_year,W2.5,all,2024,abnormal paired difference trailing minus fixed-20 (day-mean),-0.6432388412829287,%,864.0,,
+W2.5_by_year,W2.5,all,2025,abnormal paired difference trailing minus fixed-20 (day-mean),0.2272335073761761,%,25.0,,
+W2.5_by_year,W2.5,pre2018,2000,raw paired difference trailing minus fixed-20 (day-mean),0.2431146654058748,%,164.0,,
+W2.5_by_year,W2.5,pre2018,2001,raw paired difference trailing minus fixed-20 (day-mean),-0.9634072947558134,%,281.0,,
+W2.5_by_year,W2.5,pre2018,2002,raw paired difference trailing minus fixed-20 (day-mean),0.8455058357208514,%,359.0,,
+W2.5_by_year,W2.5,pre2018,2003,raw paired difference trailing minus fixed-20 (day-mean),10.68992307044048,%,604.0,,
+W2.5_by_year,W2.5,pre2018,2004,raw paired difference trailing minus fixed-20 (day-mean),3.4482651871791314,%,509.0,,
+W2.5_by_year,W2.5,pre2018,2005,raw paired difference trailing minus fixed-20 (day-mean),1.5368666679496357,%,505.0,,
+W2.5_by_year,W2.5,pre2018,2006,raw paired difference trailing minus fixed-20 (day-mean),5.308509177107439,%,655.0,,
+W2.5_by_year,W2.5,pre2018,2007,raw paired difference trailing minus fixed-20 (day-mean),5.166823083346016,%,694.0,,
+W2.5_by_year,W2.5,pre2018,2008,raw paired difference trailing minus fixed-20 (day-mean),-0.2806317692254898,%,277.0,,
+W2.5_by_year,W2.5,pre2018,2009,raw paired difference trailing minus fixed-20 (day-mean),5.546470001577568,%,795.0,,
+W2.5_by_year,W2.5,pre2018,2010,raw paired difference trailing minus fixed-20 (day-mean),2.982207770738726,%,955.0,,
+W2.5_by_year,W2.5,pre2018,2011,raw paired difference trailing minus fixed-20 (day-mean),3.515147466601778,%,638.0,,
+W2.5_by_year,W2.5,pre2018,2012,raw paired difference trailing minus fixed-20 (day-mean),0.024705160881084477,%,763.0,,
+W2.5_by_year,W2.5,pre2018,2013,raw paired difference trailing minus fixed-20 (day-mean),0.7289998937674044,%,666.0,,
+W2.5_by_year,W2.5,pre2018,2014,raw paired difference trailing minus fixed-20 (day-mean),0.3142686818977801,%,873.0,,
+W2.5_by_year,W2.5,pre2018,2015,raw paired difference trailing minus fixed-20 (day-mean),-1.0712336033608307,%,494.0,,
+W2.5_by_year,W2.5,pre2018,2016,raw paired difference trailing minus fixed-20 (day-mean),3.7707392087789415,%,836.0,,
+W2.5_by_year,W2.5,pre2018,2017,raw paired difference trailing minus fixed-20 (day-mean),0.8923043265452174,%,892.0,,
+W2.5_by_year,W2.5,pre2018,2018,raw paired difference trailing minus fixed-20 (day-mean),0.2899202993785345,%,749.0,,
+W2.5_by_year,W2.5,pre2018,2019,raw paired difference trailing minus fixed-20 (day-mean),-1.7494359690261447,%,680.0,,
+W2.5_by_year,W2.5,pre2018,2020,raw paired difference trailing minus fixed-20 (day-mean),3.1010887001269185,%,844.0,,
+W2.5_by_year,W2.5,pre2018,2021,raw paired difference trailing minus fixed-20 (day-mean),-1.82919360463208,%,615.0,,
+W2.5_by_year,W2.5,pre2018,2022,raw paired difference trailing minus fixed-20 (day-mean),-1.0714067316011502,%,819.0,,
+W2.5_by_year,W2.5,pre2018,2023,raw paired difference trailing minus fixed-20 (day-mean),-0.37517732122279923,%,630.0,,
+W2.5_by_year,W2.5,pre2018,2024,raw paired difference trailing minus fixed-20 (day-mean),-1.5582049742163049,%,701.0,,
+W2.5_by_year,W2.5,pre2018,2025,raw paired difference trailing minus fixed-20 (day-mean),-6.799108738188639,%,13.0,,
+W2.5_by_year,W2.5,pre2018,2000,abnormal paired difference trailing minus fixed-20 (day-mean),1.05951263200238,%,164.0,,
+W2.5_by_year,W2.5,pre2018,2001,abnormal paired difference trailing minus fixed-20 (day-mean),-1.9979938120551377,%,281.0,,
+W2.5_by_year,W2.5,pre2018,2002,abnormal paired difference trailing minus fixed-20 (day-mean),0.3752713662113361,%,359.0,,
+W2.5_by_year,W2.5,pre2018,2003,abnormal paired difference trailing minus fixed-20 (day-mean),4.868322640339652,%,604.0,,
+W2.5_by_year,W2.5,pre2018,2004,abnormal paired difference trailing minus fixed-20 (day-mean),0.6640567850456396,%,509.0,,
+W2.5_by_year,W2.5,pre2018,2005,abnormal paired difference trailing minus fixed-20 (day-mean),0.7303988779045403,%,505.0,,
+W2.5_by_year,W2.5,pre2018,2006,abnormal paired difference trailing minus fixed-20 (day-mean),2.158568926640146,%,655.0,,
+W2.5_by_year,W2.5,pre2018,2007,abnormal paired difference trailing minus fixed-20 (day-mean),4.663661137065751,%,694.0,,
+W2.5_by_year,W2.5,pre2018,2008,abnormal paired difference trailing minus fixed-20 (day-mean),1.4242029089781083,%,277.0,,
+W2.5_by_year,W2.5,pre2018,2009,abnormal paired difference trailing minus fixed-20 (day-mean),0.5597382178612119,%,795.0,,
+W2.5_by_year,W2.5,pre2018,2010,abnormal paired difference trailing minus fixed-20 (day-mean),0.5414387577370702,%,955.0,,
+W2.5_by_year,W2.5,pre2018,2011,abnormal paired difference trailing minus fixed-20 (day-mean),3.0338664011097762,%,638.0,,
+W2.5_by_year,W2.5,pre2018,2012,abnormal paired difference trailing minus fixed-20 (day-mean),-0.1324967722830013,%,763.0,,
+W2.5_by_year,W2.5,pre2018,2013,abnormal paired difference trailing minus fixed-20 (day-mean),0.6785673369271669,%,666.0,,
+W2.5_by_year,W2.5,pre2018,2014,abnormal paired difference trailing minus fixed-20 (day-mean),0.3580420146020656,%,873.0,,
+W2.5_by_year,W2.5,pre2018,2015,abnormal paired difference trailing minus fixed-20 (day-mean),-0.26988291677229537,%,494.0,,
+W2.5_by_year,W2.5,pre2018,2016,abnormal paired difference trailing minus fixed-20 (day-mean),2.106932911417359,%,836.0,,
+W2.5_by_year,W2.5,pre2018,2017,abnormal paired difference trailing minus fixed-20 (day-mean),-0.29342625271256767,%,892.0,,
+W2.5_by_year,W2.5,pre2018,2018,abnormal paired difference trailing minus fixed-20 (day-mean),0.8687333911775934,%,749.0,,
+W2.5_by_year,W2.5,pre2018,2019,abnormal paired difference trailing minus fixed-20 (day-mean),-0.9378032650110921,%,680.0,,
+W2.5_by_year,W2.5,pre2018,2020,abnormal paired difference trailing minus fixed-20 (day-mean),1.1799422452729378,%,844.0,,
+W2.5_by_year,W2.5,pre2018,2021,abnormal paired difference trailing minus fixed-20 (day-mean),-1.5425181257875604,%,615.0,,
+W2.5_by_year,W2.5,pre2018,2022,abnormal paired difference trailing minus fixed-20 (day-mean),-1.1622410388030806,%,819.0,,
+W2.5_by_year,W2.5,pre2018,2023,abnormal paired difference trailing minus fixed-20 (day-mean),-0.6376637269079714,%,630.0,,
+W2.5_by_year,W2.5,pre2018,2024,abnormal paired difference trailing minus fixed-20 (day-mean),-1.3098862646255494,%,701.0,,
+W2.5_by_year,W2.5,pre2018,2025,abnormal paired difference trailing minus fixed-20 (day-mean),-7.525858191202331,%,13.0,,
