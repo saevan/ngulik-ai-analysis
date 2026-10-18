@@ -125,13 +125,14 @@ Relevan untuk timing eksekusi (eksploratif, `x_execution_timing.py`):
 | Exit breakout gagal | Sesudah gagal tidak kalah dari pasar | Tidak didukung, kandidat dibuang |
 | Exit fade 2 ATR | Tidak ada informasi signifikan sesudah hari fade | Netral |
 | Exit SMA30 di Open besok | Malam sesudah sinyal exit +29 bps | Tetap di Open besok |
-| Ukuran 25% / hold | 10% trade teratas = 93% laba 60 hari; drift terkumpul di 20 hari pertama | Jangan pakai exit yang memotong pemenang lebih awal |
+| Hold / exit trailing | Drift abnormal terkumpul di 20 hari pertama. 10% trade teratas = 93% laba 60 hari, tetapi entry acak lebih ekstrem (128%), jadi ini sifat umum return saham, bukan khas breakout. Trailing LLV10 tidak memberi keuntungan bersih per waktu modal | Tidak ada bukti untuk mengubah exit ke arah hold lebih lama |
 
 ## 6. Perubahan struktur pasar yang perlu diingat
 
 - Persistensi trend jangka pendek menurun bertahap sejak 2011 dan ≈ 0 di 2021–25.
 - Sejak pre-closing auction (2013), pola overnight/intraday berbalik.
 - Sejak call auction diperluas (9 Des 2024), pembalikan gap di saham non-LQ45 hilang dan manfaat `gapdown_close` mengecil.
+  Periode sesudahnya masih pendek (sekitar 8 bulan, termasuk trading halt Mar–Apr 2025).
 - Efek Senin hilang bertahap sejak 2016.
 - Implikasi: edge breakout per trade kini bergantung pada mekanik buy stop dan pemilihan ER tinggi, bukan pada trend pasar
   umum.
@@ -146,6 +147,9 @@ Relevan untuk timing eksekusi (eksploratif, `x_execution_timing.py`):
   - Harga adjusted; artefak tick di harga rendah sebelum 2008.
   - Dua bar CTRA tunggal pada hari tidak normal (2008-01-11; Sabtu 2009-06-06; idx +20%).
   - Mask data-error 50% tidak simetris. Sensitivitas: tidak ada vonis yang berubah; D1 mendekati batas.
+- **Kronologi auction:** tanggal pre-opening (LQ45 sejak 18 Mei 2009), pre-closing (2 Jan 2013) dan perluasan (9 Des 2024)
+  berasal dari laporan pers yang dikumpulkan kritikus, belum dicek dengan aturan primer BEI. Keanggotaan LQ45 juga diproksikan
+  (40 saham dengan nilai transaksi tertinggi), karena tidak ada di data.
 - **Multiple testing:** 62 uji utama, puluhan uji eksploratif (tidak diklasifikasi), dan sekitar 40.000 backtest sebelumnya
   di data yang sama.
 - **Eksekusi:** fill di level stop dan di Open/Close cetak tidak bisa diverifikasi dengan bar harian. Biaya wajar berbeda
