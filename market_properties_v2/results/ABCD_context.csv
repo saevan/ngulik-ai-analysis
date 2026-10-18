@@ -1,0 +1,282 @@
+test_id,item,value
+A1.1,all_days,6220
+A1.2,all_days,6216
+A1.3,all_days,6201
+A1.4,all_days,6201
+A1.5,all_days,6201
+A1.6,all_days,6201
+A1.1,pre2018_days,6220
+A1.2,pre2018_days,6216
+A1.3,pre2018_days,6201
+A1.4,pre2018_days,6201
+A1.5,pre2018_days,6201
+A1.6,pre2018_days,6201
+B3,all_events_MAIN,18862
+B3,all_raw_intraday_bps_event_weighted,-72.66168227963578
+B3,pre2018_events_MAIN,18134
+B3,pre2018_raw_intraday_bps_event_weighted,-70.45953385504309
+B4,all_events_MAIN,23280
+B4,all_raw_intraday_bps_event_weighted,159.6175373038554
+B4,pre2018_events_MAIN,22742
+B4,pre2018_raw_intraday_bps_event_weighted,157.4926381947337
+B5,all_events,21685
+B5,pre2018_events,20968
+B6,all_events,26460
+B6,pre2018_events,25934
+C6,closure_1994-11-11_1994-11-16,2 weekdays; Eid inside: NO
+C6,closure_1995-03-01_1995-03-07,3 weekdays; Eid inside: 1995-03-02
+C6,closure_1996-02-16_1996-02-26,5 weekdays; Eid inside: 1996-02-20
+C6,closure_1997-02-06_1997-02-12,3 weekdays; Eid inside: 1997-02-09
+C6,closure_1998-01-28_1998-02-02,2 weekdays; Eid inside: 1998-01-30
+C6,closure_1999-01-15_1999-01-25,5 weekdays; Eid inside: 1999-01-19
+C6,closure_2000-01-06_2000-01-11,2 weekdays; Eid inside: 2000-01-08
+C6,closure_2001-12-13_2001-12-19,3 weekdays; Eid inside: 2001-12-16
+C6,closure_2002-12-04_2002-12-11,4 weekdays; Eid inside: 2002-12-06
+C6,closure_2003-11-21_2003-12-01,5 weekdays; Eid inside: 2003-11-25
+C6,closure_2004-11-12_2004-11-19,4 weekdays; Eid inside: 2004-11-14
+C6,closure_2005-11-01_2005-11-09,5 weekdays; Eid inside: 2005-11-03
+C6,closure_2006-10-20_2006-10-30,5 weekdays; Eid inside: 2006-10-24
+C6,closure_2007-10-11_2007-10-17,3 weekdays; Eid inside: 2007-10-13
+C6,closure_2008-09-29_2008-10-06,4 weekdays; Eid inside: 2008-10-01
+C6,closure_2009-09-17_2009-09-24,4 weekdays; Eid inside: 2009-09-20
+C6,closure_2010-09-07_2010-09-15,5 weekdays; Eid inside: 2010-09-10
+C6,closure_2011-08-26_2011-09-05,5 weekdays; Eid inside: 2011-08-30
+C6,closure_2012-08-16_2012-08-23,4 weekdays; Eid inside: 2012-08-19
+C6,closure_2013-08-02_2013-08-12,5 weekdays; Eid inside: 2013-08-08
+C6,closure_2014-07-25_2014-08-04,5 weekdays; Eid inside: 2014-07-28
+C6,closure_2015-07-15_2015-07-22,4 weekdays; Eid inside: 2015-07-17
+C6,closure_2016-07-01_2016-07-11,5 weekdays; Eid inside: 2016-07-06
+C6,closure_2017-06-22_2017-07-03,6 weekdays; Eid inside: 2017-06-25
+C6,closure_2018-06-08_2018-06-20,7 weekdays; Eid inside: 2018-06-15
+C6,closure_2019-05-31_2019-06-10,5 weekdays; Eid inside: 2019-06-05
+C6,closure_2020-05-20_2020-05-26,3 weekdays; Eid inside: 2020-05-24
+C6,closure_2021-05-11_2021-05-17,3 weekdays; Eid inside: 2021-05-13
+C6,closure_2022-04-28_2022-05-09,6 weekdays; Eid inside: 2022-05-02
+C6,closure_2023-04-18_2023-04-26,5 weekdays; Eid inside: 2023-04-22
+C6,closure_2024-04-05_2024-04-16,6 weekdays; Eid inside: 2024-04-10
+C6,closure_2025-03-27_2025-04-08,7 weekdays; Eid inside: 2025-03-31
+C6,eid_not_matched_2000-12-27,pre-registered rule picked another closure that year
+C1,days_flagged_MAIN,1232
+C2,days_flagged_MAIN,1242
+C3,days_flagged_MAIN,1215
+C4,days_flagged_MAIN,470
+C5,days_flagged_MAIN,540
+C6,days_flagged_MAIN,128
+C7,days_flagged_MAIN,130
+C8,days_flagged_MAIN,297
+D1,all_q0_mean_pct,0.21468015945546415
+D1,all_q1_mean_pct,0.6037811410068312
+D1,all_q2_mean_pct,0.5571197878854082
+D1,all_q3_mean_pct,0.9821744592309469
+D1,all_q4_mean_pct,1.6582762338955879
+D1,all_top_ex_mean_pct,0.8582751546088294
+D1,all_bot_ex_mean_pct,-0.5853209198312943
+D1,all_periods_MAIN,303
+D1,all_median_stocks,64.0
+D1,pre2018_q0_mean_pct,0.24239763209860182
+D1,pre2018_q1_mean_pct,0.5590343714553474
+D1,pre2018_q2_mean_pct,0.5887056625407404
+D1,pre2018_q3_mean_pct,0.9794640143635369
+D1,pre2018_q4_mean_pct,1.5376445640026282
+D1,pre2018_top_ex_mean_pct,0.7592674497934411
+D1,pre2018_bot_ex_mean_pct,-0.5359794821105857
+D1,pre2018_periods_MAIN,303
+D1,pre2018_median_stocks,64.0
+D2,all_q0_mean_pct,0.6408652603654127
+D2,all_q1_mean_pct,0.6705964535997528
+D2,all_q2_mean_pct,0.6514476720042263
+D2,all_q3_mean_pct,0.8145759684796477
+D2,all_q4_mean_pct,1.3476236075487056
+D2,all_top_ex_mean_pct,0.5231250356152656
+D2,all_bot_ex_mean_pct,-0.18363331156802737
+D2,all_periods_MAIN,303
+D2,all_median_stocks,65.0
+D2,pre2018_q0_mean_pct,0.5998162632559945
+D2,pre2018_q1_mean_pct,0.6750901553081929
+D2,pre2018_q2_mean_pct,0.6977416035941822
+D2,pre2018_q3_mean_pct,0.8042706407306119
+D2,pre2018_q4_mean_pct,1.2354301934667642
+D2,pre2018_top_ex_mean_pct,0.43382883146234313
+D2,pre2018_bot_ex_mean_pct,-0.2017850987484266
+D2,pre2018_periods_MAIN,303
+D2,pre2018_median_stocks,65.0
+D3,all_q0_mean_pct,0.7112177831815436
+D3,all_q1_mean_pct,0.8105972641896891
+D3,all_q2_mean_pct,0.30076786800095523
+D3,all_q3_mean_pct,0.9027538608940961
+D3,all_q4_mean_pct,1.4356138864689352
+D3,all_top_ex_mean_pct,0.6038546605510784
+D3,all_bot_ex_mean_pct,-0.12054144273631309
+D3,all_periods_MAIN,304
+D3,all_median_stocks,65.0
+D3,pre2018_q0_mean_pct,0.775717445506281
+D3,pre2018_q1_mean_pct,0.7975462978489546
+D3,pre2018_q2_mean_pct,0.29176880676421546
+D3,pre2018_q3_mean_pct,0.857283879952432
+D3,pre2018_q4_mean_pct,1.3541889774511202
+D3,pre2018_top_ex_mean_pct,0.5407773110904359
+D3,pre2018_bot_ex_mean_pct,-0.037694220854402744
+D3,pre2018_periods_MAIN,304
+D3,pre2018_median_stocks,65.0
+D4,all_q0_mean_pct,0.4887337851759937
+D4,all_q1_mean_pct,0.3807613075817249
+D4,all_q2_mean_pct,0.8398049554671932
+D4,all_q3_mean_pct,0.7616188623615879
+D4,all_q4_mean_pct,1.6100671313376773
+D4,all_top_ex_mean_pct,0.7986799528471242
+D4,all_bot_ex_mean_pct,-0.32265339331455933
+D4,all_periods_MAIN,305
+D4,all_median_stocks,66.0
+D4,pre2018_q0_mean_pct,0.41806455311582025
+D4,pre2018_q1_mean_pct,0.44525884798697163
+D4,pre2018_q2_mean_pct,0.8211322077560899
+D4,pre2018_q3_mean_pct,0.7269659198619209
+D4,pre2018_q4_mean_pct,1.575919793773216
+D4,pre2018_top_ex_mean_pct,0.7823841823920016
+D4,pre2018_bot_ex_mean_pct,-0.3754710582653939
+D4,pre2018_periods_MAIN,305
+D4,pre2018_median_stocks,66.0
+D5,all_q0_mean_pct,0.3308480140848713
+D5,all_q1_mean_pct,0.31758491896975105
+D5,all_q2_mean_pct,0.2497821179092001
+D5,all_q3_mean_pct,0.2522872482804097
+D5,all_q4_mean_pct,0.2715696450929372
+D5,all_top_ex_mean_pct,-0.01281597729943806
+D5,all_bot_ex_mean_pct,0.046462391692496025
+D5,all_periods_MAIN,1309
+D5,all_median_stocks,66.0
+D5,pre2018_q0_mean_pct,0.31591753357699986
+D5,pre2018_q1_mean_pct,0.3215125958561256
+D5,pre2018_q2_mean_pct,0.25352545450523933
+D5,pre2018_q3_mean_pct,0.24696804518370163
+D5,pre2018_q4_mean_pct,0.2537943187040756
+D5,pre2018_top_ex_mean_pct,-0.02448689383177523
+D5,pre2018_bot_ex_mean_pct,0.03763632104114899
+D5,pre2018_periods_MAIN,1309
+D5,pre2018_median_stocks,66.0
+D6,all_q0_mean_pct,0.3792486940990078
+D6,all_q1_mean_pct,0.06066203309678239
+D6,all_q2_mean_pct,0.5908915945984958
+D6,all_q3_mean_pct,1.0150385156852182
+D6,all_q4_mean_pct,0.9554815875418646
+D6,all_top_ex_mean_pct,0.3595850210631202
+D6,all_bot_ex_mean_pct,-0.21664787237973634
+D6,all_periods_MAIN,289
+D6,all_median_stocks,63.0
+D6,pre2018_q0_mean_pct,0.37278324853333106
+D6,pre2018_q1_mean_pct,0.04583428195930525
+D6,pre2018_q2_mean_pct,0.5929196923806673
+D6,pre2018_q3_mean_pct,0.8955894452269494
+D6,pre2018_q4_mean_pct,0.9702116754359353
+D6,pre2018_top_ex_mean_pct,0.39866412457249406
+D6,pre2018_bot_ex_mean_pct,-0.19876430233011005
+D6,pre2018_periods_MAIN,289
+D6,pre2018_median_stocks,63.0
+D7,all_q0_mean_pct,0.8317838023589195
+D7,all_q1_mean_pct,0.623681365543693
+D7,all_q2_mean_pct,0.5670024737820984
+D7,all_q3_mean_pct,0.8591270172834169
+D7,all_q4_mean_pct,0.8936949402158247
+D7,all_top_ex_mean_pct,0.13737546445510018
+D7,all_bot_ex_mean_pct,0.0754643265981948
+D7,all_periods_MAIN,299
+D7,all_median_stocks,64.0
+D7,pre2018_q0_mean_pct,0.8467801063207788
+D7,pre2018_q1_mean_pct,0.58901465989116
+D7,pre2018_q2_mean_pct,0.5573386497893266
+D7,pre2018_q3_mean_pct,0.9543539244113256
+D7,pre2018_q4_mean_pct,0.7350888953310897
+D7,pre2018_top_ex_mean_pct,-0.0017713659705445258
+D7,pre2018_bot_ex_mean_pct,0.10991984501914462
+D7,pre2018_periods_MAIN,299
+D7,pre2018_median_stocks,64.0
+D8,all_q0_mean_pct,0.5854494720688217
+D8,all_q1_mean_pct,0.7770512602645286
+D8,all_q2_mean_pct,0.6933863774959802
+D8,all_q3_mean_pct,0.9743417893553464
+D8,all_q4_mean_pct,0.7841238776799104
+D8,all_top_ex_mean_pct,0.023429253241657254
+D8,all_bot_ex_mean_pct,-0.17524515236943164
+D8,all_periods_MAIN,301
+D8,all_median_stocks,65.0
+D8,pre2018_q0_mean_pct,0.5762270751040254
+D8,pre2018_q1_mean_pct,0.7585824906553548
+D8,pre2018_q2_mean_pct,0.7177612918200168
+D8,pre2018_q3_mean_pct,0.9223556230531043
+D8,pre2018_q4_mean_pct,0.7482387968548
+D8,pre2018_top_ex_mean_pct,0.005184409587305142
+D8,pre2018_bot_ex_mean_pct,-0.16682731216346938
+D8,pre2018_periods_MAIN,301
+D8,pre2018_median_stocks,65.0
+D9,all_q0_mean_pct,0.11971220860620783
+D9,all_q1_mean_pct,0.3216753439061988
+D9,all_q2_mean_pct,0.4175826680936995
+D9,all_q3_mean_pct,1.115459306720047
+D9,all_q4_mean_pct,1.828226513633072
+D9,all_top_ex_mean_pct,1.0719070378723476
+D9,all_bot_ex_mean_pct,-0.6366072671545167
+D9,all_periods_MAIN,299
+D9,all_median_stocks,64.0
+D9,pre2018_q0_mean_pct,0.11637002220175922
+D9,pre2018_q1_mean_pct,0.31313707576442407
+D9,pre2018_q2_mean_pct,0.39290329641424254
+D9,pre2018_q3_mean_pct,1.063924860076527
+D9,pre2018_q4_mean_pct,1.8214652787945762
+D9,pre2018_top_ex_mean_pct,1.084605017492942
+D9,pre2018_bot_ex_mean_pct,-0.6204902390998749
+D9,pre2018_periods_MAIN,299
+D9,pre2018_median_stocks,64.0
+D10,all_q0_mean_pct,1.8975907773017036
+D10,all_q1_mean_pct,1.1138752772079945
+D10,all_q2_mean_pct,0.4960843469584759
+D10,all_q3_mean_pct,0.2872726452440235
+D10,all_q4_mean_pct,-0.032680290817353734
+D10,all_top_ex_mean_pct,-0.7875021043926295
+D10,all_bot_ex_mean_pct,1.142768963726428
+D10,all_periods_MAIN,299
+D10,all_median_stocks,64.0
+D10,pre2018_q0_mean_pct,1.888218645443101
+D10,pre2018_q1_mean_pct,1.049055769175548
+D10,pre2018_q2_mean_pct,0.523427751812804
+D10,pre2018_q3_mean_pct,0.23948577372369814
+D10,pre2018_q4_mean_pct,-0.013957268146148677
+D10,pre2018_top_ex_mean_pct,-0.7501555527314262
+D10,pre2018_bot_ex_mean_pct,1.1520203608578237
+D10,pre2018_periods_MAIN,299
+D10,pre2018_median_stocks,64.0
+D11,all_q0_mean_pct,0.3929841916708725
+D11,all_q1_mean_pct,0.47343644763828535
+D11,all_q2_mean_pct,0.9032624295350398
+D11,all_q3_mean_pct,0.7834774642414299
+D11,all_q4_mean_pct,1.554642418128299
+D11,all_top_ex_mean_pct,0.7369940444691272
+D11,all_bot_ex_mean_pct,-0.4246641819882995
+D11,all_periods_MAIN,305
+D11,all_median_stocks,65.0
+D11,pre2018_q0_mean_pct,0.4426449203054271
+D11,pre2018_q1_mean_pct,0.4270784659503578
+D11,pre2018_q2_mean_pct,0.9606387362314341
+D11,pre2018_q3_mean_pct,0.6561553757545936
+D11,pre2018_q4_mean_pct,1.5189179981867107
+D11,pre2018_top_ex_mean_pct,0.7212485553376278
+D11,pre2018_bot_ex_mean_pct,-0.3550245225436559
+D11,pre2018_periods_MAIN,305
+D11,pre2018_median_stocks,65.0
+D12,all_q0_mean_pct,1.3279020578429832
+D12,all_q1_mean_pct,0.9553123260715991
+D12,all_q2_mean_pct,0.7645083857392659
+D12,all_q3_mean_pct,0.37191701562295215
+D12,all_q4_mean_pct,0.3673471422064192
+D12,all_top_ex_mean_pct,-0.3889723335543052
+D12,all_bot_ex_mean_pct,0.5715825820822587
+D12,all_periods_MAIN,299
+D12,all_median_stocks,64.0
+D12,pre2018_q0_mean_pct,1.3759089848046735
+D12,pre2018_q1_mean_pct,0.9004292013063327
+D12,pre2018_q2_mean_pct,0.6280604832265964
+D12,pre2018_q3_mean_pct,0.4684975361432438
+D12,pre2018_q4_mean_pct,0.3179577721588719
+D12,pre2018_top_ex_mean_pct,-0.4189024891427623
+D12,pre2018_bot_ex_mean_pct,0.6390487235030393
+D12,pre2018_periods_MAIN,299
+D12,pre2018_median_stocks,64.0
