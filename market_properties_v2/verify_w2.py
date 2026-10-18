@@ -800,7 +800,75 @@ def main():
     return out, E, R, P, cal
 
 
-VERDICT = {}     # filled below after review (test_id -> (verdict, issues))
+# Verdicts written after reviewing this script's output (results/verify_W2_detail.csv); numbers quoted are from it.
+VERDICT = {
+    'W2.1': ('confirmed',
+             'Recomputed exactly (2.7803%, t 1.857, 1786 days; pre2018 2.5121%; all subperiods, P0 and pre2018 '
+             'subperiods identical). Method follows PLAN.md literally (raw z, thresholds ln1.05/ln0.95, decision at '
+             'Close t+5 and z from Open t+6, conservative Diff t, lags 20); no look-ahead. u5/z5 hand-checked on 4 '
+             'raw-file events. Claims verified: day-mean z +6.84% up / +4.06% down; event-weighted down +3.81% vs '
+             'middle +3.34%; abnormal +1.75% (t 1.59), negative in P1 (-1.01) and P2 (-0.14); fully tradable '
+             'lookbacks +2.54% (t 1.72). Robust to definitional choices (log +-0.05: 2.93%, t 1.95; z from next valid '
+             'Open: 2.81%, t 1.89; symmetric data-error mask: 3.05%, t 2.06; without the stray CTRA dates: 2.83%, '
+             't 1.88). Note: pre-registered lags 20 are short for the 55-day z window (t 1.53 with lags 60); no '
+             'change to the conclusion (fails |t| >= 3). Nit: P3 t is 1.674, so "no subperiod reaches |t| > 1.67" '
+             'is a rounding statement.'),
+    'W2.2': ('confirmed',
+             'Recomputed exactly (2.5997%, t 2.345, 2445 days; pre2018 2.6521%; P1 5.27, P2 2.40, P3 1.69, P4 0.06; '
+             'pre2018 P4 0.14). Method literal (u20 at Close t+20, z from Open t+21, raw, Diff t, lags 20); no '
+             'look-ahead; u20/z20 hand-checked on 4 raw-file events. Claims verified: day-mean z +4.02% up vs +1.42% '
+             'down; abnormal +1.51% (t 2.21); fully tradable lookbacks +2.15% (t 1.99); first event per stock in 60 '
+             'days +4.37% (t 3.40), correctly flagged as not the pre-registered statistic. Sensitivities do not '
+             'change the verdict (log +-0.05 2.68% t 2.43; z from next valid Open 2.73% t 2.43; symmetric mask '
+             '2.51% t 2.26; lags 60 t 1.91). Fails |t| >= 3, so "not usable" follows.'),
+    'W2.3': ('confirmed',
+             'Recomputed exactly (2.3022%, t 2.630, 2928 days, 5854 events; pre2018 2.0345% with the benchmark '
+             'rebuilt on the 80 pre2018 stocks). Definition literal and causal: g = first Close in t+1..t+20 with '
+             'lnP[g]-lnO[t+1] >= ln1.10 (PLAN day numbering: day k ends at Close t+k), entry Open g+1, identical-'
+             'window EW benchmark over stocks with both ends valid; lags 60 by the general rule (lags 20: t 2.96, '
+             'still < 3). g and r23 hand-checked on raw-file events (TLKM 2003 g=9, ESSA 2022 g=18). Claims '
+             'verified: 35.6% trigger, median day 8, 108 dropped triggers, raw +5.48% (t 4.54), fully tradable '
+             'lookbacks +1.45% (t 1.75) vs non-tradable lookbacks +8.42% (t 3.27). Note: 2.30% is the mean of daily '
+             'means; event-weighted per trade it is 2.07% (still above the 0.90% B cost). The all-universe P4 '
+             '(+1.76%) is carried by post-2018 listings (+7.90%), pre2018 P4 is +0.09%; the "high" survivorship '
+             'label is justified.'),
+    'W2.4': ('confirmed_with_caveat',
+             'Recomputed exactly (1.8033 bps/day, t 2.048, 4599 days; pre2018 1.5315 with the pre2018 benchmark); a '
+             'hand-computed benchmark for one 2022 window matches to 1e-16. Method literal (abnormal lnP[t+60]-'
+             'lnP[t+20] minus the same-window EW mean of listed universe stocks, /40, x1e4; lags 40 by the general '
+             'rule; lags 20 t 2.25, lags 60 t 2.00). Context verified: days 1-20 5.51 bps/day (t 3.70), days 61-120 '
+             '1.58 (t 2.04), raw 6.46 (t 3.35), fully tradable 0.47 (t 0.55) vs 12.20 (t 4.25). Caveats: (1) '
+             '"+0.72% abnormal per trade (40 x 1.80 bps)" uses the mean of daily means; event-weighted per trade it '
+             'is 40 x 1.28 = 0.51%. (2) "Accrues mostly in the first 20 days" holds per day and within 60 days '
+             '(1.10% vs 0.72%), but the abnormal drift continues at about 1.6 bps/day to day 120 (t 2.04), so the '
+             'cumulative drift after day 20 (about 1.7% to day 120) exceeds the first-20-day amount. (3) As a timing '
+             'rule PLAN criterion 4 needs an exposure backtest (not run; moot because |t| < 3). The test fails '
+             '|t| >= 3 either way.'),
+    'W2.5': ('confirmed_with_caveat',
+             'Recomputed exactly with an explicit per-event loop (1.7427%, t 4.755, 4557 days, 16,607 trades; '
+             'pre2018 1.5730%, t 4.32; P1 3.80, P2 1.56, P3 1.22, P4 -0.16; pre2018 P4 -1.27, t -3.90). Trailing rule '
+             'literal and causal (first tradable Close in bars 1..119 below min lnL of the prior 10 market days, sell '
+             'at the next valid Open, else Close t+120); trailing exits hand-checked on 4 raw-file events (29, 31, 96, '
+             '51 bars). Criteria 1-3 pass and are robust to lags 120 (t 3.46), symmetric mask (1.71%, t 4.58), '
+             '10-low over own tradable bars (1.98%, t 4.98), cap at Open t+121 (1.74%), removal of the stray dates '
+             '(1.76%), excluding possibly locked one-price bars (1.66%, t 4.61) and declustering (1.61%, t 3.46 with '
+             'lags 120). Caveats: (1) "+1.74% raw / +0.82% abnormal per trade" are means of daily means; per trade '
+             '(event-weighted) they are +1.22% / +0.45%. (2) PLAN criterion 4 for timing requires a simple exposure '
+             'backtest after costs; the analyst used per-trade/per-bar arguments instead, and reason (1) (11.8 vs '
+             '12.3 bps/bar) is gross only: net of costs per bar the trailing arm is ahead (B 8.9 vs 7.8, A 10.6 vs '
+             '10.3). The verifier\'s indicative exposure backtest (daily equal weight over open trades, MAIN) shows '
+             'no net improvement: trailing minus fixed -1.47 bps/day gross (t -1.33), -0.70 with cost A, +0.23 with '
+             'cost B (t 0.21), negative in P4 (pre2018 P4 cost B -2.57 bps/day, t -1.35). So criterion 4 is not met: '
+             'best class ROBUST_NOT_USABLE_ALONE if BH q <= 0.05, not usable. (3) "Regime-dependent" is informal: '
+             'W2.5 passes the stability rule (3 of 4 subperiods), so PLAN\'s REGIME_DEPENDENT class does not apply; '
+             'the reversal is nevertheless real (pre2018 P4 -1.27%, t -3.90, negative every year 2021-2025), and the '
+             'all-universe P4 is propped up by post-2018 listings (+4.29%, mostly PANI and WIFI). (4) "Top 10% of '
+             'trades produced 93% of the 60-day P&L" describes fixed 60-day holds of all entries, not W2.5; direct '
+             'evidence: the top 10% of paired differences sum to 285% of the total, trades held >= 20 bars add '
+             '+1.54 pp and early exits -0.32 pp (-0.79% each). (5) Fragile: t < 3 on liquid lookbacks with lags 120 '
+             '(0.97%, t 2.69), on the abnormal basis with lags 120 (0.82%, t 2.65), and in 2008-2025 (1.02%, t 2.99 '
+             'at lags 20, 2.49 at lags 120); the "high" survivorship label is justified.'),
+}
 
 
 if __name__ == '__main__':
