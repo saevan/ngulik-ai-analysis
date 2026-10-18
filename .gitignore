@@ -4,3 +4,4 @@ __pycache__/
 .env
 .env.*
 *.zip
+market_properties_v2/cache/
