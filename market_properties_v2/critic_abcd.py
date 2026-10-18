@@ -9,7 +9,11 @@ by web search, not verified against IDX primary rules): IDX pre-opening and pre-
 LQ45 constituents until they were extended to Main/New-Economy/Development board stocks on 9 Dec 2024; the lower
 auto-rejection limit was 7% from Mar 2020 to about mid 2023. LQ45 membership is not in the data: the proxy is the top 40
 panel stocks by 250-day mean traded value known before the day.
-Run: python market_properties_v2/critic_abcd.py"""
+Resumed run (extensions at the end of the file, tests a10-a11, b4-b7, c5-c7, d5-d7, e5, f4-f6, g5): a data-driven tick
+(smallest price step in the previous 20 days, valid on back-adjusted prices) replaces the modern tick table where the
+tick matters; the auction timeline was refined (pre-opening LQ45-only since 18 May 2009 with suspensions 13 Oct 2008 -
+15 May 2009 and 13 Mar - 4 Sep 2020; pre-closing call auction from 2 Jan 2013), see the comment above ext_a.
+Run: python market_properties_v2/critic_abcd.py (about 1.5 minutes)"""
 import math
 import sys
 import time
@@ -668,8 +672,441 @@ def replication_checks():
     add('check', 'replication', 'X-D-topex D1', 'MAIN', 'value_should_be_0.858', m, t, n)
 
 
+# ================================================================================================= extensions (resumed run)
+# Added in the resumed critic run after reading the first run's evidence (rows of the tests a10-a11, b4-b7, c5-c7,
+# d5-d7, e5, f4-f6, g5). External facts (press reports found by web search; not checked against IDX primary rules):
+# pre-opening call auction for the top ~60-65 stocks until 8 Oct 2008, none 13 Oct 2008 - 15 May 2009, LQ45 only from
+# 18 May 2009, none 13 Mar - 4 Sep 2020, LQ45 only from 7 Sep 2020, extended together with pre-closing to the
+# Main/Development/New-Economy boards on 9 Dec 2024 (Kep-00196/BEI/12-2024). Pre-closing (closing call auction)
+# introduced 2 Jan 2013 (Kep-00399/BEI/11-2012); lot 500 -> 100 shares and new price fractions 6 Jan 2014; random
+# closing and IEP/IEV display 6 Dec 2021.
+def empirical_tick(win=20):
+    """Smallest positive price step seen over the previous `win` market days (O/H/L/C within the day and C/O versus the
+    previous tradable Close), in adjusted units. Back-adjustment multiplies all prices of a period by one factor, so
+    step / price estimates the real relative tick of that time without the historical tick table or the traded price
+    level. Adjusted prices are rounded to 0.01 and the O/H/L/C fields of one traded price can differ by one cent, so
+    steps <= max(0.0151, 0.02% of price) are ignored (below any real IDX relative tick). Known before day t (shifted)."""
+    Ot, Ht, Lt, Ct = (x.where(T) for x in (O, H, L, C))
+    floor = np.maximum(.0151, .0002 * prevC)        # one-cent field inconsistencies (e.g. 1481.70 vs 1481.69) are noise
+    m = None
+    for d in [Ht - Lt, (Ht - Ot).abs(), (Ot - Lt).abs(), (Ht - Ct).abs(), (Ct - Lt).abs(), (Ot - Ct).abs(),
+              (Ct - prevC).abs(), (Ot - prevC).abs()]:
+        d = d.where(d > floor)
+        m = d if m is None else np.fmin(m, d)
+    return m.rolling(win, min_periods=5).min().shift(1)
+
+
+TK_EMP = empirical_tick()
+RT_EMP = TK_EMP / prevC
+SHIFT1 = lambda m: m.shift(1).fillna(False).astype(bool)                    # signal at t-1, action on day t
+BRK20 = (lnP > lnH.shift(1).rolling(20, min_periods=20).max()) & T          # W1.1 Close breakout
+EXT_PERS = {**PERS, 'P0': P0}
+
+
+def win_mean(mask, ser, a, b, lags=5):
+    s = daily(mask, ser).loc[a:b]
+    m, se, n = nw(s.values, lags)
+    return m, se, int((mask.reindex_like(ser).fillna(False).astype(bool) & ser.notna()).loc[a:b].values.sum())
+
+
+# ------------------------------------------------------------------------------------------------- C-a extensions
+def ext_a():
+    cl = 'C-a'
+    # a10: empirical tick. Validation against the modern table where adjusted ~ traded prices (2021-25)
+    for wn, (a, b) in {'2000-2007': ('2000', '2007'), '2008-2013': ('2008', '2013'), '2014-2016': ('2014', '2016'),
+                       '2017-2020': ('2017', '2020'), '2021-2025': ('2021', '2025')}.items():
+        e = RT_EMP.loc[a:b].values
+        r = e / REL_TICK.loc[a:b].values
+        ok = np.isfinite(r)
+        add(cl, 'a10_empirical_tick', 'validation_vs_modern_table', wn, 'median_empirical_rel_tick_pct',
+            np.nanmedian(e) * 100, n=int(np.isfinite(e).sum()))
+        add(cl, 'a10_empirical_tick', 'validation_vs_modern_table', wn, 'median_ratio_empirical_to_modern', np.median(r[ok]))
+        add(cl, 'a10_empirical_tick', 'validation_vs_modern_table', wn, 'share_ratio_within_10pct',
+            np.mean(np.abs(r[ok] - 1) < .1), note='near 1 in 2021-25 validates the estimator; older years had other tick tables')
+    for k, (a, b) in EXT_PERS.items():
+        for lab, ev in [('gap_up', GU), ('gap_down', GD)]:
+            m, t, n = dw(ev, AB_ID / RT_EMP, a, b, scale=1)
+            add(cl, 'a10_empirical_tick', lab, k, 'abnormal_intraday_in_empirical_ticks', m, t, n)
+            m, t, n = dw(ev, rid / RT_EMP, a, b, scale=1)
+            add(cl, 'a10_empirical_tick', lab, k, 'raw_intraday_in_empirical_ticks', m, t, n)
+            x = evw(ev, rid / RT_EMP, a, b, scale=1)
+            add(cl, 'a10_empirical_tick', lab, k, 'raw_intraday_in_empirical_ticks_event_median', np.median(x) if len(x) else np.nan,
+                n=len(x))
+            x = evw(ev, RT_EMP, a, b, scale=100)
+            add(cl, 'a10_empirical_tick', lab, k, 'median_empirical_rel_tick_pct', np.median(x) if len(x) else np.nan, n=len(x))
+    buckets = {'emptick<0.4%': (0, .004), 'emptick0.4-1%': (.004, .01), 'emptick1-2%': (.01, .02), 'emptick>=2%': (.02, 9)}
+    for k, (a, b) in PERS.items():
+        for bn, (t0, t1) in buckets.items():
+            cell = (RT_EMP >= t0) & (RT_EMP < t1)
+            for lab, ev in [('gap_up', GU), ('gap_down', GD)]:
+                m, t, n = dw(ev & cell, AB_ID, a, b)
+                add(cl, 'a10_empirical_tick', f'{lab}_{bn}', k, 'abnormal_intraday_bps', m, t, n)
+        cell = (LR > 2 / 3) & (RT_EMP < .004)
+        for lab, ev in [('gap_up', GU), ('gap_down', GD)]:
+            m, t, n = dw(ev & cell, AB_ID, a, b)
+            add(cl, 'a10_empirical_tick', f'{lab}_liqH_emptick<0.4%', k, 'abnormal_intraday_bps', m, t, n)
+            m, t, n = dw(ev & cell, rid, a, b)
+            add(cl, 'a10_empirical_tick', f'{lab}_liqH_emptick<0.4%', k, 'raw_intraday_bps', m, t, n)
+    gap_ticks = (O - prevC).abs() / TK_EMP
+    for k, (a, b) in PERS.items():
+        for lab, ev in [('gap_up', GU), ('gap_down', GD)]:
+            tot = int((ev & gap_ticks.notna()).loc[a:b].values.sum())
+            for gn, (g0, g1) in {'gap<=2ticks': (0, 2.5), 'gap3-5ticks': (2.5, 5.5), 'gap>=6ticks': (5.5, 1e12)}.items():
+                cell = (gap_ticks >= g0) & (gap_ticks < g1)
+                add(cl, 'a10_empirical_tick', f'{lab}_{gn}', k, 'share_of_events',
+                    (ev & cell).loc[a:b].values.sum() / tot if tot else np.nan, n=tot)
+                m, t, n = dw(ev & cell, AB_ID, a, b)
+                add(cl, 'a10_empirical_tick', f'{lab}_{gn}', k, 'abnormal_intraday_bps', m, t, n)
+                m, t, n = dw(ev & cell, AB_ID / RT_EMP, a, b, scale=1)
+                add(cl, 'a10_empirical_tick', f'{lab}_{gn}', k, 'abnormal_intraday_in_empirical_ticks', m, t, n)
+    # a11: pre-opening suspensions as natural experiments (difference in differences, LQ45 proxy vs rest)
+    exps = {'2020_suspension': {'pre': ('2019-09-13', '2020-03-12'), 'treat': ('2020-03-13', '2020-09-04'),
+                                'post': ('2020-09-07', '2021-03-05')},
+            '2008_09_suspension': {'pre': ('2008-03-13', '2008-10-08'), 'treat': ('2008-10-13', '2009-05-15'),
+                                   'post': ('2009-05-18', '2009-11-30')}}
+    notes = {'2020_suspension': 'LQ45 lost its opening auction 13 Mar - 4 Sep 2020; rest had none throughout; '
+                                'confounded by COVID and the 7% lower limit from Mar 2020 (affects gap-downs most)',
+             '2008_09_suspension': 'top ~60-65 lost the opening auction 13 Oct 2008 - 15 May 2009, LQ45 only afterwards; '
+                                   'panel top-40 proxy is crude in 2008 and the crisis confounds'}
+    for exp, wins in exps.items():
+        for lab, ev in [('gap_up', GU), ('gap_down', GD)]:
+            st = {}
+            for gname, g in [('LQ45proxy_top40', LQ_PROXY), ('rest', REST)]:
+                for wn, (a, b) in wins.items():
+                    m, se, n = win_mean(ev & g, AB_ID, a, b)
+                    st[(gname, wn)] = (m, se)
+                    add(cl, 'a11_preopening_suspension_DiD', f'{lab}_{gname}', f'{exp}:{wn}_{a}..{b}',
+                        'abnormal_intraday_bps', m * 1e4, m / se if se else np.nan, n)
+
+            def contrast(g):
+                (mt, s_t), (m0, s0), (m1, s1) = st[(g, 'treat')], st[(g, 'pre')], st[(g, 'post')]
+                return mt - (m0 + m1) / 2, s_t ** 2 + (s0 ** 2 + s1 ** 2) / 4
+            ca_, va = contrast('LQ45proxy_top40')
+            cb_, vb = contrast('rest')
+            add(cl, 'a11_preopening_suspension_DiD', f'{lab}_LQ45proxy_top40', exp, 'treat_minus_mean_adjacent_bps',
+                ca_ * 1e4, ca_ / math.sqrt(va))
+            add(cl, 'a11_preopening_suspension_DiD', f'{lab}_rest', exp, 'treat_minus_mean_adjacent_bps',
+                cb_ * 1e4, cb_ / math.sqrt(vb))
+            add(cl, 'a11_preopening_suspension_DiD', lab, exp, 'DiD_LQ45proxy_minus_rest_bps', (ca_ - cb_) * 1e4,
+                (ca_ - cb_) / math.sqrt(va + vb),
+                note='auction-matters prediction: gap_up < 0, gap_down > 0. ' + notes[exp])
+    # a12: the 9 Dec 2024 extension as a difference in differences (rest gained auctions, LQ45 proxy had them before)
+    pre_w, post_w = ('2023-01-01', '2024-12-06'), (AUCTION_EXT, MAIN[1])
+    for excl in [False, True]:
+        for lab, ev in [('gap_up', GU), ('gap_down', GD)]:
+            chg = {}
+            for gname, g in [('LQ45proxy_top40', LQ_PROXY), ('rest', REST)]:
+                s = daily(ev & g, AB_ID)
+                s0, s1 = s.loc[pre_w[0]:pre_w[1]], s.loc[post_w[0]:post_w[1]]
+                if excl:
+                    s1 = s1.drop(s1.loc['2025-03-01':'2025-04-30'].index)
+                m0, se0, _ = nw(s0.values, 5)
+                m1, se1, _ = nw(s1.values, 5)
+                chg[gname] = (m1 - m0, se0 ** 2 + se1 ** 2)
+            d_ = chg['rest'][0] - chg['LQ45proxy_top40'][0]
+            add(cl, 'a12_auction_extension_DiD', lab, 'post_excl_2025-03..04' if excl else 'post_2024-12-09..2025-08-15',
+                'DiD_rest_minus_LQ45proxy_change_bps', d_ * 1e4, d_ / math.sqrt(chg['rest'][1] + chg['LQ45proxy_top40'][1]),
+                note='change post minus pre (2023-01..2024-12-06); auction-matters prediction: gap_up > 0, gap_down < 0')
+
+
+# ------------------------------------------------------------------------------------------------- C-b extensions
+def ext_b():
+    cl = 'C-b'
+    tk = TK_EMP
+    sellC = (C - tk).where(C - tk > 0)
+    models = {'M3e_fee+1emptick_per_side': np.log(sellC * .9975 / ((O + tk) * 1.0015)),
+              'M5e_fee+0.5emptick_per_side': np.log((C - .5 * tk) * .9975 / ((O + .5 * tk) * 1.0015)),
+              'M4e_main_session_model_with_empirical_tick': np.log(sellC * .9975 * .9975 / ((O + tk) * 1.0025 * 1.0015))}
+    ev = GD & tk.notna()
+    modern_rel = frame(tick(O.values)) / O
+    for k, (a, b) in PERS.items():
+        for nm, net in models.items():
+            x = evw(ev, net, a, b)
+            add(cl, 'b4_cost_with_empirical_tick', nm, k, 'event_weighted_mean_bps', x.mean(), n=len(x))
+            add(cl, 'b4_cost_with_empirical_tick', nm, k, 'event_weighted_median_bps', np.median(x), n=len(x))
+            m, t, n = dw(ev, net, a, b)
+            add(cl, 'b4_cost_with_empirical_tick', nm, k, 'day_weighted_mean_bps', m, t, n)
+        x = evw(ev, RT_EMP, a, b, scale=1e4)
+        add(cl, 'b4_cost_with_empirical_tick', 'gap_down_empirical_rel_tick', k, 'mean_bps', x.mean(), n=len(x))
+        add(cl, 'b4_cost_with_empirical_tick', 'gap_down_empirical_rel_tick', k, 'median_bps', np.median(x), n=len(x))
+        x = evw(ev, modern_rel, a, b, scale=1e4)
+        add(cl, 'b4_cost_with_empirical_tick', 'gap_down_modern_table_rel_tick_on_adjusted_open', k, 'mean_bps', x.mean(),
+            n=len(x), note='the tick the main session charged (modern table on back-adjusted prices)')
+    # b5: gross / fee-only / PLAN cost B by auction group and recent window
+    nets = {'M0_gross': np.log(C / O), 'M1_fee_only(0.40%rt)': np.log(C * .9975 / (O * 1.0015)),
+            'M2_PLAN_cost_B(0.90%rt)': np.log(C * .9975 * .9975 / (O * 1.0025 * 1.0015)),
+            'M3e_fee+1emptick_per_side': models['M3e_fee+1emptick_per_side'],
+            'M5e_fee+0.5emptick_per_side': models['M5e_fee+0.5emptick_per_side']}
+    wins = {'2016-2020': ('2016-01-01', '2020-12-31'), '2021-01..2024-12-06': ('2021-01-01', '2024-12-06'),
+            '2024-12-09..2025-08-15': (AUCTION_EXT, MAIN[1])}
+    for gname, g in [('LQ45proxy_top40', LQ_PROXY), ('rest', REST), ('all', frame(np.ones(C.shape, bool)))]:
+        for wn, (a, b) in wins.items():
+            for nm, net in nets.items():
+                m, t, n = dw(GD & g, net, a, b)
+                add(cl, 'b5_gap_down_trade_by_group_recent', f'{nm}_{gname}', wn, 'day_weighted_mean_bps', m, t, n)
+                x = evw(GD & g, net, a, b)
+                add(cl, 'b5_gap_down_trade_by_group_recent', f'{nm}_{gname}', wn, 'event_weighted_mean_bps',
+                    x.mean() if len(x) else np.nan, n=len(x))
+    # b6: the two execution rules when a Close fill can fail at a price limit (then trade at the next Open)
+    lnO_t, lnO_next = P['lnO'], P['lnO'].shift(-1)
+    Pc = np.exp(lnP)
+    sma30 = Pc.rolling(30, min_periods=30).mean()
+    cross_dn = (Pc < sma30) & (Pc.shift(1) >= sma30.shift(1)) & T
+    llv10 = (lnP < lnL.shift(1).rolling(10, min_periods=10).min()) & T
+    pers_b = {**PERS, 'post_auction_ext_2024-12-09..': (AUCTION_EXT, MAIN[1])}
+    specs = [('rule2_sell_gapdown_at_Close',
+              {'all_gap_down': GD, 'after_close_cross_below_SMA30': GD & SHIFT1(cross_dn),
+               'after_close_below_LLV10': GD & SHIFT1(llv10)},
+              rid, lnO_next - lnO_t,
+              {'nonfill_if_Close==Low': CLOSE_LOW, 'nonfill_if_Close==Low&r_cc<=-6.5%': CLOSE_LOW & (rcc <= np.log(.935))}),
+             ('rule1_buy_gapup_at_Close',
+              {'all_gap_up': GU, 'after_breakout_HHV20': GU & SHIFT1(BRK20)},
+              -rid, lnO_t - lnO_next,
+              {'nonfill_if_Close==High': CLOSE_HIGH, 'nonfill_if_Close==High&r_cc>=+18%': CLOSE_HIGH & (rcc >= np.log(1.18))})]
+    for rule, ctxs, ben0, alt, lims in specs:
+        for cn, msk in ctxs.items():
+            for vn, lim in [('assume_fill', None), *lims.items()]:
+                ben = ben0 if lim is None else ben0.where(~lim.fillna(False).astype(bool), alt)
+                for k, (a, b) in pers_b.items():
+                    m, t, n = dw(msk & ben.notna(), ben, a, b)
+                    add(cl, 'b6_rules_with_limit_nonfill', f'{rule}_{cn}_{vn}', k, 'benefit_bps_day_weighted', m, t, n,
+                        'non-fill days traded at the next Open instead of the Close')
+                if lim is not None:
+                    a, b = MAIN
+                    add(cl, 'b6_rules_with_limit_nonfill', f'{rule}_{cn}_{vn}', 'MAIN', 'share_of_events_flagged',
+                        (msk & lim).loc[a:b].values.sum() / msk.loc[a:b].values.sum())
+    # b7: rule 1 read as "skip gap-up entries": follow-through of breakout entries with and without a gap-up Open
+    F20 = P['fo'][20]
+    ab_open = F20.sub(F20.mean(axis=1), axis=0).shift(1)                       # row t: lnP[t+19]-lnO[t], abnormal
+    s_gu = daily(GU & SHIFT1(BRK20), ab_open)
+    s_ng = daily(SHIFT1(BRK20) & ~GU & ~GD & rid.notna(), ab_open)
+    for k, (a, b) in PERS.items():
+        m, t, n = Diff(s_gu, s_ng, 20).at(a, b)
+        add(cl, 'b7_rule1_as_skip', 'breakout_entry_gap_up_minus_no_gap', k, 'abnormal_20d_from_entry_Open_diff_pct',
+            m * 100, t, n, '> 0: skipping gap-up breakout entries gives up better-than-average trades')
+
+
+# ------------------------------------------------------------------------------------------------- C-c extensions
+def monthly(series):
+    return series.groupby(series.index.to_period('M')).mean()
+
+
+def break_search(y, lo, hi):
+    """Least-squares single mean break in a monthly series; candidate break months in [lo, hi]."""
+    y = y.dropna()
+    v = y.values
+    best = None
+    for i, p in enumerate(y.index):
+        if p < pd.Period(lo, 'M') or p > pd.Period(hi, 'M'):
+            continue
+        a, b = v[:i], v[i:]
+        ssr = ((a - a.mean()) ** 2).sum() + ((b - b.mean()) ** 2).sum()
+        if best is None or ssr < best[0]:
+            best = (ssr, p, a.mean(), b.mean())
+    ssr0 = ((v - v.mean()) ** 2).sum()
+    return best[1], best[2], best[3], (ssr0 - best[0]) / (best[0] / (len(v) - 2))
+
+
+def ext_c():
+    cl = 'C-c'
+    Tt = T & prevC.notna()
+    nT = Tt.sum(axis=1).astype(float)
+    close_loc = ((CLOSE_HIGH & Tt).sum(axis=1) - (CLOSE_LOW & Tt).sum(axis=1)) / nT.replace(0, np.nan)
+    open_loc = ((OPEN_HIGH & Tt).sum(axis=1) - (OPEN_LOW & Tt).sum(axis=1)) / nT.replace(0, np.nan)
+    daily_series = {'overnight_EW_bps': ew_day(ron) * 1e4, 'intraday_EW_bps': ew_day(rid) * 1e4,
+                    'close_location_share(C==H minus C==L)': close_loc, 'open_location_share(O==H minus O==L)': open_loc}
+    # c5: least-squares break month (descriptive; monthly means, serial correlation ignored in the F)
+    for nm, s in daily_series.items():
+        ym = monthly(s.loc[MAIN[0]:MAIN[1]])
+        for wn, (w0, w1, lo, hi) in {'2000-2025_breaks_2003..2022': ('2000-01', '2025-08', '2003-01', '2022-12'),
+                                     '2008-2019_breaks_2009..2018': ('2008-01', '2019-12', '2009-01', '2018-12')}.items():
+            yy = ym.loc[pd.Period(w0, 'M'):pd.Period(w1, 'M')]
+            p, m0, m1, F = break_search(yy, lo, hi)
+            add(cl, 'c5_break_month', nm, wn, 'break_month_yyyymm', p.year * 100 + p.month,
+                note=f'mean before {m0:.3f}, after {m1:.3f}, F {F:.1f}')
+    # c6: 12-month windows around microstructure dates and placebo New-Year dates
+    dates = {'2010-01-04': 'placebo', '2011-01-03': 'placebo', '2012-01-02': 'placebo',
+             '2013-01-02': 'pre-closing call auction introduced', '2014-01-06': 'lot 500->100 and new price fractions',
+             '2015-01-02': 'placebo', '2016-01-04': 'placebo', '2017-01-02': 'placebo (post-closing session 2017)',
+             '2021-12-06': 'random closing + IEP/IEV display', '2024-12-09': 'auctions extended beyond LQ45'}
+    grp_series = {}
+    for gname, g in [('LQ45proxy_top40', LQ_PROXY), ('rest', REST)]:
+        Tg = Tt & g
+        nG = Tg.sum(axis=1).astype(float).replace(0, np.nan)
+        grp_series[f'intraday_EW_bps_{gname}'] = ew_day(rid.where(g)) * 1e4
+        grp_series[f'overnight_EW_bps_{gname}'] = ew_day(ron.where(g)) * 1e4
+        grp_series[f'close_location_share_{gname}'] = ((CLOSE_HIGH & Tg).sum(axis=1) - (CLOSE_LOW & Tg).sum(axis=1)) / nG
+    for d, lab in dates.items():
+        dd = pd.Timestamp(d)
+        a0, b0 = str((dd - pd.DateOffset(months=12)).date()), str((dd - pd.Timedelta(days=1)).date())
+        a1, b1 = d, str(min(dd + pd.DateOffset(months=12) - pd.Timedelta(days=1), pd.Timestamp(MAIN[1])).date())
+        for nm, s in {**daily_series, **grp_series}.items():
+            m0, se0, _ = nw(s.loc[a0:b0].values, 5)
+            m1, se1, n1 = nw(s.loc[a1:b1].values, 5)
+            add(cl, 'c6_event_windows_12m', nm, f'{d} {lab}', 'after_minus_before', m1 - m0, diff_t(m1, se1, m0, se0), n1,
+                f'before {m0:.3f}, after {m1:.3f}')
+    # c7: what makes up the EW overnight mean: small moves vs >2% gaps; and the balance of up/down opens
+    nrow = ron.notna().sum(axis=1).replace(0, np.nan)
+    parts = {'|r_on|<=2%': ron.abs() <= np.log(1.02), 'r_on>+2%': ron > np.log(1.02), 'r_on<-2%': ron < np.log(.98)}
+    up_dn = ((ron > 0).sum(axis=1) - (ron < 0).sum(axis=1)) / nrow
+    for k, (a, b) in {**PERS, '2016-2025': ('2016-01-01', MAIN[1])}.items():
+        for pn, msk in parts.items():
+            contrib = ron.where(msk, 0.).where(ron.notna()).sum(axis=1) / nrow
+            m, t, n = mean_t(contrib, a, b, 5, 1e4)
+            add(cl, 'c7_overnight_composition', pn, k, 'contribution_bps_per_day', m, t, n, 'the three parts sum to B1')
+        m, t, n = mean_t(up_dn, a, b, 5, 1)
+        add(cl, 'c7_overnight_composition', 'share(r_on>0)-share(r_on<0)', k, 'share_difference', m, t, n)
+        m, t, n = mean_t(close_loc, a, b, 5, 1)
+        add(cl, 'c7_overnight_composition', 'close_location_share(C==H minus C==L)', k, 'share_difference', m, t, n)
+
+
+# ------------------------------------------------------------------------------------------------- C-d extensions
+def ext_d():
+    cl = 'C-d'
+    legs = {'overnight_r_on[t+1]': tsmom_series(1, 1, fwd=ron.shift(-1)), 'A1.1_open_to_close_fo[1]': tsmom_series(1, 1),
+            'close_to_close_fc[1]': tsmom_series(1, 1, fwd='fc')}
+    for y in range(2000, 2026):
+        for ln, s in legs.items():
+            m, t, n = mean_t(s, f'{y}-01-01', f'{y}-12-31', 5, 1e4)
+            add(cl, 'd5_tsmom1_legs_by_year', ln, str(y), 'bps_per_day', m, t, n)
+    # d6: stale-price measures by year (nonsynchronous trading inflates EW index autocorrelation)
+    listed = C.notna().cumsum() > 0
+    zero = T & (rcc == 0)
+    for y in range(1995, 2026):
+        a, b = f'{y}-01-01', f'{y}-12-31'
+        add(cl, 'd6_stale_prices_by_year', 'non_tradable_share_of_listed_days', str(y), 'share',
+            (listed & ~T).loc[a:b].values.sum() / listed.loc[a:b].values.sum())
+        add(cl, 'd6_stale_prices_by_year', 'zero_close_to_close_return_share', str(y), 'share',
+            zero.loc[a:b].values.sum() / (T & rcc.notna()).loc[a:b].values.sum())
+        x = P['idx_ret'].loc[a:b]
+        add(cl, 'd6_stale_prices_by_year', 'EW_idx_AC1', str(y), 'autocorrelation', x.autocorr(1))
+    # d7: the liquid subset (LQ45 proxy): index AC1 and TSMOM legs
+    simple = np.expm1(rcc)
+    idx_lq = simple.where(LQ_PROXY).mean(axis=1)
+    idx_rest = simple.where(REST).mean(axis=1)
+    for k, (a, b) in {**PERS, '2016-2019': ('2016-01-01', '2019-12-31')}.items():
+        for nm, x in [('EW_idx_LQ45proxy_top40', idx_lq), ('EW_idx_rest', idx_rest)]:
+            yy, xx = x.shift(-1).loc[a:b], x.loc[a:b]
+            bb, tt, n = ols_nw(yy.values, np.column_stack([np.ones(len(xx)), xx.values]), 5)
+            add(cl, 'd7_liquid_subset', nm, k, 'AC1_slope', bb[1], tt[1], n)
+    for (k_, h, fwd, nm) in [(1, 1, 'fo', 'TSMOM(1,1)_open_to_close'), (1, 1, 'fc', 'TSMOM(1,1)_close_to_close'),
+                             (20, 20, 'fo', 'TSMOM(20,20)')]:
+        past = rcc if k_ == 1 else lnP - lnP.shift(k_)
+        sgn = np.sign(past).where(T & LQ_PROXY)
+        yv = P[fwd][h]
+        ser = (sgn * yv).where(sgn.notna() & yv.notna()).mean(axis=1)
+        lags, sc = (5, 1e4) if h == 1 else (20, 100)
+        for k, (a, b) in PERS.items():
+            m, t, n = mean_t(ser, a, b, lags, sc)
+            add(cl, 'd7_liquid_subset', f'{nm}_LQ45proxy_top40', k, 'bps' if h == 1 else 'pct_per_window', m, t, n)
+
+
+# ------------------------------------------------------------------------------------------------- C-e extension
+def ext_e():
+    cl = 'C-e'
+    mon = pd.Series(CAL.dayofweek == 0, index=CAL)
+    for ln, (l0, l1) in {'liqL': (0, 1 / 3), 'liqM': (1 / 3, 2 / 3), 'liqH': (2 / 3, 1.01)}.items():
+        g = (LR > l0) & (LR <= l1)
+        for leg, fr in [('close_close', rcc), ('overnight', ron), ('intraday', rid)]:
+            y = ew_day(fr.where(g))
+            for k, (a, b) in PERS.items():
+                m, t, n = Dummy(y, mon, 5).at(a, b)
+                add(cl, 'e5_monday_by_liquidity', f'{leg}_{ln}', k, 'bps_per_day', m * 1e4, t, n)
+
+
+# ------------------------------------------------------------------------------------------------- C-f extensions
+def ext_f():
+    cl = 'C-f'
+    # f4: formal pre-minus-post contrasts of the pseudo-membership experiment
+    for sn in ['D10_log_traded_value', 'D9_amihud']:
+        for frac in [.5, 1 / 3]:
+            pre_mem, post_mem, post_all = [], [], []
+            for Y in ['2005-12-31', '2010-12-31', '2015-12-31', '2020-12-31']:
+                Yd, mem, _ = members_at(Y, frac)
+                a = Yd - pd.DateOffset(years=5)
+                bpost = min(Yd + pd.DateOffset(years=5), pd.Timestamp(MAIN[1]))
+                pre_mem.append(xs_sort(SIG[sn], mem, 3, 12, a, Yd))
+                post_mem.append(xs_sort(SIG[sn], mem, 3, 12, Yd, bpost))
+                post_all.append(xs_sort(SIG[sn], ALL, 3, 12, Yd, bpost))
+            PM, QM, QA = (pd.concat(x).sort_index() for x in (pre_mem, post_mem, post_all))
+            m1, se1, n1 = nw(PM.hl.values, 2)
+            m2, se2, n2 = nw(QM.hl.values, 2)
+            add(cl, 'f4_pseudo_membership_contrasts', f'{sn}_top{frac:.2f}', 'pooled_4_windows',
+                'pre_members_hl_minus_post_members_hl_pct', (m1 - m2) * 100, diff_t(m1, se1, m2, se2), min(n1, n2),
+                'same stocks: look-ahead membership (pre) vs membership known (post)')
+            j = QM.join(QA, lsuffix='_mem', rsuffix='_all', how='inner')
+            m, t, n = mt_sort(j.hl_mem - j.hl_all)
+            add(cl, 'f4_pseudo_membership_contrasts', f'{sn}_top{frac:.2f}', 'pooled_4_windows',
+                'post_members_hl_minus_post_all_hl_paired_pct', m, t, n, 'same months, members-at-Y vs whole panel')
+    # f5: does the low-liquidity excess return come from stocks whose liquidity rank rose afterwards?
+    rk = LIQ60.rank(axis=1, pct=True)
+    recs = []
+    for i, (d0, d1) in enumerate(zip(DATES[:-1], DATES[1:])):
+        if d0 < pd.Timestamp(MAIN[0]) or i + 24 >= len(DATES):
+            continue
+        s = rk.loc[d0].where(T.loc[d0])
+        f = lnP.loc[d1] - lnOn.loc[d0]
+        fut = rk.loc[DATES[i + 24]]
+        ok = s.notna() & f.notna()
+        if ok.sum() < 25:
+            continue
+        allm = f[ok].mean()
+        terc = pd.qcut(s[ok].rank(method='first'), 3, labels=False)
+        for tq, tn in [(0, 'bottom'), (1, 'middle'), (2, 'top')]:
+            idx = terc.index[terc == tq]
+            dr = (fut[idx] - s[idx])
+            med = dr.median()
+            up = idx[(dr > med).values]
+            dn = idx[(dr <= med).values | dr.isna().values]
+            recs.append(dict(date=d0, tercile=tn, ex=f[idx].mean() - allm,
+                             up=f[up].mean() - allm if len(up) else np.nan,
+                             dn=f[dn].mean() - allm if len(dn) else np.nan,
+                             up_minus_dn=(f[up].mean() - f[dn].mean()) if len(up) and len(dn) else np.nan))
+    R = pd.DataFrame(recs)
+    for tn in ['bottom', 'middle', 'top']:
+        x = R[R.tercile == tn].set_index('date')
+        for col in ['ex', 'up', 'dn', 'up_minus_dn']:
+            for wn, (a, b) in {'2000-2023': (MAIN[0], '2023-07-31'), '2000-2010': (MAIN[0], '2010-12-31'),
+                               '2011-2023': ('2011-01-01', '2023-07-31')}.items():
+                m, t, n = mt_sort(x[col], a, b)
+                add(cl, 'f5_future_liquidity_risers', f'liquidity_{tn}_tercile_{col}', wn, 'pct_per_month', m, t, n,
+                    'up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; '
+                    'next-month return minus universe mean (look-ahead split, diagnostic only)')
+    # f6: is the premium larger long before 2025? slope of the monthly D10/D9 spreads on years to 2025-08
+    for sn in ['D10_log_traded_value', 'D9_amihud']:
+        ss = xs_sort(SIG[sn], ALL)
+        ss = ss.loc[MAIN[0]:MAIN[1]]
+        yrs = (pd.Timestamp(MAIN[1]) - ss.index).days / 365.25
+        bb, tt, n = ols_nw(ss.hl.values * 100, np.column_stack([np.ones(len(ss)), yrs]), 2)
+        add(cl, 'f6_distance_to_2025', f'{sn}_hl', 'MAIN', 'slope_pct_per_month_per_year_to_2025', bb[1], tt[1], n,
+            f'intercept (at 2025-08) {bb[0]:.2f}; D10: negative slope = premium larger long before 2025; D9: positive')
+
+
+# ------------------------------------------------------------------------------------------------- C-g extension
+def ext_g():
+    cl = 'C-g'
+    sig = SIG['D1_mom12_1']
+    post_mem, post_all = [], []
+    for Y in ['2005-12-31', '2010-12-31', '2015-12-31', '2020-12-31']:
+        Yd, mem, _ = members_at(Y, .5)
+        bpost = min(Yd + pd.DateOffset(years=5), pd.Timestamp(MAIN[1]))
+        post_mem.append(xs_sort(sig, mem, 5, 15, Yd, bpost))
+        post_all.append(xs_sort(sig, ALL, 5, 25, Yd, bpost))
+    QM, QA = pd.concat(post_mem).sort_index(), pd.concat(post_all).sort_index()
+    j = QM.join(QA, lsuffix='_mem', rsuffix='_all', how='inner')
+    m, t, n = mt_sort(j.top_ex_mem - j.top_ex_all)
+    add(cl, 'g5_pseudo_membership_contrast', 'D1_post_members_top_ex_minus_post_all_top_ex_paired', 'pooled_4_windows',
+        'pct_per_month', m, t, n, 'members = top half by liquidity at Y; same months')
+    # pre2018 universe, D1 top_ex by subperiod with value weights (complements g1)
+    ss = xs_sort(sig, PRE, weight=LIQ60)
+    for k, (a, b) in PERS.items():
+        m, t, n = mt_sort(ss.top_ex_vw, a, b)
+        add(cl, 'g5_pseudo_membership_contrast', 'D1_pre2018_top_ex_vw', k, 'pct_per_month', m, t, n)
+
+
 if __name__ == '__main__':
-    for fn in [replication_checks, claim_a, claim_b, claim_c, claim_d, claim_e, claim_f, claim_g]:
+    for fn in [replication_checks, claim_a, claim_b, claim_c, claim_d, claim_e, claim_f, claim_g,
+               ext_a, ext_b, ext_c, ext_d, ext_e, ext_f, ext_g]:
         t1 = time.time()
         fn()
         print(f'{fn.__name__}: {time.time() - t1:.1f}s, rows {len(ROWS)}', flush=True)

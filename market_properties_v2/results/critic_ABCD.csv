@@ -1996,3 +1996,995 @@ C-g,g4_breakout_ranking,W1.1_HHV20_ER20>=0.3_rest_pre2018,P4,abnormal_fo20_pct,0
 C-g,g4_breakout_ranking,W1.1_HHV20_ER20>=0.3_bottom_mom_quintile_pre2018,P4,abnormal_fo20_pct,-0.9687322166028732,-0.9728557228452874,291.0,
 C-g,g4_breakout_ranking,W1.1_HHV20_ER20>=0.3_top_minus_rest_pre2018,P4,abnormal_fo20_diff_pct,0.40967004326254847,0.2965353993739895,338.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
 C-g,g4_breakout_ranking,W1.1_HHV20_ER20>=0.3_top_minus_bottom_pre2018,P4,abnormal_fo20_diff_pct,1.891685761025277,1.2018310994303243,291.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_all,MAIN,abnormal_fo20_pct,0.14765763634652349,0.23394541705799968,1772.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_all,MAIN,abnormal_fo20_pct,-0.993446419702894,-4.461865403811139,3314.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_all,MAIN,abnormal_fo20_pct,-0.9442921800649142,-1.8863734563987824,1128.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_all,MAIN,abnormal_fo20_diff_pct,1.1411040560494177,1.7049631773272784,1772.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_all,MAIN,abnormal_fo20_diff_pct,1.0919498164114378,1.3554893963710657,1128.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_all,P1,abnormal_fo20_pct,-0.6499521168525123,-0.35273304944154726,407.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_all,P1,abnormal_fo20_pct,-0.8010621408448743,-1.758975323834662,749.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_all,P1,abnormal_fo20_pct,-1.1755688844774852,-0.9427097631267309,168.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_all,P1,abnormal_fo20_diff_pct,0.15111002399236195,0.07961277265828025,407.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_all,P1,abnormal_fo20_diff_pct,0.5256167676249728,0.23624061837734314,168.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_all,P2,abnormal_fo20_pct,-0.38956303675678455,-0.558758020437096,493.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_all,P2,abnormal_fo20_pct,-1.2405219198684814,-3.3505162314466275,1042.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_all,P2,abnormal_fo20_pct,-2.1903085550478285,-2.5855579428278106,314.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_all,P2,abnormal_fo20_diff_pct,0.8509588831116969,1.0779719736220401,493.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_all,P2,abnormal_fo20_diff_pct,1.800745518291044,1.6413112002559138,314.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_all,P3,abnormal_fo20_pct,1.249408779319401,1.074178445032352,478.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_all,P3,abnormal_fo20_pct,-0.802460450527325,-1.8018472562671892,803.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_all,P3,abnormal_fo20_pct,0.807107045884175,0.956726288368453,363.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_all,P3,abnormal_fo20_diff_pct,2.0518692298467265,1.6474575767268107,478.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_all,P3,abnormal_fo20_diff_pct,0.44230173343522605,0.30782615651132605,363.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_all,P4,abnormal_fo20_pct,0.30714980652648016,0.24770987420554846,394.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_all,P4,abnormal_fo20_pct,-1.0490087626752502,-1.953052355732957,720.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_all,P4,abnormal_fo20_pct,-1.6709857876040402,-1.5316120470769323,283.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_all,P4,abnormal_fo20_diff_pct,1.3561585692017304,1.0036027290970246,394.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_all,P4,abnormal_fo20_diff_pct,1.9781355941305205,1.197710896454781,283.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_events,MAIN,events_top/rest,2451.0,,8080.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_pre2018,MAIN,abnormal_fo20_pct,-0.031295375964713656,-0.050447098070201216,1723.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_pre2018,MAIN,abnormal_fo20_pct,-0.9732383411627625,-4.399126304282229,3290.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_pre2018,MAIN,abnormal_fo20_pct,-0.7479087867450871,-1.4936193849424935,1097.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_pre2018,MAIN,abnormal_fo20_diff_pct,0.9419429651980489,1.4301581156408332,1723.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_pre2018,MAIN,abnormal_fo20_diff_pct,0.7166134107803734,0.898873753146165,1097.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_pre2018,P1,abnormal_fo20_pct,-0.6499521168525123,-0.35273304944154726,407.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_pre2018,P1,abnormal_fo20_pct,-0.8010621408448743,-1.758975323834662,749.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_pre2018,P1,abnormal_fo20_pct,-1.1755688844774852,-0.9427097631267309,168.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_pre2018,P1,abnormal_fo20_diff_pct,0.15111002399236195,0.07961277265828025,407.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_pre2018,P1,abnormal_fo20_diff_pct,0.5256167676249728,0.23624061837734314,168.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_pre2018,P2,abnormal_fo20_pct,-0.38956303675678444,-0.5587580204370959,493.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_pre2018,P2,abnormal_fo20_pct,-1.2405219198684814,-3.3505162314466275,1042.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_pre2018,P2,abnormal_fo20_pct,-2.1903085550478285,-2.5855579428278106,314.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_pre2018,P2,abnormal_fo20_diff_pct,0.8509588831116969,1.0779719736220401,493.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_pre2018,P2,abnormal_fo20_diff_pct,1.800745518291044,1.6413112002559138,314.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_pre2018,P3,abnormal_fo20_pct,1.252840613423999,1.064602213330203,466.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_pre2018,P3,abnormal_fo20_pct,-0.8305235748138052,-1.8735043170602204,801.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_pre2018,P3,abnormal_fo20_pct,0.833203966166635,0.9924567725388969,363.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_pre2018,P3,abnormal_fo20_diff_pct,2.0833641882378044,1.6566966589229424,466.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_pre2018,P3,abnormal_fo20_diff_pct,0.41963664725736416,0.2902883763836197,363.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_mom_quintile_pre2018,P4,abnormal_fo20_pct,-0.5074525769263802,-0.4910993442392615,357.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_rest_pre2018,P4,abnormal_fo20_pct,-0.9227584169109786,-1.7418240206050353,698.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_bottom_mom_quintile_pre2018,P4,abnormal_fo20_pct,-0.9430814281770379,-0.8318675956944557,252.0,
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_rest_pre2018,P4,abnormal_fo20_diff_pct,0.4153058399845983,0.35765581290955817,357.0,usability threshold (PLAN): |difference| >= 0.25 pp per trade
+C-g,g4_breakout_ranking,W1.1_HHV20_liquid_half_top_minus_bottom_pre2018,P4,abnormal_fo20_diff_pct,0.4356288512506576,0.2839938707314161,252.0,
+C-a,a10_empirical_tick,validation_vs_modern_table,2000-2007,median_empirical_rel_tick_pct,1.1234636018923887,,79046.0,
+C-a,a10_empirical_tick,validation_vs_modern_table,2000-2007,median_ratio_empirical_to_modern,1.185000000000002,,,
+C-a,a10_empirical_tick,validation_vs_modern_table,2000-2007,share_ratio_within_10pct,0.2870353971105432,,,near 1 in 2021-25 validates the estimator; older years had other tick tables
+C-a,a10_empirical_tick,validation_vs_modern_table,2008-2013,median_empirical_rel_tick_pct,0.7352941176470588,,90494.0,
+C-a,a10_empirical_tick,validation_vs_modern_table,2008-2013,median_ratio_empirical_to_modern,1.8399999999999999,,,
+C-a,a10_empirical_tick,validation_vs_modern_table,2008-2013,share_ratio_within_10pct,0.27476959798439676,,,near 1 in 2021-25 validates the estimator; older years had other tick tables
+C-a,a10_empirical_tick,validation_vs_modern_table,2014-2016,median_empirical_rel_tick_pct,0.2949112129007962,,55086.0,
+C-a,a10_empirical_tick,validation_vs_modern_table,2014-2016,median_ratio_empirical_to_modern,0.8799999999999953,,,
+C-a,a10_empirical_tick,validation_vs_modern_table,2014-2016,share_ratio_within_10pct,0.45666775587263553,,,near 1 in 2021-25 validates the estimator; older years had other tick tables
+C-a,a10_empirical_tick,validation_vs_modern_table,2017-2020,median_empirical_rel_tick_pct,0.37593984962406013,,79345.0,
+C-a,a10_empirical_tick,validation_vs_modern_table,2017-2020,median_ratio_empirical_to_modern,1.0,,,
+C-a,a10_empirical_tick,validation_vs_modern_table,2017-2020,share_ratio_within_10pct,0.6919654672632176,,,near 1 in 2021-25 validates the estimator; older years had other tick tables
+C-a,a10_empirical_tick,validation_vs_modern_table,2021-2025,median_empirical_rel_tick_pct,0.4,,105125.0,
+C-a,a10_empirical_tick,validation_vs_modern_table,2021-2025,median_ratio_empirical_to_modern,1.0,,,
+C-a,a10_empirical_tick,validation_vs_modern_table,2021-2025,share_ratio_within_10pct,0.8890749108204519,,,near 1 in 2021-25 validates the estimator; older years had other tick tables
+C-a,a10_empirical_tick,gap_up,MAIN,abnormal_intraday_in_empirical_ticks,-1.6186362142836366,-12.25979256864371,18420.0,
+C-a,a10_empirical_tick,gap_up,MAIN,raw_intraday_in_empirical_ticks,-1.6238420866193788,-11.310777396217343,18420.0,
+C-a,a10_empirical_tick,gap_up,MAIN,raw_intraday_in_empirical_ticks_event_median,-0.963403637998384,,18420.0,
+C-a,a10_empirical_tick,gap_up,MAIN,median_empirical_rel_tick_pct,0.7142857142857143,,18420.0,
+C-a,a10_empirical_tick,gap_down,MAIN,abnormal_intraday_in_empirical_ticks,3.1443589260994584,23.27138366068687,22671.0,
+C-a,a10_empirical_tick,gap_down,MAIN,raw_intraday_in_empirical_ticks,3.094778425259897,22.7322068673555,22671.0,
+C-a,a10_empirical_tick,gap_down,MAIN,raw_intraday_in_empirical_ticks_event_median,1.0175450541795157,,22671.0,
+C-a,a10_empirical_tick,gap_down,MAIN,median_empirical_rel_tick_pct,0.8620689655172413,,22671.0,
+C-a,a10_empirical_tick,gap_up,P1,abnormal_intraday_in_empirical_ticks,-0.5549107293671256,-2.302147903456017,5930.0,
+C-a,a10_empirical_tick,gap_up,P1,raw_intraday_in_empirical_ticks,-0.40334156044651276,-1.5251219553864124,5930.0,
+C-a,a10_empirical_tick,gap_up,P1,raw_intraday_in_empirical_ticks_event_median,0.0,,5930.0,
+C-a,a10_empirical_tick,gap_up,P1,median_empirical_rel_tick_pct,2.0408163265306123,,5930.0,
+C-a,a10_empirical_tick,gap_down,P1,abnormal_intraday_in_empirical_ticks,1.05596889415094,14.064460112139308,9305.0,
+C-a,a10_empirical_tick,gap_down,P1,raw_intraday_in_empirical_ticks,1.2501265070109633,14.601171577148307,9305.0,
+C-a,a10_empirical_tick,gap_down,P1,raw_intraday_in_empirical_ticks_event_median,0.0,,9305.0,
+C-a,a10_empirical_tick,gap_down,P1,median_empirical_rel_tick_pct,2.1739130434782608,,9305.0,
+C-a,a10_empirical_tick,gap_up,P2,abnormal_intraday_in_empirical_ticks,-1.8453638346001593,-10.906487335546183,6088.0,
+C-a,a10_empirical_tick,gap_up,P2,raw_intraday_in_empirical_ticks,-1.6770240407452155,-8.688306033174154,6088.0,
+C-a,a10_empirical_tick,gap_up,P2,raw_intraday_in_empirical_ticks_event_median,-0.957204029180106,,6088.0,
+C-a,a10_empirical_tick,gap_up,P2,median_empirical_rel_tick_pct,0.7352854465213452,,6088.0,
+C-a,a10_empirical_tick,gap_down,P2,abnormal_intraday_in_empirical_ticks,4.314527856877073,15.953003047362968,8481.0,
+C-a,a10_empirical_tick,gap_down,P2,raw_intraday_in_empirical_ticks,4.39099995108123,16.594143318782958,8481.0,
+C-a,a10_empirical_tick,gap_down,P2,raw_intraday_in_empirical_ticks_event_median,1.0480415962505558,,8481.0,
+C-a,a10_empirical_tick,gap_down,P2,median_empirical_rel_tick_pct,0.7630238934586767,,8481.0,
+C-a,a10_empirical_tick,gap_up,P3,abnormal_intraday_in_empirical_ticks,-2.6474402282530534,-9.706250454531085,3813.0,
+C-a,a10_empirical_tick,gap_up,P3,raw_intraday_in_empirical_ticks,-2.7981872064955997,-9.470616163604472,3813.0,
+C-a,a10_empirical_tick,gap_up,P3,raw_intraday_in_empirical_ticks_event_median,-2.897694088134078,,3813.0,
+C-a,a10_empirical_tick,gap_up,P3,median_empirical_rel_tick_pct,0.435589995185579,,3813.0,
+C-a,a10_empirical_tick,gap_down,P3,abnormal_intraday_in_empirical_ticks,4.752607294049083,16.987462942894243,3338.0,
+C-a,a10_empirical_tick,gap_down,P3,raw_intraday_in_empirical_ticks,4.314862126993437,14.150311395235743,3338.0,
+C-a,a10_empirical_tick,gap_down,P3,raw_intraday_in_empirical_ticks_event_median,2.052498151482204,,3338.0,
+C-a,a10_empirical_tick,gap_down,P3,median_empirical_rel_tick_pct,0.4032258064516129,,3338.0,
+C-a,a10_empirical_tick,gap_up,P4,abnormal_intraday_in_empirical_ticks,-2.0052945097798345,-4.790990284281111,2589.0,
+C-a,a10_empirical_tick,gap_up,P4,raw_intraday_in_empirical_ticks,-2.4472211745591603,-5.633555243582556,2589.0,
+C-a,a10_empirical_tick,gap_up,P4,raw_intraday_in_empirical_ticks_event_median,-2.9540905744033656,,2589.0,
+C-a,a10_empirical_tick,gap_up,P4,median_empirical_rel_tick_pct,0.425531914893617,,2589.0,
+C-a,a10_empirical_tick,gap_down,P4,abnormal_intraday_in_empirical_ticks,3.4184722710970528,6.721850842550557,1547.0,
+C-a,a10_empirical_tick,gap_down,P4,raw_intraday_in_empirical_ticks,2.928502021425242,5.523032860788377,1547.0,
+C-a,a10_empirical_tick,gap_down,P4,raw_intraday_in_empirical_ticks_event_median,1.0252752122351678,,1547.0,
+C-a,a10_empirical_tick,gap_down,P4,median_empirical_rel_tick_pct,0.4166666666666667,,1547.0,
+C-a,a10_empirical_tick,gap_up,P0,abnormal_intraday_in_empirical_ticks,-0.9907551937100149,-3.346915419292027,4017.0,
+C-a,a10_empirical_tick,gap_up,P0,raw_intraday_in_empirical_ticks,-0.6528941921580594,-2.0947277186272886,4017.0,
+C-a,a10_empirical_tick,gap_up,P0,raw_intraday_in_empirical_ticks_event_median,0.0,,4017.0,
+C-a,a10_empirical_tick,gap_up,P0,median_empirical_rel_tick_pct,2.086956521739131,,4017.0,
+C-a,a10_empirical_tick,gap_down,P0,abnormal_intraday_in_empirical_ticks,2.043831279412642,4.070006372212758,5196.0,
+C-a,a10_empirical_tick,gap_down,P0,raw_intraday_in_empirical_ticks,2.4020477966471976,4.357481524666054,5196.0,
+C-a,a10_empirical_tick,gap_down,P0,raw_intraday_in_empirical_ticks_event_median,0.0,,5196.0,
+C-a,a10_empirical_tick,gap_down,P0,median_empirical_rel_tick_pct,2.272727272727273,,5196.0,
+C-a,a10_empirical_tick,gap_up_emptick<0.4%,MAIN,abnormal_intraday_bps,-57.05631998524982,-6.834392305461104,4047.0,
+C-a,a10_empirical_tick,gap_down_emptick<0.4%,MAIN,abnormal_intraday_bps,128.46307799941218,17.37355661706691,4359.0,
+C-a,a10_empirical_tick,gap_up_emptick0.4-1%,MAIN,abnormal_intraday_bps,-130.69027958829813,-19.183416760570758,7848.0,
+C-a,a10_empirical_tick,gap_down_emptick0.4-1%,MAIN,abnormal_intraday_bps,182.137052375524,31.024141868232654,8429.0,
+C-a,a10_empirical_tick,gap_up_emptick1-2%,MAIN,abnormal_intraday_bps,-95.18378015134148,-9.450183770115508,3307.0,
+C-a,a10_empirical_tick,gap_down_emptick1-2%,MAIN,abnormal_intraday_bps,178.50230101580388,21.09067294182784,4554.0,
+C-a,a10_empirical_tick,gap_up_emptick>=2%,MAIN,abnormal_intraday_bps,-144.3221264764569,-11.30301435232135,3218.0,
+C-a,a10_empirical_tick,gap_down_emptick>=2%,MAIN,abnormal_intraday_bps,192.31497793646537,21.438889739469833,5329.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,MAIN,abnormal_intraday_bps,-40.7223907181389,-3.7541844315400206,1707.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,MAIN,raw_intraday_bps,-33.989296949807326,-2.8689676145151375,1707.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,MAIN,abnormal_intraday_bps,73.85448260173969,8.358719203214202,1719.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,MAIN,raw_intraday_bps,59.46628906819438,5.76020246572255,1719.0,
+C-a,a10_empirical_tick,gap_up_emptick<0.4%,P1,abnormal_intraday_bps,-12.663078444594017,-0.4276081704200624,244.0,
+C-a,a10_empirical_tick,gap_down_emptick<0.4%,P1,abnormal_intraday_bps,65.91684232023839,3.4095259198724492,358.0,
+C-a,a10_empirical_tick,gap_up_emptick0.4-1%,P1,abnormal_intraday_bps,-80.08089851038359,-5.652887215051167,1163.0,
+C-a,a10_empirical_tick,gap_down_emptick0.4-1%,P1,abnormal_intraday_bps,134.59679365242005,12.913389522343744,1828.0,
+C-a,a10_empirical_tick,gap_up_emptick1-2%,P1,abnormal_intraday_bps,-91.43046032810088,-6.339412714172367,1474.0,
+C-a,a10_empirical_tick,gap_down_emptick1-2%,P1,abnormal_intraday_bps,138.65265721504468,13.34586925772983,2032.0,
+C-a,a10_empirical_tick,gap_up_emptick>=2%,P1,abnormal_intraday_bps,-149.49225851343888,-11.793633409347054,3049.0,
+C-a,a10_empirical_tick,gap_down_emptick>=2%,P1,abnormal_intraday_bps,187.11548310688352,22.29156855263813,5087.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,P1,abnormal_intraday_bps,7.870964902610101,0.2563955314948775,104.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,P1,raw_intraday_bps,28.396123773799673,0.8647569250780294,104.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,P1,abnormal_intraday_bps,22.168996304306248,0.852322971205544,149.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,P1,raw_intraday_bps,50.92495695703073,1.5212145357696438,149.0,
+C-a,a10_empirical_tick,gap_up_emptick<0.4%,P2,abnormal_intraday_bps,-69.6326801856882,-5.936170189509239,1101.0,
+C-a,a10_empirical_tick,gap_down_emptick<0.4%,P2,abnormal_intraday_bps,171.13965572205524,14.373350514564507,1655.0,
+C-a,a10_empirical_tick,gap_up_emptick0.4-1%,P2,abnormal_intraday_bps,-120.57906153949051,-11.247490756161982,3201.0,
+C-a,a10_empirical_tick,gap_down_emptick0.4-1%,P2,abnormal_intraday_bps,178.70449949220833,21.36834653093052,4255.0,
+C-a,a10_empirical_tick,gap_up_emptick1-2%,P2,abnormal_intraday_bps,-84.12649049271361,-7.200219114404664,1633.0,
+C-a,a10_empirical_tick,gap_down_emptick1-2%,P2,abnormal_intraday_bps,207.52677102482892,17.835831417825336,2337.0,
+C-a,a10_empirical_tick,gap_up_emptick>=2%,P2,abnormal_intraday_bps,-123.56194957347655,-2.4246224801043046,153.0,
+C-a,a10_empirical_tick,gap_down_emptick>=2%,P2,abnormal_intraday_bps,215.73868384879563,5.203127702297388,234.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,P2,abnormal_intraday_bps,-43.34003625794404,-2.6872887152524267,409.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,P2,raw_intraday_bps,-19.831775619923405,-1.0073807031160265,409.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,P2,abnormal_intraday_bps,107.92412037422999,7.382566722865766,544.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,P2,raw_intraday_bps,99.26617427545754,5.450877686247022,544.0,
+C-a,a10_empirical_tick,gap_up_emptick<0.4%,P3,abnormal_intraday_bps,-66.34604371010617,-4.751882796787293,1597.0,
+C-a,a10_empirical_tick,gap_down_emptick<0.4%,P3,abnormal_intraday_bps,140.7801389508803,12.910900341481696,1632.0,
+C-a,a10_empirical_tick,gap_up_emptick0.4-1%,P3,abnormal_intraday_bps,-179.5084932052752,-14.230452340885018,2062.0,
+C-a,a10_empirical_tick,gap_down_emptick0.4-1%,P3,abnormal_intraday_bps,232.85280853299085,16.585467831845015,1569.0,
+C-a,a10_empirical_tick,gap_up_emptick1-2%,P3,abnormal_intraday_bps,-181.1675884230398,-3.3282875561213183,146.0,
+C-a,a10_empirical_tick,gap_down_emptick1-2%,P3,abnormal_intraday_bps,262.17069714937475,4.097200296617811,136.0,
+C-a,a10_empirical_tick,gap_up_emptick>=2%,P3,abnormal_intraday_bps,,,8.0,
+C-a,a10_empirical_tick,gap_down_emptick>=2%,P3,abnormal_intraday_bps,,,1.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,P3,abnormal_intraday_bps,-68.95192543379184,-3.1594532938698867,522.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,P3,raw_intraday_bps,-59.33174764163173,-2.451339766620672,522.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,P3,abnormal_intraday_bps,84.92347581784631,5.522621204248072,559.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,P3,raw_intraday_bps,54.06140927775771,3.030480656931815,559.0,
+C-a,a10_empirical_tick,gap_up_emptick<0.4%,P4,abnormal_intraday_bps,-46.67085945888755,-2.4927091671247807,1105.0,
+C-a,a10_empirical_tick,gap_down_emptick<0.4%,P4,abnormal_intraday_bps,66.40175122175692,3.3044035122330513,714.0,
+C-a,a10_empirical_tick,gap_up_emptick0.4-1%,P4,abnormal_intraday_bps,-130.1329516831178,-7.286118298650348,1422.0,
+C-a,a10_empirical_tick,gap_down_emptick0.4-1%,P4,abnormal_intraday_bps,208.7484007056833,10.97272461582564,777.0,
+C-a,a10_empirical_tick,gap_up_emptick1-2%,P4,abnormal_intraday_bps,-91.17680753676422,-0.7286843508589009,54.0,
+C-a,a10_empirical_tick,gap_down_emptick1-2%,P4,abnormal_intraday_bps,373.65139084314677,3.3084426989266063,49.0,
+C-a,a10_empirical_tick,gap_up_emptick>=2%,P4,abnormal_intraday_bps,,,8.0,
+C-a,a10_empirical_tick,gap_down_emptick>=2%,P4,abnormal_intraday_bps,,,7.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,P4,abnormal_intraday_bps,-28.05606197254089,-1.4698880012856508,672.0,
+C-a,a10_empirical_tick,gap_up_liqH_emptick<0.4%,P4,raw_intraday_bps,-36.84538812947447,-1.833679594840013,672.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,P4,abnormal_intraday_bps,42.457573282497385,2.3433521015644234,467.0,
+C-a,a10_empirical_tick,gap_down_liqH_emptick<0.4%,P4,raw_intraday_bps,21.026737534884987,1.0895414474035208,467.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,MAIN,share_of_events,0.27204125950054286,,18420.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,MAIN,abnormal_intraday_bps,-95.6437874817501,-11.067415909656003,5011.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,MAIN,abnormal_intraday_in_empirical_ticks,-0.3702611196353564,-8.508875612203369,5011.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,MAIN,share_of_events,0.349728555917481,,18420.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,MAIN,abnormal_intraday_bps,-104.24693342964429,-14.625299499175316,6442.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,MAIN,abnormal_intraday_in_empirical_ticks,-1.351843020047937,-14.959670881066726,6442.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,MAIN,share_of_events,0.3782301845819761,,18420.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,MAIN,abnormal_intraday_bps,-121.16058409979631,-15.344803378377533,6967.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,MAIN,abnormal_intraday_in_empirical_ticks,-2.4780110870017555,-7.118860740564172,6967.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,MAIN,share_of_events,0.32199726522870625,,22671.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,MAIN,abnormal_intraday_bps,147.38796521381278,25.002162256022533,7300.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,MAIN,abnormal_intraday_in_empirical_ticks,0.5933866750820574,20.242263825924546,7300.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,MAIN,share_of_events,0.3084557364033347,,22671.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,MAIN,abnormal_intraday_bps,150.73327461819088,26.256991464073828,6993.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,MAIN,abnormal_intraday_in_empirical_ticks,1.6295529546895346,23.88331117335215,6993.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,MAIN,share_of_events,0.36954699836795907,,22671.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,MAIN,abnormal_intraday_bps,220.49071664885608,27.670928180980194,8378.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,MAIN,abnormal_intraday_in_empirical_ticks,5.353460703795058,22.63748928159016,8378.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P1,share_of_events,0.6337268128161889,,5930.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P1,abnormal_intraday_bps,-115.53234189035777,-10.618767296919696,3758.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P1,abnormal_intraday_in_empirical_ticks,-0.33434790648075374,-7.810078576905651,3758.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P1,share_of_events,0.2566610455311973,,5930.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P1,abnormal_intraday_bps,-108.79502292606506,-6.381034698109906,1522.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P1,abnormal_intraday_in_empirical_ticks,-0.8704014874478829,-5.936737338099503,1522.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P1,share_of_events,0.10961214165261383,,5930.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P1,abnormal_intraday_bps,-110.71701860795312,-4.622094283056383,650.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P1,abnormal_intraday_in_empirical_ticks,-0.6849956190877478,-0.3447129267780704,650.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P1,share_of_events,0.6336378291241268,,9305.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P1,abnormal_intraday_bps,157.20488634894969,22.048433457355646,5896.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P1,abnormal_intraday_in_empirical_ticks,0.44448152132318647,20.532827853151005,5896.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P1,share_of_events,0.24245029554003225,,9305.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P1,abnormal_intraday_bps,148.77038905866695,14.730825327470058,2256.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P1,abnormal_intraday_in_empirical_ticks,1.2220457701847878,15.046990953092832,2256.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P1,share_of_events,0.12391187533584094,,9305.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P1,abnormal_intraday_bps,230.28762972283974,9.910764631735011,1153.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P1,abnormal_intraday_in_empirical_ticks,3.7889610886851846,6.6228737424201345,1153.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P2,share_of_events,0.18511826544021026,,6088.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P2,abnormal_intraday_bps,-52.81036013727882,-4.121259788780023,1127.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P2,abnormal_intraday_in_empirical_ticks,-0.4102598980903554,-4.319518415173346,1127.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P2,share_of_events,0.45827858081471745,,6088.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P2,abnormal_intraday_bps,-88.98177102009035,-8.18238755210631,2790.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P2,abnormal_intraday_in_empirical_ticks,-1.192034597401992,-7.845294466010886,2790.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P2,share_of_events,0.3566031537450723,,6088.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P2,abnormal_intraday_bps,-128.25024709772327,-10.460098653604774,2171.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P2,abnormal_intraday_in_empirical_ticks,-2.9817074056084993,-9.580329623069257,2171.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P2,share_of_events,0.1588256101874779,,8481.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P2,abnormal_intraday_bps,118.03417848000547,12.588509567035059,1347.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P2,abnormal_intraday_in_empirical_ticks,0.8521878927936055,12.173648253139215,1347.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P2,share_of_events,0.42813347482608183,,8481.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P2,abnormal_intraday_bps,156.5553211347932,20.13745171049467,3631.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P2,abnormal_intraday_in_empirical_ticks,1.8019495017581826,18.139860554537304,3631.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P2,share_of_events,0.4130409149864403,,8481.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P2,abnormal_intraday_bps,247.62744121398964,20.61382690866511,3503.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P2,abnormal_intraday_in_empirical_ticks,6.5545033287807675,16.990063166903145,3503.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P3,share_of_events,0.023078940466824023,,3813.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P3,abnormal_intraday_bps,-153.12607244163334,-2.843955159477774,88.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P3,abnormal_intraday_in_empirical_ticks,-0.8738126519478626,-2.3908840665243902,88.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P3,share_of_events,0.32677681615525833,,3813.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P3,abnormal_intraday_bps,-132.81072803176264,-10.29918269034782,1246.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P3,abnormal_intraday_in_empirical_ticks,-2.0539017595139177,-10.147581672178243,1246.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P3,share_of_events,0.6501442433779177,,3813.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P3,abnormal_intraday_bps,-134.05129239890587,-9.664499488343692,2479.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P3,abnormal_intraday_in_empirical_ticks,-3.0668843809960182,-7.455478125826259,2479.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P3,share_of_events,0.01078490113840623,,3338.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P3,abnormal_intraday_bps,254.55276094595402,2.5001390511283965,36.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P3,abnormal_intraday_in_empirical_ticks,1.414147871506323,2.3505050728284913,36.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P3,share_of_events,0.22468544038346316,,3338.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P3,abnormal_intraday_bps,157.5431097514334,9.720943404797339,750.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P3,abnormal_intraday_in_empirical_ticks,2.1804709220291643,9.509069533233665,750.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P3,share_of_events,0.7645296584781306,,3338.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P3,abnormal_intraday_bps,204.85242190016507,16.160574651408087,2552.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P3,abnormal_intraday_in_empirical_ticks,5.65454622210123,14.977772551888155,2552.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P4,share_of_events,0.014677481653147934,,2589.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P4,abnormal_intraday_bps,62.70357811197092,0.5331472607100749,38.0,
+C-a,a10_empirical_tick,gap_up_gap<=2ticks,P4,abnormal_intraday_in_empirical_ticks,0.0645468239810875,0.08932138929669857,38.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P4,share_of_events,0.3414445731942835,,2589.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P4,abnormal_intraday_bps,-89.1047740460862,-5.534612022579418,884.0,
+C-a,a10_empirical_tick,gap_up_gap3-5ticks,P4,abnormal_intraday_in_empirical_ticks,-1.4973078109910753,-6.200981924117656,884.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P4,share_of_events,0.6438779451525686,,2589.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P4,abnormal_intraday_bps,-100.43479517903029,-5.622426655018077,1667.0,
+C-a,a10_empirical_tick,gap_up_gap>=6ticks,P4,abnormal_intraday_in_empirical_ticks,-2.0582694976953912,-3.388781504962456,1667.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P4,share_of_events,0.013574660633484163,,1547.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P4,abnormal_intraday_bps,230.0050624350108,2.4529243883368985,21.0,
+C-a,a10_empirical_tick,gap_down_gap<=2ticks,P4,abnormal_intraday_in_empirical_ticks,1.6899162330492392,2.647972530038994,21.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P4,share_of_events,0.23012281835811246,,1547.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P4,abnormal_intraday_bps,120.57034000254326,5.592232037606143,356.0,
+C-a,a10_empirical_tick,gap_down_gap3-5ticks,P4,abnormal_intraday_in_empirical_ticks,1.5879728285535017,4.662820067483041,356.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P4,share_of_events,0.7563025210084033,,1547.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P4,abnormal_intraday_bps,171.91232463191716,8.84978305791121,1170.0,
+C-a,a10_empirical_tick,gap_down_gap>=6ticks,P4,abnormal_intraday_in_empirical_ticks,3.9555559155103115,6.382535786577542,1170.0,
+C-a,a11_preopening_suspension_DiD,gap_up_LQ45proxy_top40,2020_suspension:pre_2019-09-13..2020-03-12,abnormal_intraday_bps,-125.5009738844833,-5.448089995410825,84.0,
+C-a,a11_preopening_suspension_DiD,gap_up_LQ45proxy_top40,2020_suspension:treat_2020-03-13..2020-09-04,abnormal_intraday_bps,-115.18468634907002,-3.558887196384611,300.0,
+C-a,a11_preopening_suspension_DiD,gap_up_LQ45proxy_top40,2020_suspension:post_2020-09-07..2021-03-05,abnormal_intraday_bps,20.31760085198259,0.42621865737694026,278.0,
+C-a,a11_preopening_suspension_DiD,gap_up_rest,2020_suspension:pre_2019-09-13..2020-03-12,abnormal_intraday_bps,-57.629564086469315,-0.8338801501927791,175.0,
+C-a,a11_preopening_suspension_DiD,gap_up_rest,2020_suspension:treat_2020-03-13..2020-09-04,abnormal_intraday_bps,-145.69874523942914,-3.500187387014039,411.0,
+C-a,a11_preopening_suspension_DiD,gap_up_rest,2020_suspension:post_2020-09-07..2021-03-05,abnormal_intraday_bps,-169.85049052559881,-4.475055140382588,326.0,
+C-a,a11_preopening_suspension_DiD,gap_up_LQ45proxy_top40,2020_suspension,treat_minus_mean_adjacent_bps,-62.592999832819665,-1.4969980257156683,,
+C-a,a11_preopening_suspension_DiD,gap_up_rest,2020_suspension,treat_minus_mean_adjacent_bps,-31.958717933395064,-0.5574357403391895,,
+C-a,a11_preopening_suspension_DiD,gap_up,2020_suspension,DiD_LQ45proxy_minus_rest_bps,-30.6342818994246,-0.43171753865775975,,"auction-matters prediction: gap_up < 0, gap_down > 0. LQ45 lost its opening auction 13 Mar - 4 Sep 2020; rest had none throughout; confounded by COVID and the 7% lower limit from Mar 2020 (affects gap-downs most)"
+C-a,a11_preopening_suspension_DiD,gap_down_LQ45proxy_top40,2020_suspension:pre_2019-09-13..2020-03-12,abnormal_intraday_bps,98.91925206990221,3.471731494224955,154.0,
+C-a,a11_preopening_suspension_DiD,gap_down_LQ45proxy_top40,2020_suspension:treat_2020-03-13..2020-09-04,abnormal_intraday_bps,106.02330129302077,4.5792444760586015,229.0,
+C-a,a11_preopening_suspension_DiD,gap_down_LQ45proxy_top40,2020_suspension:post_2020-09-07..2021-03-05,abnormal_intraday_bps,137.20749546487917,2.9555819763929447,144.0,
+C-a,a11_preopening_suspension_DiD,gap_down_rest,2020_suspension:pre_2019-09-13..2020-03-12,abnormal_intraday_bps,300.52274006715726,6.572915082914026,203.0,
+C-a,a11_preopening_suspension_DiD,gap_down_rest,2020_suspension:treat_2020-03-13..2020-09-04,abnormal_intraday_bps,217.24736596645752,6.381264667709859,379.0,
+C-a,a11_preopening_suspension_DiD,gap_down_rest,2020_suspension:post_2020-09-07..2021-03-05,abnormal_intraday_bps,284.33450305412964,6.426465333319847,136.0,
+C-a,a11_preopening_suspension_DiD,gap_down_LQ45proxy_top40,2020_suspension,treat_minus_mean_adjacent_bps,-12.040072474369945,-0.3368199375090923,,
+C-a,a11_preopening_suspension_DiD,gap_down_rest,2020_suspension,treat_minus_mean_adjacent_bps,-75.18125559418591,-1.6135274474431873,,
+C-a,a11_preopening_suspension_DiD,gap_down,2020_suspension,DiD_LQ45proxy_minus_rest_bps,63.14118311981597,1.0751688625713063,,"auction-matters prediction: gap_up < 0, gap_down > 0. LQ45 lost its opening auction 13 Mar - 4 Sep 2020; rest had none throughout; confounded by COVID and the 7% lower limit from Mar 2020 (affects gap-downs most)"
+C-a,a11_preopening_suspension_DiD,gap_up_LQ45proxy_top40,2008_09_suspension:pre_2008-03-13..2008-10-08,abnormal_intraday_bps,-38.251090493900286,-1.6044573884854267,409.0,
+C-a,a11_preopening_suspension_DiD,gap_up_LQ45proxy_top40,2008_09_suspension:treat_2008-10-13..2009-05-15,abnormal_intraday_bps,-133.47044607594566,-4.256739396990151,771.0,
+C-a,a11_preopening_suspension_DiD,gap_up_LQ45proxy_top40,2008_09_suspension:post_2009-05-18..2009-11-30,abnormal_intraday_bps,-69.11984030734519,-1.9645670504353427,409.0,
+C-a,a11_preopening_suspension_DiD,gap_up_rest,2008_09_suspension:pre_2008-03-13..2008-10-08,abnormal_intraday_bps,-60.66907890302126,-1.143380083853538,81.0,
+C-a,a11_preopening_suspension_DiD,gap_up_rest,2008_09_suspension:treat_2008-10-13..2009-05-15,abnormal_intraday_bps,-146.77921152765686,-3.1037383786004313,163.0,
+C-a,a11_preopening_suspension_DiD,gap_up_rest,2008_09_suspension:post_2009-05-18..2009-11-30,abnormal_intraday_bps,-116.10151855023993,-4.034304558984836,128.0,
+C-a,a11_preopening_suspension_DiD,gap_up_LQ45proxy_top40,2008_09_suspension,treat_minus_mean_adjacent_bps,-79.78498067532293,-2.106399262028027,,
+C-a,a11_preopening_suspension_DiD,gap_up_rest,2008_09_suspension,treat_minus_mean_adjacent_bps,-58.39391280102626,-1.0408629627206203,,
+C-a,a11_preopening_suspension_DiD,gap_up,2008_09_suspension,DiD_LQ45proxy_minus_rest_bps,-21.391067874296667,-0.3160105294875067,,"auction-matters prediction: gap_up < 0, gap_down > 0. top ~60-65 lost the opening auction 13 Oct 2008 - 15 May 2009, LQ45 only afterwards; panel top-40 proxy is crude in 2008 and the crisis confounds"
+C-a,a11_preopening_suspension_DiD,gap_down_LQ45proxy_top40,2008_09_suspension:pre_2008-03-13..2008-10-08,abnormal_intraday_bps,139.20222112360912,5.9561438661998904,702.0,
+C-a,a11_preopening_suspension_DiD,gap_down_LQ45proxy_top40,2008_09_suspension:treat_2008-10-13..2009-05-15,abnormal_intraday_bps,186.10340357212078,2.714820509043818,876.0,
+C-a,a11_preopening_suspension_DiD,gap_down_LQ45proxy_top40,2008_09_suspension:post_2009-05-18..2009-11-30,abnormal_intraday_bps,98.79841916886114,2.152390433450997,317.0,
+C-a,a11_preopening_suspension_DiD,gap_down_rest,2008_09_suspension:pre_2008-03-13..2008-10-08,abnormal_intraday_bps,243.12500778935458,7.454770061177583,195.0,
+C-a,a11_preopening_suspension_DiD,gap_down_rest,2008_09_suspension:treat_2008-10-13..2009-05-15,abnormal_intraday_bps,222.29838743751856,7.838910749898678,269.0,
+C-a,a11_preopening_suspension_DiD,gap_down_rest,2008_09_suspension:post_2009-05-18..2009-11-30,abnormal_intraday_bps,192.26092407725653,6.5864589981877355,167.0,
+C-a,a11_preopening_suspension_DiD,gap_down_LQ45proxy_top40,2008_09_suspension,treat_minus_mean_adjacent_bps,67.10308342588567,0.9163427374856972,,
+C-a,a11_preopening_suspension_DiD,gap_down_rest,2008_09_suspension,treat_minus_mean_adjacent_bps,4.605421504213017,0.1285687893067626,,
+C-a,a11_preopening_suspension_DiD,gap_down,2008_09_suspension,DiD_LQ45proxy_minus_rest_bps,62.49766192167265,0.7666466976070835,,"auction-matters prediction: gap_up < 0, gap_down > 0. top ~60-65 lost the opening auction 13 Oct 2008 - 15 May 2009, LQ45 only afterwards; panel top-40 proxy is crude in 2008 and the crisis confounds"
+C-a,a12_auction_extension_DiD,gap_up,post_2024-12-09..2025-08-15,DiD_rest_minus_LQ45proxy_change_bps,113.66311984497229,1.6350549570794901,,"change post minus pre (2023-01..2024-12-06); auction-matters prediction: gap_up > 0, gap_down < 0"
+C-a,a12_auction_extension_DiD,gap_down,post_2024-12-09..2025-08-15,DiD_rest_minus_LQ45proxy_change_bps,-316.0007313099021,-4.333631194032751,,"change post minus pre (2023-01..2024-12-06); auction-matters prediction: gap_up > 0, gap_down < 0"
+C-a,a12_auction_extension_DiD,gap_up,post_excl_2025-03..04,DiD_rest_minus_LQ45proxy_change_bps,196.51648694180807,2.595375177597712,,"change post minus pre (2023-01..2024-12-06); auction-matters prediction: gap_up > 0, gap_down < 0"
+C-a,a12_auction_extension_DiD,gap_down,post_excl_2025-03..04,DiD_rest_minus_LQ45proxy_change_bps,-355.98918793667457,-4.261893635341963,,"change post minus pre (2023-01..2024-12-06); auction-matters prediction: gap_up > 0, gap_down < 0"
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,MAIN,event_weighted_mean_bps,-203.3940527950879,,22671.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,MAIN,event_weighted_median_bps,-166.6040321377787,,22671.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,MAIN,day_weighted_mean_bps,-133.92942977332302,-14.486872244459553,22671.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,MAIN,event_weighted_mean_bps,-43.2395472547301,,22671.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,MAIN,event_weighted_median_bps,-40.0200634185445,,22671.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,MAIN,day_weighted_mean_bps,10.070800009243685,1.7406853677517773,22671.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,MAIN,event_weighted_mean_bps,-253.39415696214417,,22671.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,MAIN,event_weighted_median_bps,-216.60413630483572,,22671.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,MAIN,day_weighted_mean_bps,-183.9295339403793,-19.895281154314358,22671.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,MAIN,mean_bps,152.0427116575666,,22671.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,MAIN,median_bps,86.20689655172414,,22671.0,
+C-b,b4_cost_with_empirical_tick,gap_down_modern_table_rel_tick_on_adjusted_open,MAIN,mean_bps,120.87668323560752,,22671.0,the tick the main session charged (modern table on back-adjusted prices)
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P1,event_weighted_mean_bps,-433.45998633027295,,9305.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P1,event_weighted_median_bps,-366.8335635344897,,9305.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P1,day_weighted_mean_bps,-412.1523555458831,-30.097987331962077,9305.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P1,event_weighted_mean_bps,-146.39258885384982,,9305.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P1,event_weighted_median_bps,-90.02016758560264,,9305.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P1,day_weighted_mean_bps,-125.10805364205294,-15.975935964280904,9305.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P1,event_weighted_mean_bps,-483.4600904973292,,9305.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P1,event_weighted_median_bps,-416.8336677015455,,9305.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P1,day_weighted_mean_bps,-462.1524597129393,-33.74931306519402,9305.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,P1,mean_bps,271.01744132759455,,9305.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,P1,median_bps,217.3913043478261,,9305.0,
+C-b,b4_cost_with_empirical_tick,gap_down_modern_table_rel_tick_on_adjusted_open,P1,mean_bps,176.53061791551326,,9305.0,the tick the main session charged (modern table on back-adjusted prices)
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P2,event_weighted_mean_bps,-63.80993302210796,,8481.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P2,event_weighted_median_bps,-77.05714279338855,,8481.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P2,day_weighted_mean_bps,3.6789125202522888,0.4312259589959471,8481.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P2,event_weighted_mean_bps,21.50679540394269,,8481.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P2,event_weighted_median_bps,-40.002040367060744,,8481.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P2,day_weighted_mean_bps,85.06150844512217,11.008566729885134,8481.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P2,event_weighted_mean_bps,-113.81003718916425,,8481.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P2,event_weighted_median_bps,-127.05724696044547,,8481.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P2,day_weighted_mean_bps,-46.32119164680397,-5.429566530806848,8481.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,P2,mean_bps,82.21614367515623,,8481.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,P2,median_bps,76.30238934586768,,8481.0,
+C-b,b4_cost_with_empirical_tick,gap_down_modern_table_rel_tick_on_adjusted_open,P2,mean_bps,71.90993252642487,,8481.0,the tick the main session charged (modern table on back-adjusted prices)
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P3,event_weighted_mean_bps,6.397301422990727,,3338.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P3,event_weighted_median_bps,-40.02006341854339,,3338.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P3,day_weighted_mean_bps,46.58889174339528,4.5328178753636195,3338.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P3,event_weighted_mean_bps,54.146375932016234,,3338.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P3,event_weighted_median_bps,4.241245934975312,,3338.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P3,day_weighted_mean_bps,96.31475405225265,9.317889727635091,3338.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P3,event_weighted_mean_bps,-43.602802744065535,,3338.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P3,event_weighted_median_bps,-90.02016758559928,,3338.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P3,day_weighted_mean_bps,-3.411212423660964,-0.33189037283388306,3338.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,P3,mean_bps,46.15955783980402,,3338.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,P3,median_bps,40.32258064516129,,3338.0,
+C-b,b4_cost_with_empirical_tick,gap_down_modern_table_rel_tick_on_adjusted_open,P3,mean_bps,118.0369723010907,,3338.0,the tick the main session charged (modern table on back-adjusted prices)
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P4,event_weighted_mean_bps,-37.48128526418426,,1547.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P4,event_weighted_median_bps,-82.57331911992785,,1547.0,
+C-b,b4_cost_with_empirical_tick,M3e_fee+1emptick_per_side,P4,day_weighted_mean_bps,7.581527090941786,0.4389727355547442,1547.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P4,event_weighted_mean_bps,12.126392237348819,,1547.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P4,event_weighted_median_bps,-40.0200634185445,,1547.0,
+C-b,b4_cost_with_empirical_tick,M5e_fee+0.5emptick_per_side,P4,day_weighted_mean_bps,58.56741076248415,3.38081982709621,1547.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P4,event_weighted_mean_bps,-87.48138943124059,,1547.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P4,event_weighted_median_bps,-132.57342328698226,,1547.0,
+C-b,b4_cost_with_empirical_tick,M4e_main_session_model_with_empirical_tick,P4,day_weighted_mean_bps,-42.41857707611449,-2.456048576241211,1547.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,P4,mean_bps,47.69703028904939,,1547.0,
+C-b,b4_cost_with_empirical_tick,gap_down_empirical_rel_tick,P4,median_bps,41.666666666666664,,1547.0,
+C-b,b4_cost_with_empirical_tick,gap_down_modern_table_rel_tick_on_adjusted_open,P4,mean_bps,60.69963453972649,,1547.0,the tick the main session charged (modern table on back-adjusted prices)
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_LQ45proxy_top40,2016-2020,day_weighted_mean_bps,80.95402829349112,5.438228307106446,1232.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_LQ45proxy_top40,2016-2020,event_weighted_mean_bps,66.09941684290688,,1232.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_LQ45proxy_top40,2016-2020,day_weighted_mean_bps,40.933964874946724,2.7498106171812875,1232.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_LQ45proxy_top40,2016-2020,event_weighted_mean_bps,26.0793534243625,,1232.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_LQ45proxy_top40,2016-2020,day_weighted_mean_bps,-9.066139292109652,-0.6090337488305672,1232.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_LQ45proxy_top40,2016-2020,event_weighted_mean_bps,-23.920750742693905,,1232.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_LQ45proxy_top40,2016-2020,day_weighted_mean_bps,-24.50034062568491,-1.6378782067011595,1229.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_LQ45proxy_top40,2016-2020,event_weighted_mean_bps,-45.79623172453741,,1229.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_LQ45proxy_top40,2016-2020,day_weighted_mean_bps,8.436516556648206,0.5650358473546819,1229.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_LQ45proxy_top40,2016-2020,event_weighted_mean_bps,-9.777664008170225,,1229.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_LQ45proxy_top40,2021-01..2024-12-06,day_weighted_mean_bps,51.51531407141415,2.819618386929868,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_LQ45proxy_top40,2021-01..2024-12-06,event_weighted_mean_bps,51.79267732469986,,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_LQ45proxy_top40,2021-01..2024-12-06,day_weighted_mean_bps,11.49525065286976,0.6291764048699587,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_LQ45proxy_top40,2021-01..2024-12-06,event_weighted_mean_bps,11.772613906155437,,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_LQ45proxy_top40,2021-01..2024-12-06,day_weighted_mean_bps,-38.504853514186586,-2.1075090953368876,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_LQ45proxy_top40,2021-01..2024-12-06,event_weighted_mean_bps,-38.22749026090085,,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_LQ45proxy_top40,2021-01..2024-12-06,day_weighted_mean_bps,-67.981908680349,-3.7644141075191193,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_LQ45proxy_top40,2021-01..2024-12-06,event_weighted_mean_bps,-65.71859464466425,,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_LQ45proxy_top40,2021-01..2024-12-06,day_weighted_mean_bps,-28.24347156130987,-1.5594354687933991,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_LQ45proxy_top40,2021-01..2024-12-06,event_weighted_mean_bps,-26.973064950099698,,611.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_LQ45proxy_top40,2024-12-09..2025-08-15,day_weighted_mean_bps,82.65525738266636,2.1026910734751834,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_LQ45proxy_top40,2024-12-09..2025-08-15,event_weighted_mean_bps,37.06812115519473,,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_LQ45proxy_top40,2024-12-09..2025-08-15,day_weighted_mean_bps,42.63519396412203,1.0846090690783174,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_LQ45proxy_top40,2024-12-09..2025-08-15,event_weighted_mean_bps,-2.9519422633496752,,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_LQ45proxy_top40,2024-12-09..2025-08-15,day_weighted_mean_bps,-7.364910202934354,-0.18735808744700583,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_LQ45proxy_top40,2024-12-09..2025-08-15,event_weighted_mean_bps,-52.952046430406085,,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_LQ45proxy_top40,2024-12-09..2025-08-15,day_weighted_mean_bps,-35.09645310632809,-0.8668236794328399,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_LQ45proxy_top40,2024-12-09..2025-08-15,event_weighted_mean_bps,-87.5655703099187,,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_LQ45proxy_top40,2024-12-09..2025-08-15,day_weighted_mean_bps,3.769095069979636,0.09470131534655109,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_LQ45proxy_top40,2024-12-09..2025-08-15,event_weighted_mean_bps,-45.25853536801586,,151.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_rest,2016-2020,day_weighted_mean_bps,206.52516273109447,17.288699681712203,2000.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_rest,2016-2020,event_weighted_mean_bps,179.69411526401052,,2000.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_rest,2016-2020,day_weighted_mean_bps,166.50509931255021,13.938527487018579,2000.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_rest,2016-2020,event_weighted_mean_bps,139.67405184546627,,2000.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_rest,2016-2020,day_weighted_mean_bps,116.50499514549392,9.7529029676272,2000.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_rest,2016-2020,event_weighted_mean_bps,89.67394767840999,,2000.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_rest,2016-2020,day_weighted_mean_bps,57.10349045524804,4.780387707422447,1966.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_rest,2016-2020,event_weighted_mean_bps,29.743623399747698,,1966.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_rest,2016-2020,day_weighted_mean_bps,111.07897652950871,9.2604675808067,1966.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_rest,2016-2020,event_weighted_mean_bps,84.69080093522707,,1966.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_rest,2021-01..2024-12-06,day_weighted_mean_bps,199.3220154984094,7.813604657436218,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_rest,2021-01..2024-12-06,event_weighted_mean_bps,182.81908226182162,,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_rest,2021-01..2024-12-06,day_weighted_mean_bps,159.30195207986512,6.24478169959027,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_rest,2021-01..2024-12-06,event_weighted_mean_bps,142.79901884327734,,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_rest,2021-01..2024-12-06,day_weighted_mean_bps,109.30184791280887,4.2847320492036856,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_rest,2021-01..2024-12-06,event_weighted_mean_bps,92.79891467622107,,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_rest,2021-01..2024-12-06,day_weighted_mean_bps,42.445033699628304,1.673546922187153,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_rest,2021-01..2024-12-06,event_weighted_mean_bps,26.081425547675355,,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_rest,2021-01..2024-12-06,day_weighted_mean_bps,100.87105065727695,3.9839420508748145,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_rest,2021-01..2024-12-06,event_weighted_mean_bps,84.43826332253988,,558.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_rest,2024-12-09..2025-08-15,day_weighted_mean_bps,8.435234117960118,0.20317633109346436,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_rest,2024-12-09..2025-08-15,event_weighted_mean_bps,-39.44305729231898,,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_rest,2024-12-09..2025-08-15,day_weighted_mean_bps,-31.584829300584012,-0.7607719768965822,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_rest,2024-12-09..2025-08-15,event_weighted_mean_bps,-79.46312071086322,,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_rest,2024-12-09..2025-08-15,day_weighted_mean_bps,-81.58493346764037,-1.9651057958386748,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_rest,2024-12-09..2025-08-15,event_weighted_mean_bps,-129.46322487791954,,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_rest,2024-12-09..2025-08-15,day_weighted_mean_bps,-134.6957358403227,-3.216160630750579,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_rest,2024-12-09..2025-08-15,event_weighted_mean_bps,-192.95702270639293,,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_rest,2024-12-09..2025-08-15,day_weighted_mean_bps,-83.13953313079847,-1.9981211865009605,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_rest,2024-12-09..2025-08-15,event_weighted_mean_bps,-136.20843699919334,,158.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_all,2016-2020,day_weighted_mean_bps,190.62028744726942,17.668549625555958,3395.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_all,2016-2020,event_weighted_mean_bps,143.42444854112946,,3395.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_all,2016-2020,day_weighted_mean_bps,150.6002240287251,13.959099356659221,3395.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_all,2016-2020,event_weighted_mean_bps,103.40438512258515,,3395.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_all,2016-2020,day_weighted_mean_bps,100.60011986166874,9.32460145725288,3395.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_all,2016-2020,event_weighted_mean_bps,53.40428095552882,,3395.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_all,2016-2020,day_weighted_mean_bps,46.58889174339528,4.5328178753636195,3338.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_all,2016-2020,event_weighted_mean_bps,6.397301422990727,,3338.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_all,2016-2020,day_weighted_mean_bps,96.31475405225265,9.317889727635091,3338.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_all,2016-2020,event_weighted_mean_bps,54.146375932016234,,3338.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_all,2021-01..2024-12-06,day_weighted_mean_bps,162.72634979494742,8.440525882464243,1244.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_all,2021-01..2024-12-06,event_weighted_mean_bps,127.77384184426295,,1244.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_all,2021-01..2024-12-06,day_weighted_mean_bps,122.70628637640313,6.364707297903503,1244.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_all,2021-01..2024-12-06,event_weighted_mean_bps,87.75377842571861,,1244.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_all,2021-01..2024-12-06,day_weighted_mean_bps,72.70618220934686,3.7712295121623125,1244.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_all,2021-01..2024-12-06,event_weighted_mean_bps,37.75367425866233,,1244.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_all,2021-01..2024-12-06,day_weighted_mean_bps,19.615154722618673,1.0246533113826675,1238.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_all,2021-01..2024-12-06,event_weighted_mean_bps,-11.52983650992346,,1238.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_all,2021-01..2024-12-06,day_weighted_mean_bps,71.59182939064932,3.733839376542424,1238.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_all,2021-01..2024-12-06,event_weighted_mean_bps,38.05694723555861,,1238.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_all,2024-12-09..2025-08-15,day_weighted_mean_bps,57.54548261615893,1.9584226781779253,309.0,
+C-b,b5_gap_down_trade_by_group_recent,M0_gross_all,2024-12-09..2025-08-15,event_weighted_mean_bps,-2.054099539650469,,309.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_all,2024-12-09..2025-08-15,day_weighted_mean_bps,17.525419197614713,0.5964356686365799,309.0,
+C-b,b5_gap_down_trade_by_group_recent,M1_fee_only(0.40%rt)_all,2024-12-09..2025-08-15,event_weighted_mean_bps,-42.07416295819479,,309.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_all,2024-12-09..2025-08-15,day_weighted_mean_bps,-32.47468496944164,-1.1051981253690881,309.0,
+C-b,b5_gap_down_trade_by_group_recent,M2_PLAN_cost_B(0.90%rt)_all,2024-12-09..2025-08-15,event_weighted_mean_bps,-92.07426712525115,,309.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_all,2024-12-09..2025-08-15,day_weighted_mean_bps,-71.43446157488836,-2.4062371141817174,309.0,
+C-b,b5_gap_down_trade_by_group_recent,M3e_fee+1emptick_per_side_all,2024-12-09..2025-08-15,event_weighted_mean_bps,-141.45505082332625,,309.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_all,2024-12-09..2025-08-15,day_weighted_mean_bps,-26.954374205588305,-0.914527834033439,309.0,
+C-b,b5_gap_down_trade_by_group_recent,M5e_fee+0.5emptick_per_side_all,2024-12-09..2025-08-15,event_weighted_mean_bps,-91.76366306292213,,309.0,
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_assume_fill,MAIN,benefit_bps_day_weighted,196.06611591925827,41.40900101498116,23280.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_assume_fill,P1,benefit_bps_day_weighted,206.5498607720135,26.667742825543428,9641.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_assume_fill,P2,benefit_bps_day_weighted,205.05635969462747,28.176065956182853,8691.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_assume_fill,P3,benefit_bps_day_weighted,190.62028744726942,17.668549625555958,3395.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_assume_fill,P4,benefit_bps_day_weighted,148.84715746451906,8.534307624598979,1553.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_assume_fill,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,57.54548261615893,1.9584226781779253,309.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low,MAIN,benefit_bps_day_weighted,213.94423818196748,37.63118338722709,22405.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low,P1,benefit_bps_day_weighted,254.93681682177035,28.803163923138097,9105.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low,P2,benefit_bps_day_weighted,224.76981629004234,29.036065717145807,8428.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low,P3,benefit_bps_day_weighted,197.0024978423834,15.141357381539033,3319.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low,P4,benefit_bps_day_weighted,92.26396134412647,4.204508998176082,1553.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,35.30339949852534,0.913719299579269,309.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low,MAIN,share_of_events_flagged,0.26670962199312714,,,
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low&r_cc<=-6.5%,MAIN,benefit_bps_day_weighted,202.562563942424,37.73528026248072,22966.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low&r_cc<=-6.5%,P1,benefit_bps_day_weighted,233.85370566426207,28.013914422028588,9435.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low&r_cc<=-6.5%,P2,benefit_bps_day_weighted,213.9326250169831,29.181755285844392,8600.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low&r_cc<=-6.5%,P3,benefit_bps_day_weighted,190.89630385099161,15.427086737966468,3378.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low&r_cc<=-6.5%,P4,benefit_bps_day_weighted,97.79806777195563,4.552124832068803,1553.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low&r_cc<=-6.5%,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,31.64894075798783,0.8308936773410118,309.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_all_gap_down_nonfill_if_Close==Low&r_cc<=-6.5%,MAIN,share_of_events_flagged,0.09484536082474226,,,
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_assume_fill,MAIN,benefit_bps_day_weighted,212.8996064625108,11.138537045154248,864.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_assume_fill,P1,benefit_bps_day_weighted,209.81180665059915,6.806229252862596,288.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_assume_fill,P2,benefit_bps_day_weighted,188.18067679262683,6.5452898643590185,319.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_assume_fill,P3,benefit_bps_day_weighted,242.11003919835602,5.245110280919709,158.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_assume_fill,P4,benefit_bps_day_weighted,243.4902420090126,3.448286765834732,99.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_assume_fill,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,,,14.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low,MAIN,benefit_bps_day_weighted,209.81639863148808,9.929310409329583,846.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low,P1,benefit_bps_day_weighted,231.91874004805618,7.044124131318284,277.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low,P2,benefit_bps_day_weighted,200.61597953985927,6.840361720960335,313.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low,P3,benefit_bps_day_weighted,206.2660446417036,3.6016667175831074,157.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low,P4,benefit_bps_day_weighted,177.87189872155218,2.2445004873189367,99.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,,,14.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low,MAIN,share_of_events_flagged,0.1875,,,
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low&r_cc<=-6.5%,MAIN,benefit_bps_day_weighted,197.82327365949865,9.576214230660296,859.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low&r_cc<=-6.5%,P1,benefit_bps_day_weighted,215.26947920472512,6.81556892676496,284.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low&r_cc<=-6.5%,P2,benefit_bps_day_weighted,189.64909063370573,6.650329714629036,318.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low&r_cc<=-6.5%,P3,benefit_bps_day_weighted,194.7362395693451,3.436105766396104,158.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low&r_cc<=-6.5%,P4,benefit_bps_day_weighted,174.6825033871278,2.199684973612024,99.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low&r_cc<=-6.5%,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,,,14.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_cross_below_SMA30_nonfill_if_Close==Low&r_cc<=-6.5%,MAIN,share_of_events_flagged,0.07291666666666667,,,
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_assume_fill,MAIN,benefit_bps_day_weighted,143.65117722678696,6.70399183133672,1620.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_assume_fill,P1,benefit_bps_day_weighted,39.25168300951394,0.7486611443527287,300.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_assume_fill,P2,benefit_bps_day_weighted,88.76733590456168,2.83602316638971,680.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_assume_fill,P3,benefit_bps_day_weighted,142.70533202668628,3.379070158192584,372.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_assume_fill,P4,benefit_bps_day_weighted,292.6179341392998,6.765342290285569,268.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_assume_fill,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,,,24.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low,MAIN,benefit_bps_day_weighted,112.25413198450498,4.835796115336308,1616.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low,P1,benefit_bps_day_weighted,91.49054379956434,2.158472103880789,297.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low,P2,benefit_bps_day_weighted,37.80435040485787,0.9922307661095625,679.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low,P3,benefit_bps_day_weighted,97.76512552083933,1.8191079885008976,372.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low,P4,benefit_bps_day_weighted,226.33834269456906,4.42340248360354,268.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,,,24.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low,MAIN,share_of_events_flagged,0.19382716049382717,,,
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low&r_cc<=-6.5%,MAIN,benefit_bps_day_weighted,118.3336799017718,5.2684751413673885,1618.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low&r_cc<=-6.5%,P1,benefit_bps_day_weighted,89.93725099634528,2.157761910736869,298.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low&r_cc<=-6.5%,P2,benefit_bps_day_weighted,39.75878618907382,1.058899096905156,680.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low&r_cc<=-6.5%,P3,benefit_bps_day_weighted,105.654776339081,2.0853805391594227,372.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low&r_cc<=-6.5%,P4,benefit_bps_day_weighted,242.30848475126206,5.02045740914405,268.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low&r_cc<=-6.5%,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,,,24.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule2_sell_gapdown_at_Close_after_close_below_LLV10_nonfill_if_Close==Low&r_cc<=-6.5%,MAIN,share_of_events_flagged,0.14629629629629629,,,
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_assume_fill,MAIN,benefit_bps_day_weighted,102.89414898083088,18.246230616083768,18862.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_assume_fill,P1,benefit_bps_day_weighted,85.0040213833994,8.310677295850416,6171.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_assume_fill,P2,benefit_bps_day_weighted,79.51305994870896,8.501054844583066,6221.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_assume_fill,P3,benefit_bps_day_weighted,149.32509901188112,12.792762096703708,3867.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_assume_fill,P4,benefit_bps_day_weighted,122.4357852708387,8.185717537719826,2603.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_assume_fill,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,-15.896255589574373,-0.4366513820150163,525.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High,MAIN,benefit_bps_day_weighted,128.7692139187441,19.62638261040107,18106.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High,P1,benefit_bps_day_weighted,147.18243822479346,12.48027470252732,5798.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High,P2,benefit_bps_day_weighted,109.45024612189566,10.692236249707138,5950.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High,P3,benefit_bps_day_weighted,154.37657278053902,11.245151467045453,3761.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High,P4,benefit_bps_day_weighted,95.07004245129943,5.017886234966368,2597.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,-46.43108745115401,-1.0925272534348982,524.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High,MAIN,share_of_events_flagged,0.24334641077298272,,,
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High&r_cc>=+18%,MAIN,benefit_bps_day_weighted,101.80015799428234,16.782071908694434,18790.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High&r_cc>=+18%,P1,benefit_bps_day_weighted,92.70885605550393,8.96939439676302,6130.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High&r_cc>=+18%,P2,benefit_bps_day_weighted,81.10802542908438,8.509991906478502,6202.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High&r_cc>=+18%,P3,benefit_bps_day_weighted,142.3189816102617,10.80693835043159,3859.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High&r_cc>=+18%,P4,benefit_bps_day_weighted,106.54717778951171,5.796749414621116,2599.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High&r_cc>=+18%,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,-30.859869476928164,-0.7246555518821011,524.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_all_gap_up_nonfill_if_Close==High&r_cc>=+18%,MAIN,share_of_events_flagged,0.0204114091824833,,,
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_assume_fill,MAIN,benefit_bps_day_weighted,26.57622299369627,1.0340324262282448,869.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_assume_fill,P1,benefit_bps_day_weighted,-62.21639888282693,-1.1524536720613319,175.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_assume_fill,P2,benefit_bps_day_weighted,-6.187605313458811,-0.14494531618791687,231.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_assume_fill,P3,benefit_bps_day_weighted,121.23042315308778,2.3594209637159267,244.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_assume_fill,P4,benefit_bps_day_weighted,34.8647508837821,0.6333980617831143,219.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_assume_fill,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,-153.00015992147823,-1.2566015983934462,53.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High,MAIN,benefit_bps_day_weighted,-0.372451360302996,-0.012313351616140817,868.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High,P1,benefit_bps_day_weighted,-51.56662574981533,-0.9837698385355169,174.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High,P2,benefit_bps_day_weighted,-13.641167872610387,-0.29894151235645783,231.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High,P3,benefit_bps_day_weighted,80.36337392614031,1.2544742074145863,244.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High,P4,benefit_bps_day_weighted,-23.72998661043094,-0.3411299906498298,219.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,-250.16251254460096,-1.5395845510824389,53.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High,MAIN,share_of_events_flagged,0.09321058688147296,,,
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High&r_cc>=+18%,MAIN,benefit_bps_day_weighted,-1.3129378141413266,-0.043401808622111696,869.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High&r_cc>=+18%,P1,benefit_bps_day_weighted,-56.05926752332415,-1.0606931170732223,175.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High&r_cc>=+18%,P2,benefit_bps_day_weighted,-14.745623295387281,-0.3227413542640012,231.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High&r_cc>=+18%,P3,benefit_bps_day_weighted,80.24547068580242,1.2564921181149618,244.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High&r_cc>=+18%,P4,benefit_bps_day_weighted,-22.73011960012642,-0.3267901614815042,219.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High&r_cc>=+18%,post_auction_ext_2024-12-09..,benefit_bps_day_weighted,-250.16251254460096,-1.5395845510824389,53.0,non-fill days traded at the next Open instead of the Close
+C-b,b6_rules_with_limit_nonfill,rule1_buy_gapup_at_Close_after_breakout_HHV20_nonfill_if_Close==High&r_cc>=+18%,MAIN,share_of_events_flagged,0.03222094361334868,,,
+C-b,b7_rule1_as_skip,breakout_entry_gap_up_minus_no_gap,MAIN,abnormal_20d_from_entry_Open_diff_pct,1.238390148261349,1.3117992213360987,628.0,> 0: skipping gap-up breakout entries gives up better-than-average trades
+C-b,b7_rule1_as_skip,breakout_entry_gap_up_minus_no_gap,P1,abnormal_20d_from_entry_Open_diff_pct,1.155383763224943,0.6107566983305867,130.0,> 0: skipping gap-up breakout entries gives up better-than-average trades
+C-b,b7_rule1_as_skip,breakout_entry_gap_up_minus_no_gap,P2,abnormal_20d_from_entry_Open_diff_pct,0.10478529387714297,0.07913025686239569,162.0,> 0: skipping gap-up breakout entries gives up better-than-average trades
+C-b,b7_rule1_as_skip,breakout_entry_gap_up_minus_no_gap,P3,abnormal_20d_from_entry_Open_diff_pct,1.1285485038524161,0.7158781083192989,162.0,> 0: skipping gap-up breakout entries gives up better-than-average trades
+C-b,b7_rule1_as_skip,breakout_entry_gap_up_minus_no_gap,P4,abnormal_20d_from_entry_Open_diff_pct,2.521985884078492,1.0417835606336177,174.0,> 0: skipping gap-up breakout entries gives up better-than-average trades
+C-c,c5_break_month,overnight_EW_bps,2000-2025_breaks_2003..2022,break_month_yyyymm,200903.0,,,"mean before -31.067, after 9.717, F 162.9"
+C-c,c5_break_month,overnight_EW_bps,2008-2019_breaks_2009..2018,break_month_yyyymm,200903.0,,,"mean before -49.307, after 4.279, F 55.1"
+C-c,c5_break_month,intraday_EW_bps,2000-2025_breaks_2003..2022,break_month_yyyymm,201305.0,,,"mean before 28.441, after -12.604, F 169.8"
+C-c,c5_break_month,intraday_EW_bps,2008-2019_breaks_2009..2018,break_month_yyyymm,201305.0,,,"mean before 20.713, after -8.312, F 61.2"
+C-c,c5_break_month,close_location_share(C==H minus C==L),2000-2025_breaks_2003..2022,break_month_yyyymm,201302.0,,,"mean before 0.094, after -0.035, F 539.9"
+C-c,c5_break_month,close_location_share(C==H minus C==L),2008-2019_breaks_2009..2018,break_month_yyyymm,201302.0,,,"mean before 0.090, after -0.021, F 363.5"
+C-c,c5_break_month,open_location_share(O==H minus O==L),2000-2025_breaks_2003..2022,break_month_yyyymm,201010.0,,,"mean before 0.007, after 0.038, F 27.1"
+C-c,c5_break_month,open_location_share(O==H minus O==L),2008-2019_breaks_2009..2018,break_month_yyyymm,201010.0,,,"mean before 0.012, after 0.036, F 7.6"
+C-c,c6_event_windows_12m,overnight_EW_bps,2010-01-04 placebo,after_minus_before,-9.53804615822015,-1.0816243830795684,246.0,"before 6.963, after -2.575"
+C-c,c6_event_windows_12m,intraday_EW_bps,2010-01-04 placebo,after_minus_before,-5.988021812415553,-0.5638036803492763,246.0,"before 34.127, after 28.138"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2010-01-04 placebo,after_minus_before,0.04681795122859495,4.047338190894724,246.0,"before 0.047, after 0.094"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2010-01-04 placebo,after_minus_before,0.023832358320707615,1.1803389330381266,246.0,"before -0.002, after 0.022"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2010-01-04 placebo,after_minus_before,-11.026818520645095,-0.9378577562955706,246.0,"before 24.732, after 13.705"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2010-01-04 placebo,after_minus_before,-15.06984077437991,-1.6611370349962424,246.0,"before 16.974, after 1.904"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2010-01-04 placebo,after_minus_before,0.058994045808005845,4.642173664148643,246.0,"before 0.042, after 0.101"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2010-01-04 placebo,after_minus_before,8.918889849215766,0.751265160183204,246.0,"before 48.908, after 57.827"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2010-01-04 placebo,after_minus_before,3.3907737794379944,0.35839566210103274,246.0,"before -18.009, after -14.619"
+C-c,c6_event_windows_12m,close_location_share_rest,2010-01-04 placebo,after_minus_before,0.03423870202808335,1.5777906974978637,246.0,"before 0.045, after 0.079"
+C-c,c6_event_windows_12m,overnight_EW_bps,2011-01-03 placebo,after_minus_before,-13.4688053762048,-1.7660587338323588,248.0,"before -2.671, after -16.139"
+C-c,c6_event_windows_12m,intraday_EW_bps,2011-01-03 placebo,after_minus_before,-11.1805473798944,-1.2589840755663637,248.0,"before 28.118, after 16.938"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2011-01-03 placebo,after_minus_before,0.017194525916822995,1.5227711428387931,248.0,"before 0.094, after 0.111"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2011-01-03 placebo,after_minus_before,0.01642941594392054,0.8376322498358499,248.0,"before 0.022, after 0.038"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2011-01-03 placebo,after_minus_before,-3.491713732161795,-0.36066798681567885,248.0,"before 13.606, after 10.114"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2011-01-03 placebo,after_minus_before,-15.008272418155808,-1.8779815092440753,248.0,"before 1.702, after -13.306"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2011-01-03 placebo,after_minus_before,0.013570067605205849,1.0676915282215302,248.0,"before 0.101, after 0.114"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2011-01-03 placebo,after_minus_before,-29.677632255565594,-2.811003418164541,248.0,"before 58.099, after 28.422"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2011-01-03 placebo,after_minus_before,-6.265869127444995,-0.8132271658847421,248.0,"before -14.508, after -20.774"
+C-c,c6_event_windows_12m,close_location_share_rest,2011-01-03 placebo,after_minus_before,0.016495856026988956,1.0575383914155767,248.0,"before 0.079, after 0.096"
+C-c,c6_event_windows_12m,overnight_EW_bps,2012-01-02 placebo,after_minus_before,7.148382598965682,1.0828016037898731,246.0,"before -16.170, after -9.022"
+C-c,c6_event_windows_12m,intraday_EW_bps,2012-01-02 placebo,after_minus_before,-2.7018447449359613,-0.3581633171993254,246.0,"before 16.996, after 14.294"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2012-01-02 placebo,after_minus_before,0.007059266624275279,0.6412326126696296,246.0,"before 0.111, after 0.118"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2012-01-02 placebo,after_minus_before,0.01411021293990223,0.7773237316130541,246.0,"before 0.038, after 0.052"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2012-01-02 placebo,after_minus_before,-4.9719310470075975,-0.5755468118392716,246.0,"before 10.217, after 5.245"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2012-01-02 placebo,after_minus_before,10.451420033296976,1.4266680040905495,246.0,"before -13.292, after -2.841"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2012-01-02 placebo,after_minus_before,5.8013231954201494e-05,0.004366977872870758,246.0,"before 0.114, after 0.114"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2012-01-02 placebo,after_minus_before,-0.20988289119029702,-0.029038302809811085,246.0,"before 28.373, after 28.163"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2012-01-02 placebo,after_minus_before,0.01105464840166448,0.0018134348896648442,246.0,"before -20.915, after -20.904"
+C-c,c6_event_windows_12m,close_location_share_rest,2012-01-02 placebo,after_minus_before,0.025274586432742135,1.8429716797979994,246.0,"before 0.096, after 0.121"
+C-c,c6_event_windows_12m,overnight_EW_bps,2013-01-02 pre-closing call auction introduced,after_minus_before,12.1139933286685,2.4565999431367533,244.0,"before -9.022, after 3.092"
+C-c,c6_event_windows_12m,intraday_EW_bps,2013-01-02 pre-closing call auction introduced,after_minus_before,-19.503078479178747,-2.2996649643786817,244.0,"before 14.294, after -5.209"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2013-01-02 pre-closing call auction introduced,after_minus_before,-0.12189450713110166,-10.329115134014092,244.0,"before 0.118, after -0.004"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2013-01-02 pre-closing call auction introduced,after_minus_before,-0.03197487916608854,-1.822588667495568,244.0,"before 0.052, after 0.020"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2013-01-02 pre-closing call auction introduced,after_minus_before,-20.699281075861514,-2.051990043707755,244.0,"before 5.245, after -15.454"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2013-01-02 pre-closing call auction introduced,after_minus_before,12.213629081637173,2.1264398529465,244.0,"before -2.841, after 9.373"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2013-01-02 pre-closing call auction introduced,after_minus_before,-0.1325853632905812,-8.595875534880449,244.0,"before 0.114, after -0.018"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2013-01-02 pre-closing call auction introduced,after_minus_before,-18.980755018235996,-2.4809692570473216,244.0,"before 28.163, after 9.182"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2013-01-02 pre-closing call auction introduced,after_minus_before,15.372664181754079,3.0655292686637603,244.0,"before -20.904, after -5.531"
+C-c,c6_event_windows_12m,close_location_share_rest,2013-01-02 pre-closing call auction introduced,after_minus_before,-0.11030005868910686,-7.355134735632986,244.0,"before 0.121, after 0.011"
+C-c,c6_event_windows_12m,overnight_EW_bps,2014-01-06 lot 500->100 and new price fractions,after_minus_before,-1.5433399061193014,-0.3147158209733388,242.0,"before 2.792, after 1.249"
+C-c,c6_event_windows_12m,intraday_EW_bps,2014-01-06 lot 500->100 and new price fractions,after_minus_before,12.225934832771113,1.376635152956261,242.0,"before -6.098, after 6.128"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2014-01-06 lot 500->100 and new price fractions,after_minus_before,-0.0017738376545525548,-0.1443620596242819,242.0,"before -0.004, after -0.006"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2014-01-06 lot 500->100 and new price fractions,after_minus_before,-0.020910694263731315,-1.2652000195984865,242.0,"before 0.022, after 0.001"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2014-01-06 lot 500->100 and new price fractions,after_minus_before,20.404681430548337,1.922246511494789,242.0,"before -16.454, after 3.951"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2014-01-06 lot 500->100 and new price fractions,after_minus_before,-3.2896609222106727,-0.5501726652245252,242.0,"before 8.880, after 5.590"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2014-01-06 lot 500->100 and new price fractions,after_minus_before,0.007068766748901433,0.441645230420757,242.0,"before -0.019, after -0.012"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2014-01-06 lot 500->100 and new price fractions,after_minus_before,-1.7619670391884767,-0.22720874800198382,242.0,"before 8.296, after 6.534"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2014-01-06 lot 500->100 and new price fractions,after_minus_before,3.779588882777203,0.7802077893228424,242.0,"before -5.550, after -1.771"
+C-c,c6_event_windows_12m,close_location_share_rest,2014-01-06 lot 500->100 and new price fractions,after_minus_before,-0.012053854843739182,-0.8176303263301995,242.0,"before 0.010, after -0.002"
+C-c,c6_event_windows_12m,overnight_EW_bps,2015-01-02 placebo,after_minus_before,0.6447735613464787,0.14215296273634898,244.0,"before 1.105, after 1.749"
+C-c,c6_event_windows_12m,intraday_EW_bps,2015-01-02 placebo,after_minus_before,-21.444807407451577,-2.7297638438879144,244.0,"before 6.025, after -15.420"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2015-01-02 placebo,after_minus_before,-0.02963213071200877,-2.5995264176502744,244.0,"before -0.006, after -0.036"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2015-01-02 placebo,after_minus_before,0.03996733343990025,2.7813274082785884,244.0,"before 0.001, after 0.041"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2015-01-02 placebo,after_minus_before,-21.202304223565637,-2.3069198974246747,244.0,"before 3.939, after -17.263"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2015-01-02 placebo,after_minus_before,0.7514180879065151,0.12934120903096644,244.0,"before 5.470, after 6.221"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2015-01-02 placebo,after_minus_before,-0.02542253759653164,-1.7197593551710246,244.0,"before -0.011, after -0.036"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2015-01-02 placebo,after_minus_before,-19.513043503828932,-2.5728649474671537,244.0,"before 6.138, after -13.375"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2015-01-02 placebo,after_minus_before,-1.7355007262498519,-0.4246132288713121,244.0,"before -1.962, after -3.697"
+C-c,c6_event_windows_12m,close_location_share_rest,2015-01-02 placebo,after_minus_before,-0.03419284227127228,-2.651379042155646,244.0,"before -0.003, after -0.037"
+C-c,c6_event_windows_12m,overnight_EW_bps,2016-01-04 placebo,after_minus_before,9.251988945087437,2.219359924117362,247.0,"before 1.735, after 10.987"
+C-c,c6_event_windows_12m,intraday_EW_bps,2016-01-04 placebo,after_minus_before,15.883511824027886,1.9663075583268776,247.0,"before -15.703, after 0.180"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2016-01-04 placebo,after_minus_before,0.026801991969505813,2.5462538707869773,247.0,"before -0.036, after -0.009"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2016-01-04 placebo,after_minus_before,-0.015212984885034711,-1.1134463347322505,247.0,"before 0.041, after 0.026"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2016-01-04 placebo,after_minus_before,11.085231736781441,1.199586409410153,247.0,"before -17.656, after -6.570"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2016-01-04 placebo,after_minus_before,6.331785059323237,1.210809643395706,247.0,"before 6.156, after 12.488"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2016-01-04 placebo,after_minus_before,0.03379483847320104,2.3543141981673075,247.0,"before -0.037, after -0.003"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2016-01-04 placebo,after_minus_before,21.217030970686572,2.413536977034444,247.0,"before -13.521, after 7.696"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2016-01-04 placebo,after_minus_before,12.313948093716158,3.199527000579606,247.0,"before -3.661, after 8.653"
+C-c,c6_event_windows_12m,close_location_share_rest,2016-01-04 placebo,after_minus_before,0.022807846741842427,1.881556728498167,247.0,"before -0.038, after -0.015"
+C-c,c6_event_windows_12m,overnight_EW_bps,2017-01-02 placebo (post-closing session 2017),after_minus_before,1.7571870508326377,0.6629465173181306,238.0,"before 11.079, after 12.836"
+C-c,c6_event_windows_12m,intraday_EW_bps,2017-01-02 placebo (post-closing session 2017),after_minus_before,-5.649462893454943,-0.9427698433718815,238.0,"before 0.311, after -5.339"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2017-01-02 placebo (post-closing session 2017),after_minus_before,-0.011332543234375776,-1.0620526351438406,238.0,"before -0.009, after -0.021"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2017-01-02 placebo (post-closing session 2017),after_minus_before,0.012355572819470657,1.1376108595016106,238.0,"before 0.025, after 0.038"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2017-01-02 placebo (post-closing session 2017),after_minus_before,-5.578615962744421,-0.8235553269716352,238.0,"before -6.637, after -12.216"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2017-01-02 placebo (post-closing session 2017),after_minus_before,4.3083788721425815,1.2990525907255406,238.0,"before 12.625, after 16.934"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2017-01-02 placebo (post-closing session 2017),after_minus_before,-0.019093537978043,-1.2666656360658883,238.0,"before -0.003, after -0.022"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2017-01-02 placebo (post-closing session 2017),after_minus_before,-9.058517117744753,-1.198358739468114,238.0,"before 8.051, after -1.008"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2017-01-02 placebo (post-closing session 2017),after_minus_before,1.3817078381756982,0.49041687413384955,238.0,"before 8.691, after 10.073"
+C-c,c6_event_windows_12m,close_location_share_rest,2017-01-02 placebo (post-closing session 2017),after_minus_before,-0.004571536669999807,-0.42307831549460334,238.0,"before -0.015, after -0.020"
+C-c,c6_event_windows_12m,overnight_EW_bps,2021-12-06 random closing + IEP/IEV display,after_minus_before,-13.542268088817934,-3.7992735755845684,246.0,"before 30.426, after 16.884"
+C-c,c6_event_windows_12m,intraday_EW_bps,2021-12-06 random closing + IEP/IEV display,after_minus_before,10.702551467572563,1.4944404400912739,246.0,"before -23.816, after -13.114"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2021-12-06 random closing + IEP/IEV display,after_minus_before,-0.005109791709272941,-0.5332415801762319,246.0,"before -0.048, after -0.053"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2021-12-06 random closing + IEP/IEV display,after_minus_before,-0.0070736661673012485,-0.721602658014093,246.0,"before 0.043, after 0.036"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2021-12-06 random closing + IEP/IEV display,after_minus_before,14.080133442259967,1.7304308676926625,246.0,"before -28.508, after -14.428"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2021-12-06 random closing + IEP/IEV display,after_minus_before,-13.568528880160224,-3.022605458497657,246.0,"before 28.736, after 15.168"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2021-12-06 random closing + IEP/IEV display,after_minus_before,0.0031202950918398087,0.24214429036931084,246.0,"before -0.048, after -0.044"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2021-12-06 random closing + IEP/IEV display,after_minus_before,6.671453507199747,0.8992238461251045,246.0,"before -19.290, after -12.618"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2021-12-06 random closing + IEP/IEV display,after_minus_before,-14.044688621818857,-4.650264647103314,246.0,"before 31.848, after 17.804"
+C-c,c6_event_windows_12m,close_location_share_rest,2021-12-06 random closing + IEP/IEV display,after_minus_before,-0.010711081277888966,-1.0814026447191127,246.0,"before -0.049, after -0.060"
+C-c,c6_event_windows_12m,overnight_EW_bps,2024-12-09 auctions extended beyond LQ45,after_minus_before,4.336802775041239,0.7462258008019523,157.0,"before 19.295, after 23.632"
+C-c,c6_event_windows_12m,intraday_EW_bps,2024-12-09 auctions extended beyond LQ45,after_minus_before,-7.0251503472876315,-0.6339699639015394,157.0,"before -16.922, after -23.947"
+C-c,c6_event_windows_12m,close_location_share(C==H minus C==L),2024-12-09 auctions extended beyond LQ45,after_minus_before,-0.0069030316204943265,-0.5782823795869529,157.0,"before -0.050, after -0.057"
+C-c,c6_event_windows_12m,open_location_share(O==H minus O==L),2024-12-09 auctions extended beyond LQ45,after_minus_before,-1.5633591264753444e-05,-0.0008724950401656513,157.0,"before 0.045, after 0.045"
+C-c,c6_event_windows_12m,intraday_EW_bps_LQ45proxy_top40,2024-12-09 auctions extended beyond LQ45,after_minus_before,-6.893806324974907,-0.5514363747902186,157.0,"before -18.392, after -25.286"
+C-c,c6_event_windows_12m,overnight_EW_bps_LQ45proxy_top40,2024-12-09 auctions extended beyond LQ45,after_minus_before,5.748063070179704,0.8507666075363688,157.0,"before 19.459, after 25.207"
+C-c,c6_event_windows_12m,close_location_share_LQ45proxy_top40,2024-12-09 auctions extended beyond LQ45,after_minus_before,-0.01394969509241343,-0.8252651072536655,157.0,"before -0.050, after -0.064"
+C-c,c6_event_windows_12m,intraday_EW_bps_rest,2024-12-09 auctions extended beyond LQ45,after_minus_before,-7.110803821216534,-0.6557584877374759,157.0,"before -15.945, after -23.055"
+C-c,c6_event_windows_12m,overnight_EW_bps_rest,2024-12-09 auctions extended beyond LQ45,after_minus_before,3.333338068722533,0.6160187236189645,157.0,"before 19.251, after 22.584"
+C-c,c6_event_windows_12m,close_location_share_rest,2024-12-09 auctions extended beyond LQ45,after_minus_before,-0.002438017504861098,-0.23368169583832746,157.0,"before -0.050, after -0.053"
+C-c,c7_overnight_composition,|r_on|<=2%,MAIN,contribution_bps_per_day,8.112042099895902,19.611184159879375,6221.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on>+2%,MAIN,contribution_bps_per_day,22.770422266011884,31.190125128941446,6221.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on<-2%,MAIN,contribution_bps_per_day,-35.267266516170736,-25.683531654691325,6221.0,the three parts sum to B1
+C-c,c7_overnight_composition,share(r_on>0)-share(r_on<0),MAIN,share_difference,0.08512454673242185,14.423779953431826,6221.0,
+C-c,c7_overnight_composition,close_location_share(C==H minus C==L),MAIN,share_difference,0.0313099207734469,10.748654407242203,6221.0,
+C-c,c7_overnight_composition,|r_on|<=2%,P1,contribution_bps_per_day,0.6784704243119193,1.2606030915161108,1947.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on>+2%,P1,contribution_bps_per_day,39.9502873312057,27.441702238314203,1947.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on<-2%,P1,contribution_bps_per_day,-68.31381038168746,-26.753907724181346,1947.0,the three parts sum to B1
+C-c,c7_overnight_composition,share(r_on>0)-share(r_on<0),P1,share_difference,-0.039074269288583104,-5.027159666247648,1947.0,
+C-c,c7_overnight_composition,close_location_share(C==H minus C==L),P1,share_difference,0.09664084382322201,19.430161653697294,1947.0,
+C-c,c7_overnight_composition,|r_on|<=2%,P2,contribution_bps_per_day,5.00244046022058,6.43359744002751,1951.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on>+2%,P2,contribution_bps_per_day,19.53177272475626,15.511727511201403,1951.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on<-2%,P2,contribution_bps_per_day,-31.95106395170592,-12.889098897714328,1951.0,the three parts sum to B1
+C-c,c7_overnight_composition,share(r_on>0)-share(r_on<0),P2,share_difference,0.04142530136531394,4.116497264590108,1951.0,
+C-c,c7_overnight_composition,close_location_share(C==H minus C==L),P2,share_difference,0.051214382214353496,11.777142557654484,1951.0,
+C-c,c7_overnight_composition,|r_on|<=2%,P3,contribution_bps_per_day,15.554904949285845,20.191176768114172,1211.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on>+2%,P3,contribution_bps_per_day,13.560669169012302,21.59403897913138,1211.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on<-2%,P3,contribution_bps_per_day,-13.923001486725031,-11.937505778142688,1211.0,the three parts sum to B1
+C-c,c7_overnight_composition,share(r_on>0)-share(r_on<0),P3,share_difference,0.19832223379374428,19.06432185846737,1211.0,
+C-c,c7_overnight_composition,close_location_share(C==H minus C==L),P3,share_difference,-0.029401627457851694,-7.658151613948651,1211.0,
+C-c,c7_overnight_composition,|r_on|<=2%,P4,contribution_bps_per_day,18.47777046388631,29.960026198214408,1112.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on>+2%,P4,contribution_bps_per_day,8.402094004792316,14.52634645313934,1112.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on<-2%,P4,contribution_bps_per_day,-6.468880947617262,-6.687900202191713,1112.0,the three parts sum to B1
+C-c,c7_overnight_composition,share(r_on>0)-share(r_on<0),P4,share_difference,0.2559787944598164,31.033606297509728,1112.0,
+C-c,c7_overnight_composition,close_location_share(C==H minus C==L),P4,share_difference,-0.05188362827423141,-15.731818316206704,1112.0,
+C-c,c7_overnight_composition,|r_on|<=2%,2016-2025,contribution_bps_per_day,16.954055380726103,33.63066988434509,2323.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on>+2%,2016-2025,contribution_bps_per_day,11.091303873010311,24.64796957664504,2323.0,the three parts sum to B1
+C-c,c7_overnight_composition,r_on<-2%,2016-2025,contribution_bps_per_day,-10.354778482210248,-13.153327645383303,2323.0,the three parts sum to B1
+C-c,c7_overnight_composition,share(r_on>0)-share(r_on<0),2016-2025,share_difference,0.22592193050518303,32.90009119348307,2323.0,
+C-c,c7_overnight_composition,close_location_share(C==H minus C==L),2016-2025,share_difference,-0.040163566720793686,-15.392557938138658,2323.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2000,bps_per_day,-21.34502638301564,-5.777229346233136,239.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2000,bps_per_day,5.518725290926319,1.056729145291572,239.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2000,bps_per_day,-15.163118160241103,-2.4920658119672656,239.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2001,bps_per_day,-23.851120926152667,-5.894730466216576,246.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2001,bps_per_day,7.775246909766472,1.3583348640865416,246.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2001,bps_per_day,-14.401367447108427,-2.180980646943701,246.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2002,bps_per_day,-23.949970058710758,-5.99033154433311,244.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2002,bps_per_day,12.123302772190266,2.533663812477423,244.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2002,bps_per_day,-10.386508895839743,-1.7344564584711955,244.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2003,bps_per_day,-32.464054112738665,-8.457645923010062,241.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2003,bps_per_day,17.866825277248722,3.789278578062558,241.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2003,bps_per_day,-13.324831271808455,-2.312659267221596,241.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2004,bps_per_day,-28.019666002718182,-6.888504888519967,245.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2004,bps_per_day,17.41788566359374,3.7870417246401225,245.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2004,bps_per_day,-10.08421314015576,-2.8627580210145513,245.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2005,bps_per_day,-5.595024624103148,-2.4458710044404475,243.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2005,bps_per_day,14.150799453813828,2.685726478492703,243.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2005,bps_per_day,8.267692732967838,1.646658515190546,243.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2006,bps_per_day,-12.396264670075368,-5.616584244513866,243.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2006,bps_per_day,12.070444383163931,3.515705785411221,243.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2006,bps_per_day,-0.4167757218292918,-0.10609586383421629,243.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2007,bps_per_day,-2.010920028699592,-0.6138827121556818,246.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2007,bps_per_day,9.360619706562025,2.4996842413187306,246.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2007,bps_per_day,7.287253485839195,1.5614329359815105,246.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2008,bps_per_day,23.925929737050577,2.1182745206318288,241.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2008,bps_per_day,21.429967526832193,2.6521814503897114,241.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2008,bps_per_day,43.66895581615103,3.4091110420467707,241.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2009,bps_per_day,-6.6886186412108835,-0.9903109566391147,242.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2009,bps_per_day,8.771536416511097,0.810849045544381,242.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2009,bps_per_day,-4.957896193182789,-0.8222895233893472,242.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2010,bps_per_day,-3.481561441334239,-1.5682784885660583,245.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2010,bps_per_day,10.437095702867824,2.884894932737693,245.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2010,bps_per_day,6.900262755042164,1.5822059178221752,245.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2011,bps_per_day,-2.027218661152044,-0.5809234184634346,247.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2011,bps_per_day,2.8847060986404705,0.7609383231034372,247.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2011,bps_per_day,0.8916700337340554,0.16303035997677648,247.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2012,bps_per_day,-3.6480533051963517,-2.7835006049013717,246.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2012,bps_per_day,2.365006666920359,0.9668827434217879,246.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2012,bps_per_day,-1.2149000983548197,-0.4455506307293014,246.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2013,bps_per_day,-4.156038340091043,-2.071373825192475,244.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2013,bps_per_day,15.103475674199277,3.465596566402372,244.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2013,bps_per_day,10.680950066861687,2.2367798274985655,244.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2014,bps_per_day,-5.505728351959654,-3.397403503318811,242.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2014,bps_per_day,10.649983302107435,4.360415331708231,242.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2014,bps_per_day,5.151417230274311,2.149614300805076,242.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2015,bps_per_day,-2.8443925521539444,-1.3499828242484748,244.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2015,bps_per_day,13.799443869953596,4.674959217507911,244.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2015,bps_per_day,10.706404917077768,2.896280195682523,244.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2016,bps_per_day,-2.0615816052420954,-1.464139589430188,246.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2016,bps_per_day,3.68232564886039,1.5450431002737166,246.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2016,bps_per_day,1.6243748140189014,0.6238545934520564,246.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2017,bps_per_day,-5.634785942493263,-5.622656534664811,238.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2017,bps_per_day,5.621803357949207,2.497246788597242,238.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2017,bps_per_day,-0.017416619832520477,-0.008360119250185696,238.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2018,bps_per_day,-2.855057229524378,-1.964203964311751,240.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2018,bps_per_day,5.780047584142412,1.523659634373915,240.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2018,bps_per_day,2.9168768580160984,0.7882563398030253,240.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2019,bps_per_day,-1.162058483934798,-0.9447741591465909,245.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2019,bps_per_day,3.136589845860926,1.261719624029084,245.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2019,bps_per_day,1.9590571756118147,0.7972833940537098,245.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2020,bps_per_day,14.632559171460894,3.0575934155701145,242.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2020,bps_per_day,-1.4977693456991439,-0.2746256541564531,242.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2020,bps_per_day,13.023480538330194,1.5175076911060625,242.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2021,bps_per_day,6.295091023157046,5.207562513960891,247.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2021,bps_per_day,-6.5052804729991065,-2.5471371317460294,247.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2021,bps_per_day,-0.21069242230529284,-0.07322632037504934,247.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2022,bps_per_day,7.02016321819861,4.93026722273205,246.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2022,bps_per_day,-9.39398969785883,-3.296522430735148,246.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2022,bps_per_day,-2.3731713253909716,-0.8006493126185564,246.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2023,bps_per_day,3.5494909124465455,4.593112582938522,239.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2023,bps_per_day,-7.82230643332647,-3.4097090559467005,239.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2023,bps_per_day,-4.272836292600465,-1.7071403859917116,239.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2024,bps_per_day,1.1586941421025827,1.9221578272039652,237.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2024,bps_per_day,-5.874424863033084,-2.3068927651061815,237.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2024,bps_per_day,-4.715730720930505,-1.8421071973157752,237.0,
+C-d,d5_tsmom1_legs_by_year,overnight_r_on[t+1],2025,bps_per_day,2.9284922794418993,1.5280563782617624,142.0,
+C-d,d5_tsmom1_legs_by_year,A1.1_open_to_close_fo[1],2025,bps_per_day,-6.084847680852645,-1.3185899119187814,142.0,
+C-d,d5_tsmom1_legs_by_year,close_to_close_fc[1],2025,bps_per_day,-3.1553376912473627,-0.6694926082497048,142.0,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,1995,share,0.19867175356789601,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,1995,share,0.31591951994352274,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,1995,autocorrelation,0.21882269147309275,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,1996,share,0.12400920480695474,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,1996,share,0.3376642335766423,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,1996,autocorrelation,0.20257561424787157,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,1997,share,0.08237271853986551,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,1997,share,0.28534031413612565,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,1997,autocorrelation,0.381651124194924,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,1998,share,0.11758725855642155,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,1998,share,0.3442052339822096,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,1998,autocorrelation,0.17029021402060793,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,1999,share,0.0817652329749104,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,1999,share,0.3176917422200441,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,1999,autocorrelation,0.20328481199485018,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2000,share,0.08733524355300859,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2000,share,0.3190901093376901,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2000,autocorrelation,-0.05715670383094588,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2001,share,0.16519638731358957,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2001,share,0.36079617031997985,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2001,autocorrelation,0.1968186290485819,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2002,share,0.18839258584017016,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2002,share,0.33883058470764615,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2002,autocorrelation,0.2266397132130859,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2003,share,0.14465648854961832,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2003,share,0.3539526574363555,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2003,autocorrelation,0.1617518831891416,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2004,share,0.11297509829619921,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2004,share,0.3630271974773354,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2004,autocorrelation,0.09420238742244702,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2005,share,0.12523540489642185,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2005,share,0.28259592795614724,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2005,autocorrelation,0.11353008887979574,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2006,share,0.13286302175191064,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2006,share,0.2709221232080589,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2006,autocorrelation,0.0008718593082681676,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2007,share,0.09948584020239941,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2007,share,0.2086128739800544,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2007,autocorrelation,-0.036410336305551225,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2008,share,0.107546182035749,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2008,share,0.1851945003353454,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2008,autocorrelation,0.23260087847603964,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2009,share,0.12240826505165657,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2009,share,0.18855054811205846,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2009,autocorrelation,0.044338676154262784,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2010,share,0.043751226211496956,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2010,share,0.1884494320514575,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2010,autocorrelation,0.015242887849423148,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2011,share,0.03545187362233652,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2011,share,0.18976572916005333,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2011,autocorrelation,0.02148571038401957,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2012,share,0.033032501622131775,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2012,share,0.21345778428501708,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2012,autocorrelation,-0.04576042678568691,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2013,share,0.036072953942052406,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2013,share,0.18262952979934113,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2013,autocorrelation,0.16560968736009746,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2014,share,0.03685950413223141,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2014,share,0.1393512956924661,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2014,autocorrelation,0.0861810831587778,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2015,share,0.05452423888829957,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2015,share,0.1394826909050104,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2015,autocorrelation,0.1540107166707327,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2016,share,0.04936174593370393,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2016,share,0.15556638509854884,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2016,autocorrelation,0.07222793245902671,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2017,share,0.031449865214863364,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2017,share,0.15876221142825955,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2017,autocorrelation,0.049292526471678824,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2018,share,0.010582010582010581,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2018,share,0.12801833927661743,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2018,autocorrelation,0.07717369932013059,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2019,share,0.011764705882352941,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2019,share,0.1480077745383868,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2019,autocorrelation,0.12100676035655117,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2020,share,0.008507121676146031,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2020,share,0.12429517038489826,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2020,autocorrelation,0.10977217558578518,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2021,share,0.0009808958849082162,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2021,share,0.11036288814066592,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2021,autocorrelation,0.007060997559587633,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2022,share,0.0005317970307999113,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2022,share,0.12287703427785908,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2022,autocorrelation,-0.016134296255031138,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2023,share,4.302925989672978e-05,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2023,share,0.12169084413068744,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2023,autocorrelation,-0.07201942033455241,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2024,share,0.0,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2024,share,0.12274261603375528,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2024,autocorrelation,0.023069197367384737,,,
+C-d,d6_stale_prices_by_year,non_tradable_share_of_listed_days,2025,share,0.00034965034965034965,,,
+C-d,d6_stale_prices_by_year,zero_close_to_close_return_share,2025,share,0.1111577474641483,,,
+C-d,d6_stale_prices_by_year,EW_idx_AC1,2025,autocorrelation,0.010885676298864815,,,
+C-d,d7_liquid_subset,EW_idx_LQ45proxy_top40,MAIN,AC1_slope,0.0876886049542089,4.257791382237935,6220.0,
+C-d,d7_liquid_subset,EW_idx_rest,MAIN,AC1_slope,-0.028496997611752357,-0.4316645540054803,5115.0,
+C-d,d7_liquid_subset,EW_idx_LQ45proxy_top40,P1,AC1_slope,0.09300198121674429,3.2818251605428115,1947.0,
+C-d,d7_liquid_subset,EW_idx_rest,P1,AC1_slope,-0.12252700768317483,-1.1978152873306673,846.0,
+C-d,d7_liquid_subset,EW_idx_LQ45proxy_top40,P2,AC1_slope,0.1214548752576841,2.9843319659188055,1951.0,
+C-d,d7_liquid_subset,EW_idx_rest,P2,AC1_slope,0.11725807458668952,2.766792630095084,1947.0,
+C-d,d7_liquid_subset,EW_idx_LQ45proxy_top40,P3,AC1_slope,0.06225605909711653,1.5905919804990118,1211.0,
+C-d,d7_liquid_subset,EW_idx_rest,P3,AC1_slope,0.12468538704974169,2.6222121972286185,1211.0,
+C-d,d7_liquid_subset,EW_idx_LQ45proxy_top40,P4,AC1_slope,-0.036466701165642004,-0.9986392131355164,1111.0,
+C-d,d7_liquid_subset,EW_idx_rest,P4,AC1_slope,0.025362143276534726,0.9140867667414561,1111.0,
+C-d,d7_liquid_subset,EW_idx_LQ45proxy_top40,2016-2019,AC1_slope,0.058014177116667794,1.5979942711623005,969.0,
+C-d,d7_liquid_subset,EW_idx_rest,2016-2019,AC1_slope,0.09756812060266044,3.032832636984028,969.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_open_to_close_LQ45proxy_top40",MAIN,bps,5.658497448835047,5.512362119072904,6220.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_open_to_close_LQ45proxy_top40",P1,bps,12.007168104021753,7.070286406560326,1947.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_open_to_close_LQ45proxy_top40",P2,bps,10.602653693637569,4.853842578689657,1951.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_open_to_close_LQ45proxy_top40",P3,bps,1.1631719381973407,0.5892213726845618,1211.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_open_to_close_LQ45proxy_top40",P4,bps,-9.249757641962413,-5.4280190983975105,1111.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_close_to_close_LQ45proxy_top40",MAIN,bps,2.2095748412264924,1.8308319529245896,6220.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_close_to_close_LQ45proxy_top40",P1,bps,-5.508423163633383,-2.7486865895134396,1947.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_close_to_close_LQ45proxy_top40",P2,bps,12.987739139769012,4.999998896541038,1951.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_close_to_close_LQ45proxy_top40",P3,bps,3.8454058641396203,1.5497350060898438,1211.0,
+C-d,d7_liquid_subset,"TSMOM(1,1)_close_to_close_LQ45proxy_top40",P4,bps,-4.975166652690765,-2.7561411165680534,1111.0,
+C-d,d7_liquid_subset,"TSMOM(20,20)_LQ45proxy_top40",MAIN,pct_per_window,1.039879758211318,4.980393755475097,6201.0,
+C-d,d7_liquid_subset,"TSMOM(20,20)_LQ45proxy_top40",P1,pct_per_window,1.683567793723835,4.742879003568734,1947.0,
+C-d,d7_liquid_subset,"TSMOM(20,20)_LQ45proxy_top40",P2,pct_per_window,1.128842226577242,2.522833913353108,1951.0,
+C-d,d7_liquid_subset,"TSMOM(20,20)_LQ45proxy_top40",P3,pct_per_window,0.6892901183058769,1.4902316750484972,1211.0,
+C-d,d7_liquid_subset,"TSMOM(20,20)_LQ45proxy_top40",P4,pct_per_window,0.12205711443906656,0.4648143604755657,1092.0,
+C-e,e5_monday_by_liquidity,close_close_liqL,MAIN,bps_per_day,-24.72870656138689,-4.954160604488256,6220.0,
+C-e,e5_monday_by_liquidity,close_close_liqL,P1,bps_per_day,-54.75531217008573,-4.439790279780778,1947.0,
+C-e,e5_monday_by_liquidity,close_close_liqL,P2,bps_per_day,-26.101583886327433,-3.303200759542998,1950.0,
+C-e,e5_monday_by_liquidity,close_close_liqL,P3,bps_per_day,-6.1381262230158375,-0.8847233145718973,1211.0,
+C-e,e5_monday_by_liquidity,close_close_liqL,P4,bps_per_day,8.948094720013408,1.2081161337605528,1112.0,
+C-e,e5_monday_by_liquidity,overnight_liqL,MAIN,bps_per_day,-9.798301385657977,-2.915229250055386,6220.0,
+C-e,e5_monday_by_liquidity,overnight_liqL,P1,bps_per_day,-26.11321812644673,-2.836111119678841,1947.0,
+C-e,e5_monday_by_liquidity,overnight_liqL,P2,bps_per_day,-6.410667529686321,-1.257957186530085,1950.0,
+C-e,e5_monday_by_liquidity,overnight_liqL,P3,bps_per_day,-1.360253795754064,-0.5511576288232619,1211.0,
+C-e,e5_monday_by_liquidity,overnight_liqL,P4,bps_per_day,1.617053637590606,0.9024800631318244,1112.0,
+C-e,e5_monday_by_liquidity,intraday_liqL,MAIN,bps_per_day,-14.930405175728968,-4.108988429438096,6220.0,
+C-e,e5_monday_by_liquidity,intraday_liqL,P1,bps_per_day,-28.642094043638956,-3.4306134832327224,1947.0,
+C-e,e5_monday_by_liquidity,intraday_liqL,P2,bps_per_day,-19.69091635664111,-3.378209074983712,1950.0,
+C-e,e5_monday_by_liquidity,intraday_liqL,P3,bps_per_day,-4.777872427261741,-0.8190752077154476,1211.0,
+C-e,e5_monday_by_liquidity,intraday_liqL,P4,bps_per_day,7.331041082422829,1.0369339320947066,1112.0,
+C-e,e5_monday_by_liquidity,close_close_liqM,MAIN,bps_per_day,-30.81761943690574,-5.611994115375615,6220.0,
+C-e,e5_monday_by_liquidity,close_close_liqM,P1,bps_per_day,-50.46075768050992,-4.437852590652321,1947.0,
+C-e,e5_monday_by_liquidity,close_close_liqM,P2,bps_per_day,-40.99817454314561,-4.277138136325307,1950.0,
+C-e,e5_monday_by_liquidity,close_close_liqM,P3,bps_per_day,-14.77266685516863,-1.213475881124189,1211.0,
+C-e,e5_monday_by_liquidity,close_close_liqM,P4,bps_per_day,3.855000060599942,0.4350949447524246,1112.0,
+C-e,e5_monday_by_liquidity,overnight_liqM,MAIN,bps_per_day,-5.254419657551323,-1.7881278955679005,6220.0,
+C-e,e5_monday_by_liquidity,overnight_liqM,P1,bps_per_day,-13.273867546593568,-1.8347634377303377,1947.0,
+C-e,e5_monday_by_liquidity,overnight_liqM,P2,bps_per_day,-5.392697483291392,-1.030381277205874,1950.0,
+C-e,e5_monday_by_liquidity,overnight_liqM,P3,bps_per_day,1.125109259047787,0.28503219247048517,1211.0,
+C-e,e5_monday_by_liquidity,overnight_liqM,P4,bps_per_day,0.6926519519824008,0.27735118760290234,1112.0,
+C-e,e5_monday_by_liquidity,intraday_liqM,MAIN,bps_per_day,-25.56319977935436,-5.680684378791451,6220.0,
+C-e,e5_monday_by_liquidity,intraday_liqM,P1,bps_per_day,-37.18689013391635,-4.261884296309838,1947.0,
+C-e,e5_monday_by_liquidity,intraday_liqM,P2,bps_per_day,-35.605477059854195,-4.4017624975286065,1950.0,
+C-e,e5_monday_by_liquidity,intraday_liqM,P3,bps_per_day,-15.89777611421643,-1.5597804647271016,1211.0,
+C-e,e5_monday_by_liquidity,intraday_liqM,P4,bps_per_day,3.162348108617518,0.3831364719590307,1112.0,
+C-e,e5_monday_by_liquidity,close_close_liqH,MAIN,bps_per_day,-26.352096092780332,-4.316837115136687,6218.0,
+C-e,e5_monday_by_liquidity,close_close_liqH,P1,bps_per_day,-37.772318071550565,-3.026467304607475,1946.0,
+C-e,e5_monday_by_liquidity,close_close_liqH,P2,bps_per_day,-32.86814662887667,-2.8152584053160887,1949.0,
+C-e,e5_monday_by_liquidity,close_close_liqH,P3,bps_per_day,-16.937753447062462,-1.4098641397030167,1211.0,
+C-e,e5_monday_by_liquidity,close_close_liqH,P4,bps_per_day,-5.2405512948892135,-0.5417826617186507,1112.0,
+C-e,e5_monday_by_liquidity,overnight_liqH,MAIN,bps_per_day,-4.49979996272322,-1.4929539960338485,6218.0,
+C-e,e5_monday_by_liquidity,overnight_liqH,P1,bps_per_day,-7.130820978232585,-1.044405336040512,1946.0,
+C-e,e5_monday_by_liquidity,overnight_liqH,P2,bps_per_day,-8.356792876325043,-1.4036021714243851,1949.0,
+C-e,e5_monday_by_liquidity,overnight_liqH,P3,bps_per_day,2.7010666882397456,0.6361002959573149,1211.0,
+C-e,e5_monday_by_liquidity,overnight_liqH,P4,bps_per_day,-1.5185323089434835,-0.4531264806271797,1112.0,
+C-e,e5_monday_by_liquidity,intraday_liqH,MAIN,bps_per_day,-21.85229613005705,-4.3685171679964805,6218.0,
+C-e,e5_monday_by_liquidity,intraday_liqH,P1,bps_per_day,-30.64149709331797,-3.042130191912486,1946.0,
+C-e,e5_monday_by_liquidity,intraday_liqH,P2,bps_per_day,-24.51135375255164,-2.5613620143237266,1949.0,
+C-e,e5_monday_by_liquidity,intraday_liqH,P3,bps_per_day,-19.638820135302208,-2.033120589239867,1211.0,
+C-e,e5_monday_by_liquidity,intraday_liqH,P4,bps_per_day,-3.722018985945729,-0.42350728076744076,1112.0,
+C-f,f4_pseudo_membership_contrasts,D10_log_traded_value_top0.50,pooled_4_windows,pre_members_hl_minus_post_members_hl_pct,-1.6365402746320095,-2.8026839148837963,233.0,same stocks: look-ahead membership (pre) vs membership known (post)
+C-f,f4_pseudo_membership_contrasts,D10_log_traded_value_top0.50,pooled_4_windows,post_members_hl_minus_post_all_hl_paired_pct,1.3482883250517932,4.001975793931741,233.0,"same months, members-at-Y vs whole panel"
+C-f,f4_pseudo_membership_contrasts,D10_log_traded_value_top0.33,pooled_4_windows,pre_members_hl_minus_post_members_hl_pct,-2.282816480113238,-3.686492623495176,220.0,same stocks: look-ahead membership (pre) vs membership known (post)
+C-f,f4_pseudo_membership_contrasts,D10_log_traded_value_top0.33,pooled_4_windows,post_members_hl_minus_post_all_hl_paired_pct,1.9846395527764258,4.609217245032544,233.0,"same months, members-at-Y vs whole panel"
+C-f,f4_pseudo_membership_contrasts,D9_amihud_top0.50,pooled_4_windows,pre_members_hl_minus_post_members_hl_pct,1.4042435742133548,2.3295694973336754,233.0,same stocks: look-ahead membership (pre) vs membership known (post)
+C-f,f4_pseudo_membership_contrasts,D9_amihud_top0.50,pooled_4_windows,post_members_hl_minus_post_all_hl_paired_pct,-1.5468908474078962,-4.27866326918478,233.0,"same months, members-at-Y vs whole panel"
+C-f,f4_pseudo_membership_contrasts,D9_amihud_top0.33,pooled_4_windows,pre_members_hl_minus_post_members_hl_pct,2.7395493947725362,4.566846654819388,220.0,same stocks: look-ahead membership (pre) vs membership known (post)
+C-f,f4_pseudo_membership_contrasts,D9_amihud_top0.33,pooled_4_windows,post_members_hl_minus_post_all_hl_paired_pct,-2.1566849501340344,-4.793036498694687,233.0,"same months, members-at-Y vs whole panel"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_ex,2000-2023,pct_per_month,0.816043272391513,4.062663298232857,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_ex,2000-2010,pct_per_month,0.8168219331515068,2.2052197495087325,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_ex,2011-2023,pct_per_month,0.815403842363439,4.00895695821645,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_up,2000-2023,pct_per_month,1.4791278533871843,4.15293525174464,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_up,2000-2010,pct_per_month,1.5555920546283586,2.4875896718627115,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_up,2011-2023,pct_per_month,1.4163360589904583,3.5781255857050147,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_dn,2000-2023,pct_per_month,0.24982200396617,1.0250344418521367,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_dn,2000-2010,pct_per_month,0.22024347138157058,0.48781654845896755,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_dn,2011-2023,pct_per_month,0.27411165986345704,1.1165449863908037,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_up_minus_dn,2000-2023,pct_per_month,1.2293058494210138,2.743864052086841,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_up_minus_dn,2000-2010,pct_per_month,1.3353485832467882,1.7236417899436094,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_bottom_tercile_up_minus_dn,2011-2023,pct_per_month,1.1422243991270011,2.2324083326666213,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_ex,2000-2023,pct_per_month,-0.2948969378745455,-1.6620159329774884,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_ex,2000-2010,pct_per_month,-0.06783511911050634,-0.21864263628247474,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_ex,2011-2023,pct_per_month,-0.4813582989787895,-2.4724063144604784,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_up,2000-2023,pct_per_month,0.5715392543187716,2.107293300269985,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_up,2000-2010,pct_per_month,0.961223418608631,1.982813624692632,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_up,2011-2023,pct_per_month,0.25153371543173486,0.8845920526136877,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_dn,2000-2023,pct_per_month,-1.0894126869190959,-4.42850912561745,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_dn,2000-2010,pct_per_month,-0.9817840260277998,-2.152527047438164,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_dn,2011-2023,pct_per_month,-1.1777964879159217,-4.7995335190513275,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_up_minus_dn,2000-2023,pct_per_month,1.6609519412378675,4.484150335035576,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_up_minus_dn,2000-2010,pct_per_month,1.9430074446364305,2.807856311742126,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_middle_tercile_up_minus_dn,2011-2023,pct_per_month,1.4293302033476567,3.9631917485038746,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_ex,2000-2023,pct_per_month,-0.5509953414336607,-3.0479079102036866,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_ex,2000-2010,pct_per_month,-0.7839459873203548,-2.53025747610851,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_ex,2011-2023,pct_per_month,-0.3596981222949185,-1.75518076718014,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_up,2000-2023,pct_per_month,0.29785647689517464,1.2536273578459407,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_up,2000-2010,pct_per_month,0.36688557815486705,0.8308380987254953,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_up,2011-2023,pct_per_month,0.24117032751635425,1.0213734521220712,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_dn,2000-2023,pct_per_month,-1.2931234387277166,-5.5133301956839755,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_dn,2000-2010,pct_per_month,-1.7493913347730121,-4.545565946336567,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_dn,2011-2023,pct_per_month,-0.9184398684653544,-3.325533752973386,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_up_minus_dn,2000-2023,pct_per_month,1.5909799156228914,5.274168786214848,275.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_up_minus_dn,2000-2010,pct_per_month,2.11627691292788,3.9125078070893173,124.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f5_future_liquidity_risers,liquidity_top_tercile_up_minus_dn,2011-2023,pct_per_month,1.1596101959817084,3.732403344621443,151.0,"up/dn = top/bottom half of the change in liquidity percentile over the next 24 months; next-month return minus universe mean (look-ahead split, diagnostic only)"
+C-f,f6_distance_to_2025,D10_log_traded_value_hl,MAIN,slope_pct_per_month_per_year_to_2025,0.007572881645247042,0.1410325536597922,299.0,intercept (at 2025-08) -2.03; D10: negative slope = premium larger long before 2025; D9: positive
+C-f,f6_distance_to_2025,D9_amihud_hl,MAIN,slope_pct_per_month_per_year_to_2025,-0.036594084741004854,-0.6835280797831889,299.0,intercept (at 2025-08) 2.18; D10: negative slope = premium larger long before 2025; D9: positive
+C-g,g5_pseudo_membership_contrast,D1_post_members_top_ex_minus_post_all_top_ex_paired,pooled_4_windows,pct_per_month,-0.6275238743754331,-2.6459179884006763,233.0,members = top half by liquidity at Y; same months
+C-g,g5_pseudo_membership_contrast,D1_pre2018_top_ex_vw,MAIN,pct_per_month,0.10487541373193292,0.3317648561266748,303.0,
+C-g,g5_pseudo_membership_contrast,D1_pre2018_top_ex_vw,P1,pct_per_month,0.17894034908354667,0.27021337107258,92.0,
+C-g,g5_pseudo_membership_contrast,D1_pre2018_top_ex_vw,P2,pct_per_month,-0.16806251254579171,-0.291029821680884,96.0,
+C-g,g5_pseudo_membership_contrast,D1_pre2018_top_ex_vw,P3,pct_per_month,0.46034622979864065,0.7372156435083823,60.0,
+C-g,g5_pseudo_membership_contrast,D1_pre2018_top_ex_vw,P4,pct_per_month,0.06959937566485368,0.14441051741051625,55.0,

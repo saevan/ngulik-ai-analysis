@@ -1,0 +1,225 @@
+section,test_id,metric,value,t,n,analyst_ref,comment
+counts,entries,n entries all MAIN,17058.0,,,17058.0,
+counts,entries,n entries all P0,1766.0,,,1766.0,
+counts,entries,n entries pre2018 MAIN,16359.0,,,16359.0,
+counts,entries,n entries pre2018 P0,1766.0,,,1766.0,
+helper_check,W2.5,"mpstats.nw vs independent NW (mean, se) on the W2.5 MAIN series",8.673617379884035e-19,,,,"nw se 0.0036651, independent se 0.0036651, means 0.0174273/0.0174273"
+primary,W2.1,all MAIN,2.780311630825011,1.8570635216390319,1786.0,2.7803116308250115,"analyst t 1.857, n 1786"
+primary,W2.1,all P1,0.5011777525762138,0.14486457688726842,398.0,0.5011777525762138,"analyst t 0.145, n 398"
+primary,W2.1,all P2,1.3915838034282721,0.5381867199524228,540.0,1.391583803428272,"analyst t 0.538, n 540"
+primary,W2.1,all P3,5.3981551320715715,1.673526368778815,436.0,5.398155132071572,"analyst t 1.674, n 436"
+primary,W2.1,all P4,3.493841139493041,1.4659299755856938,412.0,3.493841139493041,"analyst t 1.466, n 412"
+primary,W2.1,all P0,-1.6115696360068648,-0.24605618681467992,253.0,-1.611569636006866,"analyst t -0.246, n 253"
+primary,W2.1,pre2018 MAIN,2.512100776372897,1.6403513913910035,1715.0,2.512100776372897,
+primary,W2.1,pre2018 P1,0.5011777525762138,0.14486457688726842,398.0,0.5011777525762138,
+primary,W2.1,pre2018 P2,1.3915838034282721,0.5381867199524228,540.0,1.391583803428272,
+primary,W2.1,pre2018 P3,5.5333681318024635,1.6933739875315752,425.0,5.533368131802464,
+primary,W2.1,pre2018 P4,1.7036896098850625,0.751368466360992,352.0,1.7036896098850625,
+primary,W2.1,pre2018 P0,-1.6115696360068648,-0.24605618681467992,253.0,-1.611569636006866,
+lags,W2.1,"MAIN all, NW lags 60 (primary 20)",2.780311630825011,1.5260390663675862,1786.0,,
+lags,W2.1,"MAIN all, NW lags 20",2.780311630825011,1.8570635216390319,1786.0,,
+primary,W2.2,all MAIN,2.599739191151191,2.3450356685636793,2445.0,2.599739191151191,"analyst t 2.345, n 2445"
+primary,W2.2,all P1,5.269672737213242,2.077896388001181,549.0,5.269672737213242,"analyst t 2.078, n 549"
+primary,W2.2,all P2,2.3973072579248287,1.299337606655228,739.0,2.3973072579248287,"analyst t 1.299, n 739"
+primary,W2.2,all P3,1.688927119259514,0.6466996441266303,586.0,1.688927119259514,"analyst t 0.647, n 586"
+primary,W2.2,all P4,0.0615183703682321,0.039009821796702274,548.0,0.0615183703682321,"analyst t 0.039, n 548"
+primary,W2.2,all P0,2.434928830463825,0.5365512938673033,311.0,2.434928830463825,"analyst t 0.537, n 311"
+primary,W2.2,pre2018 MAIN,2.6520568365992143,2.3541303232984054,2375.0,2.652056836599214,
+primary,W2.2,pre2018 P1,5.269672737213242,2.077896388001181,549.0,5.269672737213242,
+primary,W2.2,pre2018 P2,2.3973072579248287,1.299337606655228,739.0,2.3973072579248287,
+primary,W2.2,pre2018 P3,1.3521987282675836,0.5199157525631198,577.0,1.3521987282675836,
+primary,W2.2,pre2018 P4,0.1377046558357695,0.0873822090253253,475.0,0.1377046558357695,
+primary,W2.2,pre2018 P0,2.434928830463825,0.5365512938673033,311.0,2.434928830463825,
+lags,W2.2,"MAIN all, NW lags 60 (primary 20)",2.599739191151191,1.9108466820580898,2445.0,,
+lags,W2.2,"MAIN all, NW lags 20",2.599739191151191,2.3450356685636793,2445.0,,
+primary,W2.3,all MAIN,2.3021723264212275,2.62971920022499,2928.0,2.3021723264212275,"analyst t 2.630, n 2928"
+primary,W2.3,all P1,2.3186226870511732,1.2676034389481992,790.0,2.318622687051173,"analyst t 1.268, n 790"
+primary,W2.3,all P2,0.9716959317033239,0.8632652505476531,905.0,0.9716959317033242,"analyst t 0.863, n 905"
+primary,W2.3,all P3,4.512163892973356,1.9215321038224566,675.0,4.512163892973356,"analyst t 1.922, n 675"
+primary,W2.3,all P4,1.7633569946996472,1.1332666587342628,558.0,1.7633569946996472,"analyst t 1.133, n 558"
+primary,W2.3,all P0,0.6807780077122451,0.2883112487426846,435.0,0.6807780077122448,"analyst t 0.288, n 435"
+primary,W2.3,pre2018 MAIN,2.0344681582849478,2.2678795242551897,2811.0,2.0344681582849478,
+primary,W2.3,pre2018 P1,2.3186226870511732,1.2676034389481992,790.0,2.318622687051173,
+primary,W2.3,pre2018 P2,0.9716959317033239,0.8632652505476531,905.0,0.9716959317033242,
+primary,W2.3,pre2018 P3,4.568088855325312,1.8576431224567738,649.0,4.568088855325311,
+primary,W2.3,pre2018 P4,0.0922988969398828,0.06418253865399111,467.0,0.0922988969398826,
+primary,W2.3,pre2018 P0,0.6807780077122451,0.2883112487426846,435.0,0.6807780077122448,
+lags,W2.3,"MAIN all, NW lags 60 (primary 60)",2.3021723264212275,2.62971920022499,2928.0,,
+lags,W2.3,"MAIN all, NW lags 20",2.3021723264212275,2.960939457723377,2928.0,,
+primary,W2.4,all MAIN,1.8033066417606307,2.0476632188159534,4599.0,1.8033066417606307,"analyst t 2.048, n 4599"
+primary,W2.4,all P1,2.8779853350286313,1.4021736220267311,1188.0,2.877985335028632,"analyst t 1.402, n 1188"
+primary,W2.4,all P2,1.1740155218169483,1.066936246671731,1473.0,1.1740155218169483,"analyst t 1.067, n 1473"
+primary,W2.4,all P3,3.2354919613467135,1.4584373633570344,1031.0,3.235491961346714,"analyst t 1.458, n 1031"
+primary,W2.4,all P4,-0.21031577545942762,-0.12816821050885588,907.0,-0.2103157754594274,"analyst t -0.128, n 907"
+primary,W2.4,all P0,4.011473084056477,1.0933339231035464,705.0,4.011473084056477,"analyst t 1.093, n 705"
+primary,W2.4,pre2018 MAIN,1.531514181950497,1.755196372660059,4535.0,1.5315141819504972,
+primary,W2.4,pre2018 P1,2.8779853350286313,1.4021736220267311,1188.0,2.877985335028632,
+primary,W2.4,pre2018 P2,1.1740155218169483,1.066936246671731,1473.0,1.1740155218169488,
+primary,W2.4,pre2018 P3,3.430543397310092,1.539225857798946,1021.0,3.430543397310092,
+primary,W2.4,pre2018 P4,-1.9994600646641048,-1.5279739546353097,853.0,-1.999460064664104,
+primary,W2.4,pre2018 P0,4.011473084056477,1.0933339231035464,705.0,4.011473084056477,
+lags,W2.4,"MAIN all, NW lags 60 (primary 40)",1.8033066417606307,1.9977086722317796,4599.0,,
+lags,W2.4,"MAIN all, NW lags 20",1.8033066417606307,2.245593414819318,4599.0,,
+primary,W2.5,all MAIN,1.742730433873509,4.7549266232925,4557.0,1.742730433873509,"analyst t 4.755, n 4557"
+primary,W2.5,all P1,3.8034899339135704,3.9132451797668018,1188.0,3.8034899339135695,"analyst t 3.913, n 1188"
+primary,W2.5,all P2,1.5639777492320732,2.9963099619692968,1473.0,1.5639777492320732,"analyst t 2.996, n 1473"
+primary,W2.5,all P3,1.2165641510467229,1.8595578574975298,1031.0,1.216564151046723,"analyst t 1.860, n 1031"
+primary,W2.5,all P4,-0.1560003684112787,-0.27984455591000434,865.0,-0.1560003684112787,"analyst t -0.280, n 865"
+primary,W2.5,all P0,1.7005218645468105,1.806100940278857,705.0,1.7005218645468103,"analyst t 1.806, n 705"
+primary,W2.5,pre2018 MAIN,1.572983163327708,4.320522025283565,4502.0,1.572983163327708,
+primary,W2.5,pre2018 P1,3.8034899339135704,3.9132451797668018,1188.0,3.8034899339135695,
+primary,W2.5,pre2018 P2,1.5639777492320732,2.9963099619692968,1473.0,1.5639777492320732,
+primary,W2.5,pre2018 P3,1.277678010921341,1.9520551174770282,1021.0,1.277678010921341,
+primary,W2.5,pre2018 P4,-1.274663797509162,-3.8997424582752447,820.0,-1.274663797509162,
+primary,W2.5,pre2018 P0,1.7005218645468105,1.806100940278857,705.0,1.7005218645468103,
+lags,W2.5,"MAIN all, NW lags 120 (primary 20)",1.742730433873509,3.4554649207933212,4557.0,,
+lags,W2.5,"MAIN all, NW lags 20",1.742730433873509,4.7549266232925,4557.0,,
+claims,W2.1,day-mean z up group (%),6.839660838588389,,,6.839660838588389,
+claims,W2.1,day-mean z down group (%),4.059349207763378,,,4.059349207763378,
+claims,W2.1,event-weighted z up group (%),6.687191995463547,,3399.0,6.687191995463547,
+claims,W2.1,event-weighted z down group (%),3.8073279912805633,,2868.0,3.8073279912805633,
+claims,W2.1,event-weighted z middle group (%),3.3405827054013333,,10130.0,3.3405827054013333,
+claims,W2.2,day-mean z up group (%),4.016623347993407,,,4.016623347993407,
+claims,W2.2,day-mean z down group (%),1.4168841568422157,,,1.4168841568422157,
+claims,W2.2,event-weighted z up group (%),3.9274957467019376,,5877.0,3.9274957467019376,
+claims,W2.2,event-weighted z down group (%),0.9699103397053297,,4397.0,0.9699103397053296,
+claims,W2.2,event-weighted z middle group (%),1.6340623144154267,,6056.0,1.6340623144154267,
+claims,W2.3,share of entries reaching +10% Close gain within 20 days (%),35.581299131154324,,16919.0,35.581299131154324,
+claims,W2.3,median trigger day g-t,8.0,,,8.0,
+claims,W2.3,"raw lnP[t+60]-lnO[g+1] (day-mean, lags 60) (%)",5.484667682855753,4.53604701897741,2928.0,5.484667682855753,
+claims,W2.1,"primary statistic, fully tradable lookback",2.5359341615406006,1.7158568528914317,1620.0,,
+claims,W2.2,"primary statistic, fully tradable lookback",2.1452543628732985,1.9868336624521534,2220.0,,
+claims,W2.3,"primary statistic, fully tradable lookback",1.4483291478206353,1.7509320157325623,2591.0,,
+claims,W2.4,"primary statistic, fully tradable lookback",0.4695535512214629,0.5479585726766496,4248.0,,
+claims,W2.5,"primary statistic, fully tradable lookback",0.9733772996095794,3.1572935710564685,4209.0,,
+claims,W2.1,"primary statistic, lookback with non-tradable day",3.162261285302022,0.8305664991347994,275.0,,
+claims,W2.2,"primary statistic, lookback with non-tradable day",6.663227200779452,2.392488981823735,371.0,,
+claims,W2.3,"primary statistic, lookback with non-tradable day",8.415139864346138,3.2718793789697855,684.0,,
+claims,W2.4,"primary statistic, lookback with non-tradable day",12.198136022091985,4.247395689593964,1423.0,,
+claims,W2.5,"primary statistic, lookback with non-tradable day",6.512047921754782,5.582587425753455,1417.0,,
+claims,W2.4,abnormal drift days 1-20 (bps/day),5.511750184431595,3.698693510081908,4631.0,,
+claims,W2.4,abnormal drift days 61-120 (bps/day),1.5798162556297717,2.043352959835136,4557.0,,
+claims,W2.4,raw drift days 21-60 (bps/day),6.459627324439919,3.3457715092965987,4599.0,6.45962732443992,
+claims,W2.5,events MAIN with full 120-bar window,16607.0,,,,
+claims,W2.5,trailing mean bars held,31.076293129403265,,,,
+claims,W2.5,trailing median bars held,24.0,,,,
+claims,W2.5,share exiting before bar 20 (%),40.33238995604263,,,,
+claims,W2.5,share capped (%),1.1320527488408503,,,,
+claims,W2.5,share trailing beats fixed (%),38.42355633166737,,,,
+claims,W2.5,trailing raw return per bar held (bps),11.842141329587347,,,,
+claims,W2.5,fixed raw return per bar held (bps),12.29160108717132,,,,
+claims,W2.5,event-weighted mean paired difference (%),1.2217783349465128,,,,
+claims,W2.5,contribution of trades exiting before bar 20 to the mean difference (pp),-0.32053651080535284,,6698.0,,mean difference within this group -0.79%
+claims,W2.5,contribution of trades exiting at/after bar 20 to the mean difference (pp),1.5423148457518654,,9909.0,,mean difference within this group 2.58%
+claims,W2.5,share of the summed paired difference from the top 10% of trades (%),285.19848702741325,,,,
+claims,W2.5,trades whose exit was delayed past bar 120 by non-tradable days,1.0,,,,
+claims,W2.5,"return per bar held, trailing arm, gross (bps/bar)",11.842141329587347,,,,
+claims,W2.5,"return per bar held, fixed 20-bar arm, gross (bps/bar)",12.29160108717132,,,,
+claims,W2.5,"return per bar held, trailing arm, net of cost A 0.40% (bps/bar)",10.554986525330676,,,,
+claims,W2.5,"return per bar held, fixed 20-bar arm, net of cost A 0.40% (bps/bar)",10.29160108717132,,,,
+claims,W2.5,"return per bar held, trailing arm, net of cost B 0.90% (bps/bar)",8.946043020009839,,,,
+claims,W2.5,"return per bar held, fixed 20-bar arm, net of cost B 0.90% (bps/bar)",7.79160108717132,,,,
+claims,W2.5,"trailing minus fixed 31-bar hold, raw, all (%)",1.0421246030900913,3.492769892661774,4557.0,,P4 -0.26% (t -0.43); not pre-registered
+claims,W2.5,"trailing minus fixed 31-bar hold, raw, fully tradable lookback (%)",0.3846016399446362,1.4802455445173914,4209.0,,P4 -0.63% (t -1.24); not pre-registered
+claims,W2.5,share of simple 60-day P&L of breakout entries from the top 10% of trades (%),93.1828526045205,,,93.1828526045205,
+claims,W2.5,pre2018 day-mean paired difference 2019 (%),-1.7494359690261447,,204.0,,
+claims,W2.5,pre2018 day-mean paired difference 2020 (%),3.1010887001269185,,186.0,,
+claims,W2.5,pre2018 day-mean paired difference 2021 (%),-1.82919360463208,,200.0,,
+claims,W2.5,pre2018 day-mean paired difference 2022 (%),-1.0714067316011502,,213.0,,
+claims,W2.5,pre2018 day-mean paired difference 2023 (%),-0.37517732122279923,,199.0,,
+claims,W2.5,pre2018 day-mean paired difference 2024 (%),-1.5582049742163049,,198.0,,
+claims,W2.5,pre2018 day-mean paired difference 2025 (%),-6.799108738188639,,10.0,,
+claims,W2.5,pre2018 P1,3.8034899339135704,3.9132451797668018,1188.0,,
+claims,W2.5,pre2018 P2,1.5639777492320732,2.9963099619692968,1473.0,,
+claims,W2.5,pre2018 P3,1.277678010921341,1.9520551174770282,1021.0,,
+claims,W2.5,pre2018 P4,-1.274663797509162,-3.8997424582752447,820.0,,
+tradability,entries,MAIN entries whose entry bar t+1 is a one-price bar (O=H=L=C),381.0,,,,of 17058 MAIN entries
+tradability,entries,MAIN entries with entry Open >= 20% above the signal Close (possible limit-up),8.0,,,,
+sensitivity,W2.1,strict HHV20 (all 20 prior highs valid),2.5359341615406006,1.7158568528914317,1620.0,,pre2018 2.053 (t 1.36); MAIN entries 14978
+sensitivity,W2.2,strict HHV20 (all 20 prior highs valid),2.1452543628732985,1.9868336624521534,2220.0,,pre2018 2.042 (t 1.86); MAIN entries 14978
+sensitivity,W2.3,strict HHV20 (all 20 prior highs valid),1.4483291478206353,1.7509320157325623,2591.0,,pre2018 1.043 (t 1.24); MAIN entries 14978
+sensitivity,W2.4,strict HHV20 (all 20 prior highs valid),0.4695535512214629,0.5479585726766496,4248.0,,pre2018 0.052 (t 0.06); MAIN entries 14978
+sensitivity,W2.5,strict HHV20 (all 20 prior highs valid),0.9733772996095794,3.1572935710564685,4209.0,,pre2018 0.806 (t 2.68); MAIN entries 14978
+sensitivity,W2.1,W2.5 prior 10 own tradable bars,2.780311630825011,1.8570635216390319,1786.0,,pre2018 2.512 (t 1.64); MAIN entries 17058
+sensitivity,W2.2,W2.5 prior 10 own tradable bars,2.599739191151191,2.3450356685636793,2445.0,,pre2018 2.652 (t 2.35); MAIN entries 17058
+sensitivity,W2.3,W2.5 prior 10 own tradable bars,2.3021723264212275,2.62971920022499,2928.0,,pre2018 2.034 (t 2.27); MAIN entries 17058
+sensitivity,W2.4,W2.5 prior 10 own tradable bars,1.8033066417606307,2.0476632188159534,4599.0,,pre2018 1.532 (t 1.76); MAIN entries 17058
+sensitivity,W2.5,W2.5 prior 10 own tradable bars,1.9775849186851848,4.981816192519242,4557.0,,pre2018 1.882 (t 4.74); MAIN entries 17058
+sensitivity,W2.1,W2.5 cap exit at next Open after bar 120,2.780311630825011,1.8570635216390319,1786.0,,pre2018 2.512 (t 1.64); MAIN entries 17058
+sensitivity,W2.2,W2.5 cap exit at next Open after bar 120,2.599739191151191,2.3450356685636793,2445.0,,pre2018 2.652 (t 2.35); MAIN entries 17058
+sensitivity,W2.3,W2.5 cap exit at next Open after bar 120,2.3021723264212275,2.62971920022499,2928.0,,pre2018 2.034 (t 2.27); MAIN entries 17058
+sensitivity,W2.4,W2.5 cap exit at next Open after bar 120,1.8033066417606307,2.0476632188159534,4599.0,,pre2018 1.532 (t 1.76); MAIN entries 17058
+sensitivity,W2.5,W2.5 cap exit at next Open after bar 120,1.743688403927542,4.765149680930647,4557.0,,pre2018 1.574 (t 4.33); MAIN entries 17058
+sensitivity,W2.1,W2.1/W2.2 z from next valid Open (not dropped),2.8145412928828475,1.8853723460364489,1814.0,,pre2018 2.634 (t 1.73); MAIN entries 17058
+sensitivity,W2.2,W2.1/W2.2 z from next valid Open (not dropped),2.7347369062551565,2.431181600296093,2497.0,,pre2018 2.827 (t 2.48); MAIN entries 17058
+sensitivity,W2.3,W2.1/W2.2 z from next valid Open (not dropped),2.3021723264212275,2.62971920022499,2928.0,,pre2018 2.034 (t 2.27); MAIN entries 17058
+sensitivity,W2.4,W2.1/W2.2 z from next valid Open (not dropped),1.8033066417606307,2.0476632188159534,4599.0,,pre2018 1.532 (t 1.76); MAIN entries 17058
+sensitivity,W2.5,W2.1/W2.2 z from next valid Open (not dropped),1.742730433873509,4.7549266232925,4557.0,,pre2018 1.573 (t 4.32); MAIN entries 17058
+sensitivity,W2.1,symmetric data-error mask |ln(1+r)|>=ln1.5 (203 masked),3.0473531725736485,2.055949301800886,1790.0,,pre2018 2.782 (t 1.84); MAIN entries 17068
+sensitivity,W2.2,symmetric data-error mask |ln(1+r)|>=ln1.5 (203 masked),2.510413726046692,2.2628376092740528,2439.0,,pre2018 2.561 (t 2.27); MAIN entries 17068
+sensitivity,W2.3,symmetric data-error mask |ln(1+r)|>=ln1.5 (203 masked),2.3789874541296623,2.7863296373946964,2932.0,,pre2018 2.124 (t 2.43); MAIN entries 17068
+sensitivity,W2.4,symmetric data-error mask |ln(1+r)|>=ln1.5 (203 masked),1.7414775794889086,1.9573521256045006,4599.0,,pre2018 1.483 (t 1.68); MAIN entries 17068
+sensitivity,W2.5,symmetric data-error mask |ln(1+r)|>=ln1.5 (203 masked),1.7142524238431984,4.583378327308457,4557.0,,pre2018 1.544 (t 4.15); MAIN entries 17068
+sensitivity,W2.1,first event per stock in 60 days (all),4.1987128495142025,2.297339192953277,549.0,4.1987128495142025,
+sensitivity,W2.2,first event per stock in 60 days (all),4.365872801244268,3.3959541608747035,841.0,4.365872801244268,
+sensitivity,W2.3,first event per stock in 60 days (all),1.8335297768643695,2.2273207675207747,966.0,1.8335297768643692,
+sensitivity,W2.4,first event per stock in 60 days (all),1.3134692142418438,1.8566731085900996,2332.0,1.3134692142418445,
+sensitivity,W2.5,first event per stock in 60 days (all),1.6073284188336083,4.498176126341657,2303.0,1.6073284188336083,
+sensitivity,W2.1,first event per stock in 60 days (pre2018),3.845499429558204,2.044546137955987,517.0,3.845499429558204,
+sensitivity,W2.2,first event per stock in 60 days (pre2018),4.045298765270776,3.0703186834016067,807.0,4.045298765270776,
+sensitivity,W2.3,first event per stock in 60 days (pre2018),1.5045209669059934,1.7983393482334116,924.0,1.5045209669059934,
+sensitivity,W2.4,first event per stock in 60 days (pre2018),1.2369739453776372,1.7190577407048107,2266.0,1.236973945377637,
+sensitivity,W2.5,first event per stock in 60 days (pre2018),1.567551304323508,4.3227716033893895,2240.0,1.567551304323508,
+sensitivity,W2.1,log thresholds +-0.05,2.9251590233942695,1.9542395274375854,1819.0,2.925159023394269,
+sensitivity,W2.2,log thresholds +-0.05,2.6835953303489335,2.4274396065624235,2461.0,2.683595330348933,
+sensitivity,W2.5,abnormal paired difference (each arm minus same-window EW mean),0.8162431453307515,3.1933734084342644,4557.0,0.8162431453307515,
+sensitivity,W2.5,abnormal paired difference P1,1.8841896787654442,2.9618332981488993,1188.0,,
+sensitivity,W2.5,abnormal paired difference P2,0.6896157554313914,2.192771702335327,1473.0,,
+sensitivity,W2.5,abnormal paired difference P3,0.5597553403584064,1.0472019794154652,1031.0,,
+sensitivity,W2.5,abnormal paired difference P4,-0.12914345521510903,-0.2369952092622205,865.0,,
+per_trade,W2.3,event-weighted mean abnormal return (%),2.0749251672951408,,5854.0,,primary statistic is the mean of daily means (2.30%)
+per_trade,W2.4,event-weighted mean abnormal drift (bps/day),1.2834824762125703,,,,
+per_trade,W2.5,event-weighted mean raw paired difference (%),1.2217783349465128,,16607.0,,primary statistic is the mean of daily means (1.74%)
+per_trade,W2.5,event-weighted mean abnormal paired difference (%),0.44961484877435237,,,,analyst alt basis 0.82% is a mean of daily means
+sensitivity,W2.5,"first event per stock in 60 days, NW lags 120",1.6073284188336083,3.4623800543404575,2303.0,,
+sensitivity,W2.1,"abnormal z up minus down (Diff, lags 20)",1.7518199820797795,1.5885278538643468,1786.0,1.7518199820797786,
+sensitivity,W2.1,"paired-day difference (days with both groups; covariance kept), lags 20",1.74097474995623,1.2725638147504017,786.0,,not the pre-registered conservative Diff t
+sensitivity,W2.2,"abnormal z up minus down (Diff, lags 20)",1.5112419386514477,2.2098424840130697,2445.0,1.5112419386514482,
+sensitivity,W2.2,"paired-day difference (days with both groups; covariance kept), lags 20",1.679215806911131,2.059803238428402,1386.0,,not the pre-registered conservative Diff t
+tradability,entries,MAIN entries bought on a one-price bar that gapped up (possible locked limit-up),72.0,,,,
+tradability,W2.5,MAIN trailing exits sold on a one-price bar that gapped down (possible locked limit-down),104.0,,,,
+sensitivity,W2.1,excluding possibly unfillable entries/exits (one-price gap bars),2.9587533940628084,1.980239774456768,1780.0,,
+sensitivity,W2.2,excluding possibly unfillable entries/exits (one-price gap bars),2.6440278651949236,2.3972745637847006,2429.0,,
+sensitivity,W2.3,excluding possibly unfillable entries/exits (one-price gap bars),2.2763191603725295,2.603773231273874,2903.0,,
+sensitivity,W2.4,excluding possibly unfillable entries/exits (one-price gap bars),1.674000094240346,1.9033702778211525,4574.0,,
+sensitivity,W2.5,excluding possibly unfillable entries/exits (one-price gap bars),1.6603138427613084,4.607145013875187,4532.0,,
+sensitivity,W2.5,"fully tradable lookback, NW lags 120",0.9733772996095794,2.6874624298434497,4209.0,,
+sensitivity,W2.5,"fully tradable lookback, NW lags 20",0.9733772996095794,3.1572935710564685,4209.0,,
+sensitivity,W2.5,"abnormal paired difference, NW lags 120",0.8162431453307515,2.6474863160389805,4557.0,,
+sensitivity,W2.5,"2008-2025 only (P2-P4), NW lags 20",1.0160512156937547,2.986427590116505,3369.0,,
+sensitivity,W2.5,"2008-2025 only (P2-P4), NW lags 120",1.0160512156937547,2.489510842793522,3369.0,,
+counts,W2.3,triggered MAIN events dropped for no valid Open at g+1,108.0,,,108.0,
+counts,entries,MAIN entries kept as first per stock in 60 days,3824.0,,,3824.0,
+counts,entries,"median bar of the 120-bar peak Close (breakout entries, MAIN)",61.0,,,61.0,share of peaks at bar 100-120 27.6% (analyst 27.6%)
+sensitivity,W2.1,calendar without the 2 stray CTRA dates,2.8270347829911695,1.8833054355904395,1789.0,,pre2018 2.560 (t 1.67); MAIN entries 17070
+sensitivity,W2.2,calendar without the 2 stray CTRA dates,2.569686837455699,2.3092599288852167,2449.0,,pre2018 2.621 (t 2.32); MAIN entries 17070
+sensitivity,W2.3,calendar without the 2 stray CTRA dates,2.300937801739152,2.6293006896469318,2926.0,,pre2018 2.033 (t 2.27); MAIN entries 17070
+sensitivity,W2.4,calendar without the 2 stray CTRA dates,1.8212473354212437,2.069697664581236,4598.0,,pre2018 1.550 (t 1.78); MAIN entries 17070
+sensitivity,W2.5,calendar without the 2 stray CTRA dates,1.7625907304588615,4.7987980877185885,4556.0,,pre2018 1.593 (t 4.37); MAIN entries 17070
+exposure_bt,W2.5,"all MAIN gross: daily EW of open trades, trailing minus fixed (bps/day)",-1.466195368306267,-1.334107610370407,6221.0,,trailing 12.15 bps/day Sharpe 1.23; fixed 13.62 bps/day Sharpe 1.36; mean open trades 85.6 vs 53.4
+exposure_bt,W2.5,"all P4 gross: daily EW of open trades, trailing minus fixed (bps/day)",-2.6317882549217773,-1.001602290051252,1112.0,,trailing 5.66 bps/day Sharpe 0.64; fixed 8.30 bps/day Sharpe 0.99; mean open trades 83.8 vs 59.8
+exposure_bt,W2.5,"all MAIN cost A: daily EW of open trades, trailing minus fixed (bps/day)",-0.7014942009983961,-0.6350751212396785,6221.0,,trailing 10.74 bps/day Sharpe 1.08; fixed 11.45 bps/day Sharpe 1.14; mean open trades 85.6 vs 53.4
+exposure_bt,W2.5,"all P4 cost A: daily EW of open trades, trailing minus fixed (bps/day)",-2.0546129864232925,-0.7772211560002806,1112.0,,trailing 4.28 bps/day Sharpe 0.48; fixed 6.33 bps/day Sharpe 0.75; mean open trades 83.8 vs 59.8
+exposure_bt,W2.5,"all MAIN cost B: daily EW of open trades, trailing minus fixed (bps/day)",0.2340488629122881,0.21052196530881123,6221.0,,trailing 8.97 bps/day Sharpe 0.90; fixed 8.73 bps/day Sharpe 0.87; mean open trades 85.6 vs 53.4
+exposure_bt,W2.5,"all P4 cost B: daily EW of open trades, trailing minus fixed (bps/day)",-1.3445414241075933,-0.5049919288230782,1112.0,,trailing 2.56 bps/day Sharpe 0.29; fixed 3.91 bps/day Sharpe 0.46; mean open trades 83.8 vs 59.8
+exposure_bt,W2.5,"pre2018 MAIN gross: daily EW of open trades, trailing minus fixed (bps/day)",-1.6059167491425603,-1.5327628259045027,6221.0,,trailing 11.09 bps/day Sharpe 1.13; fixed 12.70 bps/day Sharpe 1.26; mean open trades 82.7 vs 51.5
+exposure_bt,W2.5,"pre2018 P4 gross: daily EW of open trades, trailing minus fixed (bps/day)",-3.785962544913507,-2.013305466380391,1112.0,,trailing 0.01 bps/day Sharpe 0.00; fixed 3.80 bps/day Sharpe 0.43; mean open trades 70.4 vs 51.2
+exposure_bt,W2.5,"pre2018 MAIN cost A: daily EW of open trades, trailing minus fixed (bps/day)",-0.8448761912936638,-0.8024009851838374,6221.0,,trailing 9.68 bps/day Sharpe 0.99; fixed 10.53 bps/day Sharpe 1.04; mean open trades 82.7 vs 51.5
+exposure_bt,W2.5,"pre2018 P4 cost A: daily EW of open trades, trailing minus fixed (bps/day)",-3.2377799925972677,-1.711641786511583,1112.0,,trailing -1.42 bps/day Sharpe -0.18; fixed 1.82 bps/day Sharpe 0.21; mean open trades 70.4 vs 51.2
+exposure_bt,W2.5,"pre2018 MAIN cost B: daily EW of open trades, trailing minus fixed (bps/day)",0.08573174874123793,0.08089319795469031,6221.0,,trailing 7.90 bps/day Sharpe 0.80; fixed 7.81 bps/day Sharpe 0.77; mean open trades 82.7 vs 51.5
+exposure_bt,W2.5,"pre2018 P4 cost B: daily EW of open trades, trailing minus fixed (bps/day)",-2.5652520735884248,-1.3451480228551942,1112.0,,trailing -3.18 bps/day Sharpe -0.40; fixed -0.61 bps/day Sharpe -0.07; mean open trades 70.4 vs 51.2
+spot_check,entries,TLKM t=2003-12-15 Close 640 > HHV20 High 625; ER20 0.386; entry Open 2003-12-16 635; u5 -0.79% z5 9.03%; u20 17.97% z20 -8.94%; g 9 r23 -1.43%; d24 -8.94%; trailing exit after 29 bars r_tr 13.25% vs fixed 17.97%,9.43689570931383e-16,,,,max |hand - script| over all fields (log units)
+spot_check,entries,UNTR t=2011-06-22 Close 23500 > HHV20 High 23250; ER20 0.369; entry Open 2011-06-23 23500; u5 5.79% z5 -24.37%; u20 8.17% z20 -25.94%; g 0 r23 nan%; d24 -25.55%; trailing exit after 31 bars r_tr 1.69% vs fixed 8.17%,2.3314683517128287e-15,,,,max |hand - script| over all fields (log units)
+spot_check,entries,INKP t=2017-01-16 Close 1110 > HHV20 High 1045; ER20 0.505; entry Open 2017-01-17 1160; u5 -10.92% z5 45.20%; u20 -3.96% z20 39.64%; g 0 r23 nan%; d24 39.19%; trailing exit after 96 bars r_tr 74.77% vs fixed -3.96%,5.551115123125783e-16,,,,max |hand - script| over all fields (log units)
+spot_check,entries,ESSA t=2022-02-03 Close 645 > HHV20 High 630; ER20 0.355; entry Open 2022-02-04 650; u5 -3.13% z5 63.65%; u20 16.94% z20 44.37%; g 18 r23 47.00%; d24 44.37%; trailing exit after 51 bars r_tr 67.76% vs fixed 16.94%,2.1649348980190553e-15,,,,max |hand - script| over all fields (log units)
+spot_check,W2.4,benchmark by hand 2022-03-07..2022-05-11 over 91 tickers (tickers with a >=50% move in window: 0),7.632783294297951e-17,,,,hand 4.7192% vs script 4.7192%
