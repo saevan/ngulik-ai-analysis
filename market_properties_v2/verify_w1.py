@@ -491,6 +491,16 @@ SENS['drop_locked'] = compute(drop_entry=nxt(locked | openhigh | badopen), stop_
 brief(SENS['drop_locked'], 'drop limit-locked/open-at-high/odd-open entries')
 say(f'    (W1.1 MAIN events with such an entry day: {int((BO20 & nxt(locked | openhigh | badopen))[RM].sum())}; '
     f'W1.5 MAIN triggers on locked/open-at-high days: {int((trig5 & (locked | openhigh))[RM].sum())})')
+# unmasked sub-50% close spikes that revert next row (possible data errors below the panel threshold)
+rcc_ = np.where(LV0['bad'], np.nan, lr)
+nx_ = shift(rcc_, -1)
+spike = np.isfinite(rcc_) & np.isfinite(nx_) & (np.abs(rcc_) >= math.log(1.25)) & (np.sign(nx_) != np.sign(rcc_)) \
+    & (np.abs(nx_) >= math.log(1.2))
+inwin = np.zeros(TM.shape, bool)
+for k in range(1, 21):
+    inwin |= shift(spike.astype(float), -k) > 0
+SENS['drop_spike'] = compute(drop_entry=spike | inwin)[0]
+brief(SENS['drop_spike'], f'drop events at/near {int(spike[RM].sum())} spike-revert prints')
 # W1.5 next-tick fills: effective tick = min positive gap between distinct OHLC prices of the stock in rows i-60..i
 TKM = np.full(TM.shape, np.nan)
 for j in range(K):
