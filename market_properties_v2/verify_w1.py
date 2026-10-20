@@ -480,6 +480,30 @@ e2 = extra_sym.copy()
 e2[:, doid] = False
 SENS['sym_noDOID'] = compute(lv=build_levels(extra_bad=e2 | rev))[0]
 brief(SENS['sym_noDOID'], 'symmetric mask except DOID crash days')
+# stray single-ticker CTRA bars (2008-01-11, Saturday 2009-06-06) that become market days: drop the rows, rebuild
+STRAY = [pd.Timestamp('2008-01-11'), pd.Timestamp('2009-06-06')]
+for d in STRAY:
+    i = DATES.get_loc(d)
+    say(f'    stray row {d.date()}: tradable tickers {[TICK[j] for j in np.where(TM[i])[0]]}, idx_ret {P["idx_ret"].iloc[i]:+.3f}')
+_keep = ~DATES.isin(STRAY)
+_saved = {k: globals()[k] for k in ('lnP', 'lnO', 'lnH', 'V', 'C', 'O', 'H', 'L', 'TM', 'DATES', 'N', 'RM')}
+try:
+    for k in ('lnP', 'lnO', 'lnH', 'V', 'C', 'O', 'H', 'L', 'TM'):
+        globals()[k] = _saved[k][_keep]
+    DATES = _saved['DATES'][_keep]
+    N = int(_keep.sum())
+    RM = rows_of(*MAIN)
+    SENS['nostray'] = compute(lv=build_levels())[0]
+    SENS['nostray_sym'] = compute(lv=build_levels(sym=True))[0]
+finally:
+    for k, v in _saved.items():
+        globals()[k] = v
+brief(SENS['nostray'], 'stray CTRA rows removed from calendar')
+brief(SENS['nostray_sym'], 'stray CTRA rows removed + symmetric mask')
+for t in TESTS:
+    e_, t_, _ = SENS['nostray'][(t, 'pre2018')]['MAIN']
+    say(f'    {t} no-stray pre2018 {e_:+.3f} (t {t_:.2f}); signs P1-P4 same as MAIN: '
+        f'{sum(np.sign(SENS["nostray"][(t, "all")][p][0]) == np.sign(SENS["nostray"][(t, "all")]["MAIN"][0]) for p in SUBS)}')
 # untradable / suspicious entries
 prevC = shift(pd.DataFrame(Ct).ffill().values, 1)
 locked = TM & (O == H) & (H == L) & (L == C) & (C > prevC * 1.05)
@@ -667,7 +691,9 @@ def sym_note(t):
 def common(t):
     b = BASE[(t, 'all')]
     return (f'reproduced exactly (own code; all periods, t and n match to 1e-15); NW lags 40: t {g("NW lags 40 (2h)", t)[1]:.2f}; '
-            f'event-weighted {b["evw"]:+.2f}')
+            f'event-weighted {b["evw"]:+.2f}; stray CTRA rows (2008-01-11, 2009-06-06) removed from the calendar: '
+            f'{fmt(g("nostray", t))}, with symmetric mask too {fmt(g("nostray_sym", t))} (pass/fail on t>=3 unchanged '
+            f'unless stated)')
 
 
 ISS = {
@@ -747,6 +773,7 @@ for t in TESTS:
         recomputed_eff_event_weighted=b['evw'],
         eff_strict_window=g('window strict (all days tradable)', t)[0], t_strict_window=g('window strict (all days tradable)', t)[1],
         t_lags40=g('NW lags 40 (2h)', t)[1], eff_symmetric_mask=g('sym', t)[0], t_symmetric_mask=g('sym', t)[1],
+        eff_nostray=g('nostray', t)[0], t_nostray=g('nostray', t)[1], eff_nostray_pre2018=g('nostray', t, 'pre2018')[0],
         eff_targeted_mask=g('targeted', t)[0], t_targeted_mask=g('targeted', t)[1],
         eff_tick_fill=g('tick', t)[0], t_tick_fill=g('tick', t)[1],
         loo_min_t=ROB[t]['loo_min'][0], loo_min_ticker=ROB[t]['loo_min'][1],
