@@ -109,9 +109,9 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     touch_sell: intraday sell stops (LLV stop, LLV trailing, initial, breakeven) trigger when Low <= level (default False: Low < level).
     buffer_grid (with stop_buffer>0): the buffered trigger/fill is moved up to the first price on the level's own grid at or above
     level*(1+b), the grid step being the smallest gap between distinct O/H/L/C values over the previous 60 bars (adjusted-price ticks)."""
-    data={};calendar={}
+    data={};calendar={}  # gate_dates may also be a dict ticker -> allowed entry dates (per-stock point-in-time eligibility)
     for t,f in frames.items():
-        d=prepare(f,fade,llv,entry_mode,gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry,stop_buffer,buffer_grid);data[t]=d
+        d=prepare(f,fade,llv,entry_mode,gate_dates.get(t,()) if isinstance(gate_dates,dict) else gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry,stop_buffer,buffer_grid);data[t]=d
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64(start):calendar.setdefault(pd.Timestamp(day),[]).append((t,i))
     cash=equity=peak=float(capital);positions={};lastclose={};queued=set();ledger=[];daily=[]
