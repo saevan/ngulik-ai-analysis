@@ -2,7 +2,7 @@
 stock at the Close in a sideways market, sell at an Open h days later' whose average trade beats the 0.90% cost?
 Grid: dip depth (Close >= k ATR below the 10-day high Close, k 1/2/3/4; or 10-day-range bottom 20%/10%) x strength
 (above SMA200 / above SMA200 and SMA50 rising / 120-day momentum in the top quintile of the day) x sideways definition
-(market / stock ER20 < 0.3) x h 1..10. Realistic universe. 600 cells -> heavy multiple testing: anything found is a
+(market / stock ER20 < 0.3) x h 1..10. Realistic universe. 360 cells -> heavy multiple testing: anything found is a
 hypothesis for a later sample, not a result."""
 import sys
 from pathlib import Path
