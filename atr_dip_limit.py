@@ -67,7 +67,7 @@ for x in [1, 1.5, 2, 3]:
                             continue
                         rr, cc = r.loc[a:b], rc_.loc[a:b]
                         if rg != 'all':
-                            msk = (reg.loc[a:b] == rg).values[:, None]
+                            msk = np.repeat((reg.loc[a:b] == rg).values[:, None], rr.shape[1], axis=1)
                             rr, cc = rr.where(msk), cc.where(msk)
                         s = rr.mean(axis=1)
                         m, se, n = nw(s.values, max(h, 1))
@@ -78,7 +78,7 @@ for x in [1, 1.5, 2, 3]:
                                          net_B_pct=(m - .009) * 100, t_net_B=(m - .009) / se if se else np.nan,
                                          net_A_pct=(m - .004) * 100,
                                          event_weighted_gross_pct=float(np.nanmean(rr.values)) * 100,
-                                         win_rate_net_B=float(np.nanmean(rr.values > .009)) if rr.notna().values.any() else np.nan,
+                                         win_rate_net_B=float((rr.values[np.isfinite(rr.values)] > .009).mean()) if rr.notna().values.any() else np.nan,
                                          vs_buy_at_open_pct=mc * 100, t_vs_open=mc / sec if sec else np.nan))
 d = pd.DataFrame(rows)
 d.to_csv(OUT / 'events.csv', index=False)
