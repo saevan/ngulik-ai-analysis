@@ -19,3 +19,18 @@ What this does NOT fix: stocks that were delisted or dropped from the index are 
 result is still optimistic. A full fix needs historical Kompas100 constituents (IDX publishes them each Feb/Aug) and price
 history for removed/delisted stocks; the session's network policy blocks finance data hosts (www.idx.co.id returned 403).
 Swinger ideal was not restricted and keeps the full bias. AFL unchanged.
+
+## Addendum: stale data and liquid volume (`pit_stale_liquidity.py`, `stale_liquidity.csv`)
+Already in every run: Volume-0 bars are not tradable. Added (rules fixed before results): stale filter (>= 90% traded days and
+<= 10% one-price bars in the previous 60 bars) and a liquidity cap (each buy <= 25% of 20-day average traded value). Scenario B:
+
+| Variant | 2000-15 | 2016-20 | 2021-25 | 2000-25 | median order / entry-day value | orders > entry-day value |
+|---|---|---|---|---|---|---|
+| Unrestricted | 40.1/74 | 79.2/29 | 54.1/20 | 49.3/119/-24 | 1.25x | 53% |
+| Stale + cap only | 22.8/59 | 43.4/22 | 36.0/24 | 24.7/83/-31 | 0.08x | 0.7% |
+| PIT top half | 17.5/40 | 22.2/12 | 17.8/7 | 19.0/54/-44 | 0.04x | 0.2% |
+| PIT + stale + cap | 13.3/38 | 21.9/12 | 17.8/7 | 16.2/52/-44 | 0.02x | 0% |
+
+The unrestricted main pick bought more than the whole day's traded value in half of its entries, mostly in stocks that were
+illiquid at the time. With point-in-time liquidity, stale-data and volume limits the system earns about 16% a year with a
+-44% drawdown, and delisted stocks are still missing (so even this is optimistic).
