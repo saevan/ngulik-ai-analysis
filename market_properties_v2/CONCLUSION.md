@@ -176,4 +176,9 @@ AFL aktif tidak diubah.
 - Kritikus A–D: klaim C-a, C-c, C-d, C-e, C-f, C-g didukung dengan catatan; C-b dibantah. Pernyataan di atas sudah memakai
   rumusan koreksinya.
 - W2: 5 dari 5 cocok; W2.4 dan W2.5 dengan catatan (angka per trade yang dipakai adalah rata-rata per trade).
-- W1, W3, W4: lihat `results/verify_W*.csv`.
+- W1: 10 dari 10 cocok persis; W1.1 dan W1.5 dengan catatan. W1.1 lolos t ≥ 3 hanya tipis (tanpa satu saham t 2,8).
+  W1.5: +0,37% di hari fill berasal dari asumsi fill tepat di harga stop di luar fraksi; dengan fill di tick berikutnya
+  W1.5 = +0,86% (t 3,7), kriteria 1–3 tetap lolos tetapi pas di biaya B. Jadi W1.5 mendukung pilihan jenis entry (buy stop),
+  bukan trade tersendiri. W1.7 (ER) robust di semua variasi.
+- W3, W4: belum diverifikasi silang (agen terhenti batas pemakaian); analis menjalankan self-check, W4 juga re-derivasi
+  independen sendiri.
