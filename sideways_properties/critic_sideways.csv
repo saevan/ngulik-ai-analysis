@@ -1,0 +1,352 @@
+claim,check,subset,metric,value,t,n,note
+1,gate as coded in results.csv,S1b,robust_in_sideways,0.0,-0.3266197274501345,3453.0,q=0.8409; signs=2/4; side_minus_rest t=-1.72
+1,gate as coded in results.csv,S2a,robust_in_sideways,1.0,102.21498056159848,3452.0,q=0.0000; signs=4/4; side_minus_rest t=-5.93
+1,gate as coded in results.csv,S2b,robust_in_sideways,0.0,2.137138081808424,2865.0,q=0.0717; signs=3/4; side_minus_rest t=0.70
+1,gate as coded in results.csv,S3a,robust_in_sideways,1.0,3.630406801064974,3453.0,q=0.0012; signs=3/4; side_minus_rest t=-1.16
+1,gate as coded in results.csv,S3b,robust_in_sideways,0.0,0.264133189936966,3453.0,q=0.8409; signs=3/4; side_minus_rest t=-0.48
+1,gate as coded in results.csv,S3c,robust_in_sideways,0.0,2.483064383766329,3453.0,q=0.0409; signs=3/4; side_minus_rest t=-2.13
+1,gate as coded in results.csv,S4a,robust_in_sideways,0.0,0.5379354978712693,3450.0,q=0.8101; signs=2/4; side_minus_rest t=-0.98
+1,gate as coded in results.csv,S4b,robust_in_sideways,0.0,2.3794451474378286,3451.0,q=0.0477; signs=3/4; side_minus_rest t=0.40
+1,gate as coded in results.csv,S5a,robust_in_sideways,0.0,2.256679745434635,3453.0,q=0.0587; signs=3/4; side_minus_rest t=0.47
+1,gate as coded in results.csv,S5b,robust_in_sideways,0.0,-2.9079003178698004,3453.0,q=0.0133; signs=3/4; side_minus_rest t=-3.45
+1,gate as coded in results.csv,S6a,robust_in_sideways,1.0,-15.051349690332302,2631.0,q=0.0000; signs=4/4; side_minus_rest t=-1.70
+1,gate as coded in results.csv,S6b,robust_in_sideways,0.0,-1.8547358594737036,2631.0,q=0.1273; signs=3/4; side_minus_rest t=0.34
+1,gate as coded in results.csv,S6c,robust_in_sideways,1.0,18.942138257451298,2719.0,q=0.0000; signs=4/4; side_minus_rest t=-2.52
+1,gate as coded in results.csv,S7a,robust_in_sideways,0.0,1.2084711298600446,2056.0,q=0.3327; signs=4/4; side_minus_rest t=0.60
+1,gate as coded in results.csv,S7b,robust_in_sideways,1.0,44.74764094367639,2060.0,q=0.0000; signs=4/4; side_minus_rest t=1.90
+1,gate as coded in results.csv,S8a,robust_in_sideways,0.0,-1.6033828789701052,2804.0,q=0.1842; signs=2/4; side_minus_rest t=-1.35
+1,gate as coded in results.csv,S8b,robust_in_sideways,0.0,-1.6711337802408508,2804.0,q=0.1736; signs=3/4; side_minus_rest t=-1.14
+1,gate as coded in results.csv,S9a,robust_in_sideways,0.0,1.2388534167446843,1214.0,q=0.3327; signs=2/4; side_minus_rest t=-0.10
+1,gate as coded in results.csv,S10a,robust_in_sideways,0.0,-0.4359893768677646,3451.0,q=0.8101; signs=3/4; side_minus_rest t=0.01
+1,gate as coded in results.csv,S10b,robust_in_sideways,0.0,0.2498713994738536,3451.0,q=0.8409; signs=1/4; side_minus_rest t=0.72
+1,gate as coded in results.csv,S11a,robust_in_sideways,0.0,0.451676433617279,2204.0,q=0.8101; signs=3/4; side_minus_rest t=nan
+1,gate as coded in results.csv,S11b,robust_in_sideways,0.0,-0.1992529411785898,3453.0,q=0.8421; signs=2/4; side_minus_rest t=nan
+1,BH over directional tests only (18),S1b,q_dir,0.8420648885057223,-0.3266197274501345,3453.0,passes gate=False; sideways mean=-0.138 % per 20d; side-rest t=-1.72
+1,BH over directional tests only (18),S2b,q_dir,0.0977602870781772,2.137138081808424,2865.0,passes gate=False; sideways mean=0.826 % per 20d; side-rest t=0.70
+1,BH over directional tests only (18),S3a,q_dir,0.0050935476834054,3.630406801064974,3453.0,passes gate=True; sideways mean=5.624 bps/day; side-rest t=-1.16
+1,BH over directional tests only (18),S3b,q_dir,0.8420648885057223,0.264133189936966,3453.0,passes gate=False; sideways mean=0.015 % per 5d; side-rest t=-0.48
+1,BH over directional tests only (18),S3c,q_dir,0.07802425501281945,2.483064383766329,3453.0,passes gate=False; sideways mean=0.448 % per 20d; side-rest t=-2.13
+1,BH over directional tests only (18),S4a,q_dir,0.8420648885057223,0.5379354978712693,3450.0,passes gate=False; sideways mean=0.055 % per 5d; side-rest t=-0.98
+1,BH over directional tests only (18),S4b,q_dir,0.07802425501281945,2.3794451474378286,3451.0,passes gate=False; sideways mean=1.223 % per 20d; side-rest t=0.40
+1,BH over directional tests only (18),S5a,q_dir,0.08650113611892084,2.256679745434635,3453.0,passes gate=False; sideways mean=3.226 bps/day; side-rest t=0.47
+1,BH over directional tests only (18),S5b,q_dir,0.0327477871278369,-2.9079003178698004,3453.0,passes gate=False; sideways mean=-6.793 bps/day; side-rest t=-3.45
+1,BH over directional tests only (18),S6b,q_dir,0.16363017084051387,-1.8547358594737036,2631.0,passes gate=False; sideways mean=-0.279 % per 10d; side-rest t=0.34
+1,BH over directional tests only (18),S7a,q_dir,0.3712354268015144,1.2084711298600446,2056.0,passes gate=False; sideways mean=0.326 % per 20d; side-rest t=0.60
+1,BH over directional tests only (18),S8a,q_dir,0.2177002972583392,-1.6033828789701052,2804.0,passes gate=False; sideways mean=-0.376 % per 20d; side-rest t=-1.35
+1,BH over directional tests only (18),S8b,q_dir,0.2130643268922591,-1.6711337802408508,2804.0,passes gate=False; sideways mean=-0.460 % per 20d; side-rest t=-1.14
+1,BH over directional tests only (18),S9a,q_dir,0.3712354268015144,1.2388534167446843,1214.0,passes gate=False; sideways mean=0.533 % per 20d; side-rest t=-0.10
+1,BH over directional tests only (18),S10a,q_dir,0.8420648885057223,-0.4359893768677646,3451.0,passes gate=False; sideways mean=-0.164 % per 20d; side-rest t=0.01
+1,BH over directional tests only (18),S10b,q_dir,0.8420648885057223,0.2498713994738536,3451.0,passes gate=False; sideways mean=0.071 % per 20d; side-rest t=0.72
+1,BH over directional tests only (18),S11a,q_dir,0.8420648885057223,0.451676433617279,2204.0,passes gate=False; sideways mean=0.393 % per 20d; side-rest t=nan
+1,BH over directional tests only (18),S11b,q_dir,0.8420648885057223,-0.1992529411785898,3453.0,passes gate=False; sideways mean=-0.224 % per 20d; side-rest t=nan
+1,long-only leg fo5 raw,all eligible,"% per trade, sideways days",-0.2059754963563868,-1.9484980721580065,3453.0,subperiods +0.00/-0.27/-0.12/-0.45; all days +0.05 (t 0.5); > cost 0.9%: False
+1,long-only leg fo5 abnormal,all eligible,"% per trade, sideways days",-2.7124084239459386e-18,-0.4344808299629172,3453.0,subperiods -0.00/+0.00/+0.00/+0.00; all days -0.00 (t -1.0); > cost 0.9%: False
+1,long-only leg fo20 raw,all eligible,"% per trade, sideways days",-0.13832562659979555,-0.32661972745013457,3453.0,subperiods +0.13/-0.53/+0.84/-0.76; all days +0.26 (t 0.7); > cost 0.9%: False
+1,long-only leg fo20 abnormal,all eligible,"% per trade, sideways days",2.0213499714449218e-17,1.5451045761430133,3453.0,subperiods +0.00/+0.00/+0.00/+0.00; all days +0.00 (t 0.8); > cost 0.9%: False
+1,long-only leg fo60 raw,all eligible,"% per trade, sideways days",0.11560123894858979,0.08352768702730319,3423.0,subperiods +1.47/-1.28/+1.83/-1.01; all days +0.73 (t 0.6); > cost 0.9%: False
+1,long-only leg fo60 abnormal,all eligible,"% per trade, sideways days",-1.3486907270991447e-17,-0.43337427487512503,3423.0,subperiods -0.00/+0.00/-0.00/-0.00; all days +0.00 (t 0.2); > cost 0.9%: False
+1,long-only leg fo5 raw,mom12-1 top quintile,"% per trade, sideways days",-0.07342356208893153,-0.5568475980151397,3452.0,subperiods +0.18/-0.17/-0.07/-0.23; all days +0.18 (t 1.6); > cost 0.9%: False
+1,long-only leg fo5 abnormal,mom12-1 top quintile,"% per trade, sideways days",0.1287632167919807,1.8638432961223736,3452.0,subperiods +0.18/+0.08/+0.05/+0.22; all days +0.13 (t 2.1); > cost 0.9%: False
+1,long-only leg fo20 raw,mom12-1 top quintile,"% per trade, sideways days",0.37825482465122146,0.7492748520679179,3452.0,subperiods +1.20/-0.31/+1.17/-0.28; all days +0.83 (t 1.9); > cost 0.9%: False
+1,long-only leg fo20 abnormal,mom12-1 top quintile,"% per trade, sideways days",0.5107733894818114,1.9094672067120049,3452.0,subperiods +1.06/+0.20/+0.32/+0.48; all days +0.56 (t 2.4); > cost 0.9%: False
+1,long-only leg fo60 raw,mom12-1 top quintile,"% per trade, sideways days",1.8557233951800214,1.2768326061845874,3422.0,subperiods +4.76/-0.19/+3.02/+0.33; all days +2.50 (t 1.9); > cost 0.9%: True
+1,long-only leg fo60 abnormal,mom12-1 top quintile,"% per trade, sideways days",1.719676881510688,2.6317664157760094,3422.0,subperiods +3.29/+1.03/+1.19/+1.33; all days +1.75 (t 2.9); > cost 0.9%: True
+1,long-only leg fo5 raw,"self-trending up (ER20>=.3, 20d up)","% per trade, sideways days",-0.021013111458723786,-0.13424060975984844,2865.0,subperiods +0.69/-0.36/-0.10/-0.13; all days +0.23 (t 1.9); > cost 0.9%: False
+1,long-only leg fo5 abnormal,"self-trending up (ER20>=.3, 20d up)","% per trade, sideways days",0.17070394719788357,1.363382169775739,2865.0,subperiods +0.49/-0.11/+0.03/+0.38; all days +0.15 (t 1.8); > cost 0.9%: False
+1,long-only leg fo20 raw,"self-trending up (ER20>=.3, 20d up)","% per trade, sideways days",0.8919259654064182,1.7366014463378014,2865.0,subperiods +3.04/-0.78/+1.47/+0.72; all days +1.20 (t 2.8); > cost 0.9%: False
+1,long-only leg fo20 abnormal,"self-trending up (ER20>=.3, 20d up)","% per trade, sideways days",0.826093588646571,2.1371380818084242,2865.0,subperiods +2.30/-0.57/+0.61/+1.57; all days +0.71 (t 2.4); > cost 0.9%: False
+1,long-only leg fo60 raw,"self-trending up (ER20>=.3, 20d up)","% per trade, sideways days",0.9420644739566087,0.6711661036168552,2835.0,subperiods +6.85/-2.10/+2.72/-1.85; all days +1.63 (t 1.3); > cost 0.9%: True
+1,long-only leg fo60 abnormal,"self-trending up (ER20>=.3, 20d up)","% per trade, sideways days",0.46492131796422004,0.6198544493949149,2835.0,subperiods +3.59/-1.17/+1.15/-0.75; all days +0.53 (t 0.9); > cost 0.9%: False
+1,long-only leg fo5 raw,5-day loser bottom quintile,"% per trade, sideways days",-0.22057705835132665,-1.6369874709884953,3451.0,subperiods +0.01/-0.26/-0.09/-0.56; all days +0.08 (t 0.7); > cost 0.9%: False
+1,long-only leg fo5 abnormal,5-day loser bottom quintile,"% per trade, sideways days",-0.023141181527193157,-0.3534260604088507,3451.0,subperiods +0.00/-0.02/+0.03/-0.11; all days +0.03 (t 0.5); > cost 0.9%: False
+1,long-only leg fo20 raw,5-day loser bottom quintile,"% per trade, sideways days",-0.4328154655169725,-0.8889842960508005,3451.0,subperiods -0.66/-0.97/+1.18/-0.81; all days +0.15 (t 0.4); > cost 0.9%: False
+1,long-only leg fo20 abnormal,5-day loser bottom quintile,"% per trade, sideways days",-0.30588418416317564,-1.7884295242782913,3451.0,subperiods -0.79/-0.47/+0.34/-0.05; all days -0.11 (t -0.8); > cost 0.9%: False
+1,long-only leg fo60 raw,5-day loser bottom quintile,"% per trade, sideways days",-0.5496037581181753,-0.36783195141240693,3421.0,subperiods -0.70/-2.10/+2.93/-1.17; all days +0.30 (t 0.2); > cost 0.9%: False
+1,long-only leg fo60 abnormal,5-day loser bottom quintile,"% per trade, sideways days",-0.7045414760024935,-1.9423227525779845,3421.0,subperiods -2.18/-0.93/+1.10/-0.17; all days -0.46 (t -1.5); > cost 0.9%: False
+1,long-only leg fo5 raw,HHV20 Close breakout,"% per trade, sideways days",-0.05213375742577754,-0.3228950524202414,2056.0,subperiods +0.94/-0.37/+0.11/-0.43; all days +0.11 (t 0.9); > cost 0.9%: False
+1,long-only leg fo5 abnormal,HHV20 Close breakout,"% per trade, sideways days",0.04136705799677689,0.2951440863858167,2056.0,subperiods +0.41/-0.27/+0.26/+0.01; all days -0.04 (t -0.4); > cost 0.9%: False
+1,long-only leg fo20 raw,HHV20 Close breakout,"% per trade, sideways days",0.430658219260042,1.0262521196733847,2056.0,subperiods +3.20/-0.16/+0.78/-0.90; all days +0.69 (t 1.8); > cost 0.9%: False
+1,long-only leg fo20 abnormal,HHV20 Close breakout,"% per trade, sideways days",0.3257075368264062,1.2084711298600446,2056.0,subperiods +1.27/+0.08/+0.22/+0.13; all days +0.23 (t 1.1); > cost 0.9%: False
+1,long-only leg fo60 raw,HHV20 Close breakout,"% per trade, sideways days",0.42964575529687826,0.3919262885830066,2037.0,subperiods +6.32/-0.79/+1.34/-2.71; all days +0.93 (t 0.9); > cost 0.9%: False
+1,long-only leg fo60 abnormal,HHV20 Close breakout,"% per trade, sideways days",-0.10846693011062185,-0.21057977373697928,2037.0,subperiods +1.76/+0.04/+0.23/-1.85; all days -0.05 (t -0.1); > cost 0.9%: False
+1,long-only leg fo5 raw,volume spike up day,"% per trade, sideways days",-0.004837153001902127,-0.019239206710323836,1214.0,subperiods -0.03/-0.21/+0.40/-0.05; all days +0.32 (t 1.7); > cost 0.9%: False
+1,long-only leg fo5 abnormal,volume spike up day,"% per trade, sideways days",0.057616521852508616,0.2728496154775722,1214.0,subperiods -0.38/+0.17/+0.23/+0.24; all days +0.15 (t 1.0); > cost 0.9%: False
+1,long-only leg fo20 raw,volume spike up day,"% per trade, sideways days",0.720463655105778,1.0866290268244694,1214.0,subperiods +0.51/-1.28/+4.25/+0.58; all days +1.25 (t 2.1); > cost 0.9%: False
+1,long-only leg fo20 abnormal,volume spike up day,"% per trade, sideways days",0.5326231478972655,1.2388534167446845,1214.0,subperiods -0.73/-0.80/+3.19/+1.34; all days +0.56 (t 1.8); > cost 0.9%: False
+1,long-only leg fo60 raw,volume spike up day,"% per trade, sideways days",0.07960155430341612,0.04386321421318604,1199.0,subperiods +0.99/-5.52/+7.42/+0.10; all days +0.89 (t 0.6); > cost 0.9%: False
+1,long-only leg fo60 abnormal,volume spike up day,"% per trade, sideways days",-0.6670550725024081,-0.8616404052121274,1199.0,subperiods -1.83/-4.00/+3.77/+1.09; all days -0.42 (t -0.8); > cost 0.9%: False
+1,long-only leg fo5 raw,touch of 20-day low,"% per trade, sideways days",-0.3976455282567763,-2.6575797702824864,2629.0,subperiods -0.46/-0.42/+0.02/-0.67; all days -0.23 (t -1.8); > cost 0.9%: False
+1,long-only leg fo5 abnormal,touch of 20-day low,"% per trade, sideways days",-0.10788691620968348,-1.1896897430490403,2629.0,subperiods -0.33/-0.09/+0.12/-0.14; all days -0.13 (t -1.8); > cost 0.9%: False
+1,long-only leg fo20 raw,touch of 20-day low,"% per trade, sideways days",-0.9426391490892198,-1.9742435248421795,2629.0,subperiods -2.72/-1.33/+1.12/-0.69; all days -0.75 (t -1.8); > cost 0.9%: False
+1,long-only leg fo20 abnormal,touch of 20-day low,"% per trade, sideways days",-0.524137386578827,-2.1639595262069604,2629.0,subperiods -1.63/-0.85/+0.28/+0.16; all days -0.55 (t -2.7); > cost 0.9%: False
+1,long-only leg fo60 raw,touch of 20-day low,"% per trade, sideways days",-0.7761247889792764,-0.5175814779185038,2604.0,subperiods -3.43/-1.41/+2.73/-0.69; all days -0.75 (t -0.6); > cost 0.9%: False
+1,long-only leg fo60 abnormal,touch of 20-day low,"% per trade, sideways days",-0.5040889560038172,-0.9064816323052486,2604.0,subperiods -3.07/-0.44/+0.96/+0.37; all days -0.67 (t -1.5); > cost 0.9%: False
+1,long-only leg fo5 raw,vol squeeze (bottom decile),"% per trade, sideways days",-0.35770289391837534,-2.579276482209112,2804.0,subperiods -0.32/-0.30/-0.09/-0.70; all days -0.12 (t -1.1); > cost 0.9%: False
+1,long-only leg fo5 abnormal,vol squeeze (bottom decile),"% per trade, sideways days",-0.19241146688190527,-2.084656304567524,2804.0,subperiods -0.53/-0.14/+0.08/-0.15; all days -0.18 (t -2.5); > cost 0.9%: False
+1,long-only leg fo20 raw,vol squeeze (bottom decile),"% per trade, sideways days",-0.37197705163856787,-0.7272593656447625,2804.0,subperiods -0.86/+0.10/+0.25/-1.03; all days +0.10 (t 0.2); > cost 0.9%: False
+1,long-only leg fo20 abnormal,vol squeeze (bottom decile),"% per trade, sideways days",-0.4601234774049401,-1.6711337802408508,2804.0,subperiods -1.59/+0.18/-0.37/-0.23; all days -0.25 (t -1.0); > cost 0.9%: False
+1,long-only leg fo60 raw,vol squeeze (bottom decile),"% per trade, sideways days",-0.7952040945300325,-0.4601202774690535,2774.0,subperiods -1.01/-0.53/-0.00/-1.64; all days -0.06 (t -0.0); > cost 0.9%: False
+1,long-only leg fo60 abnormal,vol squeeze (bottom decile),"% per trade, sideways days",-0.7099906744091362,-1.200917432777837,2774.0,subperiods -1.90/+0.14/-1.26/-0.12; all days -0.36 (t -0.8); > cost 0.9%: False
+2,S6 replication,support sideways,events / P(up first) / P(down first),12859.0,,12859.0,p_up=0.2317; p_down=0.6043; p_neither=0.1640
+2,same-bar ambiguity,support sideways,share of down-first events where the up level was also hit that bar,0.001544202805301763,,7771.0,flipping them to up-first would move P(up|hit) by +0.0011
+2,analytic RW baseline d_down/(d_up+d_down) (replication),support sideways,excess P(up|hit),-0.03152571027169647,-2.8183420447513017,2431.0,observed 0.2950 vs RW 0.3409; median du/dd=2.06; share of all events with dd<=0 or du<=0: 0.0705
+2,"analytic RW baseline, same-bar both-hit counted as 0.5",support sideways,excess P(up|hit),-0.03132909316331465,-2.8010719826243355,2431.0,
+2,"boot250_driftless: S6 statistic P(up first)-P(down first), incl. neither",support sideways,observed minus simulated,-0.0002922495773030831,-0.01545509959102492,2631.0,observed -0.3727 vs simulated -0.3583; sim P(neither) 0.114 vs obs 0.164; subperiods +0.009/-0.004/+0.021/-0.021
+2,boot250_driftless: P(up first | a level is hit),support sideways,observed minus simulated,-0.00023376384878868536,-0.021373160925176226,2457.0,observed 0.2771 vs simulated 0.2938; subperiods +0.002/-0.001/+0.017/-0.016
+2,"boot250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",support sideways,observed minus simulated trade return,-0.07080962217978444,-0.5567918837720286,2631.0,observed -0.272% vs simulated -0.129%; cost 0.9%
+2,"boot250_owndrift: S6 statistic P(up first)-P(down first), incl. neither",support sideways,observed minus simulated,-0.0012111585936095059,-0.06299545704434269,2631.0,observed -0.3727 vs simulated -0.3575; sim P(neither) 0.110 vs obs 0.164; subperiods -0.013/-0.007/+0.031/-0.011
+2,boot250_owndrift: P(up first | a level is hit),support sideways,observed minus simulated,-0.002339105503321315,-0.21077843367199028,2457.0,observed 0.2771 vs simulated 0.2960; subperiods -0.012/-0.004/+0.021/-0.012
+2,"boot250_owndrift: long trade from touch-day Close, exit at levels or day 10 (log %)",support sideways,observed minus simulated trade return,-0.05678431350490656,-0.43732986305189203,2631.0,observed -0.272% vs simulated -0.137%; cost 0.9%
+2,"boot60_driftless: S6 statistic P(up first)-P(down first), incl. neither",support sideways,observed minus simulated,-0.00955606787728188,-0.5067038458238814,2631.0,observed -0.3727 vs simulated -0.3488; sim P(neither) 0.123 vs obs 0.164; subperiods +0.007/-0.012/+0.016/-0.042
+2,boot60_driftless: P(up first | a level is hit),support sideways,observed minus simulated,-0.0028640105761375944,-0.2627134661432194,2457.0,observed 0.2771 vs simulated 0.2964; subperiods +0.005/-0.004/+0.016/-0.024
+2,"boot60_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",support sideways,observed minus simulated trade return,-0.15677983523464478,-1.220337618140275,2631.0,observed -0.272% vs simulated -0.033%; cost 0.9%
+2,"boot250_driftless_volmatched: S6 statistic P(up first)-P(down first), incl. neither",support sideways,observed minus simulated,-0.0020360830907066546,-0.1081547086375151,2631.0,observed -0.3727 vs simulated -0.3576; sim P(neither) 0.093 vs obs 0.164; subperiods +0.005/-0.006/+0.022/-0.023
+2,boot250_driftless_volmatched: P(up first | a level is hit),support sideways,observed minus simulated,-0.007382839878523997,-0.6760070075661448,2457.0,observed 0.2771 vs simulated 0.3009; subperiods -0.003/-0.010/+0.010/-0.022
+2,"boot250_driftless_volmatched: long trade from touch-day Close, exit at levels or day 10 (log %)",support sideways,observed minus simulated trade return,-0.08775408090071712,-0.6913460827819076,2631.0,observed -0.272% vs simulated -0.113%; cost 0.9%
+2,"block250_driftless: S6 statistic P(up first)-P(down first), incl. neither",support sideways,observed minus simulated,-0.030853014638797478,-1.6209551101830493,2631.0,observed -0.3727 vs simulated -0.3274; sim P(neither) 0.170 vs obs 0.164; subperiods -0.040/-0.027/-0.001/-0.054
+2,block250_driftless: P(up first | a level is hit),support sideways,observed minus simulated,-0.007307967399445158,-0.6650236391848823,2457.0,observed 0.2771 vs simulated 0.3009; subperiods -0.014/-0.004/+0.014/-0.024
+2,"block250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",support sideways,observed minus simulated trade return,-0.22709118910095813,-1.7712614963019282,2631.0,observed -0.272% vs simulated +0.036%; cost 0.9%
+2,realized long trade from touch-day Close (levels or day 10),support sideways,% log per trade,-0.2458752064798458,-1.9492431840042426,2631.0,before cost; fills exactly at levels unless the Open gaps through
+2,S6 replication,support uptrend,events / P(up first) / P(down first),3883.0,,3883.0,p_up=0.2866; p_down=0.5630; p_neither=0.1504
+2,same-bar ambiguity,support uptrend,share of down-first events where the up level was also hit that bar,0.0004574565416285453,,2186.0,flipping them to up-first would move P(up|hit) by +0.0003
+2,analytic RW baseline d_down/(d_up+d_down) (replication),support uptrend,excess P(up|hit),-0.029611794747294588,-1.893693507883697,1177.0,observed 0.3517 vs RW 0.3759; median du/dd=1.74; share of all events with dd<=0 or du<=0: 0.0657
+2,"analytic RW baseline, same-bar both-hit counted as 0.5",support uptrend,excess P(up|hit),-0.029470191801953326,-1.8843554801527074,1177.0,
+2,"boot250_driftless: S6 statistic P(up first)-P(down first), incl. neither",support uptrend,observed minus simulated,0.01233478112494903,0.4715110977520726,1304.0,observed -0.2766 vs simulated -0.2976; sim P(neither) 0.066 vs obs 0.150; subperiods +0.062/-0.045/+0.010/+0.026
+2,boot250_driftless: P(up first | a level is hit),support uptrend,observed minus simulated,-0.0019031700359863647,-0.1262436392656223,1206.0,observed 0.3374 vs simulated 0.3387; subperiods +0.034/-0.041/-0.002/+0.000
+2,"boot250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",support uptrend,observed minus simulated trade return,0.1756093821625946,1.192077735967855,1304.0,observed -0.029% vs simulated -0.181%; cost 0.9%
+2,"boot250_owndrift: S6 statistic P(up first)-P(down first), incl. neither",support uptrend,observed minus simulated,-0.0028067205772333735,-0.1056710323464145,1304.0,observed -0.2766 vs simulated -0.2856; sim P(neither) 0.065 vs obs 0.150; subperiods +0.016/-0.064/+0.009/+0.043
+2,boot250_owndrift: P(up first | a level is hit),support uptrend,observed minus simulated,-0.011612254354875286,-0.7606551158028878,1206.0,observed 0.3374 vs simulated 0.3461; subperiods +0.005/-0.051/-0.003/+0.007
+2,"boot250_owndrift: long trade from touch-day Close, exit at levels or day 10 (log %)",support uptrend,observed minus simulated trade return,0.09506568561687134,0.6355449432712214,1304.0,observed -0.029% vs simulated -0.116%; cost 0.9%
+2,"boot60_driftless: S6 statistic P(up first)-P(down first), incl. neither",support uptrend,observed minus simulated,0.0003047803636937306,0.011642965022759485,1304.0,observed -0.2766 vs simulated -0.2874; sim P(neither) 0.084 vs obs 0.150; subperiods +0.050/-0.049/-0.009/+0.013
+2,boot60_driftless: P(up first | a level is hit),support uptrend,observed minus simulated,-0.007181700459736768,-0.47853101631156053,1206.0,observed 0.3374 vs simulated 0.3415; subperiods +0.024/-0.037/-0.010/-0.008
+2,"boot60_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",support uptrend,observed minus simulated trade return,0.07783549972804335,0.5246991471512433,1304.0,observed -0.029% vs simulated -0.088%; cost 0.9%
+2,"boot250_driftless_volmatched: S6 statistic P(up first)-P(down first), incl. neither",support uptrend,observed minus simulated,0.0053678724756547076,0.20495222274058778,1304.0,observed -0.2766 vs simulated -0.2930; sim P(neither) 0.078 vs obs 0.150; subperiods +0.045/-0.050/+0.007/+0.027
+2,boot250_driftless_volmatched: P(up first | a level is hit),support uptrend,observed minus simulated,-0.0050965583980917,-0.3393192589076865,1206.0,observed 0.3374 vs simulated 0.3403; subperiods +0.024/-0.041/-0.003/+0.001
+2,"boot250_driftless_volmatched: long trade from touch-day Close, exit at levels or day 10 (log %)",support uptrend,observed minus simulated trade return,0.13875309052099002,0.9392762554615552,1304.0,observed -0.029% vs simulated -0.154%; cost 0.9%
+2,"block250_driftless: S6 statistic P(up first)-P(down first), incl. neither",support uptrend,observed minus simulated,-0.013438075526402435,-0.5159554766395157,1304.0,observed -0.2766 vs simulated -0.2730; sim P(neither) 0.116 vs obs 0.150; subperiods +0.018/-0.063/-0.006/+0.003
+2,block250_driftless: P(up first | a level is hit),support uptrend,observed minus simulated,-0.01077431132657408,-0.7186601128987441,1206.0,observed 0.3374 vs simulated 0.3463; subperiods +0.013/-0.045/-0.005/-0.005
+2,"block250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",support uptrend,observed minus simulated trade return,0.05743880500289242,0.387859018583072,1304.0,observed -0.029% vs simulated -0.070%; cost 0.9%
+2,realized long trade from touch-day Close (levels or day 10),support uptrend,% log per trade,-0.06218529957010402,-0.4257586874410423,1306.0,before cost; fills exactly at levels unless the Open gaps through
+2,S6 replication,support downtrend,events / P(up first) / P(down first),4664.0,,4664.0,p_up=0.2316; p_down=0.6096; p_neither=0.1589
+2,same-bar ambiguity,support downtrend,share of down-first events where the up level was also hit that bar,0.0007034822370735139,,2843.0,flipping them to up-first would move P(up|hit) by +0.0005
+2,analytic RW baseline d_down/(d_up+d_down) (replication),support downtrend,excess P(up|hit),0.003875438619806033,0.18134621298451872,526.0,observed 0.3007 vs RW 0.3130; median du/dd=2.44; share of all events with dd<=0 or du<=0: 0.1001
+2,"analytic RW baseline, same-bar both-hit counted as 0.5",support downtrend,excess P(up|hit),0.0039384037493110854,0.18431326193535372,526.0,
+2,"boot250_driftless: S6 statistic P(up first)-P(down first), incl. neither",support downtrend,observed minus simulated,0.03447040533158227,0.9720274978516379,557.0,observed -0.3781 vs simulated -0.4019; sim P(neither) 0.226 vs obs 0.159; subperiods +0.044/-0.042/+0.121/+0.085
+2,boot250_driftless: P(up first | a level is hit),support downtrend,observed minus simulated,0.05644248525238732,2.7296564957541496,532.0,observed 0.2753 vs simulated 0.2380; subperiods +0.039/+0.039/+0.130/+0.049
+2,"boot250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",support downtrend,observed minus simulated trade return,0.5887636766854368,1.452303280484032,557.0,observed +0.331% vs simulated -0.091%; cost 0.9%
+2,"boot250_owndrift: S6 statistic P(up first)-P(down first), incl. neither",support downtrend,observed minus simulated,0.04945585450110939,1.4296587932122926,557.0,observed -0.3781 vs simulated -0.4193; sim P(neither) 0.212 vs obs 0.159; subperiods +0.044/-0.024/+0.156/+0.102
+2,boot250_owndrift: P(up first | a level is hit),support downtrend,observed minus simulated,0.06097624360675282,3.002960793509448,532.0,observed 0.2753 vs simulated 0.2331; subperiods +0.035/+0.045/+0.145/+0.057
+2,"boot250_owndrift: long trade from touch-day Close, exit at levels or day 10 (log %)",support downtrend,observed minus simulated trade return,0.8290250471664965,2.0588417349380674,557.0,observed +0.331% vs simulated -0.357%; cost 0.9%
+2,"boot60_driftless: S6 statistic P(up first)-P(down first), incl. neither",support downtrend,observed minus simulated,0.033758103823413634,0.9468581566290881,557.0,observed -0.3781 vs simulated -0.4020; sim P(neither) 0.219 vs obs 0.159; subperiods +0.040/-0.033/+0.124/+0.067
+2,boot60_driftless: P(up first | a level is hit),support downtrend,observed minus simulated,0.05580949747508124,2.6941541524718198,532.0,observed 0.2753 vs simulated 0.2391; subperiods +0.046/+0.035/+0.128/+0.044
+2,"boot60_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",support downtrend,observed minus simulated trade return,0.48605123665147665,1.191099853255709,557.0,observed +0.331% vs simulated +0.024%; cost 0.9%
+2,"boot250_driftless_volmatched: S6 statistic P(up first)-P(down first), incl. neither",support downtrend,observed minus simulated,0.04446543593186873,1.2523609835376535,557.0,observed -0.3781 vs simulated -0.4155; sim P(neither) 0.124 vs obs 0.159; subperiods +0.042/-0.023/+0.145/+0.085
+2,boot250_driftless_volmatched: P(up first | a level is hit),support downtrend,observed minus simulated,0.031841327246962224,1.57997409905347,532.0,observed 0.2753 vs simulated 0.2632; subperiods +0.021/+0.002/+0.103/+0.041
+2,"boot250_driftless_volmatched: long trade from touch-day Close, exit at levels or day 10 (log %)",support downtrend,observed minus simulated trade return,0.5663660383424809,1.4016491143256185,557.0,observed +0.331% vs simulated -0.071%; cost 0.9%
+2,"block250_driftless: S6 statistic P(up first)-P(down first), incl. neither",support downtrend,observed minus simulated,-0.004752459531631093,-0.13435035885671848,557.0,observed -0.3781 vs simulated -0.3636; sim P(neither) 0.283 vs obs 0.159; subperiods -0.007/-0.073/+0.083/+0.051
+2,block250_driftless: P(up first | a level is hit),support downtrend,observed minus simulated,0.047860836570340244,2.334544394414766,532.0,observed 0.2753 vs simulated 0.2456; subperiods +0.022/+0.036/+0.127/+0.040
+2,"block250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",support downtrend,observed minus simulated trade return,0.30751938267544965,0.77303700073335,557.0,observed +0.331% vs simulated +0.202%; cost 0.9%
+2,realized long trade from touch-day Close (levels or day 10),support downtrend,% log per trade,0.4238019605417494,1.0563198702119607,557.0,before cost; fills exactly at levels unless the Open gaps through
+2,S6 replication,resistance sideways,events / P(up first) / P(down first),11379.0,,11379.0,p_up=0.6203; p_down=0.2305; p_neither=0.1492
+2,same-bar ambiguity,resistance sideways,share of down-first events where the up level was also hit that bar,0.003431185665268776,,2623.0,flipping them to up-first would move P(up|hit) by +0.0009
+2,analytic RW baseline d_down/(d_up+d_down) (replication),resistance sideways,excess P(up|hit),0.009074450033664031,0.8718174863320227,2518.0,observed 0.6975 vs RW 0.6839; median du/dd=0.42; share of all events with dd<=0 or du<=0: 0.1012
+2,"analytic RW baseline, same-bar both-hit counted as 0.5",resistance sideways,excess P(up|hit),0.009714117929090466,0.934922418929176,2518.0,
+2,"boot250_driftless: S6 statistic P(up first)-P(down first), incl. neither",resistance sideways,observed minus simulated,0.010169040258695408,0.5968649138372849,2719.0,observed +0.3898 vs simulated +0.3700; sim P(neither) 0.103 vs obs 0.149; subperiods +0.026/+0.016/-0.024/+0.021
+2,boot250_driftless: P(up first | a level is hit),resistance sideways,observed minus simulated,0.011345233136494073,1.17852069087875,2595.0,observed 0.7291 vs simulated 0.7114; subperiods +0.019/+0.022/-0.010/+0.011
+2,"boot250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance sideways,observed minus simulated trade return,-0.0033078202118184976,-0.029997292112872005,2719.0,observed -0.141% vs simulated -0.243%; cost 0.9%
+2,"boot250_owndrift: S6 statistic P(up first)-P(down first), incl. neither",resistance sideways,observed minus simulated,-0.045542586520952,-2.648258483339818,2719.0,observed +0.3898 vs simulated +0.4210; sim P(neither) 0.097 vs obs 0.149; subperiods -0.040/-0.049/-0.066/-0.027
+2,boot250_owndrift: P(up first | a level is hit),resistance sideways,observed minus simulated,-0.015525172864413548,-1.602453969694636,2595.0,observed 0.7291 vs simulated 0.7359; subperiods -0.013/-0.010/-0.028/-0.013
+2,"boot250_owndrift: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance sideways,observed minus simulated trade return,-0.38029105229282156,-3.299108718010528,2719.0,observed -0.141% vs simulated +0.083%; cost 0.9%
+2,"boot60_driftless: S6 statistic P(up first)-P(down first), incl. neither",resistance sideways,observed minus simulated,0.007556908938373091,0.44525979068931754,2719.0,observed +0.3898 vs simulated +0.3750; sim P(neither) 0.104 vs obs 0.149; subperiods +0.026/+0.012/-0.023/+0.014
+2,boot60_driftless: P(up first | a level is hit),resistance sideways,observed minus simulated,0.010541853160211062,1.1112208239781922,2595.0,observed 0.7291 vs simulated 0.7134; subperiods +0.018/+0.019/-0.006/+0.009
+2,"boot60_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance sideways,observed minus simulated trade return,0.03140065314835212,0.28527143995552723,2719.0,observed -0.141% vs simulated -0.261%; cost 0.9%
+2,"boot250_driftless_volmatched: S6 statistic P(up first)-P(down first), incl. neither",resistance sideways,observed minus simulated,-0.0019116578419981498,-0.11277633056190163,2719.0,observed +0.3898 vs simulated +0.3821; sim P(neither) 0.129 vs obs 0.149; subperiods +0.007/+0.001/-0.032/+0.014
+2,boot250_driftless_volmatched: P(up first | a level is hit),resistance sideways,observed minus simulated,0.00040996321033033784,0.04327622732469643,2595.0,observed 0.7291 vs simulated 0.7231; subperiods +0.002/+0.009/-0.017/+0.003
+2,"boot250_driftless_volmatched: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance sideways,observed minus simulated trade return,-0.051082901909618915,-0.46519237718191336,2719.0,observed -0.141% vs simulated -0.198%; cost 0.9%
+2,"block250_driftless: S6 statistic P(up first)-P(down first), incl. neither",resistance sideways,observed minus simulated,0.03990563353211894,2.3289535997940267,2719.0,observed +0.3898 vs simulated +0.3404; sim P(neither) 0.159 vs obs 0.149; subperiods +0.054/+0.049/+0.011/+0.042
+2,block250_driftless: P(up first | a level is hit),resistance sideways,observed minus simulated,0.017987551469553907,1.8584984946003806,2595.0,observed 0.7291 vs simulated 0.7051; subperiods +0.025/+0.030/+0.002/+0.011
+2,"block250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance sideways,observed minus simulated trade return,0.1943180904790813,1.7554261218622673,2719.0,observed -0.141% vs simulated -0.427%; cost 0.9%
+2,realized long trade from touch-day Close (levels or day 10),resistance sideways,% log per trade,-0.27054350688449447,-2.4610640507773907,2719.0,before cost; fills exactly at levels unless the Open gaps through
+2,S6 replication,resistance uptrend,events / P(up first) / P(down first),11203.0,,11203.0,p_up=0.6666; p_down=0.1840; p_neither=0.1494
+2,same-bar ambiguity,resistance uptrend,share of down-first events where the up level was also hit that bar,0.004366812227074236,,2061.0,flipping them to up-first would move P(up|hit) by +0.0009
+2,analytic RW baseline d_down/(d_up+d_down) (replication),resistance uptrend,excess P(up|hit),0.03536256571856818,3.254769763150798,1811.0,observed 0.7475 vs RW 0.7002; median du/dd=0.39; share of all events with dd<=0 or du<=0: 0.1327
+2,"analytic RW baseline, same-bar both-hit counted as 0.5",resistance uptrend,excess P(up|hit),0.03572280812050026,3.2886122126387756,1811.0,
+2,"boot250_driftless: S6 statistic P(up first)-P(down first), incl. neither",resistance uptrend,observed minus simulated,0.0639276142429856,3.6809834890248303,1895.0,observed +0.4829 vs simulated +0.4117; sim P(neither) 0.107 vs obs 0.149; subperiods +0.096/+0.098/+0.006/+0.000
+2,boot250_driftless: P(up first | a level is hit),resistance uptrend,observed minus simulated,0.04055498806733463,4.133600927252335,1843.0,observed 0.7837 vs simulated 0.7355; subperiods +0.061/+0.065/+0.001/+0.003
+2,"boot250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance uptrend,observed minus simulated trade return,0.41391360771926955,3.42245897129984,1895.0,observed +0.122% vs simulated -0.306%; cost 0.9%
+2,"boot250_owndrift: S6 statistic P(up first)-P(down first), incl. neither",resistance uptrend,observed minus simulated,0.006311130251367982,0.3509838123211136,1895.0,observed +0.4829 vs simulated +0.4622; sim P(neither) 0.099 vs obs 0.149; subperiods +0.023/+0.031/-0.024/-0.041
+2,boot250_owndrift: P(up first | a level is hit),resistance uptrend,observed minus simulated,0.013622567416180354,1.3541554397522846,1843.0,observed 0.7837 vs simulated 0.7595; subperiods +0.026/+0.032/-0.013/-0.013
+2,"boot250_owndrift: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance uptrend,observed minus simulated trade return,-0.003297969527975602,-0.02561756783883571,1895.0,observed +0.122% vs simulated +0.051%; cost 0.9%
+2,"boot60_driftless: S6 statistic P(up first)-P(down first), incl. neither",resistance uptrend,observed minus simulated,0.05539742333405379,3.2092193159297544,1895.0,observed +0.4829 vs simulated +0.4206; sim P(neither) 0.127 vs obs 0.149; subperiods +0.088/+0.084/+0.004/-0.005
+2,boot60_driftless: P(up first | a level is hit),resistance uptrend,observed minus simulated,0.030164846246832498,3.100616918741249,1843.0,observed 0.7837 vs simulated 0.7456; subperiods +0.049/+0.049/-0.005/+0.000
+2,"boot60_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance uptrend,observed minus simulated trade return,0.41653655340489465,3.4352836624141325,1895.0,observed +0.122% vs simulated -0.314%; cost 0.9%
+2,"boot250_driftless_volmatched: S6 statistic P(up first)-P(down first), incl. neither",resistance uptrend,observed minus simulated,0.048340352789014863,2.80123527244068,1895.0,observed +0.4829 vs simulated +0.4264; sim P(neither) 0.153 vs obs 0.149; subperiods +0.077/+0.079/-0.004/-0.007
+2,boot250_driftless_volmatched: P(up first | a level is hit),resistance uptrend,observed minus simulated,0.022066608586087062,2.294102949567636,1843.0,observed 0.7837 vs simulated 0.7539; subperiods +0.039/+0.043/-0.014/-0.006
+2,"boot250_driftless_volmatched: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance uptrend,observed minus simulated trade return,0.3243228821086156,2.6905834996320284,1895.0,observed +0.122% vs simulated -0.228%; cost 0.9%
+2,"block250_driftless: S6 statistic P(up first)-P(down first), incl. neither",resistance uptrend,observed minus simulated,0.09230354068143058,5.340092170271711,1895.0,observed +0.4829 vs simulated +0.3835; sim P(neither) 0.160 vs obs 0.149; subperiods +0.119/+0.130/+0.045/+0.023
+2,block250_driftless: P(up first | a level is hit),resistance uptrend,observed minus simulated,0.045217013747447195,4.645834655440807,1843.0,observed 0.7837 vs simulated 0.7304; subperiods +0.062/+0.071/+0.012/+0.003
+2,"block250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance uptrend,observed minus simulated trade return,0.6025443843977837,4.960887603102153,1895.0,observed +0.122% vs simulated -0.492%; cost 0.9%
+2,realized long trade from touch-day Close (levels or day 10),resistance uptrend,% log per trade,0.06943353685933168,0.5786716530945036,1896.0,before cost; fills exactly at levels unless the Open gaps through
+2,S6 replication,resistance downtrend,events / P(up first) / P(down first),680.0,,680.0,p_up=0.5500; p_down=0.3103; p_neither=0.1397
+2,same-bar ambiguity,resistance downtrend,share of down-first events where the up level was also hit that bar,0.0,,211.0,flipping them to up-first would move P(up|hit) by +0.0000
+2,analytic RW baseline d_down/(d_up+d_down) (replication),resistance downtrend,excess P(up|hit),-0.0733314277744916,-2.447807090122617,281.0,observed 0.6065 vs RW 0.6527; median du/dd=0.48; share of all events with dd<=0 or du<=0: 0.0941
+2,"analytic RW baseline, same-bar both-hit counted as 0.5",resistance downtrend,excess P(up|hit),-0.0733314277744916,-2.447807090122617,281.0,
+2,"boot250_driftless: S6 statistic P(up first)-P(down first), incl. neither",resistance downtrend,observed minus simulated,-0.09000369558866492,-1.910192232030365,326.0,observed +0.2397 vs simulated +0.3073; sim P(neither) 0.116 vs obs 0.140; subperiods -0.007/-0.185/-0.054/-0.058
+2,boot250_driftless: P(up first | a level is hit),resistance downtrend,observed minus simulated,-0.05588413189494476,-2.139822327004592,306.0,observed 0.6393 vs simulated 0.6796; subperiods +0.015/-0.126/-0.015/-0.048
+2,"boot250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance downtrend,observed minus simulated trade return,-0.09623307994655637,-0.29011361611885045,326.0,observed -0.283% vs simulated -0.252%; cost 0.9%
+2,"boot250_owndrift: S6 statistic P(up first)-P(down first), incl. neither",resistance downtrend,observed minus simulated,-0.14179439663948865,-3.1047969257138615,326.0,observed +0.2397 vs simulated +0.3569; sim P(neither) 0.111 vs obs 0.140; subperiods -0.075/-0.229/-0.107/-0.107
+2,boot250_owndrift: P(up first | a level is hit),resistance downtrend,observed minus simulated,-0.07976842479189555,-3.141589079242371,306.0,observed 0.6393 vs simulated 0.7031; subperiods -0.015/-0.147/-0.043/-0.067
+2,"boot250_owndrift: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance downtrend,observed minus simulated trade return,-0.48484995827326505,-1.5506952087919474,326.0,observed -0.283% vs simulated +0.083%; cost 0.9%
+2,"boot60_driftless: S6 statistic P(up first)-P(down first), incl. neither",resistance downtrend,observed minus simulated,-0.0818580088793279,-1.7800191689365368,326.0,observed +0.2397 vs simulated +0.3012; sim P(neither) 0.100 vs obs 0.140; subperiods -0.015/-0.174/-0.022/-0.060
+2,boot60_driftless: P(up first | a level is hit),resistance downtrend,observed minus simulated,-0.04699148079293839,-1.8127292039540497,306.0,observed 0.6393 vs simulated 0.6713; subperiods +0.011/-0.109/+0.003/-0.047
+2,"boot60_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance downtrend,observed minus simulated trade return,-0.03762229279811529,-0.11730903644869595,326.0,observed -0.283% vs simulated -0.307%; cost 0.9%
+2,"boot250_driftless_volmatched: S6 statistic P(up first)-P(down first), incl. neither",resistance downtrend,observed minus simulated,-0.09739931656618774,-2.0905159041839454,326.0,observed +0.2397 vs simulated +0.3128; sim P(neither) 0.106 vs obs 0.140; subperiods -0.039/-0.185/-0.053/-0.062
+2,boot250_driftless_volmatched: P(up first | a level is hit),resistance downtrend,observed minus simulated,-0.05828261942082387,-2.2271868518883156,306.0,observed 0.6393 vs simulated 0.6804; subperiods -0.007/-0.116/-0.021/-0.049
+2,"boot250_driftless_volmatched: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance downtrend,observed minus simulated trade return,-0.13856547786351203,-0.4283292126514393,326.0,observed -0.283% vs simulated -0.231%; cost 0.9%
+2,"block250_driftless: S6 statistic P(up first)-P(down first), incl. neither",resistance downtrend,observed minus simulated,-0.05648960751246027,-1.2030403935776943,326.0,observed +0.2397 vs simulated +0.2740; sim P(neither) 0.172 vs obs 0.140; subperiods +0.029/-0.148/-0.021/-0.030
+2,block250_driftless: P(up first | a level is hit),resistance downtrend,observed minus simulated,-0.04381953900803628,-1.6944681289297123,306.0,observed 0.6393 vs simulated 0.6679; subperiods +0.028/-0.111/+0.000/-0.042
+2,"block250_driftless: long trade from touch-day Close, exit at levels or day 10 (log %)",resistance downtrend,observed minus simulated trade return,0.16137734017128819,0.47262455739879256,326.0,observed -0.283% vs simulated -0.489%; cost 0.9%
+2,realized long trade from touch-day Close (levels or day 10),resistance downtrend,% log per trade,-0.40911864393586556,-1.279046159117755,326.0,before cost; fills exactly at levels unless the Open gaps through
+3,replication,proxy (battery),up / down exits after sideways >= 5d,0.6331658291457286,3.7570703865441804,199.0,126 up vs 73 down; z vs 50%
+3,base rate,all trend episodes,share uptrend,0.633245382585752,,379.0,
+3,base rate,exits from all sideways episodes,share up,0.6322751322751323,,378.0,
+3,base rate,exits from sideways episodes < 5d,share up,0.6312849162011173,,179.0,
+3,binomial vs base rate of trend episodes,sideways >= 5d,z,-0.0023286900696407767,-0.0023286900696407767,199.0,null p=0.633 instead of 0.5
+3,label mechanics: only exits whose next trend lasts >= N days,N=3,share up,0.6486486486486487,3.132221385983247,111.0,72 vs 39
+3,label mechanics: only exits whose next trend lasts >= N days,N=5,share up,0.6375,2.4596747752497685,80.0,51 vs 29
+3,label mechanics: only exits whose next trend lasts >= N days,N=10,share up,0.7777777777777778,3.7267799624996494,45.0,35 vs 10
+3,label mechanics,next trend episode after sideways >= 5d,share lasting 1-2 days,0.44221105527638194,,199.0,"up exits median len 3.0, down exits 3.0"
+3,drift by subperiod,2000-07,battery proxy geometric annualized,0.3997119760505928,,,
+3,by subperiod,2000-07,share up after sideways >= 5d,0.6101694915254238,,59.0,36 vs 23; base rate of uptrend episodes 0.620
+3,drift by subperiod,2008-15,battery proxy geometric annualized,0.17339928905001833,,,
+3,by subperiod,2008-15,share up after sideways >= 5d,0.6774193548387096,,62.0,42 vs 20; base rate of uptrend episodes 0.625
+3,drift by subperiod,2016-20,battery proxy geometric annualized,0.22293552026535798,,,
+3,by subperiod,2016-20,share up after sideways >= 5d,0.6578947368421053,,38.0,25 vs 13; base rate of uptrend episodes 0.639
+3,drift by subperiod,2021-25,battery proxy geometric annualized,0.13843991803124717,,,
+3,by subperiod,2021-25,share up after sideways >= 5d,0.575,,40.0,23 vs 17; base rate of uptrend episodes 0.658
+3,exit direction by regime before the sideways episode,preceded by uptrend,share up,0.5934959349593496,,123.0,73 vs 50
+3,exit direction by regime before the sideways episode,preceded by downtrend,share up,0.6973684210526315,,76.0,53 vs 23
+3,drift,"battery proxy (raw closes, all 100 tickers, data errors kept)",geometric annualized,0.24326860602066694,,,
+3,alternative proxy: drift,"clean simple EW, all tradable (bad masked)",geometric annualized,0.23659568706614242,,,
+3,alternative proxy: exits after sideways >= 5d,"clean simple EW, all tradable (bad masked)",share up,0.635,3.8183766184073566,200.0,127 vs 73; sideways share 0.556; labels agree with battery on 0.977 of days
+3,alternative proxy: drift,"clean simple EW, eligible only",geometric annualized,0.12922484015376945,,,
+3,alternative proxy: exits after sideways >= 5d,"clean simple EW, eligible only",share up,0.591743119266055,2.7091418459143854,218.0,129 vs 89; sideways share 0.651; labels agree with battery on 0.830 of days
+3,alternative proxy: drift,"clean log EW (geometric), eligible only",geometric annualized,0.04395552222393144,,,
+3,alternative proxy: exits after sideways >= 5d,"clean log EW (geometric), eligible only",share up,0.5585585585585585,1.7450057435564632,222.0,124 vs 98; sideways share 0.658; labels agree with battery on 0.808 of days
+3,drift removed (demeaned log returns of the same proxy path),battery proxy,share up,0.48598130841121495,-0.41015155621479793,214.0,104 vs 110
+3,stationary block bootstrap of proxy returns (drift kept),battery proxy,mean simulated share up,0.6343290739604214,,2000.0,5-95%: 0.582-0.684; P(sim >= observed 0.633) = 0.507
+3,stationary block bootstrap of proxy returns (drift removed),battery proxy,mean simulated share up,0.5166700231579837,,2000.0,5-95%: 0.466-0.571; P(sim >= observed 0.633) = 0.000
+3,exit direction predictor at day 5 (two-proportion z),breadth>=0.5,share up if true minus if false,0.09414141414141419,1.3777745257600833,199.0,true: 0.680 (n 100); false: 0.586 (n 99)
+3,exit direction predictor at day 5 (two-proportion z),proxy>SMA200,share up if true minus if false,0.027755102040816326,0.34999862119583347,199.0,true: 0.640 (n 150); false: 0.612 (n 49)
+3,exit direction predictor at day 5 (two-proportion z),proxy 20d change>0,share up if true minus if false,0.1808823529411765,2.595939151941004,199.0,true: 0.706 (n 119); false: 0.525 (n 80)
+3,exit direction predictor at day 5 (two-proportion z),proxy in top half of 20d range,share up if true minus if false,0.34317501069747547,4.8803935371360465,199.0,true: 0.764 (n 123); false: 0.421 (n 76)
+3,exit direction predictor at day 5 (two-proportion z),proxy>SMA50,share up if true minus if false,0.13029525032092426,1.852967371643299,199.0,true: 0.683 (n 123); false: 0.553 (n 76)
+3,tradeability,EW fo20 from day 5 of sideways >= 5d episodes,% per 20d,0.08127616644548824,0.16104408349652943,199.0,episodes non-overlapping enough; lag 1
+3,EW fo20 by sideways age (exploratory),age 1-4,% per 20d,-0.1373511911314478,-0.26766411456244105,1121.0,
+3,EW fo20 by sideways age (exploratory),age 5-9,% per 20d,0.10619612439659862,0.2190350615768221,880.0,
+3,EW fo20 by sideways age (exploratory),age 10-19,% per 20d,0.25230946584944797,0.40826275059756356,934.0,
+3,EW fo20 by sideways age (exploratory),age 20-999,% per 20d,-1.2601879034037298,-1.1455378300191768,518.0,
+4,dispersion: sideways minus rest,none,bps/day,-21.614632234827056,-5.927517773834519,6219.0,
+4,dispersion: sideways minus rest,subperiod FE,bps/day,-20.989895982593318,-5.7594038197522694,6219.0,
+4,dispersion: sideways minus rest,year FE,bps/day,-17.916242170474046,-5.554040230644782,6219.0,
+4,dispersion: sideways minus rest,trailing 20d dispersion + same-day |EW return|,bps/day,-12.19381116103464,-4.738975584973858,6219.0,
+4,dispersion: sideways minus rest,year FE + trailing dispersion + |EW|,bps/day,-13.440872594735977,-6.3376763642660485,6219.0,
+4,dispersion: sideways minus rest within subperiod,2000-07,bps/day,-27.872504566363613,-3.9647679248637604,1947.0,
+4,dispersion: sideways minus rest within subperiod,2008-15,bps/day,-31.58501525900115,-4.311254779135646,1949.0,
+4,dispersion: sideways minus rest within subperiod,2016-20,bps/day,-4.902708686964565,-0.8263057665972915,1211.0,
+4,dispersion: sideways minus rest within subperiod,2021-25,bps/day,-6.6987073875318455,-0.9655637526798276,1112.0,
+4,daily moves,sideways,mean |r_cc| of eligible stocks (%),1.8860035591413982,,,share of stock-days |r|>=3%: 0.199; median ATR14 %: 3.55; EW |index r| 1.06%
+4,daily moves,uptrend,mean |r_cc| of eligible stocks (%),1.875271266385399,,,share of stock-days |r|>=3%: 0.196; median ATR14 %: 3.27; EW |index r| 1.00%
+4,daily moves,downtrend,mean |r_cc| of eligible stocks (%),2.730696659355647,,,share of stock-days |r|>=3%: 0.320; median ATR14 %: 4.51; EW |index r| 1.89%
+4,intraday r_id: sideways minus rest,none,bps/day,-13.069249536824259,-3.4506472306927556,6220.0,
+4,intraday r_id: sideways minus rest,subperiod FE,bps/day,-9.28380744341198,-2.4853497766507964,6220.0,
+4,intraday r_id: sideways minus rest,year FE,bps/day,-8.251228973473465,-2.185250727236732,6220.0,
+4,intraday r_id: sideways minus rest,post-2013 dummy,bps/day,-10.098928440259451,-2.720016165190261,6220.0,
+4,intraday r_id: sideways minus rest within period,2000-2012,bps/day,-15.316089678953102,-2.6928109690401643,3167.0,means side/up/down +5.5/+20.9/+20.4
+4,intraday r_id: sideways minus rest within period,2013-2025,bps/day,-4.41589625207072,-0.9486932760283381,3053.0,means side/up/down -17.3/-18.6/+2.2
+4,intraday r_id: sideways minus rest within period,2000-07,bps/day,-17.44521111567696,-2.4125994635029664,1947.0,means side/up/down +10.0/+27.6/+27.0
+4,intraday r_id: sideways minus rest within period,2008-15,bps/day,-7.388043216259239,-1.0347442656213461,1950.0,means side/up/down -4.6/+1.6/+5.5
+4,intraday r_id: sideways minus rest within period,2016-20,bps/day,-4.214016353052723,-0.5381118751173035,1211.0,means side/up/down -15.8/-17.2/+10.0
+4,intraday r_id: sideways minus rest within period,2021-25,bps/day,-3.079866613377948,-0.4927725062826272,1112.0,means side/up/down -22.6/-23.8/-8.1
+4,overnight r_on: sideways minus rest,none,bps/day,1.1817429814958937,0.4703095607196615,6220.0,
+4,overnight r_on: sideways minus rest,subperiod FE,bps/day,-2.048356397612362,-0.840848234417921,6220.0,
+4,overnight r_on: sideways minus rest,year FE,bps/day,-1.3842834154833406,-0.5667358949316854,6220.0,
+4,overnight r_on: sideways minus rest,post-2013 dummy,bps/day,-1.5260490567669132,-0.6283534253927379,6220.0,
+4,overnight r_on: sideways minus rest within period,2000-2012,bps/day,-1.7588287564321663,-0.4382007804175012,3167.0,means side/up/down -10.5/-2.8/-27.6
+4,overnight r_on: sideways minus rest within period,2013-2025,bps/day,-1.2724830914018161,-0.4940709017596781,3053.0,means side/up/down +14.9/+20.3/+5.4
+4,overnight r_on: sideways minus rest within period,2000-07,bps/day,-2.4681505413395297,-0.5404008238565647,1947.0,means side/up/down -14.9/-5.3/-35.2
+4,overnight r_on: sideways minus rest within period,2008-15,bps/day,-0.6272177764654292,-0.11992864459456438,1950.0,means side/up/down +0.2/+3.5/-5.6
+4,overnight r_on: sideways minus rest within period,2016-20,bps/day,-3.1227964437644724,-0.7638244625856877,1211.0,means side/up/down +14.8/+24.5/-7.7
+4,overnight r_on: sideways minus rest within period,2021-25,bps/day,-2.6494136992592097,-0.6875020535379338,1112.0,means side/up/down +19.5/+21.6/+23.7
+4,close-close r_cc: sideways minus rest,none,bps/day,-11.887506555328358,-2.510249975209658,6220.0,
+4,close-close r_cc: sideways minus rest,subperiod FE,bps/day,-11.332163841024318,-2.3576239622373927,6220.0,
+4,close-close r_cc: sideways minus rest,year FE,bps/day,-9.63551238895673,-1.9961910858571976,6220.0,
+4,close-close r_cc: sideways minus rest,post-2013 dummy,bps/day,-11.624977497026359,-2.4527632371509234,6220.0,
+4,close-close r_cc: sideways minus rest within period,2000-2012,bps/day,-17.074918435385303,-2.3037706457166873,3167.0,means side/up/down -5.0/+18.1/-7.2
+4,close-close r_cc: sideways minus rest within period,2013-2025,bps/day,-5.688379343472514,-0.993621660427138,3053.0,means side/up/down -2.4/+1.7/+7.6
+4,close-close r_cc: sideways minus rest within period,2000-07,bps/day,-19.913361657016445,-2.1895543090937593,1947.0,means side/up/down -4.9/+22.3/-8.2
+4,close-close r_cc: sideways minus rest within period,2008-15,bps/day,-8.015260992724683,-0.8319440090000367,1950.0,means side/up/down -4.4/+5.2/-0.1
+4,close-close r_cc: sideways minus rest within period,2016-20,bps/day,-7.336812796817248,-0.7556040266366035,1211.0,means side/up/down -1.0/+7.3/+2.4
+4,close-close r_cc: sideways minus rest within period,2021-25,bps/day,-5.729280312637183,-0.7414961283932617,1112.0,means side/up/down -3.0/-2.2/+15.7
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),sideways MAIN,bps/day,5.62430172115815,3.630406801064974,3453.0,
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),uptrend MAIN,bps/day,3.5191318164218752,1.8728309599060198,2064.0,
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),downtrend MAIN,bps/day,25.276656071205345,3.4311281845484416,701.0,
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),sideways 2000-07,bps/day,10.142780362754243,3.05527993803259,905.0,
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),sideways 2008-15,bps/day,11.701718160957565,3.5322646276740732,1137.0,
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),sideways 2016-20,bps/day,1.712095791244797,0.7089459280038177,672.0,
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),sideways 2021-25,bps/day,-5.702143850959077,-2.8700614048719846,739.0,
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),sideways 2021-22,bps/day,-9.391571461086887,-3.1124575332584197,336.0,
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),sideways 2023-24,bps/day,-3.110607051666523,-1.295101167597136,305.0,
+5,sign(r_cc[t]) x r_cc[t+1] (S3a),sideways 2024-12-09..2025-08,bps/day,-1.1181749405640302,-0.1486946635922139,98.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",sideways MAIN,bps/day,0.8870181042324711,1.0160721204875425,3453.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",uptrend MAIN,bps/day,-1.0767555600073402,-1.0979201947518804,2064.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",downtrend MAIN,bps/day,10.589730199552589,2.2999938297976854,701.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",sideways 2000-07,bps/day,-3.3196900474701603,-1.6032366235448694,905.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",sideways 2008-15,bps/day,2.774660097085894,1.5385472720238849,1137.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",sideways 2016-20,bps/day,0.6953964556075354,0.5048191154002984,672.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",sideways 2021-25,bps/day,3.3086577243846995,3.74913850071862,739.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",sideways 2021-22,bps/day,4.233311560083521,2.9204367152536053,336.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",sideways 2023-24,bps/day,2.411918656428119,2.7167649788961183,305.0,
+5,"sign(r_cc[t]) x r_on[t+1] (overnight, not reachable from next Open)",sideways 2024-12-09..2025-08,bps/day,2.9292875910372764,0.8586225113524528,98.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",sideways MAIN,bps/day,4.7372836169256765,3.3767226581654644,3453.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",uptrend MAIN,bps/day,4.595887376429214,2.768091982721554,2064.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",downtrend MAIN,bps/day,14.686925871652758,2.9461822547407985,701.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",sideways 2000-07,bps/day,13.462470410224403,4.545556161454174,905.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",sideways 2008-15,bps/day,8.927058063871673,3.1336710076445855,1137.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",sideways 2016-20,bps/day,1.0166993356372611,0.40214563530530933,672.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",sideways 2021-25,bps/day,-9.01080157534378,-4.912283069059731,739.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",sideways 2021-22,bps/day,-13.624883021170408,-4.549085992266431,336.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",sideways 2023-24,bps/day,-5.522525708094649,-2.61848924097402,305.0,
+5,"sign(r_cc[t]) x r_id[t+1] (Open->Close, reachable)",sideways 2024-12-09..2025-08,bps/day,-4.047462531601301,-0.679061212232366,98.0,
+5,S3a outside sideways (is the 2021-25 sign flip sideways-specific?),uptrend 2016-20,bps/day,1.2877470702788634,0.3833890617537545,428.0,
+5,S3a outside sideways (is the 2021-25 sign flip sideways-specific?),uptrend 2021-25,bps/day,-6.890373832243148,-2.1287665993181113,270.0,
+5,S3a outside sideways (is the 2021-25 sign flip sideways-specific?),downtrend 2016-20,bps/day,35.97658300120499,1.9701507463966579,111.0,
+5,S3a outside sideways (is the 2021-25 sign flip sideways-specific?),downtrend 2021-25,bps/day,-5.331386134464605,-0.6539920835264852,102.0,
+5,S3a outside sideways (is the 2021-25 sign flip sideways-specific?),all 2016-20,bps/day,4.702795070957565,1.8444165276974913,1211.0,
+5,S3a outside sideways (is the 2021-25 sign flip sideways-specific?),all 2021-25,bps/day,-5.956873651016919,-3.5450036512427943,1111.0,
+5,decomposition,idiosyncratic: sign(abn r) x abn r[t+1] sideways MAIN,bps/day,-2.1763278879517998,-2.437076803791405,3453.0,
+5,decomposition,idiosyncratic: sign(abn r) x abn r[t+1] sideways 2000-07,bps/day,-5.876568243681149,-2.7090918920886127,905.0,
+5,decomposition,idiosyncratic: sign(abn r) x abn r[t+1] sideways 2008-15,bps/day,2.2314283752460065,1.5302168552608337,1137.0,
+5,decomposition,idiosyncratic: sign(abn r) x abn r[t+1] sideways 2016-20,bps/day,0.30704501234719167,0.18503085130185407,672.0,
+5,decomposition,idiosyncratic: sign(abn r) x abn r[t+1] sideways 2021-25,bps/day,-6.684755409361497,-4.1640418997569055,739.0,
+5,decomposition,market: sign(EW r) x EW r[t+1] sideways MAIN,bps/day,11.653158831919608,4.650023169597193,3453.0,
+5,decomposition,market: sign(EW r) x EW r[t+1] sideways 2000-07,bps/day,24.806516905552627,4.806972038909084,905.0,
+5,decomposition,market: sign(EW r) x EW r[t+1] sideways 2008-15,bps/day,14.041429247635286,2.824744621186063,1137.0,
+5,decomposition,market: sign(EW r) x EW r[t+1] sideways 2016-20,bps/day,2.954562298278945,0.6589351667312666,672.0,
+5,decomposition,market: sign(EW r) x EW r[t+1] sideways 2021-25,bps/day,-0.21936572653786338,-0.04922314365627225,739.0,
+5,long-only legs in sideways,after up day: r_id[t+1],bps/day,-4.525080792273424,-1.6592133202531145,3363.0,subperiods +24.2/-0.4/-13.2/-35.6
+5,long-only legs in sideways,after up day: r_cc[t+1],bps/day,-2.465627915782039,-0.8148545400399618,3363.0,subperiods +1.9/-2.2/+0.8/-10.8
+5,long-only legs in sideways,after down day: r_id[t+1],bps/day,-11.419551716511961,-4.494478071447922,3392.0,subperiods -2.3/-14.8/-15.3/-13.4
+5,long-only legs in sideways,after down day: r_cc[t+1],bps/day,-1.695831231652696,-0.5645521056557058,3392.0,subperiods +5.3/-11.8/+0.8/+3.3
+U,index range position on sideways days -> EW fo5 raw,proxy in bottom 20% of its 20d range,% per trade,-0.4612279509421012,-1.8388487241762823,632.0,subperiods -0.89/-0.41/-0.01/-0.39
+U,index range position on sideways days -> EW fo5 raw,proxy in top 20%,% per trade,0.02074012114381662,0.15747088444163296,1168.0,subperiods +0.48/-0.01/-0.06/-0.37
+U,index range position on sideways days -> EW fo10 raw,proxy in bottom 20% of its 20d range,% per trade,-0.3130394457996656,-0.7744825049882859,632.0,subperiods -1.39/+0.26/+0.42/-0.43
+U,index range position on sideways days -> EW fo10 raw,proxy in top 20%,% per trade,0.09055598943930293,0.3517472498681535,1168.0,subperiods +1.22/+0.03/-0.38/-0.66
+U,one-day drop <= -2 ATR on a sideways day,next-day r_id,bps,2.2707957915965573,0.11117377095725926,407.0,subperiods -18.14/-3.69/-23.74/+41.99
+U,one-day drop <= -2 ATR on a sideways day,abnormal fo5,% per trade,0.06420059246090477,0.20788810417554676,407.0,subperiods -0.29/+0.64/-1.00/+0.53
+U,one-day drop <= -2 ATR on a sideways day,raw fo5,% per trade,-0.10600263335738636,-0.28800284468297704,407.0,subperiods +0.16/-0.09/-0.59/+0.05
+U,one-day drop <= -2 ATR on a sideways day,raw fo20,% per trade,-0.9092668101141603,-1.0277774647145541,407.0,subperiods -1.58/-3.41/+1.11/+0.56
+U,entry timing: overnight return after a sideways day (Close entry instead of next Open),2000-07,bps/day,-17.270995564189374,-5.745982036651261,905.0,
+U,entry timing: overnight return after a sideways day (Close entry instead of next Open),2008-15,bps/day,-0.7653851249117154,-0.2677373454058894,1137.0,
+U,entry timing: overnight return after a sideways day (Close entry instead of next Open),2016-20,bps/day,13.903998005948004,6.599344217453808,672.0,
+U,entry timing: overnight return after a sideways day (Close entry instead of next Open),2021-25,bps/day,20.67566286356653,11.237407990735697,739.0,
