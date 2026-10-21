@@ -87,7 +87,7 @@ def summarize(T, cell, kind):
     rows = []
     for pn, (s, e) in PER.items():
         z = T[(T.signal >= np.datetime64(s)) & (T.signal <= np.datetime64(e))]
-        daily = z.groupby('signal').net_B.mean().reindex(G['cal'].loc[s:e])
+        daily = z.groupby('signal').net_B.mean().reindex(G['cal'].loc[s:e].index)
         m, se, nn = nw(daily.values, 20)
         rows.append(dict(N=N, x=x, filter=filt, entry=entry, kind=kind, period=pn, trades=len(z),
                          trades_per_year=len(z) / ((pd.Timestamp(e) - pd.Timestamp(s)).days / 365.25),
