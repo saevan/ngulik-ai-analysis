@@ -17,3 +17,15 @@ win rate uses net; the Close-entry variant partly peeks at the closing auction. 
 The original 'sideways' filter was the MARKET ER20 < 0.3. Adding the stock's own ER20 < 0.3 (alone, or together with the
 market filter), 36 more cells: all lose after cost B (gross -0.94% to +0.31%, best net -0.46%, t -1.3); 0 pass; gross is
 below the 20-seed random control in most cells. The ER-choppy condition does not rescue the logic.
+
+## Why it does not perform (`lowest_low_time_diagnose.py`, `diagnosis.csv`, exploratory)
+Three representative cells (N10 x3 next Open, N20 x5 next Open, N10 x10 Close):
+- Entry carries no information: Close returns 5/10/20 days after the signal are -0.4..+0.1%, random eligible stock-days ~0.
+- The trades do go up: 76-86% reach a peak above the 0.9% cost; average best point (MFE) +4.9/+6.1/+9.3%.
+- The exit gives it back: 'x bars without a new trade high' only fires after price has fallen from the peak; average
+  give-back +5.0/+6.6/+8.9%, about equal to MFE, so gross per trade ~0 (-0.2/-0.5/+0.3%). Winners peak +10..18% and give
+  back 4-7%; losers peak only 2-4% and give back 6-10%.
+- On a price path without drift no exit rule can create an average profit; exits only reshape wins vs losses. With ~0
+  gross, the 0.9% cost makes every cell negative.
+- By market regime at entry: uptrend +0.3..+1.2% gross, sideways (59-67% of trades) -0.5..+0.2%, downtrend -0.6..-1.5%.
+- By period (best cell): 2000-15 +0.85%, 2016-20 +0.44%, 2021-25 -0.75% gross.
