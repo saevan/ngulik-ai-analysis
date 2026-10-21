@@ -12,3 +12,8 @@ identical). Realistic universe, 2000-2025, 36 cells (N 10/20/60 x x 3/5/10 x sid
   high on Close, exit at the Close of the x-th bar, strict vs touching lows, sideways filter on/off. None turns positive.
 Caveats: single-seed control in results.csv is not reproducible (hash seed); avg win/loss columns split on gross while
 win rate uses net; the Close-entry variant partly peeks at the closing auction. None changes the conclusion. AFL unchanged.
+
+## Addendum: ER filter at the stock level (`lowest_low_time_er.py`, `results_er_filter.csv`)
+The original 'sideways' filter was the MARKET ER20 < 0.3. Adding the stock's own ER20 < 0.3 (alone, or together with the
+market filter), 36 more cells: all lose after cost B (gross -0.94% to +0.31%, best net -0.46%, t -1.3); 0 pass; gross is
+below the 20-seed random control in most cells. The ER-choppy condition does not rescue the logic.
