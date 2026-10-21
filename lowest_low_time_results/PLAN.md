@@ -15,3 +15,8 @@ User idea (price + time). Definitions, fixed before any result:
 Statistic: mean net return per trade, averaged per entry day, Newey-West t (lags 20); per subperiod 2000-07, 2008-15,
 2016-20, 2021-25. Pass (standalone): net B > 0, t >= 3, positive in >= 3 of 4 subperiods, and above the random control.
 Only a passing cell goes to a portfolio test. AFL unchanged.
+
+## Addendum (21 Oct 2026, before running): ER filter at the stock level
+The 'sideways' filter above is the MARKET ER20 < 0.3 (EW proxy, previous Close). The user asked whether the test used ER
+saying 'choppy'. Added now, same rules and pass criteria: filter 'stock_er' = the stock's own ER20 < 0.3 at the signal
+Close, and 'market_and_stock' = both. Grid N {10,20,60} x x {3,5,10} x entry {next Open, Close}; 20-seed random control.

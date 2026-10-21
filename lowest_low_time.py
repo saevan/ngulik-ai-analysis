@@ -44,8 +44,12 @@ def sim(cell, random_seed=None):
         o, h, l, c = (f[k].to_numpy(float) for k in ['Open', 'High', 'Low', 'Close'])
         d = f['Date/Time'].to_numpy()
         ok = np.isin(d, G['ok'][t]) & (d >= np.datetime64('2000-01-01')) & (d <= np.datetime64('2025-08-15'))
-        if filt == 'sideways':
+        if filt in ('sideways', 'market_and_stock'):
             ok &= np.isin(d, G['side'])
+        if filt in ('stock_er', 'market_and_stock'):
+            cc = pd.Series(c)
+            er = ((cc - cc.shift(20)).abs() / cc.diff().abs().rolling(20).sum()).to_numpy()
+            ok &= er < .3
         prior = pd.Series(l).shift(1).rolling(N).min().to_numpy()
         newlow = l <= prior
         lows = np.flatnonzero(newlow)
