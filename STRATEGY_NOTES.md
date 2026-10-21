@@ -166,3 +166,9 @@ Ditemukan versi asli installed AmiBroker Formulas/Custom/prototype swinger.afl, 
 ## Checkpoint migrasi web ? 9 Oktober 2026
 
 Optimasi optimize_primary_inverse_regimes.py selesai48run, optimized_inverse_regime_results/CONCLUSION.md. GridHHV10/20,SMA20/30,rotateFalse/True:semua8gagaltrain own-regime profit. FROZEN HHV20/SMA20/carry passed=false hanya diagnostik. Fullfee gabungan15.54%,spread3.65%,testspread-1.11%; baselineSMA30 full15.80%/5.51%,testspread1.02%. InverseSMA20fullspreadCAGR-0.89%,choppyannual-9.12%. Tidakadopsi/defaultAFLtetap.20tests lulus kembali. Pengguna meminta paket Download untuk melanjutkan web; baca HANDOFF_CONTEXT.md sebagai urutan konteks terbaru, bukan memakai kronologi catatan lama sebagai konfigurasi aktif.
+
+## Ringkasan 15–21 Oktober 2026
+Lihat `RESEARCH_LOG_2026-10-15_21.md` untuk ringkasan per permintaan pengguna dan folder hasilnya. Inti: pilihan utama v2
+(buy stop HHV20 +0,5%, ER20 ≥ 0,2) B 2000–25 49,3% vs Swinger ideal 102,0%; dengan universe point-in-time + filter data
+basi + batas likuiditas sekitar 16%/th, MDD −44%. Tujuh pendekatan logika kedua untuk sideways tidak menutup biaya.
+AFL aktif tidak diubah.
