@@ -144,3 +144,18 @@ Interpretasi:
    (kita) vs ≈ 82%/th (Swinger ideal), karena kita 31 trade per tahun vs 126.
 5. Versi realistis: expectancy turun ke +2,5% per trade (0,52R). Di 2008–15 dan 2021–25 CI-nya menyentuh 0. Ini
    kelemahan terbesar kita.
+
+## Tambahan: rincian selisih return per tahun (permintaan pengguna, 26 Okt 2026)
+Kode: `yearly_gap_breakdown.py`. Hasil: `yearly_breakdown.csv`. Return tahunannya sama dengan tabel di atas.
+- **Selisih kumulatif.** Rp1 M menjadi Rp28,9 T (kita) vs Rp66.500 T (Swinger ideal; angka teoretis karena fill tidak
+  bisa dieksekusi dan tidak ada batas likuiditas). Ekuitas Swinger ideal sebesar 1,4× ekuitas kita di akhir 2000, 44×
+  di 2007, 1.323× di 2016, 3.459× di 2023 (puncak), lalu 2.300× di Agustus 2025.
+- **Pertumbuhan per tahun.** (1 + return kita) / (1 + return Swinger) median 0,70. Artinya di tahun biasa modal kita
+  tumbuh sekitar 30% lebih sedikit daripada Swinger ideal.
+- **Di kondisi apa selisih terjadi** (selisih log return 2000–25 dibagi per kondisi hari):
+  - uptrend 31% (33% hari);
+  - sideways 53% (56% hari);
+  - downtrend 16% (11% hari).
+
+  Per hari, selisih terbesar ada di downtrend. Selisih total paling banyak terjadi di sideways karena hari sideways
+  paling banyak. Di tahun dengan selisih kecil, pembagian per kondisi tidak stabil (bisa negatif atau lebih dari 100%).
