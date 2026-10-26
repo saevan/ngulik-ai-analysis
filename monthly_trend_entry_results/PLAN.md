@@ -35,3 +35,12 @@ WR, expectancy (mean net/trade, month-bootstrap CI), E in R, payout, CAGR, recor
 (d) unrestricted CAGR > 0 in all 4 subperiods;
 (e) WR >= 45% (closer to Swinger ideal's 48.8%) with expectancy CI above 0.
 30 cells on one data set: a lone passing cell with failing neighbours is noise. Nothing is adopted; AFL unchanged.
+
+## Step 2 (added after step 1 results, before step 2 results): monthly watchlist gate on the main pick
+The month-start trend filter used as a watchlist for OUR system: during month m the main pick's buy stop is armed only in
+stocks that passed filter F at their last Close of month m-1; everything else unchanged (V0 rules, B). Filters F_sma30,
+F_sma120, F_er, F_high, F_mom. Control: random watchlist, each stock-month in with probability 0.5 / 0.7 (3 seeds each).
+Unrestricted and realistic (watchlist intersected with the point-in-time + stale gate). Report WR, expectancy, CAGR,
+records, MDD, subperiods, watchlist pass rate.
+Candidate only if: realistic CAGR >= V0 realistic and MDD not deeper by > 5 pp; realistic subperiods >= V0 in >= 3 of 4;
+unrestricted CAGR >= V0 - 5 pp; realistic CAGR above every random-watchlist seed; WR above V0's in both versions.
