@@ -70,3 +70,15 @@ Step 3 showed both priorities fail to "add": P1 crowds out the breakouts (797 ->
 Filters F_mom and F_sma120, monthly order size 10% of equity, monthly exit as before; breakout entry and exits unchanged.
 Controls: random monthly selection held one month, same allowance, 3 seeds. Same pass criteria as step 3, plus: breakout
 trades kept >= 70% of V0's in both versions.
+
+## Step 5 (user claim 26 Oct: the monthly entry is useful when the MARKET is trending, so use ER on it; fixed before results)
+Base: V0 + monthly F_mom entry (10% orders, monthly first, allowance A). Added ER conditions at the month-end Close:
+- G0 none (= step 4 cell); G1 market ER20 >= 0.3 (EW market proxy, either direction = "trending");
+  G2 stock ER20 >= 0.3; G3 = G1 and G2.
+- Exits: X0 F_mom fails at a month-end (as before); X1 = X0 or the market ER20 < 0.3 at a month-end (sell next Open).
+- Allowance A = 35% and 50%. 4 x 2 x 2 = 16 cells, unrestricted and realistic. Control: random monthly selection held one
+  month with the G1 gate, A = 35%, 3 seeds.
+- Also reported: how well a month-end market ER label predicts trending days in the following month.
+"ER helps" (claim supported) if a G1/G3 cell beats its G0 counterpart (same X, same A) on realistic CAGR with MDD not more
+than 2 pp deeper, AND on unrestricted CAGR with MDD not more than 2 pp deeper. Candidate for the system only if it also
+meets the step-4 criteria vs V0. Nothing adopted; AFL unchanged.
