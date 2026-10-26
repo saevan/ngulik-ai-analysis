@@ -44,3 +44,9 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 ## Lain-lain
 - Dashboard pemindai harian dengan data Yahoo Finance: belum ada; ditunda pengguna (Yahoo diblokir jaringan sesi).
 - Repo: https://github.com/saevan/ngulik-ai-analysis (branch `claude/blissful-mccarthy-mufwoy`), private.
+
+## 26 Oktober 2026 – Keunggulan dan kelemahan vs Prototype Swinger
+- `compare_vs_swinger_results/`: perbandingan karakter lengkap (B 2000–25). Ringkasan di CONCLUSION.md folder itu:
+  kita 49,3% (realistis 16,2%) vs Swinger ideal 102,0% (dengan batasan realistis yang sama 31,9%); versi Swinger yang
+  bisa dieksekusi 14,9% (next Open, MDD −64%) atau runtuh (stop order). Kelemahan utama kita: win rate 38%, modal
+  terpakai 49%, bulan rekor 119 vs 232, lemah saat sideways/downtrend, bergantung pada saham listing baru.
