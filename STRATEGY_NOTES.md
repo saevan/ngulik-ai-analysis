@@ -194,3 +194,22 @@ Kode: `backtest_stop_execution.run` dengan opsi `extra_*`; referensi `compare_g2
 
 Selisih terhadap V0 belum signifikan (t 1,1). Ini keputusan riset, bukan perubahan AFL aktif. AFL pullback aktif tidak
 diubah. Forward test sesudah 2025-08-15 dianjurkan.
+
+## Keputusan pengguna 26 Oktober 2026: aturan breakout gagal dibuang → V2
+Pengguna: "okee kita buang aja breakout gagal". Sistem riset acuan sekarang V2 = V1 tanpa exit breakout gagal
+(`failed_exit=None`). Exit breakout yang tersisa: fade 2 ATR dan Close < SMA30 (dijual di Open berikutnya; aturan gap down
+2% tetap berlaku). Modul bulanan tidak berubah.
+
+| B 2000–25 | CAGR | Bulan rekor | MDD | WR |
+|---|---|---|---|---|
+| V2 tanpa batasan | 50,6% | 135 | −26,9% | 46,7% |
+| V2 realistis | 20,7% | 63 | −46,4% | 40,9% |
+| V1 tanpa batasan | 45,4% | 127 | −24,6% | 41,4% |
+| V1 realistis | 19,7% | 63 | −45,0% | 34,4% |
+
+Uji konfirmasi tidak menunjukkan selisih return yang nyata:
+- t = 0,63;
+- holdout 1996–99 realistis 11,1% vs V1 12,0%, MDD −41% vs −29%.
+
+Keputusan diambil terutama demi WR yang lebih tinggi. Kode: `winrate_diagnosis_results/v1_failed_exit_confirm.py`.
+AFL aktif tidak diubah.
