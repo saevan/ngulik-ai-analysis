@@ -113,3 +113,4 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 - Aturan sesuai maksud (tiap awal bulan beli saham di atas SMA30, exit lama): trade bulanan WR 28–32%, expectancy ≈ 0; semua varian di bawah 'breakout saja'.
 - Exit x bar sebagai exit modul bulanan (F1/SMA30, x 10–60): tidak ada yang mengalahkan V2 atau breakout saja; trade bulanan makin baik makin lama dipegang.
 - Lookback modul bulanan, 81 kombinasi: pilihan latih = 120/120 (V2); median sel di bawah 'breakout saja'; tidak ada sel yang mengalahkan breakout saja di kedua versi. Breakout saja = pilihan paling kokoh.
+- `market_structure_results/`: candle merah/hijau seimbang hanya di mingguan/bulanan. Baterai v3: struktur swing turun −0,65%/20 hari (filter), koreksi > 61,8% melemahkan trend, high 60 hari cenderung tembus, korelasi 0,43 saat crash. Squeeze, angka bulat, S/R, umur trend: tidak terbukti. Data harga sebelum 2021 sudah adjusted.
