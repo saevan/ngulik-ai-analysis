@@ -28,3 +28,9 @@ A cell counts as "WR ~50% without paying for it" only if ALL hold:
 (d) CAGR slice >= V0 in >= 3 of 4 subperiods; (e) record months >= V0.
 15 cells on one data set: a single passing cell with failing neighbours is treated as noise, not adopted. Nothing is
 adopted into the active system from this test.
+
+## Confirmation: V1 without the failed-breakout exit (26 Oct 2026, written before these results)
+Exploratory runs showed V1 without the failed exit better in both versions. Confirmation (same three checks as the SMA30 test):
+(a) neighbours: failed-exit thresholds m = 1%, 2%, 3% below the level (looser rules) and none; >= 3 of the 4 loosened
+variants beat V1 realistic on full-period CAGR with MDD not more than 2 pp deeper; (b) 'none' beats V1 realistic in the
+holdout 1996-1999; (c) 'none' vs V1 realistic paired monthly log-return difference, Newey-West t >= 1.5. Unrestricted reported.
