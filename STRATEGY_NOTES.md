@@ -176,3 +176,21 @@ AFL aktif tidak diubah.
 ## Penegasan pengguna 26 Oktober 2026: pembanding = Swinger ideal saja
 Semua perbandingan sistem memakai Prototype Swinger ideal (fill ideal) sebagai satu-satunya benchmark. Versi Swinger lain
 tidak dipakai sebagai pembanding; fakta bahwa fill ideal tidak bisa dieksekusi cukup disebut singkat.
+
+## Keputusan pengguna 26 Oktober 2026: sistem riset aktif = V1 (V0 + modul beli awal bulan)
+Pengguna: "gapapa kita pakai dulu". Sistem riset acuan sekarang V1 = pilihan utama v2 (V0: buy stop 0,5% di atas HHV20,
+ER20 ≥ 0,2, exit fade 2 ATR / Close < SMA30 / breakout gagal, 25% per order) DITAMBAH entry bulanan:
+- di Close hari bursa terakhir tiap bulan, saham dengan Close > Close 120 bar lalu dan ER20 saham ≥ 0,3 dibeli di Open hari
+  pertama bulan berikutnya (urutan mom120, aturan gap 2%);
+- order 10% ekuitas, posisi bulanan maksimal 35% ekuitas, dan didahulukan di Open;
+- dijual di Open berikutnya bila Close > Close 120 bar lalu gagal di akhir bulan.
+
+Kode: `backtest_stop_execution.run` dengan opsi `extra_*`; referensi `compare_g2_vs_v0.py`.
+
+| B 2000–25 | CAGR | Bulan rekor | MDD | WR |
+|---|---|---|---|---|
+| Tanpa batasan | 45,5% | 127 | −24,6% | 41,4% |
+| Realistis | 19,8% | 63 | −45,0% | 34,4% |
+
+Selisih terhadap V0 belum signifikan (t 1,1). Ini keputusan riset, bukan perubahan AFL aktif. AFL pullback aktif tidak
+diubah. Forward test sesudah 2025-08-15 dianjurkan.
