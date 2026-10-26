@@ -150,8 +150,8 @@ Kode: `yearly_gap_breakdown.py`. Hasil: `yearly_breakdown.csv`. Return tahunanny
 - **Selisih kumulatif.** Rp1 M menjadi Rp28,9 T (kita) vs Rp66.500 T (Swinger ideal; angka teoretis karena fill tidak
   bisa dieksekusi dan tidak ada batas likuiditas). Ekuitas Swinger ideal sebesar 1,4× ekuitas kita di akhir 2000, 44×
   di 2007, 1.323× di 2016, 3.459× di 2023 (puncak), lalu 2.300× di Agustus 2025.
-- **Pertumbuhan per tahun.** (1 + return kita) / (1 + return Swinger) median 0,70. Artinya di tahun biasa modal kita
-  tumbuh sekitar 30% lebih sedikit daripada Swinger ideal.
+- **Pertumbuhan per tahun.** (1 + return kita) / (1 + return Swinger) median 0,75. Artinya di tahun biasa modal kita
+  tumbuh sekitar 25% lebih sedikit daripada Swinger ideal.
 - **Di kondisi apa selisih terjadi** (selisih log return 2000–25 dibagi per kondisi hari):
   - uptrend 31% (33% hari);
   - sideways 53% (56% hari);
