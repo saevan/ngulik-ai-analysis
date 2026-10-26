@@ -265,3 +265,26 @@ Interpretasi:
 - ER saham sebagai filter tambahan sedikit lebih baik di versi realistis, tapi belum konsisten antar periode.
 - WR tetap jauh dari Swinger ideal.
 - Tidak ada yang diadopsi.
+
+## Apakah V0 + bulanan (ER saham ≥ 0,3, jatah 35%) lebih baik dari V0? – `compare_g2_vs_v0.py`
+| | V0 realistis | + bulanan realistis | V0 tanpa batasan | + bulanan tanpa batasan |
+|---|---|---|---|---|
+| CAGR | 16,2% | 19,8% | 49,3% | 45,5% |
+| Bulan rekor | 52 | 63 | 119 | 127 |
+| MDD | −44,4% | −45,0% | −24,2% | −24,6% |
+| Rasio return/volatilitas harian (tahunan) | 0,83 | 0,94 | 1,76 | 1,79 |
+| CAGR / MDD | 0,37 | 0,44 | 2,04 | 1,85 |
+| WR | 33,8% | 34,4% | 38,3% | 41,4% |
+| Tahun lebih baik | – | 19 dari 26 | – | 14 dari 26 |
+| Selisih return bulanan (log), t Newey-West | – | +0,24%/bln, t = 1,1 | – | −0,23%/bln, t = −1,0 |
+| Subperiode 2000-07 / 08-15 / 16-20 / 21-25 | 28,7 / −0,3 / 25,5 / 17,0% | 40,9 / −0,2 / 20,4 / 23,2% | 55,8 / 25,9 / 74,0 / 58,0% | 51,4 / 28,2 / 61,0 / 51,2% |
+
+Tahun terburuk penambahan ini: 2008 (realistis −8,4% → −31,6%; tanpa batasan +11,1% → −16,4%). Holdout 1995–99
+(robustness): 55,2% vs 55,7%.
+
+Jawaban:
+- Versi realistis lebih baik di hampir semua ukuran: CAGR +3,5 pp, +11 bulan rekor, 19 dari 26 tahun. MDD-nya sama.
+- Tapi selisihnya belum terbukti secara statistik (t = 1,1).
+- Versi tanpa batasan sedikit lebih buruk di CAGR (bulan rekor dan MDD setara).
+- Status: kandidat yang lolos kriteria pra-registrasi, belum diadopsi. Langkah berikutnya yang masuk akal adalah forward
+  test.
