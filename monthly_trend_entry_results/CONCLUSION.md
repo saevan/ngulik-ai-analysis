@@ -175,3 +175,43 @@ Interpretasi:
 - Modul ini juga mengubah separuh trade breakout lewat perebutan modal dan slot.
 - Di versi tanpa batasan, trade breakout yang hilang adalah pemenang besar saat uptrend, sehingga hasilnya lebih buruk.
 - WR gabungan tidak berubah.
+
+## Kenapa naik saat uptrend dan downtrend? – `impact_monthly_why.py`, `why_*.csv` (eksploratif)
+Metodenya:
+- P&L harian tiap trade (ditandai di Close) dipisah per jenis posisi dan per kondisi hari itu.
+- Kontribusi = P&L / ekuitas kemarin, dijumlah sederhana × 252, sehingga bagian-bagiannya bisa dijumlah.
+- Kontrol: tambahan bulanan acak (jatah modal sama, saham dipilih acak, dipegang 1 bulan).
+
+Versi realistis (kontribusi per tahun):
+| Kondisi | V0 total | + bulanan F_mom: total = breakout + bulanan | + bulanan acak (3 seed): total |
+|---|---|---|---|
+| Uptrend | 32,9% | 36,9% = 22,7% + 14,5% | 31,9–36,3% |
+| Sideways | 11,4% | 11,4% = 6,9% + 4,7% | 5,3–11,8% |
+| Downtrend | 5,8% | 13,6% = −0,1% + 12,9% | 3,6–7,7% |
+
+Versi tanpa batasan:
+| Kondisi | V0 total | + bulanan F_mom: total = breakout + bulanan | + bulanan acak (3 seed): total |
+|---|---|---|---|
+| Uptrend | 80,4% | 62,9% = 44,8% + 18,5% | 65,7–75,5% |
+| Sideways | 31,0% | 32,2% = 25,2% + 7,3% | 24,3–27,4% |
+| Downtrend | 8,0% | 24,8% = 11,2% + 13,0% | 3,4–13,8% |
+
+Cek pasar tanpa sistem: rata-rata equal-weight saham yang layak (realistis), dikelompokkan menurut lolos/tidaknya F_mom di
+akhir bulan sebelumnya.
+| Kondisi | Lolos F_mom | Tidak lolos |
+|---|---|---|
+| Uptrend | 31,8% | 44,0% |
+| Sideways | 6,3% | −0,5% |
+| Downtrend | 28,7% | 1,2% |
+
+Rata-rata aritmetik ini terlalu tinggi secara absolut; yang dibaca hanya selisihnya.
+
+Interpretasi:
+- **Downtrend: efek pemilihan saham.** Breakout kita hampir tidak memegang apa-apa (modal terpakai 14%). Posisi bulanan
+  di saham yang trend 6 bulannya naik bertahan jauh lebih baik saat pasar turun. Tambahan acak dengan modal yang sama
+  tidak memberi efek ini.
+- **Uptrend (realistis): efek modal tambahan.** Tambahan acak memberi kenaikan yang mirip. Breakout kehilangan sekitar
+  10 pp karena tergusur, dan posisi bulanan menambah sekitar 15 pp.
+- **Uptrend (tanpa batasan): yang menang adalah efek tergusur.** Kontribusi breakout turun dari 81% ke 45%.
+- Saat uptrend, saham momentum justru kalah dari saham lain (31,8% vs 44,0%), jadi keunggulan F_mom hanya ada saat
+  pasar turun dan sideways.
