@@ -1,0 +1,16 @@
+,0
+kurtosis_daily,9.653129627411781
+share_beyond_3sd,0.017661392715245375
+normal_share_beyond_3sd,0.0027
+autocorr_abs_return_lag1,0.276499035208892
+autocorr_abs_return_lag10,0.12103632528573188
+autocorr_return_lag1,-0.012062888424087106
+autocorr_market_return_lag1,0.14054319469433235
+avg_up_day,0.027398127256976625
+avg_down_day,-0.024496142964232772
+share_up_days,0.3887535132449048
+share_down_days,0.42096025274848015
+gap_up_share,0.3445156907842999
+gap_down_share,0.23376043145952674
+gap_up_filled_same_day,0.6868911180879939
+gap_down_filled_same_day,0.5801679654284749
