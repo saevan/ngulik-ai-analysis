@@ -66,3 +66,16 @@ Hasil:
 Menambah filter SMA30 ke filter lama tidak memperbaiki apa pun:
 - dengan exit lama hasilnya di bawah "breakout saja";
 - dengan exit bulanan sendiri hasilnya di bawah V2 sekarang (MDD lebih dalam, CAGR tanpa batasan turun).
+
+## Aturan sesuai maksud pengguna: tiap awal bulan beli saham dengan Close > SMA30, exit lama (`monthly_sma30_simple.py`, `sma30_simple.csv`)
+| | CAGR realistis (latih / uji) | MDD realistis | Rekor | WR realistis | Trade bulanan: WR / expectancy / bar | CAGR tanpa batasan | MDD tanpa batasan |
+|---|---|---|---|---|---|---|---|
+| V2 sekarang | 20,7% (20,1 / 21,7) | −46% | 63 | 40,9% | 43% / +18,0% / 133 | 50,6% | −27% |
+| Breakout saja | 19,4% (17,3 / 22,9) | −37% | 62 | 41,7% | – | 47,6% | −30% |
+| SMA30, 10% (maks 35%) | 16,9% (16,7 / 17,1) | −45% | 59 | 33,4% | 28% / +0,2% / 13 | 41,5% | −27% |
+| SMA30, 25% | 15,1% | −61% | 49 | 33,8% | 28% / +0,2% / 13 | 44,2% | −44% |
+| SMA30 + ER20 ≥ 0,2, 10% | 17,3% (15,2 / 20,7) | −48% | 54 | 37,0% | 32% / +0,5% / 16 | 42,4% | −41% |
+| SMA30 + ER20 ≥ 0,2, 25% | 16,7% | −58% | 58 | 37,3% | 32% / +0,5% / 16 | 46,5% | −46% |
+
+Semua varian di bawah "breakout saja". Trade bulanan memiliki WR 28–32% dan expectancy sekitar 0%, sama dengan memilih
+saham acak di awal bulan.
