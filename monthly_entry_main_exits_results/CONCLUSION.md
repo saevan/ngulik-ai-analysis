@@ -98,3 +98,18 @@ Filter sama (Close > Close 120 + ER20 ≥ 0,3), realistis | tanpa batasan:
 - Di setiap pasangan dengan filter yang sama, exit sendiri jauh lebih baik daripada exit lama.
 - V2 vs breakout saja: selisih bulanan +0,09% (realistis, t = 0,42) dan +0,17% (tanpa batasan, t = 0,64). Lebih baik di
   16 dan 14 dari 26 tahun. Tidak signifikan.
+
+## Putaran 3: exit x bar sebagai exit khusus modul bulanan (`monthly_xbar_exit.py`, `xbar_exit.csv`; rencana dikunci)
+| Varian (realistis) | CAGR (latih / uji) | MDD | Rekor | Trade bulanan: WR / expectancy / bar | CAGR tanpa batasan | MDD tanpa batasan |
+|---|---|---|---|---|---|---|
+| V2 sekarang (exit trend 120 hari) | 20,7% (20,1 / 21,7) | −46% | 63 | 43% / +18,0% / 133 | 50,6% | −27% |
+| Breakout saja | 19,4% (17,3 / 22,9) | −37% | 62 | – | 47,6% | −30% |
+| F1 + x bar (x = 10–60) | 17,6–18,9% | −43…−50% | 57–61 | 40–45% / +1…+11% / 20–116 | 39,8–51,1% | −29…−39% |
+| SMA30 + x bar (x = 10–60) | 13,5–17,8% | −41…−49% | 48–59 | 39–45% / 0…+13% / 19–117 | 39,5–46,7% | −29…−40% |
+| F1 + x bar atau trend gagal (x = 20 / 40) | 18,3 / 19,4% | −43% | 59–60 | 43–44% / +4…+10% | 49,7 / 47,0% | −32 / −35% |
+| SMA30 + x bar atau trend gagal | 13,6–17,4% | −47…−49% | 41–59 | 44% / +2…+8% | 42–45% | −33…−34% |
+
+Hasil:
+- Tidak ada yang lebih baik dari V2 sekarang, dan semuanya di bawah "breakout saja" di versi realistis.
+- Exit x bar memotong trade bulanan lebih cepat daripada exit trend 120 hari.
+- Expectancy trade bulanan naik seiring x (semakin lama dipegang, semakin baik), tapi tetap di bawah exit trend.
