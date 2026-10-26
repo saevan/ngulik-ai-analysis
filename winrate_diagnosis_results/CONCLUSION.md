@@ -78,3 +78,54 @@ Catatan, bukan temuan yang diadopsi:
 - Universe survivor (Kompas100 2025).
 - Langkah 1 eksploratif dan sudah dilihat sebelum grid langkah 2 dikunci.
 - 15 sel diuji di satu data set.
+
+## Tambahan: pembahasan lanjutan dan koreksi (26 Okt 2026, eksploratif)
+Kode: `explore_failed_breakouts.py` (`failed_breakout_features.csv`) dan `winrate_exit_variants_realistic.py`
+(`exit_variants_realistic.csv`). Varian exit tanpa batasan diambil dari grid v2 (`realistic_chase_v2_results/full_AB.csv`).
+
+**Koreksi.** Kalimat "exit SMA30 memotong banyak trade di sekitar impas" salah.
+- Exit SMA30 (341 trade): median keluar −2,0%, dan hanya 20% yang keluar dalam ±3%.
+- Median puncaknya +12%. Jadi trade ini sempat naik lalu mengembalikan semua untungnya (give-back) sebelum Close jatuh di
+  bawah SMA30.
+
+**Trade breakout gagal.**
+- Jumlahnya 213 trade, rata-rata −3,7%, median −3,0%. Mereka menyumbang 31% dari total rugi.
+- Jumlah trade gagal naik dari periode ke periode:
+
+  | | 2000-07 | 2008-15 | 2016-20 | 2021-25 |
+  |---|---|---|---|---|
+  | Porsi trade gagal | 20% | 24% | 34% | 34% |
+  | Porsi trade gagal, versi realistis | 22% | 29% | 34% | 40% |
+  | WR trade yang tidak gagal | 55% | 50% | 54% | 48% |
+
+  Turunnya WR dari waktu ke waktu terutama datang dari makin seringnya breakout gagal di hari pertama.
+
+**Bisakah kegagalan ditebak sebelum order** (kuintil fitur yang diketahui sebelum Open; galat ±3,5 pp per kelompok; banyak
+perbandingan)?
+- Kegagalan lebih sering:
+  - setelah hari sebelumnya naik besar (kuintil teratas 35% vs 21–24%; realistis 41% vs 21%);
+  - saat volume kemarin tinggi (35% vs 21%);
+  - pada saham dengan volatilitas tinggi (40% vs 16%).
+- Tapi expectancy kelompok itu tidak lebih rendah. Kuintil volatilitas tertinggi justru punya expectancy +10,4%, yang
+  tertinggi. Filter seperti ini menaikkan WR tanpa menaikkan expectancy.
+- Pembeda lain (ER, mom120, jarak ke level, umur level, Open vs level, kondisi pasar) tidak menunjukkan pola jelas.
+
+**Varian yang sudah ada (B, 2000–25):**
+| Varian | WR | CAGR | Bulan rekor | MDD | Realistis: WR / CAGR / rekor / MDD |
+|---|---|---|---|---|---|
+| V0 (pilihan utama) | 38,3% | 49,3% | 119 | −24% | 33,8% / 16,2% / 52 / −44% |
+| Tanpa aturan breakout gagal | 46,0% | 47,6% | 119 | −30% | 41,7% / 19,4% / 62 / −37% |
+| Trailing LLV5 setelah +2 ATR, tanpa aturan breakout gagal | 54,2% | 43,6% | 123 | −23% | 49,7% / 17,7% / 64 / −48% |
+| Trailing + aturan breakout gagal | 43,9% | 37,4% | 114 | −23% | 40,3% / 14,7% / 54 / −44% |
+| Buffer 1% | 40,4% | 47,1% | 117 | −25% | – |
+| Tanpa buffer | 32,3% | 47,5% | 110 | −30% | – |
+| Tunggu Close > HHV20, beli Open besok | 33,5% | 26,7% | 79 | −61% | – |
+
+Menunggu konfirmasi Close tidak menaikkan WR dan memotong CAGR separuh.
+
+Di versi realistis, tanpa aturan breakout gagal lebih baik di CAGR, bulan rekor dan MDD:
+- subperiode 34,8 / 2,0 / 24,0 / 21,7% vs V0 28,7 / −0,3 / 25,5 / 17,0%, jadi lebih baik di 3 dari 4;
+- di versi tanpa batasan hasilnya sedikit lebih buruk.
+
+Aturan itu dipilih di universe tanpa batasan. Ini eksploratif dan belum diadopsi. Perlu uji pra-registrasi di versi
+realistis.
