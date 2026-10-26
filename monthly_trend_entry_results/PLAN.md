@@ -44,3 +44,21 @@ Unrestricted and realistic (watchlist intersected with the point-in-time + stale
 records, MDD, subperiods, watchlist pass rate.
 Candidate only if: realistic CAGR >= V0 realistic and MDD not deeper by > 5 pp; realistic subperiods >= V0 in >= 3 of 4;
 unrestricted CAGR >= V0 - 5 pp; realistic CAGR above every random-watchlist seed; WR above V0's in both versions.
+
+## Step 3 (user clarification 26 Oct: do not replace the breakout entry, ADD the monthly entry; fixed before step 3 results)
+One shared portfolio (Rp1bn, max 10 positions, costs B): the main pick unchanged (buy stop, its exits, 25% per order) PLUS
+a monthly entry: at the market's last trading day of the month, stocks passing a trend filter (Close-signal) are bought at
+the first trading day's Open (mom120 order, gap rule 2% vs previous Close; dropped if not tradable that day). Monthly
+positions use the monthly exit only (sell next Open when the filter fails at a month-end Close; gapdown_close applies);
+breakout positions keep their own exits. A stock already held is not bought again by either entry.
+- Filters: F_mom (Close > Close 120 bars ago), F_sma120, F_er. Monthly order size 25% or 10% of equity.
+- Priority when cash/slots bind: P1 = monthly orders first at the Open, then the pre-Open buy-stop book with what is
+  left; P2 = the buy-stop book reserves first, monthly orders use the unreserved cash and slots.
+- 3 x 2 x 2 = 12 cells, unrestricted and realistic. Controls: monthly random selection (no filter, random order, held
+  one month) added the same way, 3 seeds, each size/priority. Reference: fixed 50/50 split V0 + standalone F_mom monthly.
+- Engine: new options extra_signal_fn / extra_exit_signal_fn / extra_size_div / extra_first in backtest_stop_execution.run;
+  defaults unchanged (regression test must pass).
+Candidate only if ALL: realistic CAGR >= V0 realistic (16.2%) and MDD not deeper than -49%; realistic record months >= 52;
+realistic subperiods >= V0 in >= 3 of 4; unrestricted CAGR >= 44.3% (V0 - 5 pp) and MDD not deeper than -29%; realistic
+CAGR above every random-control seed with the same size/priority; combined WR above V0's in both versions.
+Reported also: WR / expectancy per entry type, breakout trades lost to capital competition, invested share.
