@@ -50,3 +50,20 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   kita 49,3% (realistis 16,2%) vs Swinger ideal 102,0% (dengan batasan realistis yang sama 31,9%); versi Swinger yang
   bisa dieksekusi 14,9% (next Open, MDD −64%) atau runtuh (stop order). Kelemahan utama kita: win rate 38%, modal
   terpakai 49%, bulan rekor 119 vs 232, lemah saat sideways/downtrend, bergantung pada saham listing baru.
+
+## 26 Oktober 2026 – Kenapa win rate < 50%; uji klaim "harga + waktu → WR ~50%"
+- `winrate_diagnosis_results/`:
+  - WR rendah terutama karena buy stop membeli sebelum breakout terkonfirmasi. Di 42% trade, Close hari entry sudah di
+    bawah fill. Seperempat trade keluar sebagai breakout gagal dengan WR 1,5%. Tanpa trade itu WR 51,7%.
+  - Biaya hanya membalik 2% trade.
+  - Klaim benar: exit waktu atau harga + waktu menaikkan WR ke 53–71%. Tapi semua versi menurunkan CAGR (49% → 17–40%)
+    dan bulan rekor. Tidak ada yang lolos, jadi tidak diadopsi.
+  - Mesin dapat opsi `max_hold` (default mati).
+
+## 26 Oktober 2026 – Kualitas per trade per kondisi market dan return per tahun vs Swinger ideal
+- `quality_vs_swinger_results/`:
+  - Per trade, saat uptrend/sideways kita setara Swinger ideal (rata-rata +6–9% per trade). Saat downtrend/breakdown
+    kita jauh kalah dan hampir tidak trade.
+  - Selisih utama ada di jumlah trade (797 vs 3.241) dan modal terpakai (49% vs 93%).
+  - Median return tahunan: kita 35%, realistis 11%, Swinger ideal 89%. Kita unggul di 5 dari 26 tahun, versi realistis
+    hanya di 2025.
