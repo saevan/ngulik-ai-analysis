@@ -108,3 +108,4 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 - V1 tanpa aturan breakout gagal: WR +6 poin, return setara (t = 0,63, holdout kalah tipis). Tidak diterima; netral.
 - Keputusan pengguna: aturan breakout gagal dibuang → V2 (STRATEGY_NOTES).
 - V2 + exit reset tambahan: tidak memperbaiki (2/5 tetangga, t = −0,19); WR +0,5…2 poin.
+- `monthly_entry_main_exits_results/`: V2 ternyata belum sesuai maksud (posisi bulanan tidak pakai exit lama). Versi sesuai maksud tidak menambah apa-apa (trade bulanan kena SMA30/fade, expectancy ≈ 0–2%).
