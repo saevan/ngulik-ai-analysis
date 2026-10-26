@@ -22,3 +22,10 @@ C>=1.03 SMA30, C>=1.05 SMA30, C>=1.10 SMA30, stack SMA20>SMA50>SMA100 and C>SMA2
 <= 35% of equity, unrestricted and realistic. Selection on realistic train CAGR (2000-2015). The pick counts as useful
 only if it beats "breakout only" (V2 without the monthly module) in realistic train AND test, unrestricted full CAGR >=
 breakout only - 5 pp, and MDD not more than 5 pp deeper in either version. Compared also with V2 now.
+
+## Round 3: the x-bar (no new trade high) exit as the monthly module's OWN exit (26 Oct 2026, written before results)
+Breakout trades: V2 exits. Monthly positions: own exit only. Filters: F1 (Close > Close 120 and ER20 >= 0.3, current) and
+SMA30 (Close > SMA30, user's rule). Exit: X = x bars without a new high since entry, x = 10, 20, 30, 40, 60; and X or the
+current trend-fail exit, x = 20, 40. 10% orders, max 35%. 14 cells, unrestricted and realistic.
+Better than V2 now if: realistic CAGR >= V2 now in train 2000-15 AND test 2016-25, unrestricted CAGR >= V2 now - 5 pp, MDD
+not more than 5 pp deeper in either version. Also compared with breakout only. Engine option extra_high_reset_bars.
