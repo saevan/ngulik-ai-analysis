@@ -67,3 +67,6 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Selisih utama ada di jumlah trade (797 vs 3.241) dan modal terpakai (49% vs 93%).
   - Median return tahunan: kita 35%, realistis 11%, Swinger ideal 89%. Kita unggul di 5 dari 26 tahun, versi realistis
     hanya di 2025.
+  - Diukur dengan expectancy (`expectancy_vs_swinger.py`): per trade kita +7,0% vs Swinger ideal +6,5%, tidak berbeda
+    nyata. Per unit risiko kita 1,32R vs 1,88R. Versi realistis +2,5% (0,52R). Saat downtrend/breakdown expectancy kita
+    tidak berbeda dari nol. Celah return terutama dari frekuensi trade: 31 vs 126 trade per tahun.

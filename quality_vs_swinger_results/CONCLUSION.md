@@ -94,3 +94,53 @@ Ringkasan tahunan:
 - Universe survivor (Kompas100 2025). Saham listing setelah 2018 menyumbang 71% P&L kita.
 - Label kondisi berasal dari proxy equal-weight universe ini.
 - Trade downtrend/breakdown kita sedikit (19–30), jadi angkanya kasar.
+
+## Tambahan: kualitas trade diukur dengan expectancy (permintaan pengguna, 26 Okt 2026)
+Kode: `expectancy_vs_swinger.py` (ledger trade yang sama, `winrate_diagnosis_results/trades_*.csv`).
+
+Definisi:
+- E = WR × rata-rata menang − (1 − WR) × rata-rata kalah. Ini sama dengan rata-rata return bersih per trade.
+- E_R = E / rata-rata kalah, yaitu expectancy per 1R dengan R = trade kalah rata-rata. Ini mengukur imbalan per unit
+  risiko.
+- CI 95%: bootstrap per bulan entry, 2.000 kali.
+- "E × trade/th × ukuran posisi" adalah jembatan kasar ke return portofolio (kita 25% ekuitas per order, Swinger 10%;
+  aritmetik, tanpa compounding).
+
+| Kondisi | Sistem | Trade/th | E per trade (CI 95%) | E_R | E per bar | E × trade/th × ukuran |
+|---|---|---|---|---|---|---|
+| Semua | Kita | 31 | +7,0% (4,7…9,4) | 1,32R | 0,40% | ≈54%/th |
+| | Kita realistis | 34 | +2,5% (1,3…3,8) | 0,52R | 0,15% | ≈21%/th |
+| | Swinger ideal | 126 | +6,5% (5,5…7,6) | 1,88R | 0,34% | ≈82%/th |
+| Uptrend | Kita | 11,6 | +8,5% (4,6…12,9) | 1,50R | 0,44% | ≈25%/th |
+| | Kita realistis | 12,4 | +3,0% (1,1…5,1) | 0,65R | 0,18% | ≈9%/th |
+| | Swinger ideal | 33 | +10,0% (7,7…12,2) | 3,32R | 0,47% | ≈33%/th |
+| Sideways | Kita | 18,3 | +6,4% (3,8…9,5) | 1,29R | 0,38% | ≈29%/th |
+| | Kita realistis | 20,3 | +2,1% (0,8…3,6) | 0,43R | 0,13% | ≈11%/th |
+| | Swinger ideal | 72 | +5,3% (4,3…6,5) | 1,51R | 0,29% | ≈38%/th |
+| Downtrend | Kita | 1,2 | +1,3% (−5,2…11,5) | 0,18R | 0,10% | ≈0,4%/th |
+| | Kita realistis | 0,9 | +4,5% (−3,7…16,6) | 0,73R | 0,32% | ≈1%/th |
+| | Swinger ideal | 22 | +5,2% (3,2…7,6) | 1,29R | 0,28% | ≈11%/th |
+| Breakdown | Kita | 0,7 | +4,2% (−3,0…14,4) | 0,72R | 0,26% | ≈0,8%/th |
+| | Kita realistis | 0,9 | +3,9% (−2,4…11,4) | 0,80R | 0,25% | ≈0,9%/th |
+| | Swinger ideal | 15 | +5,0% (3,0…7,7) | 1,30R | 0,28% | ≈8%/th |
+
+Expectancy per periode (E per trade; kita / kita realistis / Swinger ideal):
+
+| Periode | Kita | Kita realistis | Swinger ideal |
+|---|---|---|---|
+| 2000-07 | 8,5% | 4,9% | 10,9% |
+| 2008-15 | 3,4% | 0,4% | 5,9% |
+| 2016-20 | 10,3% | 3,5% | 5,4% |
+| 2021-25 | 6,6% | 1,6% | 3,4% |
+
+Interpretasi:
+1. Dalam persen per trade, expectancy kita (+7,0%) tidak berbeda nyata dari Swinger ideal (+6,5%); CI-nya tumpang
+   tindih. Di 2016–25 expectancy kita malah lebih tinggi, tapi 71% P&L kita dari saham listing setelah 2018.
+2. Per unit risiko, Swinger ideal lebih baik: 1,88R vs 1,32R. Trade kalahnya lebih kecil (3,5% vs 5,3%), terutama karena
+   tidak ada trade breakout gagal (fill ideal).
+3. Saat downtrend dan breakdown, expectancy kita tidak bisa dibedakan dari nol (CI melewati 0). Kita juga hampir tidak
+   trade di kondisi itu (kurang dari 1–2 trade per tahun vs 15–22 trade untuk Swinger).
+4. Celah return paling besar datang dari frekuensi, bukan dari expectancy per trade. E × frekuensi × ukuran ≈ 54%/th
+   (kita) vs ≈ 82%/th (Swinger ideal), karena kita 31 trade per tahun vs 126.
+5. Versi realistis: expectancy turun ke +2,5% per trade (0,52R). Di 2008–15 dan 2021–25 CI-nya menyentuh 0. Ini
+   kelemahan terbesar kita.
