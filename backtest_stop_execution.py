@@ -37,6 +37,11 @@ def prepare(f,fade,llv,entry_mode,gate_dates,priority=None,channel=20,er_min=.3,
         if er_min is not None:sig=sig&(efficiency_ratio(f.Close,20)>=er_min)
         if entry_sma:sig=sig&(f.Close>=f.Close.rolling(entry_sma).mean())
         d['entry']=sig.shift(1,fill_value=False).to_numpy(bool);d['cb_level']=lev.shift(1).to_numpy(float)  # level of the signal bar, aligned to the entry bar
+    elif entry_mode=='close_fill':  # Close i > HHV(channel) of bars i-N..i-1 x (1+stop_buffer) and ER20 of bar i-1 >= er_min -> buy at Close i
+        lev=f.High.shift(1).rolling(channel).max();er_prev=efficiency_ratio(f.Close,20).shift(1)
+        sig=(f.Close>lev*(1+stop_buffer))&np.isfinite(a)&((er_prev>=er_min) if er_min is not None else lev.notna())
+        if gate_dates is not None:sig=sig&f['Date/Time'].isin(gate_dates)
+        d['cf_entry']=sig.fillna(False).to_numpy(bool);d['entry']=np.zeros(len(f),bool)
     elif entry_mode in ('next_open','next_open_vol'):
         e=entry_signal(f,.3)
         if entry_mode=='next_open_vol':
@@ -121,7 +126,10 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     (kind 'extra') use only extra_exit_signal_fn (pending 'extra_exit', sold next Open; gapdown_close applies) and no main exits.
     extra_first=True: extra orders are filled at the Open before the main pre-Open book is built; False: the main book reserves
     its cash and slots first and extra orders use what is left. The ledger then has a 'kind' column (main / extra).
-    extra_max_frac=a: extra positions (marked at the previous Close) may hold at most a * equity; new extra orders use only the room left."""
+    extra_max_frac=a: extra positions (marked at the previous Close) may hold at most a * equity; new extra orders use only the room left.
+    entry_mode='close_fill': breakout confirmed at the Close (Close > previous-N-bar HHV x (1+stop_buffer), previous bar's ER20 >= er_min)
+    and bought at that Close (pre-closing auction approximation) in priority order with the cash left after the day's exits;
+    a stock sold that day is not re-bought; failed_exit has no reference level (no effect)."""
     data={};calendar={}  # gate_dates may also be a dict ticker -> allowed entry dates (per-stock point-in-time eligibility)
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates.get(t,()) if isinstance(gate_dates,dict) else gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry,stop_buffer,buffer_grid);data[t]=d
@@ -270,6 +278,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             elif init_stop=='atr2' and np.isfinite(d['atr'][i]) and d['atr'][i]>0:stop=price-2*float(d['atr'][i])
             positions[t]=dict(date=day,index=i,price=price,notional=amount,q=q,pending=None,outside=outside,stop=stop,trail=False,atr0=float(d['atr'][i]),
                 level=float(d['buy_level'][i]) if entry_mode=='buy_stop' else (float(d['Open'][i]) if entry_mode=='random' else (float(d['cb_level'][i]) if entry_mode=='close_breakout' else np.nan)))
+        n_ledger=len(ledger)
         for t,i in obs:  # Close: marks and next-Open exit signals
             d=data[t];lastclose[t]=float(d['Close'][i])
             if cost_model is not None and cost_model.liquidation_mark:
@@ -293,6 +302,24 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if d['sma_exit'][i] and p['pending'] is None and (not sma_arm or p.get('sma_armed')):p['pending']='sma_exit'
             if max_hold is not None and p['pending'] is None and i-p['index']+1>=max_hold:p['pending']='time_exit'
             if exit_signal_fn is not None and p['pending'] is None and d['exit_sig'][i]:p['pending']='signal_exit'
+        if entry_mode=='close_fill':  # entries at the Close
+            sold_now={r['ticker'] for r in ledger[n_ledger:]}
+            for t,i in entry_obs:
+                if t in positions or t in exited or t in sold_now:continue
+                d=data[t]
+                if not(d['cf_entry'][i] and d['tradable'][i]) or i==len(d['Close'])-1:continue  # no entry on a stock's last bar (could not be closed)
+                if len(positions)>=slots:break
+                amount=min(budget,cash)
+                if liq_cap is not None:amount=min(amount,liq_cap*d['adv'][i]) if np.isfinite(d['adv'][i]) else 0.
+                if amount<=max(capital*1e-12,(min_order_frac or 0.)*budget):continue
+                price=float(d['Close'][i])
+                if cost_model is not None:
+                    price=quote(price,d,i,'buy');q=cost_model.quantity(amount,price)
+                    if q<=0:continue
+                    amount=q*price*(1+cost_model.buy_fee)
+                else:q=amount/price
+                cash-=amount
+                positions[t]=dict(date=day,index=i,price=price,notional=amount,q=q,pending=None,outside=False,stop=None,trail=False,atr0=float(d['atr'][i]),level=np.nan)
         value=sum(p['q']*lastclose[t] for t,p in positions.items());equity=cash+value
         assert cash>=-max(capital,abs(equity))*1e-10 and len(positions)<=slots
         new=equity>peak+capital*1e-12;peak=max(peak,equity)

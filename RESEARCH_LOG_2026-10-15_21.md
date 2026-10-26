@@ -89,3 +89,13 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
     breakout pemenang tergusur.
   - ER pada entry bulanan: ER market membuat tambahan lebih jinak (MDD turun, breakout tetap, WR realistis 37%), tapi
     CAGR realistis turun. ER saham lolos kriteria, tapi tidak konsisten antar periode dan holdout. Tidak diadopsi.
+
+## 26 Oktober 2026 – V1 dipakai; kenapa WR belum seperti Swinger ideal
+- Keputusan pengguna: V1 = V0 + entry bulanan (Close > Close 120 bar lalu & ER20 saham ≥ 0,3, order 10%, maksimal 35%)
+  menjadi sistem riset acuan (STRATEGY_NOTES). AFL tidak diubah.
+- `wr_gap_v1_results/`:
+  - Fill ideal Swinger memberi +2,7% di entry dan +2,7% di exit per trade (tidak pernah negatif). Tanpa itu WR Swinger
+    30,8% dan expectancy +1,0%.
+  - Pada basis Close-ke-Close, WR V1 36,7% (realistis 30,9%) dengan expectancy jauh lebih tinggi.
+  - Beli di Close yang terkonfirmasi tidak menolong: WR 38–40%, CAGR turun separuh.
+  - Celah WR = fill yang tidak bisa dieksekusi.
