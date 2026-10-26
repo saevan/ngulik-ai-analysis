@@ -112,3 +112,4 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 - Filter SMA untuk entry bulanan (exit lama): saham di bawah SMA30 langsung kena exit (98% ≤ 2 bar). Dengan filter, trade bulanan hanya +2…3%/trade. Pilihan grid (ER ≥ 0,4 + Close ≥ 1,03 × SMA30) tidak lolos (MDD +9 pp vs breakout saja).
 - Aturan sesuai maksud (tiap awal bulan beli saham di atas SMA30, exit lama): trade bulanan WR 28–32%, expectancy ≈ 0; semua varian di bawah 'breakout saja'.
 - Exit x bar sebagai exit modul bulanan (F1/SMA30, x 10–60): tidak ada yang mengalahkan V2 atau breakout saja; trade bulanan makin baik makin lama dipegang.
+- Lookback modul bulanan, 81 kombinasi: pilihan latih = 120/120 (V2); median sel di bawah 'breakout saja'; tidak ada sel yang mengalahkan breakout saja di kedua versi. Breakout saja = pilihan paling kokoh.

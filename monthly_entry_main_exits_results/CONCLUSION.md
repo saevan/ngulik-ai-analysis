@@ -113,3 +113,17 @@ Hasil:
 - Tidak ada yang lebih baik dari V2 sekarang, dan semuanya di bawah "breakout saja" di versi realistis.
 - Exit x bar memotong trade bulanan lebih cepat daripada exit trend 120 hari.
 - Expectancy trade bulanan naik seiring x (semakin lama dipegang, semakin baik), tapi tetap di bawah exit trend.
+
+## Putaran 4–5: lookback trend lebih pendek / semua kombinasi (`monthly_lookback.py`, `monthly_lookback_all.py`, `lookback.csv`, `lookback_all.csv`)
+81 kombinasi lookback entry × exit (20…250 hari):
+- Pilihan dari periode latih = 120/120, yaitu V2 sekarang. Tidak ada perbaikan.
+- Peta hasil sangat bergerigi. CAGR realistis per sel 14,2–23,1% tanpa pola halus antar tetangga, jadi selisih ±3 pp
+  adalah noise. Sel tertinggi (20/120 23,1%, 80/60 22,4%, 150/60 22,3%) tidak konsisten dengan tetangganya.
+- Dibandingkan "breakout saja":
+  - median CAGR realistis 81 sel 18,1% (breakout saja 19,4%); hanya 21% sel lebih tinggi;
+  - tanpa batasan median 44,0% (breakout saja 47,6%); hanya 12% sel lebih tinggi;
+  - MDD realistis: 0% sel lebih baik dari breakout saja;
+  - tidak ada sel yang mengalahkan breakout saja di kedua versi dengan MDD dalam batas 5 pp.
+
+Kesimpulan: modul bulanan secara umum tidak menambah, dan sering mengurangi. V2 (120/120) termasuk sel yang beruntung
+dalam peta yang penuh noise. Dari seluruh bukti modul bulanan, "breakout saja" adalah pilihan paling kokoh.
