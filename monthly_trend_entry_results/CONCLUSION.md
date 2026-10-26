@@ -97,3 +97,51 @@ Cek tetangga (post hoc):
 - Universe survivor.
 - 30 + 5 + 8 varian di satu data set.
 - Cek tetangga dan holdout dilakukan setelah melihat hasil langkah 2.
+
+## Langkah 3 dan 4: entry bulanan DITAMBAHKAN, entry breakout tetap (klarifikasi pengguna)
+Kode: `monthly_add_entry.py` (langkah 3), `monthly_add_entry_allowance.py` (langkah 4). Mesin dapat opsi entry kedua
+(`extra_signal_fn`, `extra_exit_signal_fn`, `extra_size_div`, `extra_first`, `extra_priority`, `extra_max_frac`; default
+mati; uji regresi lulus; V0 identik).
+
+Desainnya: satu portofolio dengan modal dan slot bersama.
+- Entry breakout dan exit-nya tidak diubah.
+- Entry bulanan: saham yang lolos filter di Close akhir bulan dibeli di Open hari pertama bulan, dan dijual saat filter
+  gagal di akhir bulan.
+
+Langkah 3 (tanpa jatah modal). Masalahnya perebutan modal:
+- Bulanan didahulukan (P1): posisi bulanan dipegang sekitar 5 bulan dan memakan modal. Trade breakout turun dari
+  797 ke 28–70 (tanpa batasan), jadi praktis mengganti, bukan menambah. F_mom: realistis 20,0% tapi MDD −61%; tanpa
+  batasan 38,8%, MDD −66%.
+- Breakout didahulukan (P2): order buy stop pra-Open memesan seluruh kas setiap hari, jadi entry bulanan hanya dapat
+  1–13 trade dalam 25 tahun. Hasilnya praktis sama dengan V0 (kontrol acak P2: 16,4–17,3% realistis).
+- Pembagian modal tetap 50/50 (V0 + F_mom bulanan berdiri sendiri): realistis 18,7%, 67 bulan rekor, MDD −51%; tanpa
+  batasan 46,4%, 115, MDD −27%.
+
+Langkah 4 (bulanan didahulukan, tapi posisi bulanan maksimal A% dari ekuitas; order 10%):
+| Varian | CAGR realistis | Rekor | MDD realistis | WR realistis | Subperiode ≥ V0 | Breakout tersisa | CAGR tanpa batasan | MDD tanpa batasan | WR tanpa batasan |
+|---|---|---|---|---|---|---|---|---|---|
+| V0 | 16,2% | 52 | −44% | 33,8% | – | 100% | 49,3% | −24% | 38,3% |
+| F_mom, A 20% | 17,8% | 50 | −49% | 34,0% | 1 dari 4 | 86% / 82% | 42,0% | −40% | 37,5% |
+| F_mom, A 35% | 18,6% | 64 | −48% | 33,7% | 3 dari 4 | 71% / 66% | 45,0% | −39% | 40,8% |
+| F_mom, A 50% | 18,0% | 58 | −47% | 34,6% | 2 dari 4 | 56% / 48% | 39,4% | −45% | 38,8% |
+| F_sma120, A 20–50% | 10,6–15,0% | 41–48 | −46…−52% | 32,5–33,2% | 0–2 | 58–86% | 38,9–45,6% | −29…−33% | 37,7–39,8% |
+| Acak bulanan (3 seed), A 20–50% | 10,4–16,6% | 35–57 | −39…−51% | 39–45% | – | 61–92% | 34,8–48,7% | −22…−44% | 42–45% |
+
+Hasil: tidak ada yang lolos.
+- Varian terdekat F_mom A 35% gagal karena:
+  - MDD tanpa batasan −39% (batas −29%);
+  - breakout tersisa hanya 66% di versi tanpa batasan;
+  - WR realistis tidak naik.
+- Trade bulanan sendiri punya WR 41–43% dan expectancy besar (+14…+56%/trade), tapi menggeser sekitar 30% trade
+  breakout.
+- WR gabungan versi realistis tetap 34%.
+- Tambahan acak menaikkan WR gabungan ke 39–45% tanpa menaikkan return. Lagi-lagi WR naik tanpa edge.
+
+## Kesimpulan akhir (langkah 1–4)
+- Unsur waktu, baik sebagai pengganti, daftar pantau, maupun tambahan, tidak membawa WR sistem kita ke dekat Swinger ideal
+  (48,8%).
+- Yang konsisten: trend jangka menengah (Close > Close 90–120 bar lalu) sedikit menaikkan CAGR realistis (+1…3 pp) dan
+  bulan rekor. Tapi di versi tanpa batasan selalu ada harga (CAGR turun atau MDD lebih dalam), kecuali sebagai daftar
+  pantau.
+- Penyebab WR rendah tetap breakout yang gagal di hari pertama. Itu masalah waktu entry di dalam hari, bukan pemilihan
+  saham per bulan.

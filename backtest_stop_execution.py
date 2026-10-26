@@ -67,7 +67,8 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False,stop_buffer=0.,touch_sell=False,buffer_grid=False,max_hold=None,signal_fn=None,exit_signal_fn=None):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False,stop_buffer=0.,touch_sell=False,buffer_grid=False,max_hold=None,signal_fn=None,exit_signal_fn=None,
+        extra_signal_fn=None,extra_exit_signal_fn=None,extra_size_div=None,extra_first=True,extra_priority=None,extra_max_frac=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -113,7 +114,14 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     tradable Open like the other Close-signal exits. Default None = old behaviour.
     entry_mode='signal' with signal_fn(frame) -> bool per bar: a Close-signal bought at the next tradable Open, handled like
     close_breakout (queue, pre-Open book, gap rule vs the previous Close); gate_dates apply to the entry bar; no breakout level
-    (failed_exit has no effect). exit_signal_fn(frame) -> bool per bar: a pending 'signal_exit' at that Close (sold next Open)."""
+    (failed_exit has no effect). exit_signal_fn(frame) -> bool per bar: a pending 'signal_exit' at that Close (sold next Open).
+    extra_signal_fn(frame) -> bool per bar: a SECOND entry stream next to the main one (same portfolio, cash and slots): a Close-signal
+    bought at the next Open only if tradable that day (gap rule vs the previous Close, gate_dates and liq_cap apply), size equity/
+    extra_size_div (default = main budget), order by extra_priority(frame) if given else by the main priority. These positions
+    (kind 'extra') use only extra_exit_signal_fn (pending 'extra_exit', sold next Open; gapdown_close applies) and no main exits.
+    extra_first=True: extra orders are filled at the Open before the main pre-Open book is built; False: the main book reserves
+    its cash and slots first and extra orders use what is left. The ledger then has a 'kind' column (main / extra).
+    extra_max_frac=a: extra positions (marked at the previous Close) may hold at most a * equity; new extra orders use only the room left."""
     data={};calendar={}  # gate_dates may also be a dict ticker -> allowed entry dates (per-stock point-in-time eligibility)
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates.get(t,()) if isinstance(gate_dates,dict) else gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry,stop_buffer,buffer_grid);data[t]=d
@@ -123,6 +131,12 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if gd is not None:e=e&g['Date/Time'].isin(gd).to_numpy()
             d['entry']=e
         if exit_signal_fn is not None:d['exit_sig']=np.asarray(exit_signal_fn(f.reset_index(drop=True)),bool)
+        if extra_signal_fn is not None:
+            g=f.reset_index(drop=True);xs=np.asarray(extra_signal_fn(g),bool)&np.isfinite(d['atr']);xe=np.r_[False,xs[:-1]]
+            gd=gate_dates.get(t,()) if isinstance(gate_dates,dict) else gate_dates
+            if gd is not None:xe=xe&g['Date/Time'].isin(gd).to_numpy()
+            d['x_entry']=xe;d['x_exit']=np.asarray(extra_exit_signal_fn(g),bool) if extra_exit_signal_fn is not None else np.zeros(len(g),bool)
+            d['x_priority']=np.nan_to_num(np.asarray(extra_priority(g),float),nan=-np.inf) if extra_priority is not None else None
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64(start):calendar.setdefault(pd.Timestamp(day),[]).append((t,i))
     cash=equity=peak=float(capital);positions={};lastclose={};queued=set();ledger=[];daily=[]
@@ -135,8 +149,31 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         fee=p['q']*price*(cost_model.sell_fee if cost_model else 0);proceeds=p['q']*price-fee;cash+=proceeds
         ledger.append(dict(ticker=t,entry_date=p['date'],exit_date=day,entry_price=p['price'],exit_price=price,reference_exit_price=ref,
             pnl=proceeds-p['notional'],net_return=proceeds/p['notional']-1,gross_return=price/p['price']-1,bars=i-p['index']+1,reason=reason,q=p['q'],notional=p['notional'],
-            entry_outside_bar=p['outside'],exit_outside_bar=bool(ref<d['Low'][i]-1e-9 or ref>d['High'][i]+1e-9)))
+            entry_outside_bar=p['outside'],exit_outside_bar=bool(ref<d['Low'][i]-1e-9 or ref>d['High'][i]+1e-9),
+            **({'kind':p.get('kind','main')} if extra_signal_fn is not None else {})))
         return proceeds
+    def extra_entries(day,obs_sorted,avail,free,exited):
+        nonlocal cash
+        xb=equity/extra_size_div if extra_size_div else equity/(size_div or slots);floor=max(capital*1e-12,(min_order_frac or 0.)*xb);n=0
+        if extra_priority is not None:obs_sorted=sorted(obs_sorted,key=lambda x:-data[x[0]]['x_priority'][x[1]])
+        if extra_max_frac is not None:avail=min(avail,extra_max_frac*equity-sum(p['q']*lastclose[s_] for s_,p in positions.items() if p.get('kind')=='extra'))
+        for t,i in obs_sorted:
+            if n>=free or avail<=floor:break
+            if t in positions or t in exited:continue
+            d=data[t]
+            if not(d['x_entry'][i] and d['tradable'][i]):continue
+            price=float(d['Open'][i])
+            if gap_skip is not None and i and price>d['Close'][i-1]*(1+gap_skip):continue
+            amount=min(xb,avail)
+            if liq_cap is not None:amount=min(amount,liq_cap*d['adv'][i]) if np.isfinite(d['adv'][i]) else 0.
+            if amount<=floor:continue
+            if cost_model is not None:
+                price=quote(price,d,i,'buy');q=cost_model.quantity(amount,price)
+                if q<=0:continue
+                amount=q*price*(1+cost_model.buy_fee)
+            else:q=amount/price
+            cash-=amount;avail-=amount;n+=1
+            positions[t]=dict(date=day,index=i,price=price,notional=amount,q=q,pending=None,outside=False,stop=None,trail=False,atr0=float(d['atr'][i]),level=np.nan,kind='extra')
     for day,obs in sorted(calendar.items()):
         exited=set();budget=equity/(size_div or slots)*(size_factor if size_dates is not None and day in size_dates else 1.);locked=0.;intraday_exits=0
         if derisk_dates is not None and day in derisk_dates:
@@ -156,7 +193,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                     if d['Open'][i]>d['Close'][i-1]*(1+gapup_exit) and d['Open'][i]>p['price']:
                         close(t,i,float(d['Open'][i]),'gapup_take_profit',day);exited.add(t)
         for t,i in obs:  # intraday stops for positions held before today
-            if t not in positions or not data[t]['tradable'][i]:continue
+            if t not in positions or not data[t]['tradable'][i] or positions[t].get('kind')=='extra':continue
             d=data[t];o=float(d['Open'][i]);levels=[]
             if exit_mode=='fade_intraday' and np.isfinite(d['atr'][i]) and d['atr'][i]>0 and d['Low'][i]<=o-fade*d['atr'][i]:
                 levels.append((o-fade*d['atr'][i],'fade_stop'))
@@ -175,6 +212,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 # Price falls from Open: the higher triggered level is reached first.
                 price,reason=max(levels);locked+=close(t,i,float(price),reason,day);exited.add(t);intraday_exits+=1
         entry_obs=obs if priority is None else sorted(obs,key=lambda x:-data[x[0]]['priority'][x[1]])
+        if extra_signal_fn is not None and extra_first:extra_entries(day,entry_obs,cash-locked,slots-len(positions)-intraday_exits,exited)
         order_book=None
         if strict_orders and entry_mode in ('buy_stop','close_breakout','signal'):
             free=slots-len(positions)-intraday_exits;order_book=set();order_size={};avail=cash-locked
@@ -195,6 +233,9 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 if presize:
                     cap_amt=liq_cap*d['adv'][i] if liq_cap is not None and np.isfinite(d['adv'][i]) else np.inf
                     order_size[t]=min(budget,avail,cap_amt);avail-=order_size[t]
+        if extra_signal_fn is not None and not extra_first:
+            res=sum(order_size.values()) if order_book is not None and presize else 0.
+            extra_entries(day,entry_obs,cash-locked-res,slots-len(positions)-intraday_exits-(len(order_book) if order_book is not None else 0),exited)
         for t,i in entry_obs:  # entries
             if t in positions or t in exited:continue
             d=data[t]
@@ -239,6 +280,9 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 close(t,i,float(d['Close'][i]),p['pending']+'_gapdown_close',day);continue
             if i==len(d['Close'])-1:
                 close(t,i,float(d['Close'][i]),'period_end' if d['tradable'][i] else 'period_end_mark',day);continue
+            if p.get('kind')=='extra':
+                if p['pending'] is None and d['x_exit'][i]:p['pending']='extra_exit'
+                continue
             if breakeven is not None and np.isfinite(p['atr0']) and d['Close'][i]>=p['price']+breakeven*p['atr0']:p['be']=True
             if trail_after is not None and np.isfinite(p['atr0']) and d['Close'][i]>=p['price']+trail_after*p['atr0']:p['trail']=True
             if failed_exit is not None and p['index']==i and p['pending'] is None and np.isfinite(p['level']) and d['Close'][i]<p['level']*(1-failed_exit):

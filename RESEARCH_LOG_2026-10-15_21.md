@@ -81,3 +81,6 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Sistem beli-awal-bulan dengan filter trending tidak membawa WR ke 50% (38–47%; pegang 1 bulan acak pun ~47%).
   - Sebagai daftar pantau untuk buy stop kita, trend jangka menengah memberi +1…3 pp CAGR realistis, tapi WR tetap.
   - Belum diadopsi.
+  - Langkah 3–4 (entry bulanan ditambahkan, breakout tetap): tanpa jatah modal, entry bulanan menggusur breakout
+    atau tidak kebagian kas. Dengan jatah 35%: realistis 18,6% (V0 16,2%), 64 bulan rekor, tapi MDD tanpa batasan −39% dan
+    WR gabungan tetap 34%. Tidak ada yang lolos; WR tidak naik.
