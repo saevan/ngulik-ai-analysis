@@ -105,3 +105,4 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 - Putaran 2 (32 filter trend: SMA, MACD, ER saja, slope, dekat puncak 52 minggu): pilihan latih tetap filter V1; ER20 ≥ 0,4–0,5 saja adalah alternatif setara.
 - `high_reset_exit_results/`: exit waktu reset di high baru. WR naik ke 45–47%; terbaik x = 15 (realistis 21,7%, MDD −37%) tapi versi tanpa batasan MDD −48%. Tidak lolos.
 - Uji konfirmasi 'tanpa SMA30 + reset x20': tetangga 4/5 menang tipis, tapi holdout 1996–99 kalah (9,1% vs 12,0%) dan t = 1,42. Tidak diterima; SMA30 tetap.
+- V1 tanpa aturan breakout gagal: WR +6 poin, return setara (t = 0,63, holdout kalah tipis). Tidak diterima; netral.

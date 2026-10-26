@@ -145,3 +145,19 @@ Hasil menambah unsur waktu ke trade breakout V1:
 
 WR ~50% tercapai dengan exit waktu saja. Tapi CAGR, bulan rekor dan MDD selalu lebih buruk dari V1. Ini sama dengan
 temuan di V0.
+
+## V1 tanpa / dengan aturan breakout gagal yang dilonggarkan (`v1_failed_exit_confirm.py`, rencana dikunci)
+| | V1 (aturan 0%) | Tanpa aturan | Longgar 1% | 2% | 3% |
+|---|---|---|---|---|---|
+| CAGR realistis | 19,7% | 20,7% | 20,7% | 22,2% | 21,0% |
+| MDD realistis | −45% | −46% | −41% | −45% | −44% |
+| WR realistis | 34,4% | 40,9% | 37,2% | 39,5% | 40,7% |
+| CAGR tanpa batasan | 45,4% | 50,6% | 43,3% | 47,6% | 53,0% |
+| MDD tanpa batasan | −25% | −27% | −29% | −31% | −27% |
+
+Holdout realistis 1996–99: tanpa aturan 11,1% (MDD −41%) vs V1 12,0% (MDD −29%). Selisih bulanan +0,08%/bln, t = 0,63.
+
+Hasil:
+- (a) 4/4 terpenuhi, tapi (b) dan (c) gagal. Tidak diterima.
+- Melonggarkan atau membuang aturan ini menaikkan WR 3–6 poin dengan return realistis setara atau sedikit lebih tinggi.
+- Bedanya terlalu kecil untuk dibedakan dari kebetulan.
