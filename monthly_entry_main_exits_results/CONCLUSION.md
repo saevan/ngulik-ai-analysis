@@ -54,3 +54,15 @@ Hasil:
 - Filter di atas SMA30 memang menghapus pembelian yang langsung kena exit.
 - Tapi trade bulanan yang tersisa tetap kecil (expectancy +2…3% realistis, sekitar 21 bar).
 - Modul bulanan dengan exit lama hanya menambah sedikit return dengan risiko lebih besar.
+
+## Filter lama (Close > Close 120, ER20 ≥ 0,3) + Close > SMA30 (`monthly_f1_sma30.py`, `f1_sma30.csv`)
+| | CAGR realistis (latih / uji) | MDD realistis | Rekor | WR realistis | Trade bulanan: expectancy / lama pegang | CAGR tanpa batasan | MDD tanpa batasan |
+|---|---|---|---|---|---|---|---|
+| V2 sekarang | 20,7% (20,1 / 21,7) | −46% | 63 | 40,9% | +18,0% / 133 bar | 50,6% | −27% |
+| Breakout saja | 19,4% (17,3 / 22,9) | −37% | 62 | 41,7% | – | 47,6% | −30% |
+| + SMA30, exit lama | 16,0% (13,1 / 21,0) | −48% | 54 | 38,6% | +1,4% / 19 bar | 45,2% | −35% |
+| + SMA30, exit bulanan sendiri | 19,4% (17,8 / 22,1) | −49% | 58 | 40,9% | +15,5% / 149 bar | 44,8% | −33% |
+
+Menambah filter SMA30 ke filter lama tidak memperbaiki apa pun:
+- dengan exit lama hasilnya di bawah "breakout saja";
+- dengan exit bulanan sendiri hasilnya di bawah V2 sekarang (MDD lebih dalam, CAGR tanpa batasan turun).
