@@ -241,4 +241,4 @@ File: `v2_sideways_yearly.csv`, `v2_sideways_top_trades.csv`.
   | UNTR | 2009 | bulanan | +138% | 469 bar |
 
   WIFI adalah listing setelah 2018 (risiko survivorship).
-- Trade breakout yang dimulai saat sideways biasanya di bawah Swinger. Median trade V2 negatif di 19 dari 26 tahun.
+- Trade breakout yang dimulai saat sideways biasanya di bawah Swinger. Median trade V2 negatif di 20 dari 26 tahun.
