@@ -29,3 +29,28 @@ Kesimpulan:
 - Tanpa modul bulanan sama sekali (breakout saja) MDD realistis lebih kecil (−37% vs −46%), dengan CAGR sedikit lebih
   rendah.
 - Keputusan desain dikembalikan ke pengguna. AFL tidak diubah.
+
+## Putaran 2: filter SMA untuk entry bulanan (`monthly_entry_sma_filter.py`, `sma_diagnostic.csv`, `sma_grid.csv`)
+**Diagnostik** (trade bulanan F1 tanpa filter SMA; realistis | tanpa batasan):
+| Posisi saat dibeli | Trade | Expectancy | Lama pegang | Keluar ≤ 2 bar |
+|---|---|---|---|---|
+| Di bawah SMA30 | 299 \| 373 | −0,8% \| −0,7% | 2 bar | 98% \| 94% |
+| Di atas SMA30 | 312 \| 411 | +1,4% \| +5,0% | 19 \| 20 bar | 3% \| 5% |
+| 0–5% di atas SMA30 | 52 \| 49 | ≈0% \| +1,6% | 9–19 bar | – |
+| 5–10% di atas SMA30 | 125 \| 131 | −0,5% \| +5,1% | 17–20 bar | – |
+| > 10% di atas SMA30 | 135 \| 231 | +3,5% \| +5,7% | 21 bar | – |
+
+Pola SMA20 dan SMA50 sama dengan SMA30. Pilihan F2 (ER20 ≥ 0,4 + naik 20 hari) hampir semuanya sudah di atas SMA20/30/50.
+
+**Grid** (30 sel, pilih di periode latih): pilihan = F2 + Close ≥ 1,03 × SMA30.
+| | CAGR realistis (latih / uji) | MDD realistis | Rekor | CAGR tanpa batasan | MDD tanpa batasan |
+|---|---|---|---|---|---|
+| Pilihan | 20,2% (18,2 / 23,5) | −46% | 66 | 48,6% | −27% |
+| Breakout saja | 19,4% (17,3 / 22,9) | −37% | 62 | 47,6% | −30% |
+| V2 sekarang | 20,7% (20,1 / 21,7) | −46% | 63 | 50,6% | −27% |
+
+Hasil:
+- Pilihan tidak lolos: MDD realistis 9 pp lebih dalam daripada "breakout saja" (batas 5 pp). Return-nya hanya +0,8 pp.
+- Filter di atas SMA30 memang menghapus pembelian yang langsung kena exit.
+- Tapi trade bulanan yang tersisa tetap kecil (expectancy +2…3% realistis, sekitar 21 bar).
+- Modul bulanan dengan exit lama hanya menambah sedikit return dengan risiko lebih besar.
