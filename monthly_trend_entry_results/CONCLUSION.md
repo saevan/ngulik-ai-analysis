@@ -145,3 +145,33 @@ Hasil: tidak ada yang lolos.
   pantau.
 - Penyebab WR rendah tetap breakout yang gagal di hari pertama. Itu masalah waktu entry di dalam hari, bukan pemilihan
   saham per bulan.
+
+## Dampak menambahkan beli awal bulan (F_mom, jatah 35%; rincian) – `impact_monthly_add.py`, `impact_*.csv`
+| | V0 realistis | + bulanan realistis | V0 tanpa batasan | + bulanan tanpa batasan |
+|---|---|---|---|---|
+| CAGR | 16,2% | 18,6% | 49,3% | 45,0% |
+| Bulan rekor | 52 | 64 | 119 | 116 |
+| MDD | −44% | −48% | −24% | −39% |
+| WR gabungan | 33,8% | 33,7% | 38,3% | 40,8% |
+| Modal terpakai | 48% | 64% | 49% | 65% |
+| Trade breakout | 861 | 609 (413 sama, 448 hilang, 196 baru) | 797 | 529 (337 sama, 460 hilang, 192 baru) |
+| Trade bulanan | – | 218, WR 41%, +21%/trade, ±133 bar, 47% laba | – | 235, WR 42%, +40%/trade, ±140 bar, 20% laba |
+
+Return tahunan per kondisi pasar (modal terpakai dalam kurung):
+| | Uptrend | Sideways | Downtrend |
+|---|---|---|---|
+| V0 realistis | 34% (72%) | 10% (41%) | 5% (14%) |
+| + bulanan realistis | 40% (80%) | 10% (60%) | 13% (40%) |
+| V0 tanpa batasan | 113% (70%) | 33% (43%) | 7% (14%) |
+| + bulanan tanpa batasan | 81% (78%) | 34% (62%) | 26% (42%) |
+
+Per tahun:
+- Realistis lebih baik di 14 dari 26 tahun (median +2,1 pp; terbaik 2003 +45 pp; terburuk 2007 −35 pp).
+- Tanpa batasan lebih baik di 12 dari 26 tahun (median −1,5 pp; 2021 −149 pp).
+
+Interpretasi:
+- Beli awal bulan memakai kas yang menganggur dan menambah eksposur saat downtrend dan sideways. Return downtrend naik,
+  tapi MDD ikut lebih dalam.
+- Modul ini juga mengubah separuh trade breakout lewat perebutan modal dan slot.
+- Di versi tanpa batasan, trade breakout yang hilang adalah pemenang besar saat uptrend, sehingga hasilnya lebih buruk.
+- WR gabungan tidak berubah.
