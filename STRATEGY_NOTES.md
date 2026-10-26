@@ -172,3 +172,7 @@ Lihat `RESEARCH_LOG_2026-10-15_21.md` untuk ringkasan per permintaan pengguna da
 (buy stop HHV20 +0,5%, ER20 ≥ 0,2) B 2000–25 49,3% vs Swinger ideal 102,0%; dengan universe point-in-time + filter data
 basi + batas likuiditas sekitar 16%/th, MDD −44%. Tujuh pendekatan logika kedua untuk sideways tidak menutup biaya.
 AFL aktif tidak diubah.
+
+## Penegasan pengguna 26 Oktober 2026: pembanding = Swinger ideal saja
+Semua perbandingan sistem memakai Prototype Swinger ideal (fill ideal) sebagai satu-satunya benchmark. Versi Swinger lain
+tidak dipakai sebagai pembanding; fakta bahwa fill ideal tidak bisa dieksekusi cukup disebut singkat.

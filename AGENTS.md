@@ -6,3 +6,6 @@
 - Swinger fill ideal adalah benchmark aspiratif yang sengaja dipilih pengguna. Bandingkan karakter hasil; transaksi tidak perlu identik. Dokumentasikan asumsi fill secara proporsional, tanpa terus mengganti target pengguna dengan benchmark lain.
 - Sebutkan versi strategi, biaya, periode, dan definisi metrik yang dibandingkan. Jangan mencampur AFL pullback aktif dengan modul Breakout+ER penelitian atau angka lama dari H200.
 - Baca STRATEGY_NOTES.md untuk keputusan dan asumsi proyek. Pertahankan preferensi verifikasi ini dalam pekerjaan berikutnya di workspace ini.
+- Penegasan 26 Oktober 2026: sampai kapan pun pembanding sistem adalah Prototype Swinger IDEAL saja (fill ideal, fee sama).
+  Jangan menambah versi Swinger lain (realistis, stop order, next Open) sebagai pembanding utama; batasan fill cukup dicatat
+  singkat sebagai catatan.
