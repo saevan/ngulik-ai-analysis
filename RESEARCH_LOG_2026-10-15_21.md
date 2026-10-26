@@ -99,3 +99,6 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Pada basis Close-ke-Close, WR V1 36,7% (realistis 30,9%) dengan expectancy jauh lebih tinggi.
   - Beli di Close yang terkonfirmasi tidak menolong: WR 38–40%, CAGR turun separuh.
   - Celah WR = fill yang tidak bisa dieksekusi.
+- `monthly_filter_grid_results/`: grid 36 filter modul bulanan (latih 2000–15, uji 2016–25). Pilihan dari periode latih =
+  filter V1 sendiri. Trade bulanan masuk rata-rata hanya sekitar 4% di bawah level breakout; labanya datang dari memegang
+  lama.
