@@ -215,3 +215,53 @@ Interpretasi:
 - **Uptrend (tanpa batasan): yang menang adalah efek tergusur.** Kontribusi breakout turun dari 81% ke 45%.
 - Saat uptrend, saham momentum justru kalah dari saham lain (31,8% vs 44,0%), jadi keunggulan F_mom hanya ada saat
   pasar turun dan sideways.
+
+## Langkah 5: ER pada entry bulanan (klaim pengguna: modul berguna saat market trending) – `monthly_add_er_gate.py`
+Rencana dikunci sebelum hasil. Robustness (post hoc): `monthly_add_er_robustness.py`.
+
+Prediksi ER market akhir bulan:
+- Bila ER20 market ≥ 0,3 di akhir bulan, 59% hari bulan berikutnya trending.
+- Bila < 0,3, hanya 32% (tanpa syarat: 45%).
+- Jadi prediksinya ada, tapi tidak kuat.
+
+| Varian (jatah 35%) | CAGR realistis | Rekor | MDD | WR | CAGR tanpa batasan | Rekor | MDD | WR | Breakout tersisa |
+|---|---|---|---|---|---|---|---|---|---|
+| V0 | 16,2% | 52 | −44% | 33,8% | 49,3% | 119 | −24% | 38,3% | 100% |
+| + bulanan tanpa ER (G0) | 18,6% | 64 | −48% | 33,7% | 45,0% | 116 | −39% | 40,8% | 71% / 66% |
+| + bulanan, entry hanya saat market trending (G1) | 16,8% | 58 | −40% | 33,4% | 47,3% | 119 | −40% | 39,8% | 78% / 76% |
+| G1 + jual saat market sideways (X1) | 16,5% | 58 | −38% | 37,0% | 50,3% | 124 | −32% | 42,0% | 89% / 90% |
+| ER market & ER saham + X1 (G3) | 17,6% | 57 | −43% | 37,5% | 48,2% | 115 | −24% | 41,2% | 94% / 92% |
+| ER saham ≥ 0,3 (G2) | 19,7% | 63 | −45% | 34,4% | 45,4% | 127 | −25% | 41,4% | 75% / 72% |
+
+Swinger ideal: 102,0% / 232 / −21% / WR 48,8%.
+
+Return tahunan per kondisi (realistis, uptrend / sideways / downtrend):
+| Varian | Uptrend | Sideways | Downtrend |
+|---|---|---|---|
+| V0 | 34% | 10% | 5% |
+| G0 | 40% | 10% | 13% |
+| G1 + X1 | 45% | 6% | 2% |
+| G3 + X1 | 37% | 11% | 4% |
+| G2 | 43% | 10% | 16% |
+
+Hasil (kriteria PLAN):
+- **"ER membantu"** (versi ER market mengalahkan versi tanpa ER di kedua versi dengan MDD tidak lebih dari 2 pp lebih
+  dalam): terpenuhi di 4 dari 8 sel ER market, tapi hampir semuanya pada pembanding G0+X1 yang lemah. Terhadap G0+X0
+  (versi tanpa ER terbaik), ER market:
+  - menurunkan CAGR realistis (16,5–17,6% vs 18,6%);
+  - mengurangi MDD dan breakout yang tergusur;
+  - menaikkan WR sedikit (37–38% realistis);
+  - membuat versi tanpa batasan setara V0.
+- **Yang lolos semua kriteria kandidat hanya ER saham (G2)**, bukan ER market.
+- Robustness G2 (ambang ER saham 0,2–0,4 × jatah 25–45%):
+  - Realistis: 14 dari 15 sel ≥ V0 (15–23%). Tapi median subperiode yang ≥ V0 hanya 2 dari 4.
+  - Tanpa batasan: 39–50%, dan MDD dalam (−45…−49%) di ambang 0,2–0,25.
+  - Holdout 1995–99: 52,5–55,2% vs V0 55,7%, MDD lebih dalam.
+
+Interpretasi:
+- Keuntungan modul bulanan saat downtrend datang dari posisi yang dibeli SEBELUM market turun.
+- Membatasi entry/exit dengan ER market memotong manfaat itu: downtrend turun dari 13% ke 2–4%. Yang tersisa adalah
+  versi "lebih jinak": lebih sedikit breakout tergusur, MDD lebih kecil.
+- ER saham sebagai filter tambahan sedikit lebih baik di versi realistis, tapi belum konsisten antar periode.
+- WR tetap jauh dari Swinger ideal.
+- Tidak ada yang diadopsi.

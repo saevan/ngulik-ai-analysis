@@ -84,3 +84,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Langkah 3–4 (entry bulanan ditambahkan, breakout tetap): tanpa jatah modal, entry bulanan menggusur breakout
     atau tidak kebagian kas. Dengan jatah 35%: realistis 18,6% (V0 16,2%), 64 bulan rekor, tapi MDD tanpa batasan −39% dan
     WR gabungan tetap 34%. Tidak ada yang lolos; WR tidak naik.
+  - Dampak beli awal bulan (jatah 35%): manfaat saat downtrend datang dari pemilihan saham trend kuat yang sudah
+    dipegang. Manfaat saat uptrend hanya dari modal tambahan (tambahan acak sama saja). Di versi tanpa batasan,
+    breakout pemenang tergusur.
+  - ER pada entry bulanan: ER market membuat tambahan lebih jinak (MDD turun, breakout tetap, WR realistis 37%), tapi
+    CAGR realistis turun. ER saham lolos kriteria, tapi tidak konsisten antar periode dan holdout. Tidak diadopsi.
