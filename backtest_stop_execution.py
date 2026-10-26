@@ -73,7 +73,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
         er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False,stop_buffer=0.,touch_sell=False,buffer_grid=False,max_hold=None,signal_fn=None,exit_signal_fn=None,
-        extra_signal_fn=None,extra_exit_signal_fn=None,extra_size_div=None,extra_first=True,extra_priority=None,extra_max_frac=None,high_reset_bars=None):
+        extra_signal_fn=None,extra_exit_signal_fn=None,extra_size_div=None,extra_first=True,extra_priority=None,extra_max_frac=None,high_reset_bars=None,extra_main_exits=False):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -131,7 +131,9 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     and bought at that Close (pre-closing auction approximation) in priority order with the cash left after the day's exits;
     a stock sold that day is not re-bought; failed_exit has no reference level (no effect).
     high_reset_bars=x: main positions track the highest High since entry (entry bar included); x bars without a new high (at the Close)
-    -> pending 'no_new_high' (sold next Open). Default None = old behaviour."""
+    -> pending 'no_new_high' (sold next Open). Default None = old behaviour.
+    extra_main_exits=True: extra (monthly) positions use the SAME exits as main positions (intraday stops, fade, SMA, max_hold,
+    high_reset; no failed-breakout level) plus extra_exit_signal_fn if given. Default False = extra positions use only their own exit."""
     data={};calendar={}  # gate_dates may also be a dict ticker -> allowed entry dates (per-stock point-in-time eligibility)
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates.get(t,()) if isinstance(gate_dates,dict) else gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry,stop_buffer,buffer_grid);data[t]=d
@@ -203,7 +205,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                     if d['Open'][i]>d['Close'][i-1]*(1+gapup_exit) and d['Open'][i]>p['price']:
                         close(t,i,float(d['Open'][i]),'gapup_take_profit',day);exited.add(t)
         for t,i in obs:  # intraday stops for positions held before today
-            if t not in positions or not data[t]['tradable'][i] or positions[t].get('kind')=='extra':continue
+            if t not in positions or not data[t]['tradable'][i] or (positions[t].get('kind')=='extra' and not extra_main_exits):continue
             d=data[t];o=float(d['Open'][i]);levels=[]
             if exit_mode=='fade_intraday' and np.isfinite(d['atr'][i]) and d['atr'][i]>0 and d['Low'][i]<=o-fade*d['atr'][i]:
                 levels.append((o-fade*d['atr'][i],'fade_stop'))
@@ -293,7 +295,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 close(t,i,float(d['Close'][i]),'period_end' if d['tradable'][i] else 'period_end_mark',day);continue
             if p.get('kind')=='extra':
                 if p['pending'] is None and d['x_exit'][i]:p['pending']='extra_exit'
-                continue
+                if not extra_main_exits:continue
             if breakeven is not None and np.isfinite(p['atr0']) and d['Close'][i]>=p['price']+breakeven*p['atr0']:p['be']=True
             if trail_after is not None and np.isfinite(p['atr0']) and d['Close'][i]>=p['price']+trail_after*p['atr0']:p['trail']=True
             if failed_exit is not None and p['index']==i and p['pending'] is None and np.isfinite(p['level']) and d['Close'][i]<p['level']*(1-failed_exit):
