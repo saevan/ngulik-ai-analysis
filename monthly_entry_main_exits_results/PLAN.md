@@ -35,3 +35,9 @@ V2 breakout unchanged. Monthly module (10% orders, max 35%, month-end checks): A
 bars ago (entry also ER20 >= 0.3), n = 20, 40, 60, 80, 100, 120 (= V2 now); B) entry with n = 120, exit with n = 20, 40,
 60, 80, 100. 10 new cells, unrestricted and realistic. Better than V2 now under the same rule as round 3 (realistic train AND
 test >=, unrestricted >= -5 pp, MDD not more than 5 pp deeper in either version). Also compared with breakout only.
+
+## Round 5: all entry x exit lookback combinations (user: "coba aja semua", written before round-5 results)
+Entry n_e and exit n_x each in {20, 40, 60, 80, 100, 120, 150, 180, 250} (entry also ER20 >= 0.3): 81 cells, unrestricted and
+realistic. Selection: highest realistic train (2000-15) CAGR among cells whose unrestricted full CAGR >= V2 now - 5 pp and
+MDD (both versions) not more than 5 pp deeper than V2 now. The pick improves on V2 now only if its realistic test
+(2016-25.08) CAGR >= V2 now's. Report the whole map.
