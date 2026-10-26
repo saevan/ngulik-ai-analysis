@@ -107,3 +107,4 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 - Uji konfirmasi 'tanpa SMA30 + reset x20': tetangga 4/5 menang tipis, tapi holdout 1996–99 kalah (9,1% vs 12,0%) dan t = 1,42. Tidak diterima; SMA30 tetap.
 - V1 tanpa aturan breakout gagal: WR +6 poin, return setara (t = 0,63, holdout kalah tipis). Tidak diterima; netral.
 - Keputusan pengguna: aturan breakout gagal dibuang → V2 (STRATEGY_NOTES).
+- V2 + exit reset tambahan: tidak memperbaiki (2/5 tetangga, t = −0,19); WR +0,5…2 poin.

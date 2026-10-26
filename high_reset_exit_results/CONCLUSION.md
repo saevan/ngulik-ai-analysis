@@ -53,3 +53,17 @@ Syarat:
 - (c) Selisih bulanan x20: +0,23%/bln, t = 1,42 (perlu ≥ 1,5): gagal.
 
 Hasil: **tidak diterima**. Perbaikan realistis terpusat di x20–22 dan tidak bertahan di holdout. V1 tetap memakai SMA30.
+
+## V2 + exit reset sebagai tambahan (`v2_plus_reset.py`, `v2_plus_reset.csv`; rencana dikunci)
+| | V2 | x10 | x15 | x20 | x25 | x30 |
+|---|---|---|---|---|---|---|
+| CAGR realistis | 20,7% | 19,8% | 19,5% | 20,4% | 22,4% | 21,1% |
+| MDD realistis | −46% | −47% | −44% | −53% | −47% | −46% |
+| WR realistis | 40,9% | 41,5% | 42,0% | 42,8% | 41,4% | 41,2% |
+| CAGR tanpa batasan | 50,6% | 37,6% | 47,0% | 47,2% | 51,4% | 49,8% |
+
+Holdout realistis 1996–99 untuk x20: 11,4% vs 11,1%. Selisih bulanan −0,02%/bln, t = −0,19.
+
+Hasil:
+- Hanya 2 dari 5 tetangga lebih baik. Tidak diterima.
+- WR naik 0,5–2 poin saja. Return berubah acak di sekitar V2.
