@@ -159,3 +159,16 @@ Kode: `yearly_gap_breakdown.py`. Hasil: `yearly_breakdown.csv`. Return tahunanny
 
   Per hari, selisih terbesar ada di downtrend. Selisih total paling banyak terjadi di sideways karena hari sideways
   paling banyak. Di tahun dengan selisih kecil, pembagian per kondisi tidak stabil (bisa negatif atau lebih dari 100%).
+
+## Update V2 (26 Okt 2026) – `v2_quality_by_regime.py`, `v2_trade_quality.csv`, `v2_portfolio_by_condition.csv`
+Ringkas (realistis | tanpa batasan | Swinger ideal):
+| Kondisi | WR | Expectancy/trade | E_R | Trade/th | Return tahunan di hari itu |
+|---|---|---|---|---|---|
+| Uptrend | 43,5% \| 45,6% \| 52,1% | +8,1% \| +17,8% \| +10,0% | 0,90 \| 1,78 \| 3,32 | 10 \| 10 \| 33 | 48% \| 107% \| 186% |
+| Sideways | 40,0% \| 48,9% \| 47,4% | +6,8% \| +13,9% \| +5,3% | 0,81 \| 1,52 \| 1,51 | 17 \| 16 \| 72 | 10% \| 33% \| 79% |
+| Downtrend | 33,3% \| 34,1% \| 48,0% | +6,8% \| +3,6% \| +5,2% | 0,72 \| 0,32 \| 1,29 | 1,4 \| 1,7 \| 22 | 13% \| 24% \| 66% |
+
+- Expectancy per trade kita lebih tinggi atau setara, tapi rugi per trade kita 2,5× lebih besar (−8,7% vs −3,5%), jadi
+  E_R lebih rendah.
+- Jumlah trade kita 4–15× lebih sedikit. Saat downtrend trade breakout realistis hampir nol dan expectancy-nya negatif.
+- Celah return terutama dari frekuensi trade dan modal terpakai.
