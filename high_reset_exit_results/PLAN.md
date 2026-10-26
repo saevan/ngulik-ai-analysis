@@ -13,3 +13,8 @@ breakout kept, monthly module unchanged. Main test = REALISTIC version. Neighbou
 Accepted as an improvement in the realistic version only if ALL: (a) >= 4 of 5 x beat V1 realistic on full-period CAGR
 with MDD not deeper; (b) x = 20 beats V1 realistic in the holdout 1996-01-01..1999-12-31 (realistic, data from 1994-07);
 (c) x = 20 vs V1 realistic paired monthly log-return difference: Newey-West t >= 1.5 (lag 6). Unrestricted reported.
+
+## V2 + high-reset exit as an ADDITIONAL exit (26 Oct 2026, written before these results)
+V2 (no failed-breakout exit; fade 2 ATR + SMA30 kept) plus the high-reset exit, x = 10, 15, 20, 25, 30. Checks as before:
+(a) >= 4 of 5 x beat V2 realistic full-period CAGR with MDD not more than 2 pp deeper; (b) x = 20 beats V2 realistic in the
+holdout 1996-1999; (c) x = 20 vs V2 realistic monthly log-return difference, Newey-West t >= 1.5. Unrestricted reported.
