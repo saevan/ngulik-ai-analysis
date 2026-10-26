@@ -201,3 +201,26 @@ Interpretasi:
   Swinger.
 - Per hari dipegang, Swinger ideal menghasilkan dua kali lipat. Expectancy-nya hampir seluruhnya dari fill idealnya
   (log return Close-ke-Close-nya ≈ 0).
+
+## Apakah membuang aturan breakout gagal (V1 → V2) memperpanjang holding? (`v1_v2_holding.py`)
+Versi realistis:
+| | V1 | V2 |
+|---|---|---|
+| Lama pegang trade breakout (rata-rata / median) | 16,8 / 13 bar | 23,0 / 20 bar |
+| Trade breakout ≤ 2 bar | 29% | 1% |
+| Lama pegang trade bulanan | 130 bar | 133 bar |
+| Lama pegang semua trade | 42,9 bar | 51,3 bar |
+| Entry sideways: lama pegang / expectancy | 39,9 bar / +5,0% | 48,5 bar / +6,8% |
+
+Swinger ideal (entry sideways): 18,3 bar / +5,3%.
+
+Nasib trade yang di V1 dipotong breakout gagal (113 dari 187 muncul lagi di V2 dengan entry yang sama):
+- V1: −3,0%, 2 bar.
+- V2: rata-rata +0,9%, median −4,8%, 23 bar, WR 26%. 61% berakhir lebih buruk daripada di V1.
+- Rata-ratanya positif karena segelintir trade yang pulih besar.
+
+Interpretasi:
+- Ya, sebagian. Membuang aturan itu memperpanjang holding breakout sekitar 6 bar dan menaikkan expectancy entry-sideways
+  dari +5,0% (di bawah Swinger) ke +6,8%.
+- Holding panjang secara keseluruhan (40+ bar) sudah ada di V1. Penyebab terbesarnya adalah modul bulanan (sekitar
+  130 bar).
