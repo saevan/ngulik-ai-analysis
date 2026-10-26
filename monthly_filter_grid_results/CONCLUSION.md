@@ -30,3 +30,25 @@ di bawah, dan belum breakout). Breakout tidak diubah. Biaya B. Periode latih 200
 - "Masuk sebelum breakout" hanya menambah sekitar 4% per trade. Potensi tambahan dari mencari filter lain kecil.
 - Celah dengan Swinger ideal tidak tertutup dengan cara ini.
 - AFL tidak diubah.
+
+## Putaran 2: konfirmasi trend apa saja (`monthly_filter_grid2.py`, `summary2.csv`)
+32 filter diuji: SMA20/50/100/200, SMA20>50, SMA50>200, MACD, ER saja (ER20 ≥ 0,3/0,4/0,5; ER60), dekat puncak 52 minggu,
+slope regresi 60/120 dengan R² ≥ 0,5, dan Close > Close 20/60/120/250 hari lalu. Tiap filter non-ER juga diuji dengan
+tambahan ER20 ≥ 0,3.
+
+Pilihan dari periode latih: lagi-lagi **filter V1 (Close > Close 120 hari lalu + ER20 ≥ 0,3)**.
+
+Tetangga terdekat:
+| Filter | CAGR realistis latih / uji | MDD realistis | CAGR tanpa batasan | MDD tanpa batasan | WR realistis / tanpa batasan | Breakout tersisa |
+|---|---|---|---|---|---|---|
+| V1 | 18,5% / 21,7% | −45% | 45,4% | −25% | 34,4% / 41,4% | 72% |
+| Slope 60 hari + ER 0,3 | 18,1% / 21,0% | −48% | 48,0% | −26% | 36,9% / 42,6% | 83% |
+| ER20 ≥ 0,5 saja | 16,7% / 22,6% | −41% | 47,4% | −27% | 37,8% / 43,5% | 87% |
+| ER20 ≥ 0,4 saja | 16,3% / 21,3% | −42% | 46,6% | −26% | 38,5% / 44,1% | 84% |
+
+Filter SMA, MACD dan dekat puncak 52 minggu lebih lemah.
+
+Kesimpulan:
+- Hasil antar definisi trend mirip (CAGR realistis penuh 13–20%). V1 tetap terbaik menurut aturan seleksi.
+- Versi "ER saja" (≥ 0,4–0,5) menggusur lebih sedikit breakout dan WR-nya sedikit lebih tinggi. Ini alternatif yang
+  setara, bukan perbaikan yang terbukti.
