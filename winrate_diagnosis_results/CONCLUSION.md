@@ -129,3 +129,19 @@ Di versi realistis, tanpa aturan breakout gagal lebih baik di CAGR, bulan rekor 
 
 Aturan itu dipilih di universe tanpa batasan. Ini eksploratif dan belum diadopsi. Perlu uji pra-registrasi di versi
 realistis.
+
+## Tambahan: apakah V1 sudah mencampur harga dan waktu? (`v1_time_exit_check.py`, `v1_time_exit.csv`, eksploratif)
+- Modul bulanan sudah berbasis waktu: entry di awal bulan, cek di akhir bulan.
+- Modul breakout hanya berbasis harga. Satu-satunya unsur waktu adalah aturan breakout gagal di Close hari entry.
+
+Hasil menambah unsur waktu ke trade breakout V1:
+
+| Varian | WR tanpa batasan / realistis | CAGR tanpa batasan / realistis | MDD tanpa batasan / realistis |
+|---|---|---|---|
+| V1 | 41,4% / 34,4% | 45,4% / 19,7% | −25% / −45% |
+| Exit asli + batas waktu 10 / 20 / 40 bar | 40–45% / 35–40% | 32–41% / 12–18% | −29…−32% / −40…−55% |
+| Waktu saja 10 / 20 / 40 bar | 51–53% / 48–50% | 33–39% / 13–19% | −38…−46% / −47…−49% |
+| Breakout gagal + waktu 10 / 20 / 40 bar | 43–47% / 40–42% | 31–44% / 11–18% | −36…−40% / −42…−54% |
+
+WR ~50% tercapai dengan exit waktu saja. Tapi CAGR, bulan rekor dan MDD selalu lebih buruk dari V1. Ini sama dengan
+temuan di V0.
