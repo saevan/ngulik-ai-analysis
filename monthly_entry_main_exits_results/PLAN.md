@@ -29,3 +29,9 @@ SMA30 (Close > SMA30, user's rule). Exit: X = x bars without a new high since en
 current trend-fail exit, x = 20, 40. 10% orders, max 35%. 14 cells, unrestricted and realistic.
 Better than V2 now if: realistic CAGR >= V2 now in train 2000-15 AND test 2016-25, unrestricted CAGR >= V2 now - 5 pp, MDD
 not more than 5 pp deeper in either version. Also compared with breakout only. Engine option extra_high_reset_bars.
+
+## Round 4: shorter trend lookback for the monthly module (user 26 Oct 2026, written before results)
+V2 breakout unchanged. Monthly module (10% orders, max 35%, month-end checks): A) entry and exit both use Close > Close n
+bars ago (entry also ER20 >= 0.3), n = 20, 40, 60, 80, 100, 120 (= V2 now); B) entry with n = 120, exit with n = 20, 40,
+60, 80, 100. 10 new cells, unrestricted and realistic. Better than V2 now under the same rule as round 3 (realistic train AND
+test >=, unrestricted >= -5 pp, MDD not more than 5 pp deeper in either version). Also compared with breakout only.
