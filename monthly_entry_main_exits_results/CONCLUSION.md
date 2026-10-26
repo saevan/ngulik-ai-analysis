@@ -79,3 +79,10 @@ Menambah filter SMA30 ke filter lama tidak memperbaiki apa pun:
 
 Semua varian di bawah "breakout saja". Trade bulanan memiliki WR 28–32% dan expectancy sekitar 0%, sama dengan memilih
 saham acak di awal bulan.
+
+## Cek waktu entry (`monthly_day1_check.py`, `day1_check.csv`)
+- 100% entry bulanan terjadi di hari bursa pertama bulan itu (contoh: ERAA, PGEO, TLKM dan TPIA dibeli 1 Juli 2025).
+- "Sinyal di Close akhir bulan" hanya berarti syarat SMA30 dicek dengan Close terakhir sebelum Open hari pertama itu.
+- Varian yang mengecek syarat dengan Open hari pertama itu sendiri hasilnya sama:
+  - realistis 17,1% vs 16,9%;
+  - trade bulanan WR 27%, expectancy +0,4%.
