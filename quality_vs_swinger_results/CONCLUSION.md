@@ -224,3 +224,21 @@ Interpretasi:
   dari +5,0% (di bawah Swinger) ke +6,8%.
 - Holding panjang secara keseluruhan (40+ bar) sudah ada di V1. Penyebab terbesarnya adalah modul bulanan (sekitar
   130 bar).
+
+## Per tahun: kenapa expectancy V2 untuk entry sideways lebih tinggi dari Swinger? (`v2_sideways_yearly.py`)
+File: `v2_sideways_yearly.csv`, `v2_sideways_top_trades.csv`.
+- Versi realistis: V2 lebih baik di 10 dari 26 tahun. Tanpa satu trade terbaik tiap tahun, hanya 3 dari 26.
+- Versi tanpa batasan: 19 dari 26, dan 8 dari 26 tanpa trade terbaik.
+- Keunggulan keseluruhan datang dari beberapa trade raksasa, kebanyakan dari modul bulanan yang dipegang ratusan bar:
+
+  | Saham | Tahun | Jenis | Hasil | Lama pegang |
+  |---|---|---|---|---|
+  | WIFI | 2024 | bulanan | +880% | 225 bar |
+  | PGAS | 2005 | bulanan | +459% | 387 bar |
+  | ITMG | 2021 | bulanan | +171% | 416 bar |
+  | INKP | 2017 | bulanan | +154% | 285 bar |
+  | TINS | 2007 | breakout | +148% | 66 bar |
+  | UNTR | 2009 | bulanan | +138% | 469 bar |
+
+  WIFI adalah listing setelah 2018 (risiko survivorship).
+- Trade breakout yang dimulai saat sideways biasanya di bawah Swinger. Median trade V2 negatif di 19 dari 26 tahun.
