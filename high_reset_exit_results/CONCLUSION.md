@@ -37,3 +37,19 @@ Hasil:
   rekor). Tapi versi tanpa batasan turun (42,1%, MDD −35% vs −25%). Menurut aturan rencana sebelumnya, ini tidak lolos
   (MDD lebih dari 5 pp lebih dalam).
 - WR hanya naik ke 37–39% (realistis).
+
+## Uji konfirmasi (rencana dikunci; `no_sma30_confirm.py`, `no_sma30_confirm.csv`)
+| Varian (tanpa SMA30 + reset x) | x16 | x18 | x20 | x22 | x25 | V1 |
+|---|---|---|---|---|---|---|
+| CAGR realistis | 19,8% | 19,8% | 23,0% | 22,0% | 19,6% | 19,7% |
+| MDD realistis | −42% | −42% | −40% | −36% | −45% | −45% |
+| CAGR tanpa batasan | 43,5% | 42,8% | 42,1% | 42,0% | 45,0% | 45,4% |
+
+Holdout realistis 1996–99: x20 9,1% (MDD −39%) vs V1 12,0% (MDD −29%).
+
+Syarat:
+- (a) 4 dari 5 tetangga mengalahkan V1: terpenuhi, tapi x16/x18 nyaris sama (+0,1 pp).
+- (b) Holdout: gagal.
+- (c) Selisih bulanan x20: +0,23%/bln, t = 1,42 (perlu ≥ 1,5): gagal.
+
+Hasil: **tidak diterima**. Perbaikan realistis terpusat di x20–22 dan tidak bertahan di holdout. V1 tetap memakai SMA30.
