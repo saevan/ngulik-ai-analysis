@@ -62,3 +62,11 @@ Candidate only if ALL: realistic CAGR >= V0 realistic (16.2%) and MDD not deeper
 realistic subperiods >= V0 in >= 3 of 4; unrestricted CAGR >= 44.3% (V0 - 5 pp) and MDD not deeper than -29%; realistic
 CAGR above every random-control seed with the same size/priority; combined WR above V0's in both versions.
 Reported also: WR / expectancy per entry type, breakout trades lost to capital competition, invested share.
+
+## Step 4 (after step 3 results, before step 4 results): monthly entry with a capital allowance
+Step 3 showed both priorities fail to "add": P1 crowds out the breakouts (797 -> 34 trades), P2 starves the monthly entry
+(the pre-Open buy-stop book reserves all cash; 10 monthly trades in 25 years). Step 4: monthly orders first at the Open
+(P1) but monthly positions may hold at most a fraction A of equity (marked at the previous Close): A = 20%, 35%, 50%.
+Filters F_mom and F_sma120, monthly order size 10% of equity, monthly exit as before; breakout entry and exits unchanged.
+Controls: random monthly selection held one month, same allowance, 3 seeds. Same pass criteria as step 3, plus: breakout
+trades kept >= 70% of V0's in both versions.
