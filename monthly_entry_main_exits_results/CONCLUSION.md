@@ -86,3 +86,15 @@ saham acak di awal bulan.
 - Varian yang mengecek syarat dengan Open hari pertama itu sendiri hasilnya sama:
   - realistis 17,1% vs 16,9%;
   - trade bulanan WR 27%, expectancy +0,4%.
+
+## Exit sendiri vs exit lama untuk modul bulanan (ringkasan; `v2_vs_breakout_only.py`)
+Filter sama (Close > Close 120 + ER20 ≥ 0,3), realistis | tanpa batasan:
+| | CAGR | MDD | Trade bulanan: expectancy / bar |
+|---|---|---|---|
+| Exit sendiri (V2) | 20,7% \| 50,6% | −46% \| −27% | +18,0% / 133 |
+| Exit lama | 15,1% \| 44,7% | −48% \| −39% | +0,3% / 11 |
+| Tanpa modul (breakout saja) | 19,4% \| 47,6% | −37% \| −30% | – |
+
+- Di setiap pasangan dengan filter yang sama, exit sendiri jauh lebih baik daripada exit lama.
+- V2 vs breakout saja: selisih bulanan +0,09% (realistis, t = 0,42) dan +0,17% (tanpa batasan, t = 0,64). Lebih baik di
+  16 dan 14 dari 26 tahun. Tidak signifikan.
