@@ -11,3 +11,14 @@ References: V2 as now; breakout only (V2 without monthly). Reported: CAGR (train
 monthly-trade WR / expectancy / bars / share exited within 2 bars.
 Candidate to replace the current V2 monthly design if realistic CAGR >= V2 realistic in train AND test, unrestricted
 CAGR >= V2 - 5 pp, MDD not more than 5 pp deeper in either version. AFL unchanged.
+
+## Round 2: SMA filter for the monthly entry (user 26 Oct 2026, written before round-2 results)
+Monthly positions use the existing exits (fade 2 ATR, Close < SMA30). Goal: avoid buying stocks that are already below /
+right at the exit line.
+Part 1 (diagnostic): monthly trades of F1|S1 and F2|S1 bucketed by the signal Close vs SMA n (n = 10, 20, 30, 50, 100,
+200): above / below, and for SMA30 the distance 0-3%, 3-5%, 5-10%, >10% above. Expectancy, WR, bars per bucket.
+Part 2 (grid): base filter {none, F1, F2} x SMA condition {C>SMA10, C>SMA20, C>SMA30, C>SMA50, C>SMA100, C>SMA200,
+C>=1.03 SMA30, C>=1.05 SMA30, C>=1.10 SMA30, stack SMA20>SMA50>SMA100 and C>SMA20} = 30 cells, 10% orders, monthly
+<= 35% of equity, unrestricted and realistic. Selection on realistic train CAGR (2000-2015). The pick counts as useful
+only if it beats "breakout only" (V2 without the monthly module) in realistic train AND test, unrestricted full CAGR >=
+breakout only - 5 pp, and MDD not more than 5 pp deeper in either version. Compared also with V2 now.
