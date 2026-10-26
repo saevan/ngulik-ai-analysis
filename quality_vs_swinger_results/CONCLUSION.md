@@ -172,3 +172,32 @@ Ringkas (realistis | tanpa batasan | Swinger ideal):
   E_R lebih rendah.
 - Jumlah trade kita 4–15× lebih sedikit. Saat downtrend trade breakout realistis hampir nol dan expectancy-nya negatif.
 - Celah return terutama dari frekuensi trade dan modal terpakai.
+
+## Kenapa expectancy V2 lebih tinggi untuk trade yang dimulai saat sideways? (`v2_sideways_why.py`, `v2_sideways_why.csv`)
+Trade yang entry-nya di hari berlabel sideways (realistis | Swinger ideal):
+
+| | V2 realistis | Swinger ideal |
+|---|---|---|
+| Expectancy (rata-rata) | +6,8% | +5,3% |
+| Median trade | −2,9% | −0,4% |
+| Rata-rata tanpa 10% trade terbaik | −2,1% | +0,6% |
+| Lama pegang | 48,5 bar | 18,3 bar |
+| Expectancy per bar dipegang | 0,14% | 0,29% |
+
+Expectancy per jenis trade V2: breakout +3,4% (12,7 trade/th) vs bulanan +17,5% (4,0 trade/th, sekitar 128 bar).
+
+Di mana kenaikannya terjadi selama dipegang (rata-rata jumlah log return Close-ke-Close per trade, menurut kondisi tiap
+hari):
+- hari uptrend: +1,8% (32% hari);
+- hari sideways: +0,7% (59% hari);
+- hari downtrend: +0,4% (8% hari).
+
+Per hari, hari uptrend memberi sekitar 5× lebih banyak.
+
+Interpretasi:
+- Keunggulan per trade itu bukan karena kita jago saat sideways. Rata-ratanya diangkat oleh segelintir pemenang besar,
+  terutama dari modul bulanan yang dipegang berbulan-bulan sampai pasar berubah naik.
+- Trade biasa yang dimulai saat sideways justru rugi (median −2,9%). Trade breakout di sideways (+3,4%) lebih rendah dari
+  Swinger.
+- Per hari dipegang, Swinger ideal menghasilkan dua kali lipat. Expectancy-nya hampir seluruhnya dari fill idealnya
+  (log return Close-ke-Close-nya ≈ 0).
