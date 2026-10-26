@@ -103,3 +103,4 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   filter V1 sendiri. Trade bulanan masuk rata-rata hanya sekitar 4% di bawah level breakout; labanya datang dari memegang
   lama.
 - Putaran 2 (32 filter trend: SMA, MACD, ER saja, slope, dekat puncak 52 minggu): pilihan latih tetap filter V1; ER20 ≥ 0,4–0,5 saja adalah alternatif setara.
+- `high_reset_exit_results/`: exit waktu reset di high baru. WR naik ke 45–47%; terbaik x = 15 (realistis 21,7%, MDD −37%) tapi versi tanpa batasan MDD −48%. Tidak lolos.
