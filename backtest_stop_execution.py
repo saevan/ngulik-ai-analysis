@@ -67,7 +67,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False,stop_buffer=0.,touch_sell=False,buffer_grid=False):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False,stop_buffer=0.,touch_sell=False,buffer_grid=False,max_hold=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -108,7 +108,9 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     a name that turns out untradable or gaps >gap_skip, without handing it over); a signal outside the book is dropped.
     touch_sell: intraday sell stops (LLV stop, LLV trailing, initial, breakeven) trigger when Low <= level (default False: Low < level).
     buffer_grid (with stop_buffer>0): the buffered trigger/fill is moved up to the first price on the level's own grid at or above
-    level*(1+b), the grid step being the smallest gap between distinct O/H/L/C values over the previous 60 bars (adjusted-price ticks)."""
+    level*(1+b), the grid step being the smallest gap between distinct O/H/L/C values over the previous 60 bars (adjusted-price ticks).
+    max_hold=n: at the Close of the n-th bar held (entry bar = bar 1) a 'time_exit' is pending if no other exit is, sold at the next
+    tradable Open like the other Close-signal exits. Default None = old behaviour."""
     data={};calendar={}  # gate_dates may also be a dict ticker -> allowed entry dates (per-stock point-in-time eligibility)
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates.get(t,()) if isinstance(gate_dates,dict) else gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry,stop_buffer,buffer_grid);data[t]=d
@@ -236,6 +238,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if close_fade and d['fade'][i] and p['pending'] is None:p['pending']='fading'
             if sma_arm and not d['sma_exit'][i]:p['sma_armed']=True
             if d['sma_exit'][i] and p['pending'] is None and (not sma_arm or p.get('sma_armed')):p['pending']='sma_exit'
+            if max_hold is not None and p['pending'] is None and i-p['index']+1>=max_hold:p['pending']='time_exit'
         value=sum(p['q']*lastclose[t] for t,p in positions.items());equity=cash+value
         assert cash>=-max(capital,abs(equity))*1e-10 and len(positions)<=slots
         new=equity>peak+capital*1e-12;peak=max(peak,equity)

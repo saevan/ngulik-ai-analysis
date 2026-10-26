@@ -1,0 +1,80 @@
+# Kenapa win rate kita di bawah 50%, dan apakah "harga + waktu" memberi WR ~50%? (26 Okt 2026)
+
+Sistem: pilihan utama v2 (buy stop 0,5% di atas HHV20, ER20 ≥ 0,2, exit fade 2 ATR / Close < SMA30 / breakout gagal,
+25% ekuitas per order). Biaya B (round trip 0,90%), 2000-01-01..2025-08-15. Pembanding: Prototype Swinger ideal saja
+(B: WR 48,8%, payout 4,90). Kode: `diagnose_winrate.py` (langkah 1, eksploratif, dijalankan sebelum PLAN),
+`winrate_price_time_portfolio.py` (langkah 2, dikunci di PLAN.md sebelum hasil). Opsi baru mesin `max_hold` (default mati;
+uji regresi lulus, V0 identik). Pengecekan: exit waktu jatuh tepat di Open pertama yang bisa ditransaksikan setelah n bar
+(814/814 cocok).
+
+## Langkah 1 – dari mana trade kalah (797 trade, versi tanpa batasan)
+| | Kita | Kita realistis | Swinger ideal |
+|---|---|---|---|
+| WR setelah biaya | 38,3% | 33,8% | 48,8% |
+| WR sebelum biaya | 40,4% | 36,1% | 52,9% |
+| Trade keluar "breakout gagal" (Close hari entry < level HHV20) | 26,7%, WR 1,5% | 30,0% | – |
+| Bagian dari semua trade kalah | 43% | 44% | – |
+| WR jika trade breakout gagal dikeluarkan | 51,7% | 47,3% | – |
+| Close hari entry di bawah harga fill | 42% (WR 18%) | 47% | 0% (konstruksi fill ideal) |
+| WR exit SMA30 (40% trade) | 42,4% | 38,4% | – |
+| WR exit fading (27% trade) | 66,7% | 66,7% | – |
+| WR uptrend / sideways / downtrend | 37 / 40 / 27% | 35 / 33 / 27% | 52 / 47 / 48% |
+| WR 2000-07 / 08-15 / 16-20 / 21-25 | 45 / 38 / 36 / 32% | 42 / 30 / 34 / 28% | 55 / 53 / 45 / 42% |
+| Trade kalah: median lama / MFE / MAE | 4 bar / +2,8% / −6,5% | 5 / +2,2% / −6,0% | 8 / +4,0% / −4,9% |
+| Trade kalah yang sempat Close > biaya / > +5% | 41% / 22% | 41% / 19% | 83% / 23% |
+
+Observasi:
+1. Biaya hanya membalik 2% trade dari menang ke kalah. Biaya bukan penyebab utama.
+2. Penyebab terbesar adalah entry buy stop. Di 42% trade, Close hari entry sudah di bawah harga fill. Seperempat trade
+   ditutup sebagai breakout gagal dengan WR 1,5%. Tanpa trade itu WR kita 51,7%.
+3. Swinger ideal tidak pernah punya hari entry seperti itu, karena fill-nya di level TSL yang sudah dilewati Close bar
+   sinyal. Fill itu tidak bisa dieksekusi (catatan singkat).
+4. Exit SMA30 memotong banyak trade di sekitar impas (WR 42%).
+5. WR turun dari periode ke periode untuk kedua sistem. Ini sejalan dengan memudarnya trend jangka pendek sejak 2011
+   (market_properties_v2).
+
+Interpretasi: WR rendah adalah harga dari desain "potong cepat, biarkan pemenang lari". Dengan payout 5,06, WR impas
+cuma 1/(1+5,06) = 16,5%. Ini bukan bukti sistemnya rusak.
+
+## Langkah 2 – exit harga/waktu di portofolio (entry, ukuran dan biaya sama; hanya exit diganti)
+| Sel | WR | Payout | CAGR | Bulan rekor | MDD | Modal terpakai | CAGR realistis | Subperiode ≥ V0 |
+|---|---|---|---|---|---|---|---|---|
+| V0 (asli) | 38,3% | 5,06 | 49,3% | 119 | −24,1% | 49% | 16,2% | – |
+| Waktu saja 10 / 20 / 40 bar | 53–56% | 1,7–2,0 | 29,9 / 39,7 / 39,3% | 87–98 | −29…−42% | 39–71% | 11,2 / 13,4 / 18,6% | 0–2 dari 4 |
+| V0 + batas waktu 20 / 40 / 60 | 38–42% | 3,3–5,0 | 39,5 / 43,2 / 48,0% | 107–120 | −24…−27% | 42–48% | 15,4–17,1% | 0–1 |
+| Breakout gagal + waktu 20 / 40 | 43,7% | 2,9–3,2 | 36,7 / 36,9% | 92–94 | −33 / −45% | 50–66% | 16,1 / 20,7% | 0 |
+| Take profit 3 ATR + waktu 10/20/40 | 56–71% | 0,7–1,1 | 17–24% | 75–102 | −31…−34% | 35–58% | 5–8% | 0 |
+| Take profit 6 ATR + waktu 10/20/40 | 53–59% | 1,2–1,4 | 21–22% | 78–83 | −31…−33% | 38–66% | 10–18% | 0 |
+
+Swinger ideal B: WR 48,8%, 102,0% CAGR, 232 bulan rekor, MDD −21%.
+
+Hasil (kriteria di PLAN.md):
+- Tidak ada sel yang lolos.
+- Klaim "harga + waktu memberi WR ~50%" benar: WR 53–71% tercapai. Tapi semua versi itu menurunkan CAGR dan bulan
+  rekor di uji utama.
+- Take profit menaikkan WR paling tinggi, tapi payout jatuh ke ≤ 1,4 dan CAGR ke 17–24%.
+
+Catatan, bukan temuan yang diadopsi:
+- Di versi realistis, menahan 40 bar memberi CAGR lebih tinggi daripada V0: "waktu 40" 18,6% dan "breakout gagal +
+  waktu 40" 20,7% (MDD −38,6% vs −44,4%).
+- Penjelasan yang mungkin: batas 25% ADV membuat modal banyak menganggur, jadi posisi yang ditahan lebih lama memakai
+  modal itu.
+- Ini satu dari 15 sel dan gagal di versi tanpa batasan (0/4 subperiode). Kalau mau dikejar, harus diuji ulang
+  pra-registrasi khusus di versi realistis.
+- Holdout 1995–99 (deskriptif): V0 55,7%; waktu 20 67,5%; breakout gagal + waktu 20 70,5%. Hasilnya campur dan tidak
+  dipakai memilih.
+
+## Kesimpulan
+- WR kita di bawah 50% terutama karena entry buy stop membeli sebelum breakout terkonfirmasi. 42% fill berakhir di bawah
+  harga fill pada hari itu juga, dan aturan breakout gagal memotongnya dengan rugi kecil.
+- Exit SMA30 dan memudarnya trend sejak 2011 menambah sisanya.
+- WR bisa dinaikkan ke 50–70% dengan exit harga + waktu, tapi selalu dibayar dengan CAGR dan bulan rekor yang lebih
+  rendah.
+- Yang membuat Swinger ideal punya WR 49% sekaligus payout 4,9 adalah fill-nya yang tidak bisa dieksekusi, bukan
+  exit-nya.
+- AFL aktif tidak diubah.
+
+## Batasan
+- Universe survivor (Kompas100 2025).
+- Langkah 1 eksploratif dan sudah dilihat sebelum grid langkah 2 dikunci.
+- 15 sel diuji di satu data set.
