@@ -67,7 +67,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
         block_dates=None,derisk_dates=None,size_dates=None,size_factor=1.,llv_dates=None,
         gap_skip=None,gapdown_close=None,priority=None,price_limits=False,max_tick_frac=None,gapup_exit=None,
         channel=20,init_stop=None,trail_after=None,take_profit=None,breakeven=None,strict_orders=False,
-        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False,stop_buffer=0.,touch_sell=False,buffer_grid=False,max_hold=None):
+        er_min=.3,sma_len=30,trail_len=5,failed_exit=None,size_div=None,presize=False,liq_cap=None,book_preopen=False,min_order_frac=None,sma_arm=False,entry_sma=None,random_entry=None,touch_fill=False,stop_buffer=0.,touch_sell=False,buffer_grid=False,max_hold=None,signal_fn=None,exit_signal_fn=None):
     """gap_skip: skip a buy whose Open is more than gap_skip above the stop level (buy stop) or prior Close.
     gapdown_close: a pending Close-signal exit whose Open gaps below prior Close by this fraction is sold at
     that day's Close instead of the Open. priority: score known at Open; higher entries first."""
@@ -110,10 +110,19 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
     buffer_grid (with stop_buffer>0): the buffered trigger/fill is moved up to the first price on the level's own grid at or above
     level*(1+b), the grid step being the smallest gap between distinct O/H/L/C values over the previous 60 bars (adjusted-price ticks).
     max_hold=n: at the Close of the n-th bar held (entry bar = bar 1) a 'time_exit' is pending if no other exit is, sold at the next
-    tradable Open like the other Close-signal exits. Default None = old behaviour."""
+    tradable Open like the other Close-signal exits. Default None = old behaviour.
+    entry_mode='signal' with signal_fn(frame) -> bool per bar: a Close-signal bought at the next tradable Open, handled like
+    close_breakout (queue, pre-Open book, gap rule vs the previous Close); gate_dates apply to the entry bar; no breakout level
+    (failed_exit has no effect). exit_signal_fn(frame) -> bool per bar: a pending 'signal_exit' at that Close (sold next Open)."""
     data={};calendar={}  # gate_dates may also be a dict ticker -> allowed entry dates (per-stock point-in-time eligibility)
     for t,f in frames.items():
         d=prepare(f,fade,llv,entry_mode,gate_dates.get(t,()) if isinstance(gate_dates,dict) else gate_dates,priority,channel,er_min,sma_len,trail_len,entry_sma,random_entry,stop_buffer,buffer_grid);data[t]=d
+        if entry_mode=='signal':
+            g=f.reset_index(drop=True);sig=np.asarray(signal_fn(g),bool)&np.isfinite(d['atr']);e=np.r_[False,sig[:-1]]
+            gd=gate_dates.get(t,()) if isinstance(gate_dates,dict) else gate_dates
+            if gd is not None:e=e&g['Date/Time'].isin(gd).to_numpy()
+            d['entry']=e
+        if exit_signal_fn is not None:d['exit_sig']=np.asarray(exit_signal_fn(f.reset_index(drop=True)),bool)
         for i,day in enumerate(d['Date/Time']):
             if day>=np.datetime64(start):calendar.setdefault(pd.Timestamp(day),[]).append((t,i))
     cash=equity=peak=float(capital);positions={};lastclose={};queued=set();ledger=[];daily=[]
@@ -167,14 +176,14 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
                 price,reason=max(levels);locked+=close(t,i,float(price),reason,day);exited.add(t);intraday_exits+=1
         entry_obs=obs if priority is None else sorted(obs,key=lambda x:-data[x[0]]['priority'][x[1]])
         order_book=None
-        if strict_orders and entry_mode in ('buy_stop','close_breakout'):
+        if strict_orders and entry_mode in ('buy_stop','close_breakout','signal'):
             free=slots-len(positions)-intraday_exits;order_book=set();order_size={};avail=cash-locked
             for t,i in entry_obs:  # pre-Open information only: armed level, Open-time gap rule
                 if len(order_book)>=free:break
                 if presize and avail<=max(capital*1e-12,(min_order_frac or 0.)*budget):break
                 if t in positions or t in exited:continue
                 d=data[t]
-                if entry_mode=='close_breakout':  # market-on-Open order for a signal from the previous Close (or a queued one)
+                if entry_mode in ('close_breakout','signal'):  # market-on-Open order for a signal from the previous Close (or a queued one)
                     if not(d['entry'][i] or t in queued):continue
                     if not book_preopen and (not d['tradable'][i] or (gap_skip is not None and i and d['Open'][i]>d['Close'][i-1]*(1+gap_skip))):continue
                 elif book_preopen:
@@ -239,6 +248,7 @@ def run(frames,fade=2.,exit_mode='close',llv=None,entry_mode='next_open',cost_mo
             if sma_arm and not d['sma_exit'][i]:p['sma_armed']=True
             if d['sma_exit'][i] and p['pending'] is None and (not sma_arm or p.get('sma_armed')):p['pending']='sma_exit'
             if max_hold is not None and p['pending'] is None and i-p['index']+1>=max_hold:p['pending']='time_exit'
+            if exit_signal_fn is not None and p['pending'] is None and d['exit_sig'][i]:p['pending']='signal_exit'
         value=sum(p['q']*lastclose[t] for t,p in positions.items());equity=cash+value
         assert cash>=-max(capital,abs(equity))*1e-10 and len(positions)<=slots
         new=equity>peak+capital*1e-12;peak=max(peak,equity)

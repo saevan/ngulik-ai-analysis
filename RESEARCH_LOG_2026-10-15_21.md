@@ -70,3 +70,14 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Diukur dengan expectancy (`expectancy_vs_swinger.py`): per trade kita +7,0% vs Swinger ideal +6,5%, tidak berbeda
     nyata. Per unit risiko kita 1,32R vs 1,88R. Versi realistis +2,5% (0,52R). Saat downtrend/breakdown expectancy kita
     tidak berbeda dari nol. Celah return terutama dari frekuensi trade: 31 vs 126 trade per tahun.
+
+## 26 Oktober 2026 – Bahas win rate lanjutan; unsur waktu (beli saham trending di awal bulan)
+- `winrate_diagnosis_results/` (tambahan):
+  - Breakout gagal makin sering: 20% (2000–07) → 34% (2016–25). WR trade yang tidak gagal stabil sekitar 50–55%.
+  - Kegagalan bisa ditebak sebagian, tapi kelompok yang sering gagal tidak punya expectancy lebih rendah.
+  - Koreksi: exit SMA30 adalah give-back (median puncak +12%, keluar −2%), bukan impas.
+  - Di versi realistis, tanpa aturan breakout gagal lebih baik (19,4% vs 16,2%, MDD −37% vs −44%). Eksploratif.
+- `monthly_trend_entry_results/`:
+  - Sistem beli-awal-bulan dengan filter trending tidak membawa WR ke 50% (38–47%; pegang 1 bulan acak pun ~47%).
+  - Sebagai daftar pantau untuk buy stop kita, trend jangka menengah memberi +1…3 pp CAGR realistis, tapi WR tetap.
+  - Belum diadopsi.
