@@ -14,3 +14,13 @@ exits, same number of trades per stock.
 A cell passes only if ALL: net per trade > 0 with Newey-West t >= 3 (daily series by signal date, lag 20); net > 0 in >= 3
 of 4 subperiods (2000-07, 08-15, 16-20, 21-25); gross above its random control. Also reported: trades/year, win rate,
 average win/loss, a cost-A (fee only, 0.40%) view.
+
+## Confirmation of the lead (written after the grid, before these results)
+Lead: N = 20, width 40-80%, no stop (mid / top target): net +1.7 / +2.1%, t 1.7 / 2.0, positive in 4/4 subperiods.
+Confirmation (no new selection; the lead is accepted as a candidate only if ALL hold for the top-target cell):
+(a) holdout 1995-07..1999-12 (eligible stocks then; trades signalled in that window) net B > 0;
+(b) neighbours: N in {15, 20, 30} x width {30-60%, 40-80%, 50-100%} (no stop, top target): >= 7 of 9 net B > 0 and the
+    median of their t >= 1.5;
+(c) N=20 / 40-80% / top / no stop: net B > 0 in 2021-2025.08 alone.
+Even if accepted it stays a research candidate (survivorship: buying the bottom of collapsed ranges is the trade most
+flattered by a list of surviving stocks); a portfolio test would be the next step.
