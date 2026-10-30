@@ -242,3 +242,32 @@ File: `v2_sideways_yearly.csv`, `v2_sideways_top_trades.csv`.
 
   WIFI adalah listing setelah 2018 (risiko survivorship).
 - Trade breakout yang dimulai saat sideways biasanya di bawah Swinger. Median trade V2 negatif di 20 dari 26 tahun.
+
+## V2 vs Swinger ideal menurut ER masing-masing saham (`v2_by_stock_er.py`, `v2_by_stock_er_trades.csv`, `v2_by_stock_er_days.csv`)
+**Per trade, menurut ER20 saham di Close sebelum entry** (realistis):
+
+| ER saat entry | Breakout: trade/th / WR / expectancy | Bulanan: trade/th / expectancy | Swinger ideal: trade/th / WR / expectancy |
+|---|---|---|---|
+| < 0,2 | 0,5 / – / – | 0 | **70,8** / 46% / +6,3% |
+| 0,2–0,3 | **10,9** / 35% / +1,6% | 0 | 23,2 / 49% / +5,4% |
+| 0,3–0,5 | 7,9 / 42% / +3,2% | 5,6 / +18,7% | 23,4 / 54% / +5,9% |
+| ≥ 0,5 | 1,8 / 56% / +12,8% | 1,8 / +15,6% | 8,7 / 58% / +11,2% |
+
+Breakout tanpa batasan: 0,2–0,3 +10,6%, 0,3–0,5 +5,5%, ≥ 0,5 +15,2%.
+
+**Selama dipegang, menurut ER20 saham di Close kemarin** (porsi hari-posisi / porsi laba / return harian per modal):
+| ER saham | V2 realistis | V2 tanpa batasan | Swinger ideal |
+|---|---|---|---|
+| < 0,2 (choppy) | 41% / 4% / 1,3 bps | 40% / 11% / 10,8 bps | 52% / **55%** / 16,2 bps |
+| 0,2–0,3 | 20% / 21% / 13,5 bps | 17% / 20% / 42,6 bps | 17% / 13% / 10,4 bps |
+| 0,3–0,5 | 28% / 42% / 17,5 bps | 27% / 29% / 33,2 bps | 21% / 23% / 16,8 bps |
+| ≥ 0,5 | 11% / 34% / 29,5 bps | 15% / 40% / 78,0 bps | 11% / 10% / 22,0 bps |
+
+Catatan: memakai ER hari itu sendiri akan sirkular (hari naik besar menaikkan ER), jadi dipakai ER kemarin.
+
+Interpretasi:
+- Swinger ideal kebanyakan trade di saham choppy (70 dari 126 trade/th) dan mendapat 55% labanya di hari-hari saham
+  choppy. Di situ bonus fill ideal (sekitar +2,7% di tiap sisi) paling menentukan.
+- V2 hampir tidak membeli saham choppy, dan 41% hari pegangnya ada di saham yang sudah menjadi choppy, dengan hasil
+  sekitar 0 (modal "mati").
+- Breakout V2 terbanyak masuk di ER 0,2–0,3 yang lemah (realistis +1,6%/trade). ER ≥ 0,5 kuat (+12,8%) tapi jarang.
