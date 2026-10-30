@@ -142,3 +142,12 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 - `costs_idle_results/`: fee broker pengguna 0,25/0,35% (0,60%) lebih mahal dari asumsi fee kita. Selisih 0,9% berasal
   dari slippage. Dana menganggur V2 realistis 17% / 38% / 62% (naik / sideways / turun). Parkir 4%/th: CAGR realistis
   20,7% → 22,3%.
+- 30 Okt (tanpa uji baru): penjelasan kenapa range sideways kecil dan besar tidak bisa dimanfaatkan.
+  - Range kecil: potensi untung kecil vs biaya, 74% jebol dalam 20 bar dengan arah tak tertebak, dan Swinger ideal pun
+    hanya +2,4%/trade.
+  - Range besar: risiko per trade ikut membesar (dalam ATR sama dengan range kecil), batas tidak dihormati lebih dari
+    acak, sering saham habis jatuh (rawan bias survivor).
+  - Akar bersama: di data harian, timing masuk di dalam range tidak lebih baik dari acak (kontrol). Satu-satunya sifat
+    nyata (resistance atas range saham choppy) hanya bisa dipakai dengan short.
+  - Sumber: `range_size_modules_results`, `mid_atr_sideways_results`, `wide_range_results`, `stock_er_range_results`,
+    `sideways_size_results`, `swing_in_range_results`, `sideways_properties`.
