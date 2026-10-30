@@ -13,3 +13,8 @@ Control per cell: random days with the same setup (and ER variant), bought at th
 Pass only if ALL: net > 0 with NW t >= 3 (daily by entry date, lag 10); net > 0 in >= 3 of 4 subperiods; gross >= control
 + 0.5 pp; >= 2 of 3 X positive net for that ER/target. A pass would still need a portfolio test as Logic 2.
 Bug fixed before reading results: entries whose Open is already at/above the target are skipped (they were booked as an exit at the target below the entry price).
+
+## Addendum (user, 30 Oct: drop the 50% target in choppy stocks; written before these results)
+Same setup and trigger, sideways stocks (own ER20 < 0.2) and any ER; NO target: exit only by the stop (Close below the
+decline low -> next Open) or the time stop at the Close of bar 10 / 20. X = 10, 15, 20%. Same control and pass rule
+(neighbours: >= 2 of 3 X positive for the same ER / time stop).
