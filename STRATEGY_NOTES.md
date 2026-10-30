@@ -213,3 +213,17 @@ Uji konfirmasi tidak menunjukkan selisih return yang nyata:
 
 Keputusan diambil terutama demi WR yang lebih tinggi. Kode: `winrate_diagnosis_results/v1_failed_exit_confirm.py`.
 AFL aktif tidak diubah.
+
+## Arah pengguna 30 Oktober 2026: Logic 1 (trend) + Logic 2 (choppy), dana menganggur diseimbangkan
+Logic 1 (V2/breakout) bekerja saat market trend. Logic 2, yang dimulai dari nol, harus bekerja saat market choppy.
+Dana menganggur Logic 1 (realistis: 17% saat naik, 38% saat sideways, 62% saat turun) dipakai Logic 2, sehingga saat
+trend dana terpakai Logic 1 dan saat choppy terpakai Logic 2.
+
+Usulan mekanisme:
+- Logic 1 diprioritaskan; posisi Logic 2 dijual bila Logic 1 butuh kas.
+- Logic 2 hanya memakai dana menganggur dan hanya saat choppy.
+- Sisa kas diparkir di pasar uang.
+
+Syarat: Logic 2 harus untung sendiri saat choppy. Sejauh ini 10 uji range/sideways berbasis saham harian gagal. Menunggu
+keputusan pengguna soal instrumen (saham saja atau juga pasar uang/obligasi/emas/ETF), biaya nyata broker, dan data
+tambahan (intraday, dividen, konstituen indeks).

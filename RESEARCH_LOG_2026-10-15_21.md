@@ -119,3 +119,26 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 - `stock_er_range_results/`: dengan ER per saham, bawah range tetap tidak memantul (excess ≈ 0) dan trade beli bawah range rugi di semua kelas. Resistance atas range nyata di saham choppy (+6,3 pp, t 5,0); hanya berguna untuk short/hindari/aturan jual.
 - `sideways_size_results/`: sideways kecil/besar = satu sebaran menerus (median lebar 14%, 4 ATR). Swinger ideal untung di sideways 10–40% (sampai 36 bps/hari), V2 hampir tidak masuk saham choppy. Sideways kecil tidak layak (expectancy Swinger +2,4% < bonus fill).
 - `swing_in_range_results/`: swing 5 bar yang bisa dieksekusi di saham choppy dengan range 10–40%: 12 sel rugi (kotor ≈ entry acak, bersih −1,0…−1,5%). Laba Swinger di sana berasal dari fill ideal.
+
+## 26–30 Oktober 2026 – catatan pelengkap (jawaban yang belum tercatat di log)
+- V2 vs Swinger ideal per kondisi market (`quality_vs_swinger_results/`):
+  - `v2_trade_quality.csv`: expectancy per trade kita setara atau lebih tinggi, tapi rugi per trade 2,5× lebih besar dan
+    jumlah trade 4–15× lebih sedikit.
+  - `v2_similarity.csv`: kemiripan return realistis 26% (naik) / 12% (sideways) / 20% (turun).
+  - Kemiripan expectancy: per trade 112%, per unit risiko 45%, per hari dipegang 41%. Dihitung dari `v2_trade_quality.csv`,
+    tanpa file baru.
+  - `v2_sideways_why.csv` dan `v2_sideways_yearly.csv`: keunggulan entry-sideways datang dari beberapa trade raksasa
+    modul bulanan. V2 unggul hanya 10/26 tahun, dan 3/26 tanpa trade terbaik.
+  - `v1_v2_holding.csv`: membuang aturan breakout gagal memperpanjang holding breakout sekitar 6 bar.
+  - `v2_by_stock_er_*.csv`: Swinger ideal mendapat 55% labanya di saham choppy. V2 hampir tidak masuk saham choppy, dan
+    41% hari pegangnya ada di saham yang sudah choppy dengan hasil ≈ 0.
+- `sideways_entry_block_results/`: saat sideways, breakout hanya 7% hari dan 45% diblokir ER; sinyal 3,9% vs 10,3% saat
+  uptrend.
+- Diskusi tanpa uji baru:
+  - logika "trade kecil menang rutin" tidak direkomendasikan, karena win rate impas 59–73% untuk target 2–5% dengan biaya
+    0,9%;
+  - "menutup biaya" adalah syarat perlu, bukan cukup (ada 8 syarat);
+  - kerangka Logic 2 dari nol menunggu keputusan pengguna soal instrumen, biaya nyata, dan data tambahan.
+- `costs_idle_results/`: fee broker pengguna 0,25/0,35% (0,60%) lebih mahal dari asumsi fee kita. Selisih 0,9% berasal
+  dari slippage. Dana menganggur V2 realistis 17% / 38% / 62% (naik / sideways / turun). Parkir 4%/th: CAGR realistis
+  20,7% → 22,3%.
