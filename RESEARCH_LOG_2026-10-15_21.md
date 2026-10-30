@@ -158,3 +158,6 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   target/stop/waktu. WR 70–83% tercapai (target +2–3%, waktu lama), tetapi WR impas 85–92%. Semua sel rugi bersih
   −1,4…−1,9%, bahkan kotor sebelum biaya pun rugi, dan sama dengan kontrol acak. Pilihan latih (+3%, tanpa stop, 10 bar):
   uji WR 66%, bersih −1,6% (t −8,4) → gagal. Bukan kandidat Logic 2.
+- `high_wr_range_results/` addendum: apakah kurang choppy? Tidak. Rugi di semua rezim pasar (−1,1…−1,6%), di ER20 < 0,1,
+  di choppy 21 hari berturut-turut, dan di ER60 < 0,2. Sesudah entry, 39–46% trade Close jebol di bawah low range
+  (bersih −5%). Trade yang tetap di range menang 96–99,7%. Choppy di masa lalu tidak meramalkan range bertahan.

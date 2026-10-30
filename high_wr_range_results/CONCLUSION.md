@@ -40,3 +40,28 @@ Pilihan dari periode latih (WR latih ≥ 65%, bersih latih tertinggi): target +3
 
 Catatan: hasil di level trade, data survivor (100 saham Kompas100 saat ini). Bias survivor membuat "beli murah" terlihat
 lebih baik dari sebenarnya, jadi hasil nyata kemungkinan lebih buruk.
+
+## Addendum: apakah sahamnya kurang choppy? (`high_wr_range_choppy_check.py`, `choppy_check.csv`)
+Diuji pada dua sel: pilihan latih (+3%, tanpa stop, 10 bar) dan WR tertinggi (+2%, tanpa stop, 20 bar), 2000–2025.
+
+Tidak ada kelompok yang untung. Bersih per trade:
+
+| Kelompok | +3%, 10 bar | +2%, 20 bar |
+|---|---|---|
+| Market sideways / naik / turun | −1,5% / −1,1% / −1,5% | −1,3% / −1,3% / −1,6% |
+| ER20 < 0,1 vs 0,1–0,2 | −1,4% / −1,4% | −1,2% / −1,5% |
+| Choppy 21 hari berturut-turut (111/121 trade) | −1,4% | −1,7% |
+| ER60 < 0,2 juga | −1,4% | −1,3% |
+
+Sesudah entry (melihat masa depan, hanya deskripsi):
+- Close jatuh di bawah low range selama trade di 46% / 39% trade.
+  - Kelompok ini: WR 34% / 56%, bersih −5,3% / −5,1%.
+  - Yang tetap di dalam range: WR 96% / 99,7%, bersih +1,9% / +1,1%.
+- Saham yang ER20-nya ≥ 0,3 saat exit (berubah jadi tren): 20% / 10% trade. Bersihnya −10,1% / −14,4%.
+
+Kesimpulan:
+- Sahamnya sudah choppy, dan makin choppy pun tidak membantu.
+- Masalahnya, choppy diukur dari masa lalu. Itu tidak meramalkan range akan bertahan: hampir separuh trade jebol ke bawah,
+  dan sebagian berubah jadi tren turun.
+- Untungnya hanya ada kalau kita tahu duluan range akan bertahan. Itu tidak bisa diketahui dengan data harian. Rezim pasar
+  dan tingkat/lamanya choppy tidak membedakannya.
