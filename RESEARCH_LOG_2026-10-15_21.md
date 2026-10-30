@@ -161,3 +161,13 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 - `high_wr_range_results/` addendum: apakah kurang choppy? Tidak. Rugi di semua rezim pasar (−1,1…−1,6%), di ER20 < 0,1,
   di choppy 21 hari berturut-turut, dan di ER60 < 0,2. Sesudah entry, 39–46% trade Close jebol di bawah low range
   (bersih −5%). Trade yang tetap di range menang 96–99,7%. Choppy di masa lalu tidak meramalkan range bertahan.
+- 30 Okt (tanpa uji baru): penjelasan ER (Kaufman efficiency ratio) untuk pengguna.
+  - Rumus: |Close hari ini − Close n hari lalu| / jumlah |perubahan Close harian| selama n hari. Lihat
+    `uts/indicators.py` `efficiency_ratio`.
+  - Rentang 0–1, tanpa arah.
+  - Pemakaian:
+    - V2 breakout: ER20 bar sebelumnya ≥ 0,2;
+    - modul bulanan: ER20 ≥ 0,3;
+    - rezim pasar: ER20 proxy ≥ 0,3 + arah 20 hari;
+    - saham choppy: ER20 < 0,2.
+  - Batasnya: hanya menggambarkan 20 hari ke belakang, tidak meramalkan.
