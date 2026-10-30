@@ -21,3 +21,15 @@ Kesimpulan:
   - beli setelah turun ≈ acak;
   - buy limit di bawah harga: pantulan ada tapi < biaya;
   - beli saat berbalik: lebih buruk dari acak.
+
+## Addendum: tanpa target, exit hanya lewat stop atau waktu (`buy_the_turn_notarget.py`, `notarget.csv`)
+- Semua 12 sel rugi: bersih −1,5…−2,0% (t −1,8…−6,8). Kotor di bawah kontrol acak.
+- WR 38–43%; WR impas 47–52%.
+- Rata-rata menang +7,6…+13,6% vs kalah −6,1…−11,3%.
+
+WR mean reversion di uji kita:
+- Dengan target 50%: WR 49–57%, WR impas 65–71% (menang kecil +2,6…+5,2%, kalah besar −3,3…−7,1%).
+- Dengan target 100%: WR 41–43%, WR impas 52–57%.
+- Uji range sebelumnya (`choppy_range_module`): WR 55–62%, butuh sekitar 72% (menang +4,7% vs kalah −9,1%).
+- Strategi mean reversion umumnya bergantung pada WR tinggi (sering disebut 60–75%) dengan payout < 1. Ini pengetahuan umum,
+  bukan dari data kita. Di data harian IDX, WR yang tercapai selalu 5–20 poin di bawah WR impas.

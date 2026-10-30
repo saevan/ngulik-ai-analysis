@@ -153,3 +153,4 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
     `sideways_size_results`, `swing_in_range_results`, `sideways_properties`.
 - `decline_bounce_results/`: anatomi penurunan → pantulan di saham sideways (pantulan median 5% sampai 30%, sebanding dengan penurunan; dari titik terendah yang hanya diketahui setelahnya). Real time setelah turun 5–20% dari high 20 hari: naik dan turun maksimum sama-sama membesar, return tidak beda dari hari acak (t −1,6…1,4).
 - `buy_the_turn_results/`: beli saat pantulan mulai (Close > high 3 bar) setelah turun 10–20%: 12 sel rugi, lebih buruk dari entry acak (bersih −1,3…−2,1%). Pantulan tidak bisa dimanfaatkan dengan data harian.
+- `buy_the_turn_results/` addendum: tanpa target (stop/waktu saja) di saham choppy tetap rugi (WR 38–43% vs WR impas 47–52%). Mean reversion kita: WR 49–62% tapi butuh 65–72% karena menang kecil/kalah besar + biaya.
