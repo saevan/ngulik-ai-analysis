@@ -151,3 +151,4 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
     nyata (resistance atas range saham choppy) hanya bisa dipakai dengan short.
   - Sumber: `range_size_modules_results`, `mid_atr_sideways_results`, `wide_range_results`, `stock_er_range_results`,
     `sideways_size_results`, `swing_in_range_results`, `sideways_properties`.
+- `decline_bounce_results/`: anatomi penurunan → pantulan di saham sideways (pantulan median 5% sampai 30%, sebanding dengan penurunan; dari titik terendah yang hanya diketahui setelahnya). Real time setelah turun 5–20% dari high 20 hari: naik dan turun maksimum sama-sama membesar, return tidak beda dari hari acak (t −1,6…1,4).
