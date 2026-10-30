@@ -12,3 +12,4 @@ Control per cell: random days with the same setup (and ER variant), bought at th
 (5 seeds) - tests whether the turn confirmation adds anything.
 Pass only if ALL: net > 0 with NW t >= 3 (daily by entry date, lag 10); net > 0 in >= 3 of 4 subperiods; gross >= control
 + 0.5 pp; >= 2 of 3 X positive net for that ER/target. A pass would still need a portfolio test as Logic 2.
+Bug fixed before reading results: entries whose Open is already at/above the target are skipped (they were booked as an exit at the target below the entry price).
