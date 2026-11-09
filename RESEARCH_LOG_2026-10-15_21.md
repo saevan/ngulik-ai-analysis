@@ -207,3 +207,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Pergerakan bersih trade yang terlewat: naik +2,7% (ER ≥ 0,2: +4,7%, sekitar 13/th), sideways −0,8%, turun −2,2%,
     breakdown −1,8%.
   - Hanya celah saat pasar naik yang bernilai nyata.
+- 9 Nov: "ER kebalikan untuk Logic 2 sideways?" → `reverse_er_results/`.
+  - 1 − ER = informasi sama. Saklar logika terbalik sudah gagal di 5 studi 8–9 Okt.
+  - Cermin V2 dengan ER bertanda (turun efisien + low 20 hari, pasar sideways, beli Open besok): 18 sel semua rugi
+    −0,6…−1,8%. Terbaik WR 61% vs WR impas 65%.
+  - Sedikit lebih baik dari acak (+0,45 poin) tapi di bawah biaya. Pilihan latih gagal di uji (−0,43%, t −1,0).
