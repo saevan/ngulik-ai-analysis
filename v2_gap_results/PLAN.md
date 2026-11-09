@@ -12,3 +12,15 @@ C. Missed big moves: Swinger ideal's top 5% trades by net return. Share of their
 D. Loss size: V2 losers by exit reason (share of losers, average loss, average bars). Swinger losers for reference: as
    traded and on the Close-to-Close basis (from the step-1 fingerprint; the fill note stays brief).
 E. Where V2 idles: invested share and number of positions by condition; share of days with at least one free slot.
+
+## Addendum (9 Nov, written before results): in which market conditions does Swinger trade while V2 does not?
+Same systems and period. Market condition per day: `regime_proxy` (uptrend / sideways / downtrend), plus the
+overlapping breakdown slice (proxy Close at a new 20-day low, known before the Open).
+1. Per condition: share of days, trades opened per year (Swinger vs V2), capital invested, and share of days with
+   Swinger >= 75% invested while V2 < 25%.
+2. Swinger trades not covered by V2 (V2 never held that stock during the trade), by entry condition: count per year,
+   share of Swinger trades, win rate and average return as traded, and the price movement leg (Close-to-Close net, from
+   `swinger_fingerprint_results/trades.csv.gz`). The covered trades are reported the same way.
+3. The uncovered trades split by two pre-declared stock features at the signal Close: stock ER20 < 0.2 vs >= 0.2, and
+   Close above vs below SMA30.
+Main version: V2 realistic; V2 unrestricted saved in the CSVs.
