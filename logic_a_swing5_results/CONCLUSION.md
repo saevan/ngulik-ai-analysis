@@ -44,3 +44,32 @@ Versi tanpa batasan (konteks saja): CAGR A0 / A1 / A2 = 14,1% / 21,4% / 19,3%; M
 - Sebagai catatan, V2 realistis lebih baik di setiap kondisi (naik +47,8%, sideways +9,7%, turun +13,1%; CAGR 20,7%).
 - Petunjuk: rentang waktu 5 hari terlalu pendek untuk eksekusi nyata ditambah biaya. Langkah berikutnya yang wajar adalah
   menguji panjang swing yang lebih lama.
+
+## Addendum: V2 (sistem sebelumnya) dalam laporan yang sama (`logic_a_v2_compare.py`, `v2_compare.csv`)
+| Realistis, B | CAGR | MDD | 2000–07 | 2008–15 | 2016–20 | 2021–25 |
+|---|---|---|---|---|---|---|
+| V2 | +20,7% | −46% | +41,6% | +1,8% | +15,4% | +27,1% |
+| A1 | +4,9% | −69% | +20,2% | −3,6% | −1,8% | +2,7% |
+| Swinger ideal | +102,0% | −21% | +150% | +88% | +90% | +70% |
+
+| Per kondisi | Naik | Sideways | Turun |
+|---|---|---|---|
+| V2: return per tahun (modal terpakai) | +47,8% (83%) | +9,7% (62%) | +13,1% (38%) |
+| Swinger ideal | +185,7% (96%) | +79,2% (94%) | +65,8% (82%) |
+| V2 / Swinger | 26% | 12% | 20% |
+
+Kualitas trade:
+- V2: 28 trade per tahun, WR 40,9%, menang +30,2% / kalah −8,7%, payoff 3,5, expectancy +7,3%/trade, median 25 bar.
+- Swinger ideal: 126 trade per tahun, WR 48,8%, payoff 4,9, +6,5%/trade, median 13 bar.
+
+Tahun negatif V2 realistis: 5 dari 26 (2000 −23,6%; 2008 −35,8%; 2013 −13,2%; 2015 −12,1%; 2023 −4,8%).
+
+Kesimpulan:
+- V2 lolos syarat "menjanjikan" yang sama: CAGR > 0 di 4 subperiode dan return > 0 di ketiga kondisi. V2 lebih baik dari
+  Logic A di setiap kondisi dan subperiode.
+- Expectancy per trade V2 sudah setara Swinger ideal (+7,3% vs +6,5%). Selisihnya datang dari:
+  - jumlah kesempatan: 28 vs 126 trade per tahun;
+  - modal terpakai: 66% vs 93%;
+  - rugi per trade yang lebih besar: −8,7% vs −3,5%;
+  - fill ideal.
+- Kelemahan V2: MDD −46%, 5 tahun negatif, dan 2008–15 hampir datar (+1,8%/th).

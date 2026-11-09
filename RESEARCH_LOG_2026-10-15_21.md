@@ -189,3 +189,10 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - CAGR A0 / A1 / A2: −2,8% / +4,9% / +3,0%; MDD −93% / −69% / −71%.
   - Per kondisi, A1: naik +19,9%, sideways −1,6%, turun −1,2%. WR 33,5%, payoff 2,4.
   - Gagal. Rugi lebih besar karena eksekusi sesudah candle sinyal, dan biaya sekitar 8–11% modal per tahun.
+- 9 Nov: "kalau pakai logika sebelumnya?" → V2 realistis dalam laporan Logic A (`logic_a_swing5_results/v2_compare.csv`).
+  - CAGR 20,7%, MDD −46%. Subperiode +41,6 / +1,8 / +15,4 / +27,1%.
+  - Per kondisi: naik +47,8%, sideways +9,7%, turun +13,1% (26% / 12% / 20% dari Swinger ideal).
+  - Lolos syarat dan unggul atas Logic A di semua kondisi.
+  - Expectancy per trade +7,3% ≈ Swinger ideal (+6,5%); selisih utama ada di jumlah trade (28 vs 126 per tahun) dan
+    modal terpakai (66% vs 93%).
+  - 5/26 tahun negatif.
