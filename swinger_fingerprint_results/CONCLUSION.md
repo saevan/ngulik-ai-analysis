@@ -66,3 +66,24 @@ Bagian karakter Swinger yang bisa ditiru logika lain yang bisa dieksekusi:
 - saat turun: tidak ada kelompok entry Swinger yang pergerakannya positif. Dengan saham long saja, target realistis saat
   turun adalah rugi sekecil mungkin, bukan untung seperti Swinger ideal. Uji pantulan dan mean reversion sebelumnya juga
   gagal.
+
+## Addendum: klaim "WR sekitar 50% tidak masalah asal rata-rata menang > rata-rata kalah" (`swinger_wr_payoff_check.py`, `wr_payoff_check.csv`)
+| Swinger ideal | WR | Rata-rata menang | Rata-rata kalah | Payoff | WR impas | Expectancy | Median trade |
+|---|---|---|---|---|---|---|---|
+| Seperti ditradingkan (fill ideal) | 48,8% | +17,0% | −3,5% | 4,9 | 16,9% | +6,5% | −0,2% |
+| Close-ke-Close: semua | 30,8% | +18,4% | −6,7% | 2,7 | 26,8% | +1,0% | −3,7% |
+| Close-ke-Close: naik | 34,3% | +23,0% | −6,8% | 3,4 | 22,8% | +3,4% | −3,5% |
+| Close-ke-Close: sideways | 30,1% | +16,2% | −6,5% | 2,5 | 28,5% | +0,3% | −3,7% |
+| Close-ke-Close: turun | 27,7% | +17,3% | −7,4% | 2,3 | 30,1% | −0,6% | −4,3% |
+
+Payoff yang dibutuhkan (angka bersih): WR 30% → 2,33; 40% → 1,50; 45% → 1,22; 50% → 1,00; 55% → 0,82.
+
+Penilaian:
+- Benar secara hitungan hanya bila WR tepat 50% dan menang/kalah dihitung bersih sesudah biaya.
+- WR 50% bukan karakter Swinger yang bisa ditiru, karena berasal dari fill. WR pergerakan harganya 31%.
+- Yang membuat Swinger untung adalah payoff yang besar (4,9; WR impas 17%), bukan WR-nya. Median trade negatif, jadi
+  rata-rata ditopang sedikit trade besar.
+- WR dan payoff saling tukar lewat desain exit (`winrate_diagnosis_results/counterfactual_exits.csv`):
+  - target 5%/20 bar: WR 73%, payoff 0,38, rata-rata trade ≈ 0;
+  - breakeven stop sesudah +3%: WR 31%, payoff 6,9, rata-rata trade +5,8%.
+- Aturan yang benar: WR > 1 / (1 + payoff) dengan angka bersih, plus margin aman.

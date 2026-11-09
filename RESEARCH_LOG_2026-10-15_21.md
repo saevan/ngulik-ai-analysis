@@ -178,3 +178,9 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
     dari 5% trade terbaik.
   - Yang dibeli: breakout swing pendek (+4%/5 hari, separuh atas range, sering saham choppy).
   - Untung di semua kondisi berasal dari fill.
+- 9 Nov: cek klaim "WR ~50% tidak masalah asal menang rata-rata > kalah rata-rata". Hasil: benar secara hitungan hanya
+  di WR tepat 50% dengan angka bersih.
+  - Swinger ideal: WR 49%, payoff 4,9 (WR impas 17%). Basis Close-ke-Close: WR 31%, payoff 2,7, WR impas 27%. Median
+    trade negatif.
+  - Karakter yang ditiru seharusnya payoff besar/rugi kecil, bukan WR 50%. WR dan payoff saling tukar lewat exit.
+  - Sumber: `swinger_fingerprint_results/wr_payoff_check.csv`.
