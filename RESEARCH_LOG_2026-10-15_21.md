@@ -223,3 +223,7 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Pilihan latih gagal di uji (−0,62%, t −0,95).
   - Keluarga breadth < 30% + limit untung hanya 2016–25, rugi 1996–2015 termasuk holdout 1996–99. Statusnya hipotesis
     forward test, bukan hasil.
+- 9 Nov: "perlu coba Logic 2 mean reversion?" → hampir semua uji sideways sudah mean reversion (9 bentuk).
+  - Bentuk yang belum pernah diuji, pembalikan relatif (beli 5 saham paling tertinggal saat sideways), dijalankan di
+    `xs_reversal_results/`: 12/12 rugi −0,9…−1,4%, dan saham tertinggal tidak lebih baik dari acak.
+  - Ringkasan semua uji mean reversion ada di CONCLUSION.
