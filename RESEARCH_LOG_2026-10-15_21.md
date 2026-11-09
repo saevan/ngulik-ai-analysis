@@ -196,3 +196,9 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Expectancy per trade +7,3% ≈ Swinger ideal (+6,5%); selisih utama ada di jumlah trade (28 vs 126 per tahun) dan
     modal terpakai (66% vs 93%).
   - 5/26 tahun negatif.
+- 9 Nov: "apa yang membuat V2 belum seoptimal Swinger?" → `v2_gap_results/`.
+  - Jembatan CAGR: V2 realistis 20,7% → tanpa batasan 50,7% → Swinger 102%.
+  - Identitas trade × bobot × kualitas: jumlah trade (28 vs 126/th) = 124% dari celah, kualitas hanya 13%.
+  - V2 melewatkan 76% dari 5% trade terbaik Swinger.
+  - Modal: kas ≥ 25% di 56% hari.
+  - Rugi rata-rata −8,7% (modul bulanan −14,8%) vs Swinger −3,5%.
