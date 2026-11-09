@@ -246,3 +246,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Range dari pivot zigzag (10%/3%, 10%/5%, 5%/3%), buy limit di pantulan bawah range kecil.
   - 0/24 positif, kotor −0,6…−1,5%. Stop 30–77% trade vs target 9–46%.
   - Harga pantulan lama bukan support (adverse selection).
+- 9 Nov: cek klaim "range jebol → ER lurus → Logic 2 otomatis terjual" → `er_switch_exit_results/`.
+  - 88 sel Logic 2 range × 5 varian exit (stop harga, ER20 ≥ 0,2/0,3, pasar keluar dari sideways, stop + ER).
+  - Hasil: 0 sel positif di semua varian. ER20 ≥ 0,2 memperkecil rugi (−5,4 → −3,5%) tapi juga memotong untung.
+  - ER terlambat: hanya 15–26% kejadian jebol sempat ER ≥ 0,3 sebelum stop, dan saat itu rugi sudah −3%.
+  - Logic 1 hanya beli breakout ke atas.
