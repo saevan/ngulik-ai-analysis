@@ -25,3 +25,8 @@ D. Movement leg by two pre-declared splits within each condition: stock ER20 < 0
    SMA30.
 Interpretation rule: the movement leg is the part another executable logic could capture. The fill legs come from the
 benchmark's fill and are only noted.
+
+## Addendum (9 Nov, written before results): user claim "WR around 50% is fine as long as average win > average loss"
+From the same Swinger ideal trades, per condition and overall, for both the as-traded (ideal fill) and the Close-to-Close
+basis: win rate, average net win, average net loss, payoff (avg win / |avg loss|), break-even win rate = 1 / (1 + payoff),
+expectancy, median trade. Plus the arithmetic: needed payoff at win rates 30/40/45/50/55%.
