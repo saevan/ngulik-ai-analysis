@@ -242,3 +242,7 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - 0/64 positif, bahkan kotor −0,8…−1,0%.
   - Penyebab: adverse selection. Order terisi saat harga jebol (38–57% hari isi juga menembus low range sedang). Stop
     −7% di 39–46% trade vs target +7% di 22–34%.
+- 9 Nov: klarifikasi pengguna "range dari harga pantulan tadi" → `pivot_range_results/`.
+  - Range dari pivot zigzag (10%/3%, 10%/5%, 5%/3%), buy limit di pantulan bawah range kecil.
+  - 0/24 positif, kotor −0,6…−1,5%. Stop 30–77% trade vs target 9–46%.
+  - Harga pantulan lama bukan support (adverse selection).
