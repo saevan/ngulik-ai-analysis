@@ -237,3 +237,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Real time (konfirmasi X% di kedua ujung): tertangkap +0,2% / +0,4% / +1,5%; sesudah biaya −0,7% / −0,5% / +0,6%
     (median −5,3%).
   - Lebar range 20 hari saat sideways 16,7%.
+- 9 Nov: "2 range (sedang + kecil) untuk pantulan berulang" → `nested_range_results/`, 64 sel, buy limit di low range
+  kecil.
+  - 0/64 positif, bahkan kotor −0,8…−1,0%.
+  - Penyebab: adverse selection. Order terisi saat harga jebol (38–57% hari isi juga menembus low range sedang). Stop
+    −7% di 39–46% trade vs target +7% di 22–34%.
