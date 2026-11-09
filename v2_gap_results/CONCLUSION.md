@@ -58,3 +58,37 @@ Urutan penyebab:
 
 Uji berikutnya yang wajar: kenapa V2 melewatkan trade raksasa Swinger. Kemungkinannya: ER memblokir, belum tembus HHV20,
 modal penuh, atau saham tidak likuid saat itu.
+
+## Addendum: di kondisi pasar apa Swinger trading sementara V2 tidak? (`v2_gap_by_condition.py`, `by_condition_*.csv`)
+V2 realistis. Breakdown = Close proxy kemarin di low 20 hari baru (irisan yang tumpang tindih).
+
+| Kondisi (porsi hari) | Trade per tahun Swinger / V2 | Modal terpakai Swinger / V2 | Hari Swinger ≥ 75% terpakai & V2 < 25% |
+|---|---|---|---|
+| Naik (33%) | 33 / 10 | 96% / 83% | 0,3% |
+| Sideways (56%) | 72 / 17 | 94% / 62% | 5,5% |
+| Turun (11%) | 22 / 1,4 | 82% / 38% | 11,7% |
+| Breakdown (8%) | 16 / 1,2 | 73% / 45% | 5,4% |
+
+Trade Swinger yang tidak tersentuh V2 (V2 tidak pernah memegang saham itu selama trade): 88% dari semua trade Swinger.
+
+| Kondisi saat entry | Per tahun | Return seperti ditradingkan | Pergerakan harga (Close-ke-Close bersih) | Trade yang juga dipegang V2: pergerakan |
+|---|---|---|---|---|
+| Naik | 29,4 | +9,5% | **+2,7%** | +8,6% |
+| Sideways | 63,1 | +4,1% | **−0,8%** | +9,2% |
+| Turun | 18,7 | +3,8% | **−2,2%** | +9,3% |
+| Breakdown | 14,4 | +3,3% | **−1,8%** | +16,5% |
+
+Yang tidak tersentuh, dipecah menurut saham (pergerakan bersih per trade):
+- Naik: ER20 ≥ 0,2 → 13,3/th, +4,7%; ER20 < 0,2 → 16,1/th, +1,2%; di atas SMA30 → 24,0/th, +2,8%.
+- Sideways: ER20 < 0,2 (67% dari yang terlewat) → −1,4%; ER20 ≥ 0,2 → +0,3%.
+- Turun dan breakdown: semua kelompok negatif.
+
+Kesimpulan:
+- Swinger trading jauh lebih banyak di semua kondisi. Selisih jumlah terbesar ada di sideways (+55 trade per tahun), dan
+  selisih relatif terbesar saat turun (15×).
+- Hanya saat pasar naik trade yang terlewat itu membawa pergerakan harga nyata: +2,7%/trade, dan +4,7% di saham ER20 ≥ 0,2
+  (sekitar 13 trade per tahun).
+- Saat sideways, turun, dan breakdown, pergerakan trade yang terlewat negatif. Untung Swinger di sana berasal dari fill-nya,
+  jadi V2 tidak masuk di sana bukan kelemahan.
+- Trade Swinger yang juga dipegang V2 adalah yang terbaik (pergerakan +8,6…+16,5%).
+- Catatan: pergerakan diukur dari Close sinyal sampai Close exit Swinger, bukan dengan exit V2.

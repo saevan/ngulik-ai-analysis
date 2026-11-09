@@ -202,3 +202,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - V2 melewatkan 76% dari 5% trade terbaik Swinger.
   - Modal: kas ≥ 25% di 56% hari.
   - Rugi rata-rata −8,7% (modul bulanan −14,8%) vs Swinger −3,5%.
+- 9 Nov: "di kondisi apa Swinger trading tapi V2 tidak?" → `v2_gap_results/by_condition_*.csv`.
+  - Trade per tahun Swinger / V2: naik 33/10, sideways 72/17, turun 22/1,4. 88% trade Swinger tidak tersentuh V2.
+  - Pergerakan bersih trade yang terlewat: naik +2,7% (ER ≥ 0,2: +4,7%, sekitar 13/th), sideways −0,8%, turun −2,2%,
+    breakdown −1,8%.
+  - Hanya celah saat pasar naik yang bernilai nyata.
