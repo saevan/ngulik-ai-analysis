@@ -227,3 +227,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Bentuk yang belum pernah diuji, pembalikan relatif (beli 5 saham paling tertinggal saat sideways), dijalankan di
     `xs_reversal_results/`: 12/12 rugi −0,9…−1,4%, dan saham tertinggal tidak lebih baik dari acak.
   - Ringkasan semua uji mean reversion ada di CONCLUSION.
+- 9 Nov: "pakai RSI atau sinyal mean reversion lain?" → `mr_indicator_grid_results/`.
+  - 12 indikator klasik × 2 entry × 3 exit × 2 cakupan = 144 sel.
+  - Hasil: 0/144 bersih > 0; saat sideways sinyal rata-rata −0,08 poin vs acak.
+  - Terbaik: IBS/Bollinger/RSI3 + limit, kotor ≤ +0,6% vs biaya 0,9%.
+  - Pilihan latih gagal di uji (−0,40%, t −2,4).
