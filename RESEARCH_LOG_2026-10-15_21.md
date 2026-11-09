@@ -217,3 +217,9 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Saham ER < 0,1 hanya 16% tetap di range 20 hari ke depan.
   - ER tinggi meramalkan kelanjutan arah (saham +1,2%, pasar +3,6% per 20 hari).
   - Kesimpulan: benar untuk logika tren, salah untuk logika pantulan. ER rendah = tidak ada informasi tren.
+- 9 Nov: grid search Logic 2 sideways, 168 sel (`sideways_bounce_grid_results/`).
+  - Kombinasi: 4 pemicu × 7 filter (RSI2, volume, ekor bawah, breadth, SMA200, ER, lonjakan volume) × 2 entry × 3 exit.
+  - Hasil: hanya 1 sel bersih > 0 (+0,01%); sinyal vs acak +0,06 poin.
+  - Pilihan latih gagal di uji (−0,62%, t −0,95).
+  - Keluarga breadth < 30% + limit untung hanya 2016–25, rugi 1996–2015 termasuk holdout 1996–99. Statusnya hipotesis
+    forward test, bukan hasil.
