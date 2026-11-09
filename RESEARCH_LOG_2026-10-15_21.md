@@ -212,3 +212,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Cermin V2 dengan ER bertanda (turun efisien + low 20 hari, pasar sideways, beli Open besok): 18 sel semua rugi
     −0,6…−1,8%. Terbaik WR 61% vs WR impas 65%.
   - Sedikit lebih baik dari acak (+0,45 poin) tapi di bawah biaya. Pilihan latih gagal di uji (−0,43%, t −1,0).
+- 9 Nov: cek klaim "ER lurus = tren → logic tren; ER choppy = sideways → logic pantulan" → `er_regime_check_results/`.
+  - ER saham hari ini tidak meramalkan ER 20 hari lagi (median 0,20 dan P(ER < 0,2) 50% di semua kelompok).
+  - Saham ER < 0,1 hanya 16% tetap di range 20 hari ke depan.
+  - ER tinggi meramalkan kelanjutan arah (saham +1,2%, pasar +3,6% per 20 hari).
+  - Kesimpulan: benar untuk logika tren, salah untuk logika pantulan. ER rendah = tidak ada informasi tren.
