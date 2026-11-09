@@ -184,3 +184,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
     trade negatif.
   - Karakter yang ditiru seharusnya payoff besar/rugi kecil, bukan WR 50%. WR dan payoff saling tukar lewat exit.
   - Sumber: `swinger_fingerprint_results/wr_payoff_check.csv`.
+- 9 Nov: aturan pengguna "acuan ideal, logika realistis" dicatat di STRATEGY_NOTES.
+  - `logic_a_swing5_results/`: sinyal swing 5 hari ala Swinger dengan eksekusi Open berikutnya, versi realistis.
+  - CAGR A0 / A1 / A2: −2,8% / +4,9% / +3,0%; MDD −93% / −69% / −71%.
+  - Per kondisi, A1: naik +19,9%, sideways −1,6%, turun −1,2%. WR 33,5%, payoff 2,4.
+  - Gagal. Rugi lebih besar karena eksekusi sesudah candle sinyal, dan biaya sekitar 8–11% modal per tahun.

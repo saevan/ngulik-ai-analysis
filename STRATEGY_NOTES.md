@@ -240,3 +240,13 @@ Langkah 1 (`swinger_fingerprint_results/`) mengukur karakter Swinger ideal per k
 - Pergerakan itu datang dari 5% trade terbaik.
 
 V2 tetap sistem acuan riset lama sampai pengguna memutuskan lain. AFL aktif tidak diubah.
+
+## Aturan pengguna 9 November 2026: acuan ideal, logika realistis
+Pengguna: "acuan kita pakai yang ideal saja, tetapi logic yang kita bangun harus pakai yang realistis".
+- Pembanding dan target per kondisi = Prototype Swinger ideal (naik +186%, sideways +79%, turun +66% per tahun; WR 49%,
+  payoff 4,9).
+- Semua logika yang kita bangun harus bisa dieksekusi dan dinilai di versi realistis: likuid point-in-time, filter data
+  basi, ≤ 25% ADV20, biaya B.
+
+Langkah 2, Logic A (breakout swing 5 hari, `logic_a_swing5_results/`), gagal. CAGR realistis terbaik 4,9% (A1),
+MDD −69%, dan sideways negatif.
