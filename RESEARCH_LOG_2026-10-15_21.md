@@ -171,3 +171,10 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
     - rezim pasar: ER20 proxy ≥ 0,3 + arah 20 hari;
     - saham choppy: ER20 < 0,2.
   - Batasnya: hanya menggambarkan 20 hari ke belakang, tidak meramalkan.
+- 9 Nov: arah baru pengguna, yaitu mulai dari awal dengan satu sistem untuk naik/sideways/turun dan acuan Swinger ideal.
+  - `swinger_fingerprint_results/`: per trade, Swinger ideal = fill entry +2,4…3,1% + pergerakan + fill exit
+    +2,3…2,9% − biaya 0,9%.
+  - Pergerakan (Close-ke-Close bersih): naik +3,4%, sideways +0,3% (+1,5% di saham ER ≥ 0,2), turun −0,6%. Semuanya
+    dari 5% trade terbaik.
+  - Yang dibeli: breakout swing pendek (+4%/5 hari, separuh atas range, sering saham choppy).
+  - Untung di semua kondisi berasal dari fill.

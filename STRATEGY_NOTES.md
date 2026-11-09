@@ -227,3 +227,16 @@ Usulan mekanisme:
 Syarat: Logic 2 harus untung sendiri saat choppy. Sejauh ini 10 uji range/sideways berbasis saham harian gagal. Menunggu
 keputusan pengguna soal instrumen (saham saja atau juga pasar uang/obligasi/emas/ETF), biaya nyata broker, dan data
 tambahan (intraday, dividen, konstituen indeks).
+
+## Arah pengguna 9 November 2026: mulai dari awal, satu sistem untuk semua kondisi pasar
+Pengguna: "coba lupakan dulu sistem kita, kita coba mulai dari awal ... sistem trade dengan logika yang mampu perform pada
+saat market sedang uptrend, downtrend, dan sideways ... acuan kita itu swinger ideal, dengan karakteristik yang dia punya
+kita cari logic lain agar bisa perform seperti itu".
+
+Langkah 1 (`swinger_fingerprint_results/`) mengukur karakter Swinger ideal per kondisi:
+- Trade sering, rugi kecil, menang besar.
+- Pergerakan harga yang ditangkap (tanpa fill ideal), bersih per trade: +3,4% saat naik, +0,3% saat sideways (+1,5% di
+  saham ER20 ≥ 0,2), −0,6% saat turun.
+- Pergerakan itu datang dari 5% trade terbaik.
+
+V2 tetap sistem acuan riset lama sampai pengguna memutuskan lain. AFL aktif tidak diubah.
