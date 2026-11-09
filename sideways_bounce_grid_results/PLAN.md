@@ -42,3 +42,12 @@ Also reported:
 - the number of the 168 cells with test net > 0 and t >= 2 (by chance about 4 would);
 - win rate and break-even win rate;
 - net at the user's broker fee 0.60% without slippage (information only).
+
+## Addendum (9 Nov, written after the main results, before this check)
+Observation from the main run: the "F4 breadth < 30% + limit entry" family lost in 2000–2015 but won in 2016–2025.
+Because it was noticed in the test period, it is a new hypothesis, not a result. Frozen check on data not used so far,
+the 1996-01-01..1999-12-31 holdout. Two configs, Close > SMA5 exit:
+- T1 RSI2 < 10 + F4 + limit Close − 0.5 ATR;
+- T2 3 lower closes + F4 + limit Close − 0.5 ATR.
+Same rules, realistic universe, cost B, with a control. Reported: trades, win rate, net, NW t, control. It supports the
+hypothesis only if both configs have net > 0 there.
