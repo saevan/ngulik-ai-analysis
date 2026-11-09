@@ -28,3 +28,9 @@ Reported vs Swinger ideal (same costs):
 - CAGR in 2000-07, 2008-15, 2016-20, 2021-25.08.
 A variant counts as promising only if its realistic CAGR is > 0 in all 4 subperiods and its annual return is > 0 in each
 of the three conditions. The unrestricted version (all stocks, no ADV cap) is saved for context only.
+
+## Addendum (9 Nov, written before results): the previous system V2 in the same report
+User asks how our previous logic does under the same rule. V2 (breakout HHV20 + 0.5%, ER20 >= 0.2, exits fade 2 ATR /
+Close < SMA30, plus the monthly module; `wr_gap_v1.kw('realistic', True, None)` with `failed_exit=None`) is run in the
+realistic version and reported with the same `report()` as Logic A (same conditions, subperiods, trade metrics) next to
+Swinger ideal and Logic A1. Descriptive only; the same "promising" criterion is applied.
