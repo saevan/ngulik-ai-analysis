@@ -232,3 +232,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Hasil: 0/144 bersih > 0; saat sideways sinyal rata-rata −0,08 poin vs acak.
   - Terbaik: IBS/Bollinger/RSI3 + limit, kotor ≤ +0,6% vs biaya 0,9%.
   - Pilihan latih gagal di uji (−0,40%, t −2,4).
+- 9 Nov: "berikan pantulan range saat sideways" → `sideways_swings_results/`, zigzag 3/5/10%.
+  - Pantulan setelah kejadian: +7,5% / +11,2% / +21,6% (median), dalam 4 / 7 / 17 bar, sebesar penurunan sebelumnya.
+  - Real time (konfirmasi X% di kedua ujung): tertangkap +0,2% / +0,4% / +1,5%; sesudah biaya −0,7% / −0,5% / +0,6%
+    (median −5,3%).
+  - Lebar range 20 hari saat sideways 16,7%.
