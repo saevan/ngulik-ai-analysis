@@ -276,3 +276,9 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
     "kembali di bawah garis tengah" kena 64–74%.
   - Pilihan latih keduanya gagal di uji (−1,57% t −5,5; −1,39% t −10,4). Pembacaan "garis tengah sebagai target"
     sudah rugi di studi sebelumnya. Garis tengah bukan support dan bukan penunjuk arah.
+- 13 Nov: "saat ER bilang choppy, pantulannya berapa aja?" → `choppy_bounces_results/` (deskriptif).
+  - Saham ER20 < 0,2: 21 pantulan ≥ 3% per saham per tahun (median 7,4%, p90 19%, 4 bar, 2 ATR, separuh lebar
+    range); 13 pantulan ≥ 5% (median 11%); 5 pantulan ≥ 10% (median 21%, 16 bar). Separuh pulih ke high sebelumnya.
+  - Saham tren (ER ≥ 0,3) memantul lebih jarang tapi lebih besar (median 8,7%, p90 24%).
+  - Tangkapan real time rata-rata −0,9% / −0,6% / +0,3% bersih; hanya pantulan ≥ 10% (34%) yang positif, dan itu
+    tidak terbedakan saat low terkonfirmasi.
