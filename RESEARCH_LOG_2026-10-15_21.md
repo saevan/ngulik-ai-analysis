@@ -260,3 +260,13 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Pelajaran: untung momentum datang dari memegang lama; rebalance mingguan, exit SMA30, dan filter ER memperburuk.
   - Catatan sesi: pekerjaan pindah ke laptop pengguna (Windows). Repo di-clone parsial (tanpa riwayat, tanpa Data) ke
     `Downloads/ngulik-ai-analysis`; file data diunduh terpisah dari GitHub.
+- 13 Nov (tanpa uji baru): "apa yang membuat kamu menyimpulkan kita tidak bisa untung saat sideways?" Jawaban:
+  kesimpulannya bukan "tidak bisa untung saat sideways" (V2 realistis +9,7%/th pada hari sideways), melainkan "belum
+  ada Logic 2 tambahan yang memanfaatkan pantulan/range untuk dana idle dengan data harian, long-only, biaya 0,9%".
+  Dasar: (1) 11 keluarga logika, lebih dari 700 sel pra-registrasi dengan kontrol acak dan latih/uji, 0 lolos;
+  (2) mekanisme: pantulan besar hanya terlihat setelah kejadian, konfirmasi memakan hampir semuanya (+0,2…1,5% sebelum
+  biaya); order limit terisi saat harga jebol (adverse selection); bawah range bukan support (84% saham ER < 0,1
+  keluar range dalam 20 hari); ER rendah tidak meramalkan choppy berikutnya; Swinger ideal pun hanya +0,3%/trade dari
+  pergerakan harga saat sideways, labanya dari fill. Batas kesimpulan: data harian, long-only, biaya 0,6–0,9%, data
+  survivor. Yang bisa membalikkan: intraday, short, biaya jauh lebih rendah, data arus; hipotesis forward test
+  breadth < 30% + limit.
