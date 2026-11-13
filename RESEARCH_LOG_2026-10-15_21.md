@@ -282,3 +282,9 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Saham tren (ER ≥ 0,3) memantul lebih jarang tapi lebih besar (median 8,7%, p90 24%).
   - Tangkapan real time rata-rata −0,9% / −0,6% / +0,3% bersih; hanya pantulan ≥ 10% (34%) yang positif, dan itu
     tidak terbedakan saat low terkonfirmasi.
+- 13 Nov: "kalau ER lebih besar, ada pantulan lebih besar yang bisa dimanfaatkan?" → `trend_bounce_results/`.
+  - Deskriptif: ya, monoton. Zigzag 3%: median 7,5% (ER < 0,2) → 10,3% (ER ≥ 0,5), p90 19% → 30%; tangkapan real
+    time −0,9% → +1,0%. Tapi pantulan di saham ER ≥ 0,5 hanya ~33/th dari 100 saham.
+  - Aturan beli pantulan terkonfirmasi + exit trailing X%: 24 sel, 10 bersih > 0, 0 dengan t ≥ 2. Makin tinggi ER
+    makin baik, tapi keunggulan +0,6…+3% dengan t ≤ 1,5, sebagian dari drift saham tren (kontrol positif). Pilihan
+    latih (5%, ER ≥ 0,5): uji +0,56% t 0,48 → gagal. Ini entry pullback Logic 1 yang lemah, bukan Logic 2 sideways.
