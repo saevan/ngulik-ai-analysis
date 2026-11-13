@@ -38,3 +38,9 @@ its control; and >= 3 of the 4 subperiods (2000-07, 2008-15, 2016-20, 2021-25) h
 Also reported: how many of the 96 gated cells pass the test rule (chance about 2-3).
 Step 2 (only if the pick passes): run it as an extra module inside V2 realistic with shared cash (V2 first; Logic 2 buys
 only with idle cash when the market is sideways; Logic 2 sold when V2 needs cash) and compare with V2 + 4% parking.
+
+## Addendum (13 Nov, written after a one-cell smoke test, before the full run)
+The pre-registered control redraws the random score at every rebalance, so it churns about 3x more than the momentum
+cell (smoke test: 639 vs 189 trades) and pays more cost. A second control is added: a static random ranking drawn
+once per seed (5 seeds), which has low turnover. The pass rule keeps the pre-registered control; the number of cells
+that also beat the static control is reported.
