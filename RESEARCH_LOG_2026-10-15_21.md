@@ -270,3 +270,9 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   pergerakan harga saat sideways, labanya dari fill. Batas kesimpulan: data harian, long-only, biaya 0,6–0,9%, data
   survivor. Yang bisa membalikkan: intraday, short, biaya jauh lebih rendah, data arus; hipotesis forward test
   breadth < 30% + limit.
+- 13 Nov: "ketika pantulan, cari garis tengah dulu sebagai acuan" → `midline_bounce_results/`, 16 sel.
+  - B tengah pantulan (buy limit di (L+H)/2 setelah pantulan, target H, stop L): 8/8 rugi, kotor −0,6…−0,9%, WR 46–55%
+    vs impas 58–68%. C tembus kembali garis tengah range (target atas range): 8/8 rugi, kotor −0,4…−1,1%; stop
+    "kembali di bawah garis tengah" kena 64–74%.
+  - Pilihan latih keduanya gagal di uji (−1,57% t −5,5; −1,39% t −10,4). Pembacaan "garis tengah sebagai target"
+    sudah rugi di studi sebelumnya. Garis tengah bukan support dan bukan penunjuk arah.
