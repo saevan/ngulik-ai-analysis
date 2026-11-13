@@ -251,3 +251,12 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Hasil: 0 sel positif di semua varian. ER20 ≥ 0,2 memperkecil rugi (−5,4 → −3,5%) tapi juga memotong untung.
   - ER terlambat: hanya 15–26% kejadian jebol sempat ER ≥ 0,3 sebelum stop, dan saat itu rugi sudah −3%.
   - Logic 1 hanya beli breakout ke atas.
+- 13 Nov: "coba cari logic kedua yang bisa kamu dapatkan" → rotasi momentum relatif untuk dana idle saat sideways
+  (`momentum_rotation_results/`, 144 sel, 96 ber-gate). Satu-satunya sifat pasar signifikan yang belum dijadikan modul.
+  - Peringkat momentum mengalahkan pemilihan acak di 96/96 sel (t ≥ 2 di 35 sel), tapi return pada hari sideways
+    median −4,5%/th; hanya 21 sel positif, 9 sel ≥ 4% (hurdle parkir); semua sel negatif di 2008–15.
+  - Pilihan latih (MOM12-1, N 5, bulanan, exit rebalance saja, gate sideways): uji sideways +9,2%/th, t 0,99 → gagal.
+    Sel terbaik +8,4%/th (t 1,5), MDD −59%. 0/96 lolos. Integrasi dengan V2 tidak dijalankan.
+  - Pelajaran: untung momentum datang dari memegang lama; rebalance mingguan, exit SMA30, dan filter ER memperburuk.
+  - Catatan sesi: pekerjaan pindah ke laptop pengguna (Windows). Repo di-clone parsial (tanpa riwayat, tanpa Data) ke
+    `Downloads/ngulik-ai-analysis`; file data diunduh terpisah dari GitHub.
