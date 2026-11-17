@@ -39,3 +39,19 @@ CAGR ≈ 0%. Hasil V2 konsisten dengan itu.
   tidak bisa dieksekusi. Di saham bonus itu +5,4% per trade dan masih ada pergerakan nyata di baliknya; di forex tidak.
 - Batas: 3 tahun × 9 pasangan, zona waktu sumber tidak diketahui, tanpa leverage/swap/konversi mata uang, tanpa data
   volume. Cukup untuk mengatakan "tidak ada bukti V2 bekerja di forex", belum cukup untuk mengukur seberapa buruk.
+
+## Addendum: batasan saham mana yang masih dipakai, dan apakah buffer 0,5% penyebabnya? (`buffer_sensitivity.csv`)
+Dilepas untuk forex: gate likuiditas point-in-time, filter data basi, batas 25% ADV20, fee IDX, tabel tick IDX.
+Masih dipakai (parameter V2 yang dituning di saham): buffer buy stop 0,5% di atas HHV20, aturan gap 2%, fade 2 ATR,
+SMA30, ER20 ≥ 0,2, channel 20, prioritas mom120, order 25%, 10 slot, modul bulanan. Aturan berbasis ATR/SMA/ER/channel
+ikut skala instrumen; buffer 0,5% dan gap 2% adalah persen absolut dari saham.
+
+Sensitivitas (sesi 04:00, biaya 0,05%):
+| Buffer | Aturan gap | CAGR | MDD | Trade | WR | Menang / kalah | Payoff | Expectancy |
+|---|---|---|---|---|---|---|---|---|
+| 0,5% (seperti dijalankan) | on / off | −3,0% | −11% | 78 | 33% | +1,5% / −2,0% | 0,75 | −0,8% |
+| 0,1% | on / off | −4,6% | −14% | 123 | 33% | +1,4% / −1,8% | 0,80 | −0,7% |
+| 0 | on / off | −4,2% | −13% | 130 | 32% | +1,5% / −1,7% | 0,88 | −0,7% |
+
+Aturan gap tidak pernah terpicu di forex (hasil identik on/off). Menghapus buffer menambah trade tetapi tidak mengubah
+payoff (< 1) dan WR (≈ 33%). Kegagalan V2 di forex bukan karena batasan saham, melainkan karena struktur ayunannya.

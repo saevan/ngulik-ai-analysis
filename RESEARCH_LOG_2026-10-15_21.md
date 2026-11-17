@@ -297,3 +297,7 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - V2: CAGR −2,8% kotor (−3,2% di 0,10%), MDD −11%, 78 trade, WR 33%, menang +1,5% / kalah −1,9%, payoff 0,8; rugi di
     kedua paruh, kedua sesi, 17/18 pasangan-arah. Swinger ideal +10%/th tapi expectancy +0,6%/trade = bonus fill.
   - Sebab: ayunan forex harian terlalu kecil untuk exit V2 (SMA30/fade 2 ATR); tidak ada bukti V2 bekerja di forex.
+- 17 Nov: "apakah batasan saham sudah dilepas saat uji forex?" → addendum `v2_forex_results/`. Dilepas: gate
+  likuiditas, filter basi, batas ADV, fee/tick IDX. Masih dipakai: parameter V2 (buffer 0,5%, gap 2%, fade 2 ATR,
+  SMA30, ER 0,2). Sensitivitas buffer 0,5/0,1/0% × gap on/off: CAGR −3,0 / −4,6 / −4,2%, payoff 0,75–0,88, WR ≈ 33%;
+  gap tak pernah terpicu. Batasan saham bukan penyebab kegagalan di forex.
