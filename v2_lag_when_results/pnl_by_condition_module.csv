@@ -1,0 +1,7 @@
+cond,kind,trades,win_rate,mean_ret,pnl_share
+downtrend,extra,21,0.429,0.12,0.028
+downtrend,main,15,0.2,-0.005,-0.021
+sideways,extra,103,0.417,0.175,0.449
+sideways,main,325,0.394,0.034,0.302
+uptrend,extra,64,0.453,0.208,0.116
+uptrend,main,198,0.429,0.04,0.126

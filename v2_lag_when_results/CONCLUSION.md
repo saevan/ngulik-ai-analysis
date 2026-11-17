@@ -29,3 +29,8 @@ CAGR 21,5% vs 107,4%; selisih log total 13,2.
   V2 naik justru saat pasar turun, karena WIFI naik sendiri.
 - Catatan: WIFI listing Des 2020 dan ada di Kompas100 2025 karena sudah naik (bias survivor). Kemenangan 2025 adalah
   kemenangan satu saham tren panjang, bukan keunggulan sistem yang luas.
+
+## Addendum: dari mana return V2 (P&L rupiah, menurut kondisi saat entry dan modul; `pnl_by_condition_module.csv`)
+Modul bulanan 59% dan breakout 41% dari total P&L. Menurut kondisi saat entry: sideways 75% (bulanan 45%, breakout
+30%), naik 24% (12% / 13%), turun 1% (bulanan +3%, breakout −2%). 10 trade terbaik = 87% total P&L, 20 terbaik = 111%
+(sisanya bersih negatif). P&L rupiah condong ke tahun akhir karena compounding.

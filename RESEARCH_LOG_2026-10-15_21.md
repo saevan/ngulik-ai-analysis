@@ -314,3 +314,7 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Sesudah exit Swinger, saham median +0,7% dalam 60 hari; hanya 18% naik ≥ 20%.
   - Entry A1 ala Swinger + exit SMA30/trail: CAGR 0,6–0,8% (lebih buruk dari 4,9%); 39% entry di bawah SMA30 terjual
     ≤ 2 bar. Keunggulan pegang lama tidak menutup celah frekuensi Swinger.
+- 17 Nov: "apa yang membuat return kita dan di kondisi apa masih jauh di bawah Swinger?" → ringkasan + tabel baru
+  `v2_lag_when_results/pnl_by_condition_module.csv`: P&L V2 realistis 59% modul bulanan / 41% breakout; 10 trade
+  terbaik = 87%, 20 terbaik = 111%. Celah terbesar: sideways (51% selisih, karena banyak hari) dan naik cepat (30%,
+  paling tajam per hari).
