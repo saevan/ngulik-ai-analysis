@@ -15,3 +15,17 @@ CAGR 21,5% vs 107,4%; selisih log total 13,2.
   Selisih tidak hanya dari kas menganggur; saat penuh pun V2 tertinggal (40% vs 129%/th).
 - Pengingat (`v2_gap_results`): selisih saat sideways/turun sebagian besar bonus fill ideal; trade Swinger yang
   terlewat hanya bernilai nyata saat pasar naik (+2,7%/trade, +4,7% di saham ER ≥ 0,2).
+
+## Addendum: kenapa V2 menang di 2025? (`v2_2025_why.py`, `y2025_*.csv`)
+2025 = 1 Jan..15 Agu. V2 realistis +93,5%, Swinger ideal +8,2%, pasar EW sekitar +10%.
+- Satu posisi menentukan: WIFI dari modul bulanan (beli 2 Sep 2024, masih dipegang 15 Agu 2025, 225 bar, +880% per
+  trade) menyumbang +68,9% dari ekuitas awal 2025, yaitu 74% dari kenaikan tahun itu. Tanpa WIFI: +24,6%.
+  Tanpa 3 posisi teratas (WIFI, BRPT +37,8%, ENRG +36,4%): −0,7%. Tanpa 5 teratas: −14,6%.
+- Modul bulanan +74,1% (WIFI dan PTRO, keduanya dipegang sejak 2024), breakout +19,2%.
+- 16 posisi aktif di 2025, WR 31%, median −4,6%. Polanya sama dengan tahun lain: sedikit pemenang raksasa.
+- Swinger ideal: 127 trade, WR 27%, median −2,0%; tanpa 3 teratas −9,2%. Swinger hanya sekali masuk WIFI (18 bar):
+  exit 5 hari-nya tidak bisa memegang tren panjang.
+- Per bulan: Jan +27,1% dan Feb +19,8% (pasar −1,4% dan −9,7%, turun/sideways), Mar −13,5% (pasar jatuh), Jul +45,4%.
+  V2 naik justru saat pasar turun, karena WIFI naik sendiri.
+- Catatan: WIFI listing Des 2020 dan ada di Kompas100 2025 karena sudah naik (bias survivor). Kemenangan 2025 adalah
+  kemenangan satu saham tren panjang, bukan keunggulan sistem yang luas.

@@ -305,3 +305,6 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   unggul). Terbesar di tahun pemulihan/krisis (2003, 2009, 2001, 2010, 2021, 2008). Porsi selisih: sideways 51%, naik
   41%, turun 8%; per hari paling tajam saat naik, terutama naik cepat (30% selisih). Saat V2 penuh 7+ posisi pun
   tertinggal (40% vs 129%/th).
+- 17 Nov: "apa yang membuat V2 menang di 2025?" → addendum `v2_lag_when_results/`. V2 +93,5% vs Swinger +8,2%: 74%
+  dari kenaikan datang dari WIFI (modul bulanan, dipegang sejak Sep 2024, +880%). Tanpa WIFI +24,6%, tanpa 3 teratas
+  −0,7%. Swinger hanya sekali di WIFI (18 bar). V2 naik Jan–Feb saat pasar turun. Bias survivor kuat.
