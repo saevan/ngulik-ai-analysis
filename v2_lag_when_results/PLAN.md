@@ -9,3 +9,11 @@ cost B, 2000-01-01..2025-08-15.
 3. Per market speed: daily log-return gap grouped by quintile of the proxy's 20-day return known before the Open
    (fast fall ... fast rise), annualised.
 4. Per V2 state: days when V2 holds 0-2 / 3-6 / 7+ positions; share of days and share of the gap.
+
+## Addendum (17 Nov, written before results): why did V2 win in 2025?
+2025 = 2025-01-01..2025-08-15. Descriptive:
+- V2 realistic equity change in 2025 split by trade: P&L of each position over 2025 (marked at 2024-12-31 Close and
+  2025-08-15 or exit), by module (breakout / monthly), and the top 10 contributors with entry date, holding, return,
+  stock listing date. Share of the 2025 gain from the top 1 / 3 / 5 positions; 2025 return without the top 3.
+- The same split for Swinger ideal (number of trades, win rate, top contributors, return without its top 3).
+- Market in 2025: monthly EW proxy return and regime mix; per month V2 vs Swinger return.
