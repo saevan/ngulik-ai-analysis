@@ -26,3 +26,12 @@ Reported: CAGR, MDD, trades, win rate, average win / loss, payoff, expectancy pe
 instrument (pair and direction) trades and expectancy; overlap days; the same for Swinger ideal.
 Descriptive only: 3 years x 9 pairs is a small sample, so no selection and no pass rule. "Encouraging" would be V2
 expectancy > 0 at 0.10% cost in both halves; anything less is "no evidence".
+
+## Addendum (17 Nov, written before results): which stock settings still applied, and does the 0.5% buffer matter?
+User asks whether the stock constraints were removed for forex. Removed: point-in-time liquidity gate, stale-data
+filter, 25% ADV20 cap, IDX fees, IDX tick-size table. Kept (stock-tuned parameters): buy-stop buffer 0.5% above HHV20,
+gap-skip 2% and gap-down-close 2%, fade 2 ATR, SMA30, ER20 >= 0.2, channel 20, mom120 priority, 25% orders, 10 slots,
+monthly module. ATR-, SMA-, ER- and channel-based rules scale with the instrument; the 0.5% buffer and the 2% gap rules
+are absolute percentages born on stocks. Sensitivity on the 04:00 sessions at 0.05% round-trip cost: buffer 0.5% /
+0.1% / 0 x gap rules on / off (6 runs). Reported: CAGR, MDD, trades, win rate, average win / loss, payoff, expectancy.
+Descriptive; no selection.
