@@ -308,3 +308,9 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
 - 17 Nov: "apa yang membuat V2 menang di 2025?" → addendum `v2_lag_when_results/`. V2 +93,5% vs Swinger +8,2%: 74%
   dari kenaikan datang dari WIFI (modul bulanan, dipegang sejak Sep 2024, +880%). Tanpa WIFI +24,6%, tanpa 3 teratas
   −0,7%. Swinger hanya sekali di WIFI (18 bar). V2 naik Jan–Feb saat pasar turun. Bias survivor kuat.
+- 17 Nov: "apakah memegang untung lebih lama keunggulan kita untuk mengejar Swinger?" → `hold_edge_results/`.
+  - Ya tapi sempit: trade > 120 bar (11%, semuanya modul bulanan) = ~89% jumlah return trade V2; trade ≤ 30 bar rugi.
+  - Batas pegang breakout 20–60 bar tidak merugikan (CAGR 20,8–22,5%); max_hold hanya berlaku ke breakout (dicatat).
+  - Sesudah exit Swinger, saham median +0,7% dalam 60 hari; hanya 18% naik ≥ 20%.
+  - Entry A1 ala Swinger + exit SMA30/trail: CAGR 0,6–0,8% (lebih buruk dari 4,9%); 39% entry di bawah SMA30 terjual
+    ≤ 2 bar. Keunggulan pegang lama tidak menutup celah frekuensi Swinger.
