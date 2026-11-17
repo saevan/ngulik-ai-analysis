@@ -292,3 +292,8 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   (OHLCV, 1994-07..2025-08-15, file `Data/Data kompas 100.csv`), tetapi bukan uji dunia nyata penuh: hanya saham yang
   bertahan di indeks (survivor), harga sebelum 2021 sudah disesuaikan aksi korporasi, fill dan slippage disimulasikan,
   likuiditas didekati dengan filter point-in-time + batas 25% ADV20, tanpa data delisting, tanpa forward test.
+- 17 Nov: "gimana performa V2 di forex?" → `v2_forex_results/`. Data forex 9 pasangan, per jam, hanya 2023-05..2026-05,
+  tanpa volume; sesi harian 04:00 (sensitivitas 00:00); dua arah lewat pasangan terbalik; biaya 0 / 0,05% / 0,10%.
+  - V2: CAGR −2,8% kotor (−3,2% di 0,10%), MDD −11%, 78 trade, WR 33%, menang +1,5% / kalah −1,9%, payoff 0,8; rugi di
+    kedua paruh, kedua sesi, 17/18 pasangan-arah. Swinger ideal +10%/th tapi expectancy +0,6%/trade = bonus fill.
+  - Sebab: ayunan forex harian terlalu kecil untuk exit V2 (SMA30/fade 2 ATR); tidak ada bukti V2 bekerja di forex.
