@@ -301,3 +301,7 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   likuiditas, filter basi, batas ADV, fee/tick IDX. Masih dipakai: parameter V2 (buffer 0,5%, gap 2%, fade 2 ATR,
   SMA30, ER 0,2). Sensitivitas buffer 0,5/0,1/0% × gap on/off: CAGR −3,0 / −4,6 / −4,2%, payoff 0,75–0,88, WR ≈ 33%;
   gap tak pernah terpicu. Batasan saham bukan penyebab kegagalan di forex.
+- 17 Nov: "kapan V2 ketinggalan dari Swinger di saham?" → `v2_lag_when_results/`. Tertinggal 25/26 tahun (hanya 2025
+  unggul). Terbesar di tahun pemulihan/krisis (2003, 2009, 2001, 2010, 2021, 2008). Porsi selisih: sideways 51%, naik
+  41%, turun 8%; per hari paling tajam saat naik, terutama naik cepat (30% selisih). Saat V2 penuh 7+ posisi pun
+  tertinggal (40% vs 129%/th).
