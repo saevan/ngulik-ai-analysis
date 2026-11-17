@@ -288,3 +288,7 @@ menganggur, data point-in-time (termasuk delisting), forward test sesudah 2025-0
   - Aturan beli pantulan terkonfirmasi + exit trailing X%: 24 sel, 10 bersih > 0, 0 dengan t ≥ 2. Makin tinggi ER
     makin baik, tapi keunggulan +0,6…+3% dengan t ≤ 1,5, sebagian dari drift saham tren (kontrol positif). Pilihan
     latih (5%, ER ≥ 0,5): uji +0,56% t 0,48 → gagal. Ini entry pullback Logic 1 yang lemah, bukan Logic 2 sideways.
+- 17 Nov (tanpa uji baru): "apakah data yang diuji data riil?" Jawaban: ya, harga harian nyata 100 saham Kompas100
+  (OHLCV, 1994-07..2025-08-15, file `Data/Data kompas 100.csv`), tetapi bukan uji dunia nyata penuh: hanya saham yang
+  bertahan di indeks (survivor), harga sebelum 2021 sudah disesuaikan aksi korporasi, fill dan slippage disimulasikan,
+  likuiditas didekati dengan filter point-in-time + batas 25% ADV20, tanpa data delisting, tanpa forward test.
